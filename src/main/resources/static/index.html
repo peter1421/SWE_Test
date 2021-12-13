@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <title>FCU Shop</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">FCU Shop</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">首頁</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/">逢甲商城</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">一中商城</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            商品管理
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/addProduct.html">新增商品</a></li>
+            <li><a class="dropdown-item" href="/updateProduct.html">修改商品</a></li>
+          </ul>
+        </li>
+      </ul>
+
+
+      <ul class="navbar-nav mb-2 mb-lg-0 d-flex">
+        <li class="nav-item">
+          <a class="nav-link" href="#">登入</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">註冊</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">會員中心</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">購物車(0)</a>
+        </li>
+      </ul>
+
+      <!--<form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>-->
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h1 class="mt-3">My Shop</h1>
+
+  <div class="input-group mb-3 mt-5">
+    <input type="text" class="form-control" placeholder="商品名稱" aria-label="product name" aria-describedby="searchProduct" id="productKeyword">
+    <button class="btn btn-outline-secondary" type="button" id="searchProduct">搜尋</button>
+  </div>
+
+  <div class="input-group mb-3 mt-5">
+    <input type="text" class="form-control" placeholder="商品ID" aria-label="product name" aria-describedby="searchProduct" id="productID">
+    <button class="btn btn-outline-secondary" type="button" id="deleteProduct">刪除</button>
+  </div>
+
+
+  <div class="mt-3 row" id="productList">
+  </div>
+</div>
+
+
+
+
+<!-- Optional JavaScript; choose one of the two! -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+<!--
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+-->
+
+<script>
+  $( document ).ready( function() {
+    console.log( "ready!" );
+    emptyProducts();
+    getProducts('products')
+  });
+
+    $('#searchProduct').click(function() {
+      const keyword = $('#productKeyword').val();
+      if (keyword.trim() === '') {
+        getProducts('products');
+      } else {
+        getProducts('products/' + keyword);
+        emptyProducts();
+      }
+    });
+
+    $('#deleteProduct').click(function() {
+      const keyword = $('#productID').val();
+      if (keyword.trim() === '') {
+        getProducts('products');
+      } else {
+        getProducts('delete/' + keyword);
+        emptyProducts();
+      }
+    });
+
+
+    function emptyProducts() {
+      $('#productList').empty();
+    }
+
+    function addProducts(products) {
+      for ( let product of products ) {
+        let html = '<div class="card col-4">';
+        html += '<img src="' + product.imageUrl + '" class="card-img-top" alt="' + product.name + '">';
+        html += '<div class="card-body">';
+        html += '<h5 class="card-title">' + product.name + '</h5>';
+        html += '<p class="card-text">'+'ID:' + product.id + '</p>';
+        html += '<p class="card-text">' + product.description + '</p>';
+        html += '<a href="#" class="btn btn-primary">' + product.price + '</a>';
+        html += '</div>';
+        html += '</div>';
+        $('#productList').append(html);
+      }
+    }
+
+    function getProducts(targetUrl) {
+      // Using the core $.ajax() method
+      $.ajax({
+          // The URL for the request
+          url: targetUrl,
+
+          // Whether this is a POST or GET request
+          type: "GET",
+
+          // The type of data we expect back
+          dataType : "json",
+      })
+        // Code to run if the request succeeds (is done);
+        // The response is passed to the function
+        .done(function( json ) {
+          let products = json;
+          addProducts(products);
+        })
+        // Code to run if the request fails; the raw request and
+        // status codes are passed to the function
+        .fail(function( xhr, status, errorThrown ) {
+          console.log( "Sorry, there was a problem!" );
+          console.log( "Error: " + errorThrown );
+          console.log( "Status: " + status );
+          console.dir( xhr );
+        })
+        // Code to run regardless of success or failure;
+        .always(function( xhr, status ) {
+          console.log( "The request is complete!" );
+        });
+    }
+
+</script>
+</body>
+</html>
