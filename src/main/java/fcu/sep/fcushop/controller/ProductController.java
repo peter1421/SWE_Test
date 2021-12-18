@@ -44,6 +44,7 @@ public class ProductController {
     productManager.addProducts(getMaxID()+1,productName,"https://i.imgur.com/"+productUrl,Integer.parseInt(productMoney),productDescription);
     return productManager.getProducts();
   }
+
   @GetMapping("update/{ID}/{productName}/{productUrl}/{productMoney}/{productDescription}")
   public List<Product> updateProducts(@PathVariable("ID") int ID, @PathVariable("productName") String productName, @PathVariable("productUrl") String productUrl, @PathVariable("productMoney") String productMoney, @PathVariable("productDescription") String productDescription) {
     productManager.updateProducts(ID,productName,"https://i.imgur.com/"+productUrl,Integer.parseInt(productMoney),productDescription);
@@ -57,3 +58,5 @@ public class ProductController {
 }
 
 
+
+//ㄐㄐ

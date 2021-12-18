@@ -10,12 +10,9 @@ public class FcushopApplication {
 
     SpringApplication.run(FcushopApplication.class, args);
     System.out.println("-------------------------------------------");
-    System.out.println("-------------------------------------------");
-    System.out.println("-------------------------------------------");
-    System.out.println("-------------------------------------------");
-    System.out.println("新的開始");
+
+    System.out.println("http://localhost:8080/");
   }
 
 }
-//try git
 //http://localhost:8080/
