@@ -43,6 +43,9 @@
 
 ![](https://i.imgur.com/a0MZaxs.png)
 ### 資料庫
+=======
+![](https://i.imgur.com/9wFdTNu.png)
+* 定單資料庫
 ~~~sql
 CREATE TABLE `fcu_shop`.`訂單` (
 `訂單ID` INT NOT NULL AUTO_INCREMENT,
@@ -59,3 +62,4 @@ UNIQUE INDEX `orderId_UNIQUE` (`訂單ID` ASC));
 
 ![](https://i.imgur.com/988Pqi8.png)
 
+=======
