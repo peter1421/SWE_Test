@@ -1,4 +1,14 @@
 # 0.1(進行中)
+## 待寫入API
+* 買家購物車
+
+![](https://i.imgur.com/QG83iJh.png)
+
+* 賣家管理商品
+
+![](https://i.imgur.com/ljJsWBH.png)
+
+![](https://i.imgur.com/K9whsxr.png)
 
 ## 登入功能
 ### 目前問題
