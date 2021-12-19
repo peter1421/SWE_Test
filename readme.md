@@ -27,10 +27,25 @@
 ### 資料庫相關
 ![](https://i.imgur.com/988Pqi8.png)
 * 帳密資料庫
-   
-Columns:
+ ~~~sql
+ CREATE TABLE `fcu_shop`.`account_basic` (
+ `EMAIL` VARCHAR(50) NOT NULL,
+`PASSWORD` VARCHAR(50) NOT NULL,
 
-    EMAIL       varchar(50) PK 
-    PASSWORD    varchar(50)
+  PRIMARY KEY (`EMAIL`),
+  UNIQUE INDEX `EMAIL_UNIQUE` (`EMAIL` ASC));
+ ~~~
 ![](https://i.imgur.com/9wFdTNu.png)
+* 定單資料庫
+~~~sql
+CREATE TABLE `fcu_shop`.`訂單` (
+`訂單ID` INT NOT NULL AUTO_INCREMENT,
+`商品ID` INT(11) NOT NULL,
+`買家Email` varchar(50) NOT NULL ,
+`數量` INT NOT NULL,
 
+PRIMARY KEY (`訂單ID`),
+Foreign Key (`商品ID`) references  product(`ID`),
+Foreign Key (`買家Email`) references  account_basic(`EMAIL`),
+UNIQUE INDEX `orderId_UNIQUE` (`訂單ID` ASC));
+~~~
