@@ -1,5 +1,6 @@
 package fcu.sep.fcushop.service;
 import fcu.sep.fcushop.database.Sql2oDbHandler;
+import fcu.sep.fcushop.model.Account;
 import fcu.sep.fcushop.model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,15 @@ import java.util.List;
 public class OrderService {
 	@Autowired
 	private Sql2oDbHandler sql2oDbHandler;
+	public List<Order> getOrder() {
+		try (Connection connection = sql2oDbHandler.getConnector().open()) {
+			String query = "select 商品ID productId, 買家Email buyerEmail, 數量 count"
+			+ " from 訂單 ";
+			System.out.println(query);
+			return connection.createQuery(query).executeAndFetch(Order.class);
+		}
+	}
+
 	public String addOrder(Order order) {
 		String returnMessage;
 		try (Connection connection = sql2oDbHandler.getConnector().open()) {
