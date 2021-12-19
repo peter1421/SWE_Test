@@ -37,6 +37,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">一中商城</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/getOrder">所有訂單</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         商品管理
@@ -71,6 +74,8 @@
         </div>
     </div>
 </nav>
+
+
 <div class="row">
 <div class="col-6">
 <!--註冊帳密post回傳-->
@@ -106,20 +111,17 @@
 </div>
 
 </div>
-<div class="col-sm-12">
+<div class="row">
 
 <form action="/order" method="post">
     <h2>3.下單</h2>
-
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label" >選擇商品</label>
-        <input type="email" name="orderId" placeholder="商品ID" class="form-control"   aria-describedby="emailHelp">
+        <input  name="orderId"  class="form-control" placeholder="商品ID"  >
     </div>
-
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label" >郵件</label>
-        <input type="email" name="email" placeholder="買家郵件" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
-        <div id="emailHelp3" class="form-text">(找回帳密? 驗證嗎? 自動登入? )</div>
+        <input type="email" name="buyerEmail" placeholder="買家郵件" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
     </div>
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label" >Password</label>
@@ -127,14 +129,16 @@
     </div>
 
     <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label" >商品數量</label>
-        <input type="email" name="count" placeholder="商品數量" class="form-control"   aria-describedby="emailHelp">
+        <label class="form-label" >商品數量</label>
+        <input  name="count" placeholder="商品數量" class="form-control" >
     </div>
 
     <button type="submit" name="下單" class="btn btn-primary">下單</button>
 </form>
 
+
 </div>
+
 <!--<form action="/singup" method="post">-->
 <!--    <h2>1.註冊</h2>-->
 <!--    郵件:-->
