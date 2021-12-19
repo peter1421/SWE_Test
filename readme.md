@@ -13,17 +13,18 @@
 ![](https://i.imgur.com/yzQsAv8.png)
 ### 後端
 
-* 前端輸入取得所有帳密
 
-      makeRequest("./getAccounts")
 
-![](https://i.imgur.com/HHmmhCD.png)
 * 註冊帳號(apiTest內)
   
-  ![](https://i.imgur.com/HwNaE1D.png)
+  ![](https://i.imgur.com/AHCITUq.png)
 * 登入帳號(apiTest內)
 
-  ![](https://i.imgur.com/CEssZ2l.png)
+  ![](https://i.imgur.com/i6Qs7T2.png)
+  
+* 取得所有帳密
+      makeRequest("./getAccounts")
+![](https://i.imgur.com/HHmmhCD.png)
 ### 資料庫相關
 * 帳密資料庫
  ~~~sql
@@ -39,10 +40,10 @@
 * 前端登入問題 登入者不須手動輸買家email
 ### 前端
 ### 後端
-![](https://i.imgur.com/ZJmcO2w.png)
+* 下單功能(要手動登入)
+![](https://i.imgur.com/v3SITlC.png)
 
-![](https://i.imgur.com/a0MZaxs.png)
-
+* 回傳訂單(未關聯其他資料庫)
 ![](https://i.imgur.com/wluQscY.png)
 ### 資料庫
 =======
