@@ -27,12 +27,10 @@
 ### 資料庫相關
 ![](https://i.imgur.com/988Pqi8.png)
 * 帳密資料庫
-  
-Table: account_basic
-    
-    
+   
 Columns:
 
     EMAIL       varchar(50) PK 
     PASSWORD    varchar(50)
 ![](https://i.imgur.com/9wFdTNu.png)
+
