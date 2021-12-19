@@ -1,7 +1,6 @@
 package fcu.sep.fcushop.service;
 import fcu.sep.fcushop.database.Sql2oDbHandler;
 import fcu.sep.fcushop.model.Account;
-import fcu.sep.fcushop.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.sql2o.Connection;
@@ -34,4 +33,14 @@ public class AccountService {
 		}
 		return returnMessage;
 	}
+	public Object checkLogin(Account account) {
+		//檢查登入 陽春版
+
+		try (Connection connection = sql2oDbHandler.getConnector().open()) {
+			String query =  String.format("SELECT * FROM fcu_shop.account_basic WHERE email='%s' and password='%s';", account.getEmail(), account.getPassword());;
+			System.out.println(query);
+			return connection.createQuery(query).executeScalar();
+		}
+	}
+
 }
