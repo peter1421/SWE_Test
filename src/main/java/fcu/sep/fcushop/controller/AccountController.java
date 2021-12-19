@@ -22,16 +22,21 @@ public class AccountController {
 	//登入相關
 	@PostMapping("/login")
 	@ResponseBody
-	public Account getLoginData(@RequestParam String email, @RequestParam String password){
+	//登入檢查
+	public Boolean getLoginData(@RequestParam String email, @RequestParam String password){
 		//接收前端帳密資料
 		System.out.println("email is " +email);
 		System.out.println("password is " +password);
-		Account account=new Account();
-		account.setEmail(email);
-		account.setPassword(password);
+		Account account=new Account(email,password);
 		//檢查帳密正確
-
-		return account;
+		if(accountManager.checkLogin(account)==null){
+			System.out.println("null");
+			return false;
+			//錯誤
+		}
+		System.out.println("sucess");
+		return true;
+		//比對成功
 	}
 
 
@@ -45,32 +50,29 @@ public class AccountController {
 	// }
 
 
+	//檢查重複_function(){
+	//return ture
+	// }
+
 	@PostMapping("/singup")
 	@ResponseBody
 	public Account singUp(@RequestParam String email, @RequestParam String password) {
-		//try...ca...
-
-		//if(後端檢查註冊_function()==ture).........
-
-		//封裝
-		Account account=new Account();
-		account.setEmail(email);
-		account.setPassword(password);
-
+		System.out.println("email is " +email);
+		System.out.println("password is " +password);
+		//if(後端檢查註冊_function()==ture&&檢查重複_function()==ture).........
+		Account account=new Account(email,password);
 		//連線資料庫
 		accountManager.addAccount(account.getEmail(),account.getPassword());
 
 		return account;
 	}
-
-
-
-	//---------較難----------
-
-	//忘記帳密_function(@PathVariable("email") String email){
-	// 寄送email?其他辦法?
-	// }
-
-	//快速註冊_function(){
-	// }
 }
+
+//---------較難----------
+
+//忘記帳密_function(@PathVariable("email") String email){
+// 寄送email?其他辦法?
+// }
+
+//快速註冊_function(){
+// }
