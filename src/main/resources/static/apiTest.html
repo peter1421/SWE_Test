@@ -7,28 +7,47 @@
 
 </head>
 <body>
-<!--登入帳密post回傳-->
-<form action="/login" method="post">
-    <h2>登入</h2>
+<!--註冊帳密post回傳-->
+<form action="/singup" method="post">
+    <h2>1.註冊</h2>
     郵件:
     <input type="text" name="email">
     <br>
     密碼:
     <input type="text" name="password">
     <br>
+    (個人資料?郵件驗證?)
+    <br>
+    <input type="submit" name="註冊">
+</form>
+<br><br><br>
+<!--登入帳密post回傳-->
+<form action="/login" method="post">
+    <h2>2.登入</h2>
+    郵件:
+    <input type="text" name="email">
+    <br>
+    密碼:
+    <input type="text" name="password">
+    <br>
+    (找回帳密? 驗證嗎? 自動登入? )
+    <br>
     <input type="submit" name="登入">
 </form>
 <br><br><br>
-    <!--註冊帳密post回傳-->
-    <form action="/singup" method="post">
-        <h2>註冊</h2>
-        郵件:
-        <input type="text" name="email">
-        <br>
-        密碼:
-        <input type="text" name="password">
-        <br>
-        <input type="submit" name="註冊">
+<form action="/order" method="post">
+    <h2>3.下單</h2>
+    商品(無前端簡化版):
+    <input type="text" name="orderId">
+    <br>
+    買家(登入後不須手動):
+    <input type="text" name="buyerEmail">
+    <br>
+    數量:
+    <input type="text" name="count">
+    <br>
+    <input type="submit" name="下單">
 </form>
+<br><br><br>
 </body>
 </html>
