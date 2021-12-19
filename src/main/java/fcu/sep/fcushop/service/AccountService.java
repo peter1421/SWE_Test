@@ -35,6 +35,7 @@ public class AccountService {
 	}
 	public Object checkLogin(Account account) {
 		//檢查登入 陽春版
+		System.out.println("checkLogin");
 
 		try (Connection connection = sql2oDbHandler.getConnector().open()) {
 			String query =  String.format("SELECT * FROM fcu_shop.account_basic WHERE email='%s' and password='%s';", account.getEmail(), account.getPassword());;

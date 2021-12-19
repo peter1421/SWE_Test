@@ -23,12 +23,7 @@ public class AccountController {
 	@PostMapping("/login")
 	@ResponseBody
 	//登入檢查
-	public Boolean getLoginData(@RequestParam String email, @RequestParam String password){
-		//接收前端帳密資料
-		System.out.println("email is " +email);
-		System.out.println("password is " +password);
-		Account account=new Account(email,password);
-		//檢查帳密正確
+	public Boolean checkAccount(Account account){
 		if(accountManager.checkLogin(account)==null){
 			System.out.println("null");
 			return false;
@@ -36,6 +31,15 @@ public class AccountController {
 		}
 		System.out.println("sucess");
 		return true;
+
+	}
+	public Boolean getLoginData(@RequestParam String email, @RequestParam String password){
+		//接收前端帳密資料
+		System.out.println("email is " +email);
+		System.out.println("password is " +password);
+		Account account=new Account(email,password);
+		//檢查帳密正確
+		return  checkAccount(account);
 		//比對成功
 	}
 
