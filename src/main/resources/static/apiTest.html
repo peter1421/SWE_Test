@@ -1,53 +1,184 @@
 <!--測試前端資料回傳功能-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>API TEST</title>
+    <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script type="text/javascript" src="myJavascript.js" charset="UTF-8"></script>
+    <title>FCU Shop</title>
+
+    <style>
+
+    </style>
 </head>
 <body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">FCU Shop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">首頁</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">逢甲商城</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">一中商城</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        商品管理
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/addProduct.html">新增商品</a></li>
+                        <li><a class="dropdown-item" href="/updateProduct.html">修改商品</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/apiTest.html">API測試</a>
+                </li>
+            </ul>
+
+
+            <ul class="navbar-nav mb-2 mb-lg-0 d-flex">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Signinup.html">登入/註冊</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">會員中心</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">購物車(0)</a>
+                </li>
+            </ul>
+
+            <!--<form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>-->
+        </div>
+    </div>
+</nav>
+<div class="row">
+<div class="col-6">
 <!--註冊帳密post回傳-->
 <form action="/singup" method="post">
     <h2>1.註冊</h2>
-    郵件:
-    <input type="text" name="email">
-    <br>
-    密碼:
-    <input type="text" name="password">
-    <br>
-    (個人資料?郵件驗證?)
-    <br>
-    <input type="submit" name="註冊">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label" >郵件</label>
+        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">(個人資料?郵件驗證?)</div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label" >Password</label>
+        <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <button type="submit" name="註冊" class="btn btn-primary">註冊</button>
 </form>
-<br><br><br>
+</div>
 <!--登入帳密post回傳-->
+<div class="col-6">
 <form action="/login" method="post">
     <h2>2.登入</h2>
-    郵件:
-    <input type="text" name="email">
-    <br>
-    密碼:
-    <input type="text" name="password">
-    <br>
-    (找回帳密? 驗證嗎? 自動登入? )
-    <br>
-    <input type="submit" name="登入">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label" >郵件</label>
+        <input type="email" name="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
+        <div id="emailHelp2" class="form-text">(找回帳密? 驗證嗎? 自動登入? )</div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label" >Password</label>
+        <input type="password" name="password" class="form-control" id="exampleInputPassword2">
+    </div>
+    <button type="submit" name="登入" class="btn btn-primary">登入</button>
 </form>
-<br><br><br>
+</div>
+
+</div>
+<div class="col-sm-12">
+
 <form action="/order" method="post">
     <h2>3.下單</h2>
-    商品(無前端簡化版):
-    <input type="text" name="orderId">
-    <br>
-    買家(登入後不須手動):
-    <input type="text" name="buyerEmail">
-    <br>
-    數量:
-    <input type="text" name="count">
-    <br>
-    <input type="submit" name="下單">
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label" >選擇商品</label>
+        <input type="email" name="orderId" placeholder="商品ID" class="form-control"   aria-describedby="emailHelp">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label" >郵件</label>
+        <input type="email" name="email" placeholder="買家郵件" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
+        <div id="emailHelp3" class="form-text">(找回帳密? 驗證嗎? 自動登入? )</div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label" >Password</label>
+        <input type="password" name="password" placeholder="買家密碼" class="form-control" id="exampleInputPassword3">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label" >商品數量</label>
+        <input type="email" name="count" placeholder="商品數量" class="form-control"   aria-describedby="emailHelp">
+    </div>
+
+    <button type="submit" name="下單" class="btn btn-primary">下單</button>
 </form>
+
+</div>
+<!--<form action="/singup" method="post">-->
+<!--    <h2>1.註冊</h2>-->
+<!--    郵件:-->
+<!--    <input type="text" name="email">-->
+<!--    <br>-->
+<!--    密碼:-->
+<!--    <input type="text" name="password">-->
+<!--    <br>-->
+<!--    (個人資料?郵件驗證?)-->
+<!--    <br>-->
+<!--    <input type="submit" name="註冊">-->
+<!--</form>-->
+<!--<br><br><br>-->
+
+<!--登入帳密post回傳-->
+<!--<form action="/login" method="post">-->
+<!--    <h2>2.登入</h2>-->
+<!--    郵件:-->
+<!--    <input type="text" name="email">-->
+<!--    <br>-->
+<!--    密碼:-->
+<!--    <input type="text" name="password">-->
+<!--    <br>-->
+<!--    (找回帳密? 驗證嗎? 自動登入? )-->
+<!--    <br>-->
+<!--    <input type="submit" name="登入">-->
+<!--</form>-->
+<!--<br><br><br>-->
+<!--<form action="/order" method="post">-->
+<!--    <h2>3.下單</h2>-->
+<!--    商品(無前端簡化版):-->
+<!--    <input type="text" name="orderId" placeholder="商品ID">-->
+<!--    <br>-->
+<!--    買家登入:-->
+<!--    <input type="text" name="buyerEmail" placeholder="買家email">-->
+<!--    <input type="text" name="password" placeholder="買家密碼">-->
+<!--    <br>-->
+<!--    (登入後不須手動)-->
+<!--    <br>-->
+<!--    數量:-->
+<!--    <input type="text" name="count"placeholder="商品數量">-->
+<!--    <br>-->
+<!--    <input type="submit" name="下單">-->
+<!--</form>-->
 <br><br><br>
 </body>
 </html>
