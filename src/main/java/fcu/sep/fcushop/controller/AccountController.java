@@ -3,10 +3,7 @@ package fcu.sep.fcushop.controller;
 import fcu.sep.fcushop.model.Account;
 import fcu.sep.fcushop.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,23 +19,51 @@ public class AccountController {
 		return accountManager.getAccounts();
 	}
 
-	//註冊帳密
-	@GetMapping("/signUp/{email}/{password}")
-	//前端回傳的方法以後要改 會被電
-	public boolean addProducts(@PathVariable("email") String email, @PathVariable("password") String password) {
-		//try...ca... 待加
+	//登入相關
+	@PostMapping("/login")
+	@ResponseBody
+	public Account getLoginData(@RequestParam String email, @RequestParam String password){
+		//接收前端帳密資料
+		System.out.println("email is " +email);
+		System.out.println("password is " +password);
+		Account account=new Account();
+		account.setEmail(email);
+		account.setPassword(password);
+		//檢查帳密正確
 
-		//第二次檢查註冊帳密 檢查註冊_function(){}
-		accountManager.addAccount(email,password);
-
-		return true;
+		return account;
 	}
-	//第二次檢查註冊_function(){
-	// return turn
+
+
+
+
+	//註冊帳密
+
+	//後端檢查註冊_function(){
+	// if(帳密可用...)
+	// return ture
 	// }
-	//登入帳密_function(@PathVariable("email") String email, @PathVariable("password") String password){
-	//
-	// }
+
+
+	@PostMapping("/singup")
+	@ResponseBody
+	public Account singUp(@RequestParam String email, @RequestParam String password) {
+		//try...ca...
+
+		//if(後端檢查註冊_function()==ture).........
+
+		//封裝
+		Account account=new Account();
+		account.setEmail(email);
+		account.setPassword(password);
+
+		//連線資料庫
+		accountManager.addAccount(account.getEmail(),account.getPassword());
+
+		return account;
+	}
+
+
 
 	//---------較難----------
 
