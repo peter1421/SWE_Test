@@ -1,6 +1,7 @@
 package fcu.sep.fcushop.service;
 import fcu.sep.fcushop.database.Sql2oDbHandler;
 import fcu.sep.fcushop.model.Account;
+import fcu.sep.fcushop.model.BuyerOrder;
 import fcu.sep.fcushop.model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,4 +39,13 @@ public class OrderService {
 		return returnMessage;
 	}
 
+	public List<BuyerOrder> getBuyerOrder(String Email) {
+		try (Connection connection = sql2oDbHandler.getConnector().open()) {
+			String query = String.format("SELECT EMAIL buyerEmail,訂單ID orderID,數量 count,NAME name, PRICE price, DESCRIPTION description"
+			+ " FROM (account_basic INNER JOIN 訂單 ON 訂單.買家EMAIL=account_basic.EMAIL) INNER JOIN product ON 訂單.商品ID=product.ID"+" where account_basic.EMAIL='%s';",Email);
+			System.out.println(query);
+
+			return connection.createQuery(query).executeAndFetch(BuyerOrder.class);
+		}
+	}
 }

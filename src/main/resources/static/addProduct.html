@@ -111,9 +111,9 @@ function addProduct(){
       const productDescription  = document.getElementById("productDescription").value;
 
       if (productName.trim() === '') {
-        addProducts('add');
+        addProducts('/api/add');
       } else {
-        const url='add/' + productName+'/'+productUrl+'/'+productMoney+'/'+productDescription
+        const url='/api/add/' + productName+'/'+productUrl+'/'+productMoney+'/'+productDescription
         console.log(url);
         addProducts(url);
         location.href='/';

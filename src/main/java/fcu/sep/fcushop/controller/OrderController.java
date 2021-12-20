@@ -1,5 +1,6 @@
 package fcu.sep.fcushop.controller;
 import fcu.sep.fcushop.model.Account;
+import fcu.sep.fcushop.model.BuyerOrder;
 import fcu.sep.fcushop.model.Order;
 import fcu.sep.fcushop.service.AccountService;
 import fcu.sep.fcushop.service.OrderService;
@@ -24,7 +25,12 @@ public class OrderController {
 		return orderManager.getOrder();
 	}
 
-
+	@PostMapping("/api/getBuyerOrder")
+	@ResponseBody
+	public List<BuyerOrder> getBuyerOrder(@RequestParam String email) {
+		System.out.println("查詢購物清單");
+		return orderManager.getBuyerOrder(email);
+	}
 	@PostMapping("/api/order")
 	@ResponseBody
 	public Order addOrder(@RequestParam int orderId, @RequestParam String buyerEmail,@RequestParam int count,@RequestParam String password) {
@@ -37,7 +43,7 @@ public class OrderController {
 		Account account=new Account(buyerEmail,password);
 		Order order=new Order(orderId,buyerEmail,count);
 
-		if(accountController.checkAccount(account)==false){
+		if(!accountController.checkAccount(account)){
 			System.out.println("帳號錯誤");
 			return null;
 		}
