@@ -13,14 +13,14 @@ public class AccountController {
 	@Autowired
 	AccountService accountManager;
 
-	@GetMapping("/getAccounts")
+	@GetMapping("/api/getAccounts")
 	public List<Account> getAccounts() {
 		System.out.println("取得所有帳密");
 		return accountManager.getAccounts();
 	}
 
 	//登入相關
-	@PostMapping("/login")
+	@PostMapping("/api/login")
 	@ResponseBody
 	//登入檢查
 	public Boolean checkAccount(Account account){
@@ -58,7 +58,7 @@ public class AccountController {
 	//return ture
 	// }
 
-	@PostMapping("/singup")
+	@PostMapping("/api/singup")
 	@ResponseBody
 	public Account singUp(@RequestParam String email, @RequestParam String password) {
 		System.out.println("email is " +email);

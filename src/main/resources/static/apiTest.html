@@ -29,16 +29,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">首頁</a>
+                    <a class="nav-link active" aria-current="page" href="/">首頁</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">逢甲商城</a>
+                    <a class="nav-link" href="/api/getAccounts">所有帳密</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">一中商城</a>
+                    <a class="nav-link" href="/api/products">所有商品</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/getOrder">所有訂單</a>
+                    <a class="nav-link" href="/api/getOrder">所有訂單</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -79,7 +79,7 @@
 <div class="row">
 <div class="col-6">
 <!--註冊帳密post回傳-->
-<form action="/singup" method="post">
+<form action="/api/singup" method="post">
     <h2>1.註冊</h2>
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label" >郵件</label>
@@ -95,7 +95,7 @@
 </div>
 <!--登入帳密post回傳-->
 <div class="col-6">
-<form action="/login" method="post">
+<form action="/api/login" method="post">
     <h2>2.登入</h2>
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label" >郵件</label>
@@ -113,7 +113,7 @@
 </div>
 <div class="row">
 
-<form action="/order" method="post">
+<form action="/api/order" method="post">
     <h2>3.下單</h2>
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label" >選擇商品</label>
@@ -135,7 +135,15 @@
 
     <button type="submit" name="下單" class="btn btn-primary">下單</button>
 </form>
+    <form action="/api/shoppingCar" method="post">
+        <h2>4.購物車資料</h2>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label" >選擇商品</label>
+            <input  name="orderId"  class="form-control" placeholder="買家帳號"  >
+        </div>
 
+        <button type="submit" name="查詢" class="btn btn-primary">查詢</button>
+    </form>
 
 </div>
 

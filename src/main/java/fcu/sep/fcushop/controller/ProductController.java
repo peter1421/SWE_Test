@@ -9,13 +9,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+
+
+
 @RestController
 public class ProductController {
 
   @Autowired
   ProductService productManager;
 
-  @GetMapping("/products")
+  @GetMapping("/api/products")
   public List<Product> getProducts() {
     System.out.println("-------------------------------------------");
     System.out.println( productManager.getProducts());
