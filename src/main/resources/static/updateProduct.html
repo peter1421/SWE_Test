@@ -117,12 +117,12 @@ function updateProduct(){
       const productUrl  = document.getElementById("productUrl").value;
       const productMoney  = document.getElementById("productMoney").value;
       const productDescription  = document.getElementById("productDescription").value;
-       const url='add/'+productID+'/' + productName+'/'+productUrl+'/'+productMoney+'/'+productDescription
+       const url='/api/add/'+productID+'/' + productName+'/'+productUrl+'/'+productMoney+'/'+productDescription
         console.log(url);
       if (productName.trim() === '') {
-        updateProducts('update');
+        updateProducts('/api/update');
       } else {
-        const url='update/'+productID+'/' + productName+'/'+productUrl+'/'+productMoney+'/'+productDescription
+        const url='/api/update/'+productID+'/' + productName+'/'+productUrl+'/'+productMoney+'/'+productDescription
         console.log(url);
         updateProducts(url);
         location.href='/';
