@@ -298,14 +298,14 @@ footer a {
 <h2></h2>
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="#">
+		<form action="/singup" method="post">
 			<h1>創建帳號</h1>
 			<div class="social-container">
 			</div>
 			<span>or use your email for registration</span>
 			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+			<input type="email" name="email"  id="exampleInputEmail1" aria-describedby="emailHelp">
+			<input type="password" name="password"  id="exampleInputPassword1">
 			<button>註冊</button>
 		</form>
 	</div>
