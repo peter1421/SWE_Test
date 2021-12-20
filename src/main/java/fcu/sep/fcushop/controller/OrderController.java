@@ -18,14 +18,14 @@ public class OrderController {
 	@Autowired
 	AccountController accountController;
 
-	@GetMapping("/getOrder")
+	@GetMapping("/api/getOrder")
 	public List<Order> getAccounts() {
 		System.out.println("取得所有訂單");
 		return orderManager.getOrder();
 	}
 
 
-	@PostMapping("/order")
+	@PostMapping("/api/order")
 	@ResponseBody
 	public Order addOrder(@RequestParam int orderId, @RequestParam String buyerEmail,@RequestParam int count,@RequestParam String password) {
 		System.out.println("orderId is " +orderId);
