@@ -161,19 +161,18 @@
 
         <button type="submit" name="下單" class="btn btn-primary">下單</button>
     </form>
-        <form action="/api/getBuyerOrder" method="post">
+<!--        <form action="/api/getBuyerOrder" method="post">-->
             <h2>4.購物車資料(登入後不用手動輸入)</h2>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label" >購物車資料</label>
-                <input  name="email"  class="form-control" placeholder="買家帳號"  >
-            </div>
+                <input  name="email"  id="getBuyerOrder" class="form-control" placeholder="買家帳號"  >
+                <button onclick="makePostRequest('getBuyerOrder')"  type="submit" name="查詢" class="btn btn-primary">查詢</button>
 
-            <button id="getBuyerOrder" type="submit" name="查詢" class="btn btn-primary">查詢</button>
-        </form>
+            </div>
 
     </div>
 
-    <h3>API資料顯示區</h3>
+    <h2>API資料顯示區</h2>
     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
         <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
         <label class="btn btn-outline-primary" for="btnradio1"  onclick=apiShow("/api/getAccounts")>所有帳密</label>
@@ -196,6 +195,13 @@
           }
     }
 
+    function apiPost(url){
+          if (url === '') {
+             makeRequest(url)
+          } else {
+             makeRequest(url)
+          }
+    }
 
     function emptyProducts() {
       $('#dataList').empty();
@@ -207,9 +213,26 @@
         makeRequest('/api/getOrder')
     });
 
+    function makePostRequest(id) {
+        var key=value=document.getElementById(id).name,value=document.getElementById(id).value;
+        var data=key+"="+value,url="/api/"+id;
+        var xhr = new XMLHttpRequest();
+        xhr.open("post",url, true);
+        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xhr.send(data);
+
+        xhr.onload = function() {
+
+            let response = JSON.parse(this.response);
+            console.log(response)
+            addDatas(response)
+        };
+    <!--AJAX post 寫法  https://chunchun0401.medium.com/ajax-post-%E5%AF%AB%E6%B3%95-e8ddb342196a-->
+
+    }
+
 
     function makeRequest(url) {
-        //回傳資料庫後端數據
         xhr = new XMLHttpRequest();
         xhr.onload = function() {
             let response = JSON.parse(this.response);
@@ -218,7 +241,6 @@
         };
         xhr.open("GET", url, true);
         xhr.send();
-
     }
 
     function addDatas(datas) {
