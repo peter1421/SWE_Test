@@ -13,6 +13,5 @@ public class FcushopApplication {
 
     System.out.println("http://localhost:8080/");
   }
-
 }
 //http://localhost:8080/

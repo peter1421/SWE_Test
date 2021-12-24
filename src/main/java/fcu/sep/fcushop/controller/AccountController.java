@@ -33,13 +33,19 @@ public class AccountController {
 		return true;
 
 	}
-	public Boolean getLoginData(@RequestParam String email, @RequestParam String password){
+	public Account getLoginData(@RequestParam String email, @RequestParam String password){
 		//接收前端帳密資料
 		System.out.println("email is " +email);
 		System.out.println("password is " +password);
 		Account account=new Account(email,password);
 		//檢查帳密正確
-		return  checkAccount(account);
+		//checkAccount(account);
+		if(accountManager.checkLogin(account)==null){
+			System.out.println("null");
+			return new Account("null","null");
+			//錯誤
+		}
+		return account;
 		//比對成功
 	}
 
