@@ -41,7 +41,7 @@ public class OrderService {
 	public List<BuyerOrder> getBuyerOrder(String Email) {
 		try (Connection connection = sql2oDbHandler.getConnector().open()) {
 			String query = String.format("SELECT 電子郵件 buyerEmail,訂單ID orderID,商品數量 count,商品名稱 name, 商品價格 price, 商品敘述 description"
-			+ " FROM (帳密資料 INNER JOIN 訂單資料 ON 訂單.買家EMAIL=帳密資料.電子郵件) INNER JOIN 商品資料 ON 訂單資料.商品ID=商品資料.商品ID"+" where 帳密資料.電子郵件='%s';",Email);
+			+ " FROM (帳密資料 INNER JOIN 訂單資料 ON 訂單資料.買家EMAIL=帳密資料.電子郵件) INNER JOIN 商品資料 ON 訂單資料.商品ID=商品資料.商品ID"+" where 帳密資料.電子郵件='%s';",Email);
 			System.out.println(query);
 
 			return connection.createQuery(query).executeAndFetch(BuyerOrder.class);
