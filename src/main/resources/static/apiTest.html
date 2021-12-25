@@ -172,7 +172,7 @@
 
     </div>
 
-    <h2>API資料顯示區</h2>
+    <h2>5.瀏覽(API顯示區)</h2>
     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
         <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
         <label class="btn btn-outline-primary" for="btnradio1"  onclick=apiShow("/api/getAccounts")>所有帳密</label>
@@ -181,7 +181,7 @@
         <label class="btn btn-outline-primary" for="btnradio2" onclick=apiShow("/api/products")>所有商品</label>
 
         <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btnradio1"  onclick=apiShow("/api/getOrder")>所有訂單</label>
+        <label class="btn btn-outline-primary" for="btnradio3"  onclick=apiShow("/api/getOrder")>所有訂單</label>
     </div>
     <div class="mt-3 row" id="dataList"></div>
 
@@ -195,13 +195,6 @@
           }
     }
 
-    function apiPost(url){
-          if (url === '') {
-             makeRequest(url)
-          } else {
-             makeRequest(url)
-          }
-    }
 
     function emptyProducts() {
       $('#dataList').empty();
@@ -256,11 +249,16 @@
             for(let p of key){
                if(p==key[0]){
                 html += '<h5 class="card-text">'+p+ ":\t"+data[p] +'</h5>';
-               }else{
+               }else if(p=="imageUrl"){
+                html += '<img src="' + data[p] + '" class="card-img-top" alt="' +data[p]  + '">';
+               }
+               else{
                 html += '<p class="card-text">'+p+ ":\t"+data[p] + '</p>';
                }
             }
-            html += '<a href="#" class="btn btn-primary">' + '(可放圖片 其他資料...)' + '</a>';
+
+
+            html += '<a href="#" class="btn btn-primary">' + '(可放圖片 按鈕功能 其他資料...)' + '</a>';
             html += '</div>';
             html += '</div>';
             $('#dataList').append(html);

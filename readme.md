@@ -1,5 +1,6 @@
 # 0.1 美食平台流程
-
+資料庫(Database.sql)導入導出教學
+https://mnya.tw/cc/word/1395.html
 
 ## 買家
 ### 註冊

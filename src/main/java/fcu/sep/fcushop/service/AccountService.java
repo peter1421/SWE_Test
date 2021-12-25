@@ -13,15 +13,15 @@ public class AccountService {
 	private Sql2oDbHandler sql2oDbHandler;
 	public List<Account> getAccounts() {
 		try (Connection connection = sql2oDbHandler.getConnector().open()) {
-			String query = "select EMAIL email, PASSWORD password"
-			+ " from ACCOUNT_BASIC";
+			String query = "select 電子郵件 email, 密碼 password"
+			+ " from 帳密資料";
 			return connection.createQuery(query).executeAndFetch(Account.class);
 		}
 	}
 	public String addAccount(String email,String password) {
 		String returnMessage;
 		try (Connection connection = sql2oDbHandler.getConnector().open()) {
-			String query = String.format("INSERT INTO `fcu_shop`.`account_basic` (`email`, `password`) VALUES ('%s','%s');", email, password);
+			String query = String.format("INSERT INTO `fcu_shop`.`帳密資料` (`電子郵件`, `密碼`) VALUES ('%s','%s');", email, password);
 			System.out.println(query);
 			connection.createQuery(query, true).executeUpdate().getKey();
 
@@ -38,7 +38,7 @@ public class AccountService {
 		System.out.println("checkLogin");
 
 		try (Connection connection = sql2oDbHandler.getConnector().open()) {
-			String query =  String.format("SELECT * FROM fcu_shop.account_basic WHERE email='%s' and password='%s';", account.getEmail(), account.getPassword());;
+			String query =  String.format("SELECT * FROM fcu_shop.帳密資料 WHERE 電子郵件='%s' and 密碼='%s';", account.getEmail(), account.getPassword());
 			System.out.println(query);
 			return connection.createQuery(query).executeScalar();
 		}

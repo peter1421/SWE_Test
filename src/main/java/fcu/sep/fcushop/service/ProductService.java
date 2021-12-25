@@ -20,16 +20,16 @@ public class ProductService {
 
   public List<Product> getProducts() {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String query = "select ID id, NAME name, IMAGE_URL imageUrl, PRICE price, DESCRIPTION description"
-      + " from PRODUCT ";
+      String query = "select 商品ID id, 商品名稱 name, 商品圖片 imageUrl, 商品價格 price, 商品敘述 description"
+      + " from 商品資料 ";
       return connection.createQuery(query).executeAndFetch(Product.class);
     }
   }
 
   public List<Product> getProducts(String keyword) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String query = "select ID id, NAME name, IMAGE_URL imageUrl, PRICE price, DESCRIPTION description"
-      + " from PRODUCT where name like :keyword";
+      String query = "select 商品ID id, 商品名稱 name, 商品圖片 imageUrl, 商品價格 price, 商品敘述 description"
+      + " from 商品資料 where name like :keyword";
 
       return connection.createQuery(query)
       .addParameter("keyword", "%" + keyword + "%")
@@ -38,20 +38,20 @@ public class ProductService {
   }
   public Object getProductsCount() {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String query = "SELECT COUNT(*)"+" FROM `fcu_shop`.`product`;";
+      String query = "SELECT COUNT(*)"+" FROM `fcu_shop`.`商品資料`;";
       return connection.createQuery(query).executeScalar();
     }
   }
   public Object getMaxID() {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String query = "SELECT max(ID)"+" FROM `fcu_shop`.`product`;";
+      String query = "SELECT max(商品ID)"+" FROM `fcu_shop`.`商品資料`;";
       return connection.createQuery(query).executeScalar();
     }
   }
   public String addProducts(int ID,String NAME,String IMAGE_URL,int PRICE,String DESCRIPTION) {
     String returnMessage;
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String query=String.format("INSERT INTO `fcu_shop`.`product` (`ID`, `NAME`, `IMAGE_URL`, `PRICE`, `DESCRIPTION`) VALUES (%d,'%s','%s',%d,'%s');", ID,NAME,IMAGE_URL,PRICE,DESCRIPTION);
+      String query=String.format("INSERT INTO `fcu_shop`.`商品資料` (`商品ID`, `商品名稱`, `商品圖片`, `商品價格`, `商品敘述`) VALUES (%d,'%s','%s',%d,'%s');", ID,NAME,IMAGE_URL,PRICE,DESCRIPTION);
       System.out.println(query);
       connection.createQuery(query, true).executeUpdate().getKey();
       returnMessage = query + "寫入成功";
@@ -65,7 +65,7 @@ public class ProductService {
   public String deleteProducts(int ID) {
     String returnMessage;
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String query=String.format("DELETE FROM `fcu_shop`.`product` WHERE (`ID` = '%d');", ID);
+      String query=String.format("DELETE FROM `fcu_shop`.`商品資料` WHERE (`商品ID` = '%d');", ID);
       System.out.println(query);
       connection.createQuery(query, true).executeUpdate().getKey();
       returnMessage = query + "寫入成功";
@@ -78,7 +78,7 @@ public class ProductService {
   public String updateProducts(int ID,String NAME,String IMAGE_URL,int PRICE,String DESCRIPTION) {
     String returnMessage;
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String query=String.format("UPDATE `fcu_shop`.`product` SET `NAME` = '%s', `IMAGE_URL` = '%s', `PRICE` = '%d', `DESCRIPTION` = '%s' WHERE (`ID` = '%d'); ", NAME,IMAGE_URL,PRICE,DESCRIPTION,ID);
+      String query=String.format("UPDATE `fcu_shop`.`商品資料` SET `商品名稱` = '%s', `商品圖片` = '%s', `商品價格` = '%d', `商品敘述` = '%s' WHERE (`商品ID` = '%d'); ", NAME,IMAGE_URL,PRICE,DESCRIPTION,ID);
       System.out.println(query);
       connection.createQuery(query, true).executeUpdate().getKey();
       returnMessage = query + "寫入成功";
