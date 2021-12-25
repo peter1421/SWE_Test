@@ -3,7 +3,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>API TEST</title>
+    <title>買家API TEST</title>
     <!-- Required meta tags -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +13,7 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <script type="text/javascript" src="myJavascript.js" charset="UTF-8"></script>
-    <title>FCU Shop</title>
+    <title >FCU Shop</title>
 
     <style>
 
@@ -51,6 +51,9 @@
 
 
 
+
+
+
     </script>
 
 
@@ -59,7 +62,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">FCU Shop</a>
+        <a class="navbar-brand" href="/">FCU Shop</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -69,18 +72,15 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/">首頁</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/api/getAccounts">所有帳密API</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/api/products">所有商品API</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/api/getOrder">所有訂單API</a>
-                </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/apiTest.html">API測試</a>
+                    <a class="nav-link" href="/apiTestAll.html">API測試-總功能</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/apiTestBuyer.html">API測試-買家</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/apiTestSeller.html">API測試-賣家</a>
                 </li>
             </ul>
 
@@ -181,34 +181,28 @@
 
             </div>
         </div>
-        <div class="col-6">
-            <h2>5.商品訂單資料</h2>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">商品訂單</label>
-                <input name="productId" id="getSellerOrder" class="form-control" placeholder="商品ID">
-                <button onclick="makePostRequest('getSellerOrder')" type="submit" name="查詢" class="btn btn-primary">查詢
-                </button>
 
-            </div>
-        </div>
     </div>
 </div>
 
 <h2>6.瀏覽(API顯示區)</h2>
 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-    <label class="btn btn-outline-primary" for="btnradio1" onclick=apiShow("/api/getAccounts")>所有帳密</label>
 
-    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-    <label class="btn btn-outline-primary" for="btnradio2" onclick=apiShow("/api/products")>所有商品</label>
+    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+    <label class="btn btn-outline-primary" for="btnradio1" onclick=apiShow("/api/products")>所有商品</label>
 
-    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-    <label class="btn btn-outline-primary" for="btnradio3" onclick=apiShow("/api/getOrder")>所有訂單</label>
+
 </div>
 <div class="mt-3 row" id="dataList"></div>
 
 </body>
 <script>
+
+    $( document ).ready( function() {
+        console.log( "ready!" );
+        emptyProducts();
+        makeRequest('/api/products')
+    });
     function apiShow(url){
           if (url === '') {
              makeRequest(url)
@@ -222,11 +216,7 @@
       $('#dataList').empty();
     }
 
-    $( document ).ready( function() {
-        console.log( "ready!" );
-        emptyProducts();
-        makeRequest('/api/getOrder')
-    });
+
 
     function makePostRequest(id) {
         var key=value=document.getElementById(id).name,value=document.getElementById(id).value;
@@ -288,6 +278,9 @@
             $('#dataList').append(html);
         }
     }
+
+
+
 
 
 
