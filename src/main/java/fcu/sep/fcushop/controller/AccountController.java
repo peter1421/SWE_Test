@@ -73,7 +73,6 @@ public class AccountController {
 		Account account=new Account(email,password);
 		//連線資料庫
 		accountManager.addAccount(account.getEmail(),account.getPassword());
-
 		return account;
 	}
 }

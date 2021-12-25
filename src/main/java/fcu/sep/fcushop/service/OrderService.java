@@ -15,8 +15,8 @@ public class OrderService {
 	private Sql2oDbHandler sql2oDbHandler;
 	public List<Order> getOrder() {
 		try (Connection connection = sql2oDbHandler.getConnector().open()) {
-			String query = "select 商品ID productId, 買家Email buyerEmail, 數量 count"
-			+ " from 訂單 ";
+			String query = "select 商品ID productId, 買家Email buyerEmail, 商品數量 count"
+			+ " from 訂單資料 ";
 			System.out.println(query);
 			return connection.createQuery(query).executeAndFetch(Order.class);
 		}
@@ -25,9 +25,8 @@ public class OrderService {
 	public String addOrder(Order order) {
 		String returnMessage;
 		try (Connection connection = sql2oDbHandler.getConnector().open()) {
-			String query = String.format("INSERT INTO `fcu_shop`.`訂單` (`商品ID`, `買家Email` ,`數量`) VALUES ('%d','%s','%d');",order.getproductId(),order.getbuyerEmail(),order.getcount());
+			String query = String.format("INSERT INTO `fcu_shop`.`訂單資料` (`商品ID`, `買家Email` ,`商品數量`) VALUES ('%d','%s','%d');",order.getproductId(),order.getbuyerEmail(),order.getcount());
 			System.out.println(query);
-			//INSERT INTO `fcu_shop`.`訂單` (`商品ID`, `買家Email`, `數量`) VALUES ('2', '2', '2');
 			connection.createQuery(query, true).executeUpdate().getKey();
 
 			returnMessage = query + "寫入成功";
@@ -41,8 +40,8 @@ public class OrderService {
 
 	public List<BuyerOrder> getBuyerOrder(String Email) {
 		try (Connection connection = sql2oDbHandler.getConnector().open()) {
-			String query = String.format("SELECT EMAIL buyerEmail,訂單ID orderID,數量 count,NAME name, PRICE price, DESCRIPTION description"
-			+ " FROM (account_basic INNER JOIN 訂單 ON 訂單.買家EMAIL=account_basic.EMAIL) INNER JOIN product ON 訂單.商品ID=product.ID"+" where account_basic.EMAIL='%s';",Email);
+			String query = String.format("SELECT 電子郵件 buyerEmail,訂單ID orderID,商品數量 count,商品名稱 name, 商品價格 price, 商品敘述 description"
+			+ " FROM (帳密資料 INNER JOIN 訂單資料 ON 訂單資料.買家EMAIL=帳密資料.電子郵件) INNER JOIN 商品資料 ON 訂單資料.商品ID=商品資料.商品ID"+" where 帳密資料.電子郵件='%s';",Email);
 			System.out.println(query);
 
 			return connection.createQuery(query).executeAndFetch(BuyerOrder.class);
