@@ -22,7 +22,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
-
     <script type="text/javascript">
         function showTable(url) {
             xhr = new XMLHttpRequest();
@@ -45,145 +44,168 @@
             xhr.open("GET", url, true);
             xhr.send();
         }
+
+
+
+
+
+
+
     </script>
 
 
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">FCU Shop</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">首頁</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/api/getAccounts">所有帳密API</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/api/products">所有商品API</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/api/getOrder">所有訂單API</a>
-                    </li>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">FCU Shop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">首頁</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/getAccounts">所有帳密API</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/products">所有商品API</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/getOrder">所有訂單API</a>
+                </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/apiTest.html">API測試</a>
-                    </li>
-                </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="/apiTest.html">API測試</a>
+                </li>
+            </ul>
 
 
-                <ul class="navbar-nav mb-2 mb-lg-0 d-flex">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Signinup.html">登入/註冊</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">會員中心</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">購物車(0)</a>
-                    </li>
-                </ul>
+            <ul class="navbar-nav mb-2 mb-lg-0 d-flex">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Signinup.html">登入/註冊</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">會員中心</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">購物車(0)</a>
+                </li>
+            </ul>
 
-                <!--<form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>-->
-            </div>
+            <!--<form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>-->
         </div>
-    </nav>
+    </div>
+</nav>
 
 
-
-    <div class="row">
+<div class="row">
     <div class="col-6">
-    <!--註冊帳密post回傳-->
+        <!--註冊帳密post回傳-->
 
         <form action="/api/singup" method="post">
-        <h2>1.註冊(更多的註冊訊息?)</h2>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label" >郵件</label>
-            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">(個人資料?郵件驗證?)</div>
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label" >Password</label>
-            <input type="password" name="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <button type="submit" name="註冊" class="btn btn-primary">註冊</button>
-    </form>
+            <h2>1.註冊(更多的註冊訊息?)</h2>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">郵件</label>
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                       aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">(個人資料?郵件驗證?)</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <button type="submit" name="註冊" class="btn btn-primary">註冊</button>
+        </form>
     </div>
     <!--登入帳密post回傳-->
     <div class="col-6">
-    <form action="/api/login" method="post">
-        <h2>2.登入(如何讓前端更改登入狀態?)</h2>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label" >郵件</label>
-            <input type="email" name="email" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
-            <div id="emailHelp2" class="form-text">(找回帳密? 驗證嗎? 自動登入? )</div>
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label" >Password</label>
-            <input type="password" name="password" class="form-control" id="exampleInputPassword2">
-        </div>
-        <button type="submit" name="登入" class="btn btn-primary">登入</button>
-    </form>
+        <form action="/api/login" method="post">
+            <h2>2.登入(如何讓前端更改登入狀態?)</h2>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">郵件</label>
+                <input type="email" name="email" class="form-control" id="exampleInputEmail2"
+                       aria-describedby="emailHelp">
+                <div id="emailHelp2" class="form-text">(找回帳密? 驗證嗎? 自動登入? )</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword2">
+            </div>
+            <button type="submit" name="登入" class="btn btn-primary">登入</button>
+        </form>
     </div>
 
-    </div>
-    <div class="row">
+</div>
+<div class="row">
 
     <form action="/api/order" method="post">
         <h2>3.下單(登入後不用手動登入)</h2>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label" >選擇商品</label>
-            <input  name="orderId"  class="form-control" placeholder="商品ID"  >
+            <label for="exampleInputEmail1" class="form-label">選擇商品</label>
+            <input name="orderId" class="form-control" placeholder="商品ID">
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label" >郵件</label>
-            <input type="email" name="buyerEmail" placeholder="買家郵件" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
+            <label for="exampleInputEmail1" class="form-label">郵件</label>
+            <input type="email" name="buyerEmail" placeholder="買家郵件" class="form-control" id="exampleInputEmail3"
+                   aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label" >Password</label>
+            <label for="exampleInputPassword1" class="form-label">Password</label>
             <input type="password" name="password" placeholder="買家密碼" class="form-control" id="exampleInputPassword3">
         </div>
 
         <div class="mb-3">
-            <label class="form-label" >商品數量</label>
-            <input  name="count" placeholder="商品數量" class="form-control" >
+            <label class="form-label">商品數量</label>
+            <input name="count" placeholder="商品數量" class="form-control">
         </div>
 
         <button type="submit" name="下單" class="btn btn-primary">下單</button>
     </form>
-<!--        <form action="/api/getBuyerOrder" method="post">-->
+    <!--        <form action="/api/getBuyerOrder" method="post">-->
+    <div class="row">
+        <div class="col-6">
             <h2>4.購物車資料(登入後不用手動輸入)</h2>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label" >購物車資料</label>
-                <input  name="email"  id="getBuyerOrder" class="form-control" placeholder="買家帳號"  >
-                <button onclick="makePostRequest('getBuyerOrder')"  type="submit" name="查詢" class="btn btn-primary">查詢</button>
+                <label for="exampleInputEmail1" class="form-label">購物車資料</label>
+                <input name="email" id="getBuyerOrder" class="form-control" placeholder="買家帳號">
+                <button onclick="makePostRequest('getBuyerOrder')" type="submit" name="查詢" class="btn btn-primary">查詢
+                </button>
 
             </div>
+        </div>
+        <div class="col-6">
+            <h2>5.商品訂單資料</h2>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">商品訂單</label>
+                <input name="productId" id="getSellerOrder" class="form-control" placeholder="商品ID">
+                <button onclick="makePostRequest('getSellerOrder')" type="submit" name="查詢" class="btn btn-primary">查詢
+                </button>
 
+            </div>
+        </div>
     </div>
+</div>
 
-    <h2>5.瀏覽(API顯示區)</h2>
-    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-        <label class="btn btn-outline-primary" for="btnradio1"  onclick=apiShow("/api/getAccounts")>所有帳密</label>
+<h2>6.瀏覽(API顯示區)</h2>
+<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+    <label class="btn btn-outline-primary" for="btnradio1" onclick=apiShow("/api/getAccounts")>所有帳密</label>
 
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btnradio2" onclick=apiShow("/api/products")>所有商品</label>
+    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+    <label class="btn btn-outline-primary" for="btnradio2" onclick=apiShow("/api/products")>所有商品</label>
 
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btnradio3"  onclick=apiShow("/api/getOrder")>所有訂單</label>
-    </div>
-    <div class="mt-3 row" id="dataList"></div>
+    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+    <label class="btn btn-outline-primary" for="btnradio3" onclick=apiShow("/api/getOrder")>所有訂單</label>
+</div>
+<div class="mt-3 row" id="dataList"></div>
 
 </body>
 <script>
@@ -237,10 +259,12 @@
     }
 
     function addDatas(datas) {
+<!--    API資料導入後，填入迴圈修改html顯示表格-->
         console.log("顯示Data");
         emptyProducts();//全部淨空
         var key=Object.keys(datas[0]);
         for ( let data of datas ) {
+
 <!--            console.log([key[0]]);-->
 <!--            console.log(data);-->
 <!--            console.log(data[key[0]]);-->
@@ -250,7 +274,7 @@
                if(p==key[0]){
                 html += '<h5 class="card-text">'+p+ ":\t"+data[p] +'</h5>';
                }else if(p=="imageUrl"){
-                html += '<img src="' + data[p] + '" class="card-img-top" alt="' +data[p]  + '">';
+                html += '<img src="' + data[p] + '" class="card-img-top" alt="' +data[p]  + '"width="10" height="150">';
                }
                else{
                 html += '<p class="card-text">'+p+ ":\t"+data[p] + '</p>';
@@ -264,6 +288,13 @@
             $('#dataList').append(html);
         }
     }
+
+
+
+
+
+
+
 </script>
 
 </html>

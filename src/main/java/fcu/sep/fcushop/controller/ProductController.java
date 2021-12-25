@@ -10,56 +10,54 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 
-
-
 @RestController
 public class ProductController {
 
-  @Autowired
-  ProductService productManager;
+	@Autowired
+	ProductService productManager;
 
-  @GetMapping("/api/products")
-  public List<Product> getProducts() {
-    System.out.println("-------------------------------------------");
-    System.out.println( productManager.getProducts());
-    System.out.println("-------------------------------------------");
+	@GetMapping("/api/products")
+	public List<Product> getProducts() {
+		System.out.println("-------------------------------------------");
+		System.out.println(productManager.getProducts());
+		System.out.println("-------------------------------------------");
 
-    return productManager.getProducts();
+		return productManager.getProducts();
 
-  }
+	}
 
-  @GetMapping("/api/products/{keyword}")
-  public List<Product> getProducts(@PathVariable("keyword") String keyword) {
-    return productManager.getProducts(keyword);
-  }
+	@GetMapping("/api/products/{keyword}")
+	public List<Product> getProducts(@PathVariable("keyword") String keyword) {
+		return productManager.getProducts(keyword);
+	}
 
 
-  public int getProductsCount() {
-    return Integer.parseInt(String.valueOf(productManager.getProductsCount()));
-  }
+	public int getProductsCount() {
+		return Integer.parseInt(String.valueOf(productManager.getProductsCount()));
+	}
 
-  public int getMaxID() {
-    return Integer.parseInt(String.valueOf(productManager.getMaxID()));
-  }
+	public int getMaxID() {
+		return Integer.parseInt(String.valueOf(productManager.getMaxID()));
+	}
 
-  @GetMapping("/api/add/{productName}/{productUrl}/{productMoney}/{productDescription}")
-  public List<Product> addProducts(@PathVariable("productName") String productName, @PathVariable("productUrl") String productUrl, @PathVariable("productMoney") String productMoney, @PathVariable("productDescription") String productDescription) {
-    productManager.addProducts(getMaxID()+1,productName,"https://i.imgur.com/"+productUrl,Integer.parseInt(productMoney),productDescription);
-    return productManager.getProducts();
-  }
+	@GetMapping("/api/add/{productName}/{productUrl}/{productMoney}/{productDescription}")
+	public List<Product> addProducts(@PathVariable("productName") String productName, @PathVariable("productUrl") String productUrl, @PathVariable("productMoney") String productMoney, @PathVariable("productDescription") String productDescription) {
+		productManager.addProducts(getMaxID() + 1, productName, "https://i.imgur.com/" + productUrl, Integer.parseInt(productMoney), productDescription);
+		return productManager.getProducts();
+	}
 
-  @GetMapping("/api/update/{ID}/{productName}/{productUrl}/{productMoney}/{productDescription}")
-  public List<Product> updateProducts(@PathVariable("ID") int ID, @PathVariable("productName") String productName, @PathVariable("productUrl") String productUrl, @PathVariable("productMoney") String productMoney, @PathVariable("productDescription") String productDescription) {
-    productManager.updateProducts(ID,productName,"https://i.imgur.com/"+productUrl,Integer.parseInt(productMoney),productDescription);
-    return productManager.getProducts();
-  }
-  @GetMapping("/api/delete/{ID}")
-  public List<Product> deleteProducts(@PathVariable("ID") int ID) {
-    productManager.deleteProducts(ID);
-    return productManager.getProducts();
-  }
+	@GetMapping("/api/update/{ID}/{productName}/{productUrl}/{productMoney}/{productDescription}")
+	public List<Product> updateProducts(@PathVariable("ID") int ID, @PathVariable("productName") String productName, @PathVariable("productUrl") String productUrl, @PathVariable("productMoney") String productMoney, @PathVariable("productDescription") String productDescription) {
+		productManager.updateProducts(ID, productName, "https://i.imgur.com/" + productUrl, Integer.parseInt(productMoney), productDescription);
+		return productManager.getProducts();
+	}
+
+	@GetMapping("/api/delete/{ID}")
+	public List<Product> deleteProducts(@PathVariable("ID") int ID) {
+		productManager.deleteProducts(ID);
+		return productManager.getProducts();
+	}
 }
-
 
 
 //ㄐㄐ

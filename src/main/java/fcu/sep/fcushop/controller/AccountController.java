@@ -23,8 +23,8 @@ public class AccountController {
 	@PostMapping("/api/login")
 	@ResponseBody
 	//登入檢查
-	public Boolean checkAccount(Account account){
-		if(accountManager.checkLogin(account)==null){
+	public Boolean checkAccount(Account account) {
+		if (accountManager.checkLogin(account) == null) {
 			System.out.println("null");
 			return false;
 			//錯誤
@@ -33,23 +33,22 @@ public class AccountController {
 		return true;
 
 	}
-	public Account getLoginData(@RequestParam String email, @RequestParam String password){
+
+	public Account getLoginData(@RequestParam String email, @RequestParam String password) {
 		//接收前端帳密資料
-		System.out.println("email is " +email);
-		System.out.println("password is " +password);
-		Account account=new Account(email,password);
+		System.out.println("email is " + email);
+		System.out.println("password is " + password);
+		Account account = new Account(email, password);
 		//檢查帳密正確
 		//checkAccount(account);
-		if(accountManager.checkLogin(account)==null){
+		if (accountManager.checkLogin(account) == null) {
 			System.out.println("null");
-			return new Account("null","null");
+			return new Account("null", "null");
 			//錯誤
 		}
 		return account;
 		//比對成功
 	}
-
-
 
 
 	//註冊帳密
@@ -67,12 +66,12 @@ public class AccountController {
 	@PostMapping("/api/singup")
 	@ResponseBody
 	public Account singUp(@RequestParam String email, @RequestParam String password) {
-		System.out.println("email is " +email);
-		System.out.println("password is " +password);
+		System.out.println("email is " + email);
+		System.out.println("password is " + password);
 		//if(後端檢查註冊_function()==ture&&檢查重複_function()==ture).........
-		Account account=new Account(email,password);
+		Account account = new Account(email, password);
 		//連線資料庫
-		accountManager.addAccount(account.getEmail(),account.getPassword());
+		accountManager.addAccount(account.getEmail(), account.getPassword());
 		return account;
 	}
 }

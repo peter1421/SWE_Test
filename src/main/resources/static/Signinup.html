@@ -1,16 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-		"http://www.w3.org/TR/html4/loose.dtd">
+        "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- Bootstrap CSS -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-		  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<title>Login Form</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<style type="text/css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Login Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
 	@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 * {
@@ -251,88 +251,90 @@ footer a {
     color: #3c97bf;
     text-decoration: none;
 }
-	</style>
+
+
+    </style>
 
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="#">FCU Shop</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="#">首頁</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/">逢甲商城</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">一中商城</a>
-				</li>
-			</ul>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">FCU Shop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">首頁</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">逢甲商城</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">一中商城</a>
+                </li>
+            </ul>
 
 
-			<ul class="navbar-nav mb-2 mb-lg-0 d-flex">
-				<li class="nav-item">
-					<a class="nav-link" href="/Signinup.html">登入/註冊</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">會員中心</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">購物車(0)</a>
-				</li>
-			</ul>
+            <ul class="navbar-nav mb-2 mb-lg-0 d-flex">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Signinup.html">登入/註冊</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">會員中心</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">購物車(0)</a>
+                </li>
+            </ul>
 
-			<!--<form class="d-flex">
+            <!--<form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>-->
-		</div>
-	</div>
+        </div>
+    </div>
 </nav>
 <h2></h2>
 <div class="container" id="container">
-	<div class="form-container sign-up-container">
-		<form action="/singup" method="post">
-			<h1>創建帳號</h1>
-			<div class="social-container">
-			</div>
-			<span>or use your email for registration</span>
-			<input type="text" placeholder="Name" />
-			<input type="email" name="email"  id="exampleInputEmail1" aria-describedby="emailHelp">
-			<input type="password" name="password"  id="exampleInputPassword1">
-			<button>註冊</button>
-		</form>
-	</div>
-	<div class="form-container sign-in-container">
-		<form action="#">
-			<h1>登入</h1>
-			<span> </span>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<a href="#">Forgot your password?</a>
-			<button>登入</button>
-		</form>
-	</div>
-	<div class="overlay-container">
-		<div class="overlay">
-			<div class="overlay-panel overlay-left">
-				<h1>Welcome Back!</h1>
-				<p>To keep connected with us please login with your personal info</p>
-				<button class="ghost" id="signIn">登入</button>
-			</div>
-			<div class="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1>
-				<p>Enter your personal details and start journey with us</p>
-				<button class="ghost" id="signUp">註冊</button>
-			</div>
-		</div>
-	</div>
+    <div class="form-container sign-up-container">
+        <form action="/singup" method="post">
+            <h1>創建帳號</h1>
+            <div class="social-container">
+            </div>
+            <span>or use your email for registration</span>
+            <input type="text" placeholder="Name"/>
+            <input type="email" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="password" name="password" id="exampleInputPassword1">
+            <button>註冊</button>
+        </form>
+    </div>
+    <div class="form-container sign-in-container">
+        <form action="#">
+            <h1>登入</h1>
+            <span> </span>
+            <input type="email" placeholder="Email"/>
+            <input type="password" placeholder="Password"/>
+            <a href="#">Forgot your password?</a>
+            <button>登入</button>
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Welcome Back!</h1>
+                <p>To keep connected with us please login with your personal info</p>
+                <button class="ghost" id="signIn">登入</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Hello, Friend!</h1>
+                <p>Enter your personal details and start journey with us</p>
+                <button class="ghost" id="signUp">註冊</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -348,4 +350,6 @@ signUpButton.addEventListener('click', () => {
 signInButton.addEventListener('click', () => {
 	container.classList.remove("right-panel-active");
 });
+
+
 </script>
