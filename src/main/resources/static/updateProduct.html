@@ -33,7 +33,8 @@
                     <a class="nav-link" href="#">一中商城</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
                         商品管理
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -75,14 +76,13 @@
     </div>
 
     <div class="input-group mb-3 mt-5">
-        <input type="text" class="form-control" placeholder="商品名稱" aria-label="product name" aria-describedby="searchProduct" id="productName">
+        <input type="text" class="form-control" placeholder="商品名稱" aria-label="product name"
+               aria-describedby="searchProduct" id="productName">
     </div>
 
 
     <div class="mt-3 row" id="productList">
     </div>
-
-
 
 
     <label form="basic-url" class="form-label"></label>
@@ -94,14 +94,16 @@
 
     <div class="input-group mb-3">
         <span class="input-group-text">$</span>
-        <input type="text" class="form-control" placeholder="商品金額" id="productMoney" aria-label="Amount (to the nearest dollar)">
+        <input type="text" class="form-control" placeholder="商品金額" id="productMoney"
+               aria-label="Amount (to the nearest dollar)">
         <span class="input-group-text">.00 TW</span>
     </div>
 
 
     <div class="input-group">
         <span class="input-group-text">Description</span>
-        <input type="text" class="form-control" placeholder="Description" id="productDescription" aria-describedby="basic-addon3">
+        <input type="text" class="form-control" placeholder="Description" id="productDescription"
+               aria-describedby="basic-addon3">
     </div>
     <button class="btn btn-outline-secondary" type="button" id="updateProduct" onclick="updateProduct()">更新商品</button>
 
@@ -159,6 +161,7 @@ function updateProduct(){
           console.log( "The request is complete!" );
         });
     }
+
 
 </script>
 
