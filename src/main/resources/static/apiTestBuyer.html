@@ -13,7 +13,7 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <script type="text/javascript" src="myJavascript.js" charset="UTF-8"></script>
-    <title >FCU Shop</title>
+    <title>FCU Shop</title>
 
     <style>
 
@@ -44,6 +44,7 @@
             xhr.open("GET", url, true);
             xhr.send();
         }
+
 
 
 
@@ -111,7 +112,7 @@
         <!--註冊帳密post回傳-->
 
         <form action="/api/singup" method="post">
-            <h2>1.註冊(更多的註冊訊息?)</h2>
+            <h2>註冊(更多的註冊訊息?)</h2>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">郵件</label>
                 <input type="email" name="email" class="form-control" id="exampleInputEmail1"
@@ -128,7 +129,7 @@
     <!--登入帳密post回傳-->
     <div class="col-6">
         <form action="/api/login" method="post">
-            <h2>2.登入(如何讓前端更改登入狀態?)</h2>
+            <h2>登入(如何讓前端更改登入狀態?)</h2>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">郵件</label>
                 <input type="email" name="email" class="form-control" id="exampleInputEmail2"
@@ -144,10 +145,37 @@
     </div>
 
 </div>
+<form action="/api/member" method="post">
+    <h2>會員資料編輯</h2>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">郵件(登入後不用手動登入)</label>
+        <input type="email" name="email" placeholder="買家郵件" class="form-control" id="exampleInputEmail4"
+               aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">會員名稱</label>
+        <input name="name" class="form-control" placeholder="會員名稱">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">會員頭貼</label>
+        <input name="imageUrl" class="form-control" placeholder="會員頭貼">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">手機號碼</label>
+        <input name="phoneNumber" class="form-control" placeholder="手機號碼">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">寄送地址</label>
+        <input name="address" placeholder="寄送地址" class="form-control">
+    </div>
+
+    <button type="submit" name="下單" class="btn btn-primary">下單</button>
+</form>
 <div class="row">
 
     <form action="/api/order" method="post">
-        <h2>3.下單(登入後不用手動登入)</h2>
+        <h2>下單(登入後不用手動登入)</h2>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">選擇商品</label>
             <input name="orderId" class="form-control" placeholder="商品ID">
@@ -172,7 +200,7 @@
     <!--        <form action="/api/getBuyerOrder" method="post">-->
     <div class="row">
         <div class="col-6">
-            <h2>4.購物車資料(登入後不用手動輸入)</h2>
+            <h2>購物車資料(登入後不用手動輸入)</h2>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">購物車資料</label>
                 <input name="email" id="getBuyerOrder" class="form-control" placeholder="買家帳號">
@@ -185,7 +213,7 @@
     </div>
 </div>
 
-<h2>6.瀏覽(API顯示區)</h2>
+<h2>瀏覽(API顯示區)</h2>
 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
 
     <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
@@ -278,6 +306,7 @@
             $('#dataList').append(html);
         }
     }
+
 
 
 
