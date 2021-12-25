@@ -31,7 +31,7 @@ CREATE TABLE `商品資料` (
   `商品價格` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `商品敘述` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`商品ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `商品資料` (
 
 LOCK TABLES `商品資料` WRITE;
 /*!40000 ALTER TABLE `商品資料` DISABLE KEYS */;
-INSERT INTO `商品資料` VALUES (1,'漢堡','https://i.imgur.com/AklmEBl.png','1111','漢堡漢堡漢堡漢堡'),(2,'泡麵','https://i.imgur.com/dGWDm1c.png','4','泡麵泡麵泡麵泡麵'),(3,'薯條','https://i.imgur.com/ImarohO.png','555','薯條薯條薯條薯條'),(4,'可樂','https://i.imgur.com/Ha3Rdcs.png','100','可樂可樂可樂可樂');
+INSERT INTO `商品資料` VALUES (1,'漢堡','https://i.imgur.com/AklmEBl.png','1111','漢堡漢堡漢堡漢堡'),(2,'泡麵','https://i.imgur.com/dGWDm1c.png','4','泡麵泡麵泡麵泡麵'),(3,'薯條','https://i.imgur.com/ImarohO.png','555','薯條薯條薯條薯條'),(4,'可樂','https://i.imgur.com/Ha3Rdcs.png','100','可樂可樂可樂可樂'),(5,'炸雞腿','https://i.imgur.com/QCCeFg3.png','999','炸雞腿炸雞腿炸雞腿炸雞腿炸雞腿');
 /*!40000 ALTER TABLE `商品資料` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,8 +65,36 @@ CREATE TABLE `帳密資料` (
 
 LOCK TABLES `帳密資料` WRITE;
 /*!40000 ALTER TABLE `帳密資料` DISABLE KEYS */;
-INSERT INTO `帳密資料` VALUES ('1@gmail.com','1'),('11@gmail.com','11'),('111@gmail.com','111'),('12@gmail.com','12'),('22@gmail.com','22'),('87@gmail.com','87'),('a1@gmai.com','00000000'),('a2@gmail.com','00000000'),('abcde@gmail.com','0000'),('b1@gmail.com','00000000'),('c1@gmail.com','00000000'),('pp@gmail.com','pp'),('try11@gmail.com','try11');
+INSERT INTO `帳密資料` VALUES ('1@gmail.com','1'),('11@gmail.com','11'),('111@gmail.com','111'),('12@gmail.com','12'),('12/25Test@gmail.com','12/25Test'),('22@gmail.com','22'),('87@gmail.com','87'),('a1@gmai.com','00000000'),('a2@gmail.com','00000000'),('abcde@gmail.com','0000'),('b1@gmail.com','00000000'),('Buyer1@gmail.com','Buyer1'),('Buyer2@gmail.com','Buyer2'),('c1@gmail.com','00000000'),('pp@gmail.com','pp'),('try11@gmail.com','try11');
 /*!40000 ALTER TABLE `帳密資料` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `會員資料`
+--
+
+DROP TABLE IF EXISTS `會員資料`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `會員資料` (
+  `電子郵件` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `會員名稱` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `會員頭像` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `手機號碼` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `寄送地址` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`電子郵件`),
+  CONSTRAINT `會員資料_ibfk_1` FOREIGN KEY (`電子郵件`) REFERENCES `帳密資料` (`電子郵件`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `會員資料`
+--
+
+LOCK TABLES `會員資料` WRITE;
+/*!40000 ALTER TABLE `會員資料` DISABLE KEYS */;
+INSERT INTO `會員資料` VALUES ('Buyer1@gmail.com','買家1','https://i.imgur.com/tSmYgv1.png','098888888','南投縣仁愛鄉精英村榮華巷43號'),('Buyer2@gmail.com','韓國瑜','https://i.imgur.com/XQwMEIv.png','096666878','新北市板橋區公園路99號');
+/*!40000 ALTER TABLE `會員資料` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -87,7 +115,7 @@ CREATE TABLE `訂單資料` (
   KEY `買家Email` (`買家Email`),
   CONSTRAINT `訂單資料_ibfk_1` FOREIGN KEY (`商品ID`) REFERENCES `商品資料` (`商品ID`),
   CONSTRAINT `訂單資料_ibfk_2` FOREIGN KEY (`買家Email`) REFERENCES `帳密資料` (`電子郵件`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +124,7 @@ CREATE TABLE `訂單資料` (
 
 LOCK TABLES `訂單資料` WRITE;
 /*!40000 ALTER TABLE `訂單資料` DISABLE KEYS */;
-INSERT INTO `訂單資料` VALUES (9,1,'111@gmail.com',111),(12,3,'111@gmail.com',121),(13,2,'111@gmail.com',10),(14,1,'pp@gmail.com',12),(15,2,'abcde@gmail.com',888),(16,1,'abcde@gmail.com',888),(17,2,'1@gmail.com',33),(18,1,'11@gmail.com',1);
+INSERT INTO `訂單資料` VALUES (9,1,'111@gmail.com',111),(12,3,'111@gmail.com',121),(13,2,'111@gmail.com',10),(14,1,'pp@gmail.com',12),(15,2,'abcde@gmail.com',888),(16,1,'abcde@gmail.com',888),(17,2,'1@gmail.com',33),(18,1,'11@gmail.com',1),(19,5,'12/25Test@gmail.com',100),(20,5,'11@gmail.com',22),(21,5,'pp@gmail.com',10),(22,1,'12/25Test@gmail.com',10);
 /*!40000 ALTER TABLE `訂單資料` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -109,4 +137,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-25 14:36:50
+-- Dump completed on 2021-12-26  1:44:45

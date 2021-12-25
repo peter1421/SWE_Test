@@ -154,9 +154,35 @@
 
 </div>
 <div class="row">
+    <form action="/api/member" method="post">
+        <h2>3.會員資料編輯</h2>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">郵件(如何讓前端更改登入狀態?)</label>
+            <input type="email" name="email" placeholder="買家郵件" class="form-control" id="exampleInputEmail4"
+                   aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">會員名稱</label>
+            <input name="name" class="form-control" placeholder="會員名稱">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">會員頭貼</label>
+            <input name="imageUrl" class="form-control" placeholder="會員頭貼">
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">手機號碼</label>
+            <input name="phoneNumber" class="form-control" placeholder="手機號碼">
+        </div>
 
+        <div class="mb-3">
+            <label class="form-label">寄送地址</label>
+            <input name="address" placeholder="寄送地址" class="form-control">
+        </div>
+
+        <button type="submit" name="下單" class="btn btn-primary">下單</button>
+    </form>
     <form action="/api/order" method="post">
-        <h2>3.下單(登入後不用手動登入)</h2>
+        <h2>4.下單(登入後不用手動登入)</h2>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">選擇商品</label>
             <input name="orderId" class="form-control" placeholder="商品ID">
@@ -179,9 +205,10 @@
         <button type="submit" name="下單" class="btn btn-primary">下單</button>
     </form>
     <!--        <form action="/api/getBuyerOrder" method="post">-->
+
     <div class="row">
         <div class="col-6">
-            <h2>4.購物車資料(登入後不用手動輸入)</h2>
+            <h2>6.購物車資料(登入後不用手動輸入)</h2>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">購物車資料</label>
                 <input name="email" id="getBuyerOrder" class="form-control" placeholder="買家帳號">
@@ -191,7 +218,7 @@
             </div>
         </div>
         <div class="col-6">
-            <h2>5.商品訂單資料</h2>
+            <h2>7.商品訂單資料</h2>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">商品訂單</label>
                 <input name="productId" id="getSellerOrder" class="form-control" placeholder="商品ID">
@@ -202,7 +229,7 @@
     </div>
 </div>
 
-<h2>6.瀏覽(API顯示區)</h2>
+<h2>8.瀏覽(API顯示區)</h2>
 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
     <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
     <label class="btn btn-outline-primary" for="btnradio1" onclick=apiShow("/api/getAccounts")>所有帳密</label>
@@ -212,6 +239,9 @@
 
     <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
     <label class="btn btn-outline-primary" for="btnradio3" onclick=apiShow("/api/getOrder")>所有訂單</label>
+
+    <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+    <label class="btn btn-outline-primary" for="btnradio4" onclick=apiShow("/api/getMembers")>所有成員</label>
 </div>
 <div class="mt-3 row" id="dataList"></div>
 

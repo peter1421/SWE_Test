@@ -1,6 +1,7 @@
 package fcu.sep.fcushop.controller;
 
 import fcu.sep.fcushop.model.Account;
+import fcu.sep.fcushop.model.Member;
 import fcu.sep.fcushop.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -71,16 +72,25 @@ public class AccountController {
 		//if(後端檢查註冊_function()==ture&&檢查重複_function()==ture).........
 		Account account = new Account(email, password);
 		//連線資料庫
-		accountManager.addAccount(account.getEmail(), account.getPassword());
+		accountManager.addAccount(account);
 		return account;
+	}
+
+	//會員相關
+	@GetMapping("/api/getMembers")
+	public List<Member> getMembers() {
+		return accountManager.getMembers();
+	}
+
+	@PostMapping("/api/member")
+	@ResponseBody
+	public String singUp(@RequestParam String email, @RequestParam String name, @RequestParam String imageUrl, @RequestParam String phoneNumber, @RequestParam String address) {
+		System.out.println("email is " + email);
+		//if(後端檢查註冊_function()==ture&&檢查重複_function()==ture).........
+		Member member = new Member(email,name,imageUrl,phoneNumber,address);
+		//連線資料庫
+		accountManager.addMember(member);
+		return "ok";
 	}
 }
 
-//---------較難----------
-
-//忘記帳密_function(@PathVariable("email") String email){
-// 寄送email?其他辦法?
-// }
-
-//快速註冊_function(){
-// }
