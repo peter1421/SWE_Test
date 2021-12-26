@@ -17,7 +17,7 @@
     }
 
 
-        function getCookie(objName){//獲取指定名稱的cookie的值
+    function getCookie(objName){//獲取指定名稱的cookie的值
             var arrStr = document.cookie.split("; ");
 
             for(var i = 0;i < arrStr.length;i++ ){
@@ -30,7 +30,7 @@
             }
             alert('null');
             return null;
-        }
+    }
 
 
 
@@ -104,6 +104,38 @@
         }
     }
 
+//<try1>
+       function apiShow2(url){
+              if (url === '') {
+                 makeRequest2(url)
+              } else {
+                 makeRequest2(url)
+              }
+        }
 
+    function makeRequest2(url) {
+            xhr = new XMLHttpRequest();
+            console.log("!!!!!");
+            xhr.onload = function() {
+                let response = JSON.parse(this.response);
+                console.log(response)
+                addDatas2(response)
+            };
+            xhr.open("GET", url, true);
+            xhr.send();
+    }
 
+    function addDatas2(datas) {
+        console.log("顯示Data");
+        emptyProducts();//全部淨空
+        var key=Object.keys(datas[0]);
+        for ( let data of datas ) {
+            let html;
+            html='<div class="products-single fix"> <div class="box-img-hover"> <div class="type-lb"><p class="sale">Sale</p></div>'
+            html += '<img src="'+data["imageUrl"]+'" class="img-fluid" alt="Image" height="250" width="250">'
+            html += '<div class="mask-icon"><ul><li><a href="#" data-toggle="tooltip" data-placement="right"title="View"><i class="fas fa-eye"></i></a></li><li><a href="#" data-toggle="tooltip" data-placement="right"title="Compare"><i class="fas fa-sync-alt"></i></a></li><li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li></ul> <a class="cart" href="#">Add to Cart</a></div>'
+            html += '</div> <div class="why-text"><h4>'+data["name"]+'</h4><h5> '+data["price"]+'</h5></div></div>"'
+            $('#dataList').append(html);
+        }
+    }
 
