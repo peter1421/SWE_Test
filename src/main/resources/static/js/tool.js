@@ -1,3 +1,40 @@
+   function checkJavascript(){
+            alert('引入成功')
+   }
+
+
+
+    function deleteAllCookies() {
+        var cookies = document.cookie.split(";");
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i];
+            var eqPos = cookie.indexOf("=");
+            var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        }
+        console.log("cookies 清除完成");
+        alert("登出完成")
+    }
+
+
+        function getCookie(objName){//獲取指定名稱的cookie的值
+            var arrStr = document.cookie.split("; ");
+
+            for(var i = 0;i < arrStr.length;i++ ){
+                var temp = arrStr[i].split("=");
+                console.log(i,temp)
+                if(temp[0] == objName) {
+                    alert(unescape('登入者:'+temp[1]));
+                    return unescape(temp[1]);
+                }
+            }
+            alert('null');
+            return null;
+        }
+
+
+
+
     function apiShow(url){
           if (url === '') {
              makeRequest(url)
@@ -48,10 +85,6 @@
         emptyProducts();//全部淨空
         var key=Object.keys(datas[0]);
         for ( let data of datas ) {
-
-<!--            console.log([key[0]]);-->
-<!--            console.log(data);-->
-<!--            console.log(data[key[0]]);-->
             let html = '<div class="card col-4">';
             html += '<div class="card-body">';
             for(let p of key){
@@ -64,8 +97,6 @@
                 html += '<p class="card-text">'+p+ ":\t"+data[p] + '</p>';
                }
             }
-
-
             html += '<a href="#" class="btn btn-primary">' + '(可放圖片 按鈕功能 其他資料...)' + '</a>';
             html += '</div>';
             html += '</div>';
@@ -74,24 +105,5 @@
     }
 
 
-  $('#searchProduct').click(function() {
-      const keyword = $('#productKeyword').val();
-      if (keyword.trim() === '') {
-        makeRequest('/api/products');
-      } else {
-        makeRequest('/api/products/' + keyword);
-        emptyProducts();
-      }
-    });
-
-    $('#deleteProduct').click(function() {
-      const keyword = $('#productID').val();
-      if (keyword.trim() === '') {
-        makeRequest('/api/products');
-      } else {
-        makeRequest('/api/delete/' + keyword);
-        emptyProducts();
-      }
-    });
 
 
