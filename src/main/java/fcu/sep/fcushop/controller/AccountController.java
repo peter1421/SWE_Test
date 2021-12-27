@@ -2,6 +2,7 @@ package fcu.sep.fcushop.controller;
 
 import fcu.sep.fcushop.model.Account;
 import fcu.sep.fcushop.model.Member;
+import fcu.sep.fcushop.model.Product;
 import fcu.sep.fcushop.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -102,5 +103,11 @@ public class AccountController {
 		accountManager.addMember(member);
 		return "ok";
 	}
+
+	@PostMapping("/api/searchMember")
+	public List<Member> searchMembers(@RequestParam String email){
+		return accountManager.searchMembers(email);
+	}
+
 }
 
