@@ -17,9 +17,9 @@
     }
 
 
-    function getCookie(objName){//獲取指定名稱的cookie的值
+    function getCookie(objName){
+    //獲取指定名稱的cookie的值
             var arrStr = document.cookie.split("; ");
-
             for(var i = 0;i < arrStr.length;i++ ){
                 var temp = arrStr[i].split("=");
                 console.log(i,temp)
@@ -41,6 +41,7 @@
           } else {
              makeRequest(url)
           }
+
     }
 
 
@@ -49,15 +50,17 @@
     }
 
     function makePostRequest(id) {
-        var key=value=document.getElementById(id).name,value=document.getElementById(id).value;
+        //POST request用的
+        var key=document.getElementById(id).name,value=document.getElementById(id).value;
         var data=key+"="+value,url="/api/"+id;
+        console.log("post request:"+data+"\turl:"+url);
+
         var xhr = new XMLHttpRequest();
         xhr.open("post",url, true);
         xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
         xhr.send(data);
 
         xhr.onload = function() {
-
             let response = JSON.parse(this.response);
             console.log(response)
             addDatas(response)
@@ -66,8 +69,28 @@
 
     }
 
+    function makePostRequestCookies(id) {
+          //POST request用的(登入版)
+          console.log(id);
+          var key=document.getElementById(id).name;
+          console.log(key);
+          var value=getCookie(key);
+          var data=key+"="+value,url="/api/"+id;
+          console.log("post request:"+data+"\turl:"+url);
+          var xhr = new XMLHttpRequest();
+          xhr.open("post",url, true);
+          xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+          xhr.send(data);
+          xhr.onload = function() {
+            let response = JSON.parse(this.response);
+            console.log(response)
+            addDatas(response)
+          };
+    }
+
 
     function makeRequest(url) {
+    //GET request用的(名字待改)
         xhr = new XMLHttpRequest();
         console.log("!!!!!");
         xhr.onload = function() {
@@ -81,9 +104,9 @@
 
     function addDatas(datas) {
 <!--    API資料導入後，填入迴圈修改html顯示表格-->
-        console.log("顯示Data");
         emptyProducts();//全部淨空
         var key=Object.keys(datas[0]);
+        console.log("顯示Data:\t"+datas);
         for ( let data of datas ) {
             let html = '<div class="card col-4">';
             html += '<div class="card-body">';

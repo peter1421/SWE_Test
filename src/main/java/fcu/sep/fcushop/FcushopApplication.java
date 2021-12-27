@@ -11,7 +11,8 @@ public class FcushopApplication {
 		SpringApplication.run(FcushopApplication.class, args);
 		System.out.println("-------------------------------------------");
 
-		System.out.println("http://localhost:8080/");
+		System.out.println("網頁:http://localhost:8080/");
+		System.out.println("重整瀏覽器:chrome://settings/privacy");
 	}
 }
 //http://localhost:8080/
