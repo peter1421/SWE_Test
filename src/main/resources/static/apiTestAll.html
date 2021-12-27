@@ -207,17 +207,33 @@
     <!--        <form action="/api/getBuyerOrder" method="post">-->
 
     <div class="row">
-        <div class="col-6">
-            <h2>6.購物車資料(登入後不用手動輸入)</h2>
+        <div class="col-4">
+            <h2>5.會員資料查詢</h2>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">購物車資料</label>
-                <input name="email" id="getBuyerOrder" class="form-control" placeholder="買家帳號">
-                <button onclick="makePostRequest('getBuyerOrder')" type="submit" name="查詢" class="btn btn-primary">查詢
+                <label for="exampleInputEmail1" class="form-label">會員中心</label>
+                <input name="email" id="searchMember" class="form-control" placeholder="會員email">
+                <button onclick="makePostRequest('searchMember')" type="submit" name="查詢" class="btn btn-primary">輸入查詢
                 </button>
-
+                <br>
+                <br>
+                <button onclick="makePostRequestCookies('searchMember')"   type="submit" name="查詢" class="btn btn-primary">登入查詢
+                </button>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-4">
+            <h2>6.購物車資料</h2>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">購物車資料</label>
+                <input name="email" id="getBuyerOrder" class="form-control" placeholder="會員email">
+                <button onclick="makePostRequest('getBuyerOrder')" type="submit" name="查詢" class="btn btn-primary">輸入查詢
+                </button>
+                <br>
+                <br>
+                <button onclick="makePostRequestCookies('getBuyerOrder')"   type="submit" name="查詢" class="btn btn-primary">登入查詢
+                </button>
+            </div>
+        </div>
+        <div class="col-4">
             <h2>7.商品訂單資料</h2>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">商品訂單</label>

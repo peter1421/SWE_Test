@@ -70,4 +70,13 @@ public class AccountService {
 		}
 		return returnMessage;
 	}
+	public List<Member> searchMembers(String email) {
+		try (Connection connection = sql2oDbHandler.getConnector().open()) {
+			String query =  String.format("select 電子郵件 email, 會員名稱 name,會員頭像 imageUrl, 手機號碼 phoneNumber, 寄送地址 address"
+			+ " from 會員資料"+" Where 電子郵件='%s';",email);
+			System.out.println(query);
+			return connection.createQuery(query).executeAndFetch(Member.class);
+		}
+	}
+
 }
