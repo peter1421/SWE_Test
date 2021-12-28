@@ -559,6 +559,7 @@
 <div class="modal fade" id="Restaurant_signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+        <form action="/singup" method="post">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title model_center" id="myModalLabel">Sign Up</h4>
@@ -571,16 +572,18 @@
        
        <div class="form-group">
     <label for="">Name</label>
-    <input type="text" class="form-control" id="" placeholder="Name">
+           <input type="text" placeholder="Name"/>
   </div>
-       
+
+
+
        <div class="form-group">
     <label for="">Email address</label>
-    <input type="email" class="form-control" id="" placeholder="Email">
+           <input type="email" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
   <div class="form-group">
     <label for="">Password</label>
-    <input type="password" class="form-control" id="" placeholder="Password">
+      <input type="password" name="password" id="exampleInputPassword1">
   </div>
   <div class="form-group">
     <label for="">Confirm Password</label>
@@ -591,7 +594,7 @@
     <label for="">Mobile No.</label>
     <input type="tel" class="form-control" id="" placeholder="Mobile No.">
   </div>
-  
+
   <div class="form-group">
     <label for="">Address</label>
    <textarea class="form-control" cols="3" rows="3" placeholder="Address"></textarea>
@@ -610,6 +613,7 @@
          <button type="submit" class="btn btn-lg btn-success">Submit</button>
          <a type="submit" class="" style="margin-left:10px;cursor:pointer;">Forget Password ?</a>
       </div>
+        </form>
     </div>
   </div>
 </div>
@@ -618,6 +622,7 @@
 <div class="modal fade" id="Restaurant_login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title model_center" id="myModalLabel">Login</h4>
