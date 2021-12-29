@@ -127,6 +127,44 @@
         }
     }
 
+    function addProduct(){
+          const productName  = document.getElementById("productName").value;
+          const productUrl  = document.getElementById("productUrl").value;
+          const productMoney  = document.getElementById("productMoney").value;
+          const productDescription  = document.getElementById("productDescription").value;
+
+          if (productName.trim() === '') {
+            addProducts('/api/add');
+            alert('null')
+          } else {
+            const url='/api/add/' + productName+'/'+productUrl+'/'+productMoney+'/'+productDescription
+            console.log(url);
+            addProducts(url);
+            alert(productName+'添加成功')
+            //location.href='/';
+            //可改用json或list格式回傳
+          }
+          return 0;
+    }
+     function addProducts(targetUrl) {
+          $.ajax({
+              url: targetUrl,
+              type: "GET",
+              dataType : "json",
+          })
+            .fail(function( xhr, status, errorThrown ) {
+              console.log( "Sorry, there was a problem!" );
+              console.log( "Error: " + errorThrown );
+              console.log( "Status: " + status );
+              console.dir( xhr );
+            })
+            // Code to run regardless of success or failure;
+            .always(function( xhr, status ) {
+              console.log( "The request is complete!" );
+            });
+
+     }
+
 //<try1>
        function apiShow2(url){
               if (url === '') {
