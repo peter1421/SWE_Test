@@ -77,6 +77,19 @@ public class AccountController {
 
 	@PostMapping("/api/singup")
 	@ResponseBody
+	public String singUpAll(@RequestParam String email,@RequestParam String password,  @RequestParam String name, @RequestParam String imageUrl, @RequestParam String phoneNumber, @RequestParam String address) {
+		System.out.println("email is " + email);
+		System.out.println("password is " + password);
+		//if(後端檢查註冊_function()==ture&&檢查重複_function()==ture).........
+		Account account = new Account(email, password);
+		Member member = new Member(email, name, imageUrl, phoneNumber, address);
+		//連線資料庫
+		accountManager.addAccount(account);
+		accountManager.addMember(member);
+		return "ok";
+	}
+
+	@ResponseBody
 	public Account singUp(@RequestParam String email, @RequestParam String password) {
 		System.out.println("email is " + email);
 		System.out.println("password is " + password);

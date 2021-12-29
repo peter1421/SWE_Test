@@ -131,6 +131,23 @@
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input type="password" name="password" class="form-control" id="exampleInputPassword1">
             </div>
+            <div class="mb-3">
+                <label class="form-label">會員名稱</label>
+                <input name="name" class="form-control" placeholder="會員名稱">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">會員頭貼</label>
+                <input name="imageUrl" class="form-control" placeholder="會員頭貼">
+            </div>
+            <div class="mb-3">
+                <label  class="form-label">手機號碼</label>
+                <input name="phoneNumber" class="form-control" placeholder="手機號碼">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">寄送地址</label>
+                <input name="address" placeholder="寄送地址" class="form-control">
+            </div>
             <button type="submit" name="註冊" class="btn btn-primary">註冊</button>
         </form>
     </div>
@@ -155,7 +172,7 @@
 </div>
 <div class="row">
     <form action="/api/member" method="post">
-        <h2>3.會員資料編輯</h2>
+        <h2>3.會員資料編輯(之後改更新資料用)</h2>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">郵件(如何讓前端更改登入狀態?)</label>
             <input type="email" name="email" placeholder="買家郵件" class="form-control" id="exampleInputEmail4"
@@ -179,7 +196,7 @@
             <input name="address" placeholder="寄送地址" class="form-control">
         </div>
 
-        <button type="submit" name="下單" class="btn btn-primary">下單</button>
+        <button type="submit" name="編輯" class="btn btn-primary">編輯</button>
     </form>
     <form action="/api/order" method="post">
         <h2>4.下單(登入後不用手動登入)</h2>
