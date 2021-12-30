@@ -11,7 +11,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -92,17 +91,15 @@ public class AccountController {
 	}
 
 	@ResponseBody
-	public Account singUp(@RequestParam String email, @RequestParam String password,HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public Account singUp(@RequestParam String email, @RequestParam String password) {
 		System.out.println("email is " + email);
 		System.out.println("password is " + password);
 		//if(後端檢查註冊_function()==ture&&檢查重複_function()==ture).........
 		Account account = new Account(email, password);
-		//連線資
-		response.sendRedirect("/index1.html");
+		//連線資料庫
 		accountManager.addAccount(account);
 		return account;
 	}
-
 
 	//會員相關
 	@GetMapping("/api/getMembers")
