@@ -1,10 +1,10 @@
 package fcu.sep.fcushop.model;
 
 public class Order {
-
 	private int productId;
 	private String buyerEmail;
 	private int count;
+
 
 	public Order() {
 	}
@@ -13,8 +13,8 @@ public class Order {
 		this.productId = productId;
 		this.buyerEmail = buyerEmail;
 		this.count = count;
-
 	}
+
 
 	public int getproductId() {
 		return productId;

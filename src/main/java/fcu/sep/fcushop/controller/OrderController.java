@@ -2,6 +2,7 @@ package fcu.sep.fcushop.controller;
 
 import fcu.sep.fcushop.model.Account;
 import fcu.sep.fcushop.model.BuyerOrder;
+import fcu.sep.fcushop.model.FullOrder;
 import fcu.sep.fcushop.model.Order;
 import fcu.sep.fcushop.service.AccountService;
 import fcu.sep.fcushop.service.OrderService;
@@ -26,6 +27,13 @@ public class OrderController {
 		System.out.println("取得所有訂單");
 		return orderManager.getOrder();
 	}
+
+	@GetMapping("/api/getFullOrder")
+	public List<FullOrder> getOrderData() {
+		System.out.println("取得所有訂單詳細資料");
+		return orderManager.getFullOrder();
+	}
+
 
 	@PostMapping("/api/getBuyerOrder")
 	@ResponseBody

@@ -3,6 +3,7 @@ package fcu.sep.fcushop.service;
 import fcu.sep.fcushop.database.Sql2oDbHandler;
 import fcu.sep.fcushop.model.Account;
 import fcu.sep.fcushop.model.BuyerOrder;
+import fcu.sep.fcushop.model.FullOrder;
 import fcu.sep.fcushop.model.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,19 @@ public class OrderService {
 			+ " from 訂單資料 ";
 			System.out.println(query);
 			return connection.createQuery(query).executeAndFetch(Order.class);
+		}
+	}
+	public List<FullOrder> getFullOrder() {
+		try (Connection connection = sql2oDbHandler.getConnector().open()) {
+			String query = "select 訂單ID orderID, 商品名稱 productName, 會員名稱 name, 手機號碼 phone, 寄送地址 address"
+			+ " \nfrom 訂單資料,商品資料,帳密資料,會員資料"
+			+" where 訂單資料.商品ID = 商品資料.商品ID\n" +
+			"and \n" +
+			"  訂單資料.買家Email = 帳密資料.電子郵件\n" +
+			"and\n" +
+			"  帳密資料.電子郵件 = 會員資料.電子郵件";
+			System.out.println(query);
+			return connection.createQuery(query).executeAndFetch(FullOrder.class);
 		}
 	}
 
