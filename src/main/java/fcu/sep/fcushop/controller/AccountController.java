@@ -83,7 +83,7 @@ public class AccountController {
 		System.out.println("password is " + password);
 		//if(後端檢查註冊_function()==ture&&檢查重複_function()==ture).........
 		Account account = new Account(email, password);
-		//連線資料庫
+		//連線資
 		response.sendRedirect("/index1.html");
 		accountManager.addAccount(account);
 		return account;
