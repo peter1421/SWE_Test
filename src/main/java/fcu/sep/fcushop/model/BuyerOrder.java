@@ -1,9 +1,7 @@
 package fcu.sep.fcushop.model;
 
-public class BuyerOrder {
-	private String buyerEmail;
+public class BuyerOrder extends Order{
 	private int orderID;
-	private int count;
 	private String name;
 	private int price;
 	private String description;
@@ -14,9 +12,7 @@ public class BuyerOrder {
 	}
 
 	public BuyerOrder(String buyerEmail, int orderID, int count, String name, int price, String description) {
-		this.buyerEmail = buyerEmail;
 		this.orderID = orderID;
-		this.count = count;
 		this.name = name;
 		this.price = price;
 		this.description = description;
@@ -30,13 +26,7 @@ public class BuyerOrder {
 		this.orderID = orderID;
 	}
 
-	public int getcount() {
-		return count;
-	}
 
-	public void setcount(int count) {
-		this.count = count;
-	}
 
 	public int getprice() {
 		return price;
@@ -47,15 +37,6 @@ public class BuyerOrder {
 	}
 
 
-	public String getbuyerEmail() {
-		return buyerEmail;
-	}
-
-	public void setbuyerEmail(String buyerEmail) {
-		this.buyerEmail = buyerEmail;
-	}
-
-
 	public String getname() {
 		return name;
 	}
@@ -63,7 +44,6 @@ public class BuyerOrder {
 	public void setname(String name) {
 		this.name = name;
 	}
-
 
 	public String description() {
 		return description;

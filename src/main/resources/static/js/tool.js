@@ -25,7 +25,7 @@
                 var temp = arrStr[i].split("=");
                 console.log(i,temp)
                 if(temp[0] == objName) {
-                    alert(unescape('登入者:'+temp[1]));
+//                    alert(unescape('登入者:'+temp[1]));
                     return unescape(temp[1]);
                 }
             }
@@ -266,8 +266,8 @@
         }
  }
 //鄧單 in 右上角購物車
-  function makePostRequestRihgt() {
-          var data="email="+getCookie("email"),url="/api/getBuyerOrder";
+  function makePostRequestRight() {
+          var data="email="+getCookie("email"),url="/api/getFullOrder";
           console.log("post request:"+data+"\turl:"+url);
 
           var xhr = new XMLHttpRequest();
@@ -287,11 +287,13 @@
         emptyProducts();//全部淨空
         var key=Object.keys(datas[0]);
         for ( let data of datas ) {
-            let html="<li>  <div class='cart-single-product'><div class='media'><div class='pull-left cart-product-img'>a href='#'>";
-            html+="<td>"+data.name+"</td>"
-            html+="<td>"+data.count+"</td>"
-            html+="<td>"+data.price+"</td>"
-            html+="</tr>";
+            let html="<li>  <div class='cart-single-product'><div class='media'><div class='pull-left cart-product-img'>";
+            html+="<a href='#'><img src='"+data.imageUrl+"alt='product' class='img-responsive'></a>"
+            html+=" </div> <div class='media-body cart-content'><ul><li>"
+            html+=" <h1><a href='#'>"+data.productName+"</a></h1>"
+            html+="<li><p> X" +data.count +"</p></li>"
+            html+=" <li><p>$"+data.price+"</p></li>"
+            html+="<li><a href='#' class='trash'><i class='fa fa-trash-o'></i></a></li></ul></div></div></div></li>"
             $('#dataList').append(html);
         }
  }

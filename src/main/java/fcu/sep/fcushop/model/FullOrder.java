@@ -5,17 +5,21 @@ public class FullOrder extends Order {
 	private String productName;
 	private String name;
 	private String phone;
-	public String address;
+	private String address;
+	private int price;
+	private String imageUrl;
 
 	public FullOrder() {
 	}
 
-	public FullOrder(int orderID, String productName, String name, String phone, String address,int productId,String buyerEmail,int count) {
+	public FullOrder(int orderID, String productName, String name, String phone, String address, int productId, String buyerEmail, int count, int price, String imageUrl) {
 		this.orderID = orderID;
 		this.productName = productName;
 		this.name = name;
 		this.phone = phone;
 		this.address = address;
+		this.price = price;
+		this.imageUrl = imageUrl;
 //		this.productId = productId;
 //		this.buyerEmail = buyerEmail;
 //		this.count = count;
@@ -59,5 +63,21 @@ public class FullOrder extends Order {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
 	}
 }

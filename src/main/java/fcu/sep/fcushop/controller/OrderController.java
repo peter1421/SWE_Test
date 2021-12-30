@@ -33,8 +33,9 @@ public class OrderController {
 		System.out.println("取得所有訂單詳細資料");
 		return orderManager.getFullOrder();
 	}
-	@GetMapping("/api/getFullOrder/{email}")
-	public List<FullOrder> getOrderData(@PathVariable("email") String email) {
+	@PostMapping("/api/getFullOrder")
+	@ResponseBody
+	public List<FullOrder> getOrderData(@RequestParam String email) {
 		System.out.println("取得"+email+"訂單詳細資料");
 		return orderManager.getFullOrder(email);
 	}
