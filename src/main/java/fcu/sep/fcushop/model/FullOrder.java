@@ -8,16 +8,17 @@ public class FullOrder extends Order {
 	public String address;
 
 	public FullOrder() {
-
 	}
 
-	//之後可能會繼承其他資訊
-	public FullOrder(int orderID, String productName, String name, String phone, String address) {
+	public FullOrder(int orderID, String productName, String name, String phone, String address,int productId,String buyerEmail,int count) {
 		this.orderID = orderID;
 		this.productName = productName;
 		this.name = name;
 		this.phone = phone;
 		this.address = address;
+//		this.productId = productId;
+//		this.buyerEmail = buyerEmail;
+//		this.count = count;
 	}
 
 	public int getorderID() {
@@ -32,7 +33,7 @@ public class FullOrder extends Order {
 		return productName;
 	}
 
-	public void setproductName() {
+	public void setproductName(String productName) {
 		this.productName = productName;
 	}
 
