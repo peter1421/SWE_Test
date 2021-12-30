@@ -1,3 +1,4 @@
+//寫得很雜 有機會整理
    function checkJavascript(){
             alert('引入成功')
    }
@@ -199,6 +200,9 @@
             $('#dataList').append(html);
         }
     }
+//賣家 結帳購物車
+
+
 //Seller 訂單資料
    function makeRequestSeller(url) {
             xhr = new XMLHttpRequest();
@@ -210,7 +214,7 @@
             };
             xhr.open("GET", url, true);
             xhr.send();
-    }
+   }
  function addDatasSellerOrder(datas) {
         console.log("顯示賣家商品管理");
         emptyProducts();//全部淨空
@@ -227,4 +231,4 @@
             html+="</tr>"
              $('#dataList').append(html);
         }
-    }
+ }
