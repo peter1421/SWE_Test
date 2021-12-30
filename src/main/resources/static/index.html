@@ -73,6 +73,8 @@
     </div>
 </nav>
 <h2 style="text-align:center;">買賣家頁面導向</h2>
+<h3 id="longer" style="text-align:center;">登入者</h3>
+
 <div class="row">
     <div class="col-6" style="text-align:center;">
         <a type="button" class="btn btn-primary" href="/apiTestBuyer.html">買家TEST</a>
@@ -140,6 +142,9 @@
   $( document ).ready( function() {
     console.log( "ready!" );
     emptyProducts();
+    if(getCookie("email")!=null){
+        document.getElementById("longer").innerHTML = "登入者:"+getCookie("email");
+    }
   });
 
     $('#searchProduct').click(function() {

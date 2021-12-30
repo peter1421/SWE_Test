@@ -25,7 +25,7 @@
                 var temp = arrStr[i].split("=");
                 console.log(i,temp)
                 if(temp[0] == objName) {
-                    alert(unescape('登入者:'+temp[1]));
+//                    alert(unescape('登入者:'+temp[1]));
                     return unescape(temp[1]);
                 }
             }
@@ -232,3 +232,98 @@
              $('#dataList').append(html);
         }
  }
+//訂單相關
+//鄧單 in checkout.html
+  function makePostRequestCheckout() {
+          //POST request用的(登入版)
+          //APIAll.html會用到的 makePostRequestCookies劣化版
+          var data="email="+getCookie("email"),url="/api/getBuyerOrder";
+          console.log("post request:"+data+"\turl:"+url);
+
+          var xhr = new XMLHttpRequest();
+          xhr.open("post",url, true);
+          xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+          xhr.send(data);
+          xhr.onload = function() {
+            let response = JSON.parse(this.response);
+            console.log(response)
+            addDatasBuyerOrder(response)
+          };
+    }
+
+ function addDatasBuyerOrder(datas) {
+           //劣化版
+        console.log("顯示賣家商品管理");
+        emptyProducts();//全部淨空
+        var key=Object.keys(datas[0]);
+        for ( let data of datas ) {
+            let html="<tr>";
+            html+="<td>"+data.name+"</td>"
+            html+="<td>"+data.count+"</td>"
+            html+="<td>"+data.price+"</td>"
+            html+="</tr>";
+            $('#dataList').append(html);
+        }
+ }
+//鄧單 in 右上角購物車
+  function makePostRequestRight() {
+          var data="email="+getCookie("email"),url="/api/getFullOrder";
+          console.log("post request:"+data+"\turl:"+url);
+
+          var xhr = new XMLHttpRequest();
+          xhr.open("post",url, true);
+          xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+          xhr.send(data);
+          xhr.onload = function() {
+            let response = JSON.parse(this.response);
+            console.log(response)
+            addDatasRight(response)
+          };
+    }
+
+ function addDatasRight(datas) {
+           //劣化版
+        console.log("顯示賣家商品管理");
+        emptyProducts();//全部淨空
+        var key=Object.keys(datas[0]);
+        for ( let data of datas ) {
+            let html="<li>  <div class='cart-single-product'><div class='media'><div class='pull-left cart-product-img'>";
+            html+="<a href='#'><img src='"+data.imageUrl+"alt='product' class='img-responsive'></a>"
+            html+=" </div> <div class='media-body cart-content'><ul><li>"
+            html+=" <h1><a href='#'>"+data.productName+"</a></h1>"
+            html+="<li><p> X" +data.count +"</p></li>"
+            html+=" <li><p>$"+data.price+"</p></li>"
+            html+="<li><a href='#' class='trash'><i class='fa fa-trash-o'></i></a></li></ul></div></div></div></li>"
+            $('#dataList').append(html);
+        }
+ }
+//
+//                                        <li>
+//                                            <div class="cart-single-product">
+//                                                <div class="media">
+//                                                    <div class="pull-left cart-product-img">
+//                                                        <a href="#">
+//                                                            <img src="img/dish/1.png" alt="product"
+//                                                                 class="img-responsive">
+//                                                        </a>
+//                                                    </div>
+//                                                    <div class="media-body cart-content">
+//                                                        <ul>
+//                                                            <li>
+//                                                                <h1><a href="#">Lunch Menu</a></h1>
+//                                                                <p><span>Code:</span> STPT600</p>
+//                                                            </li>
+//                                                            <li>
+//                                                                <p>X 1</p>
+//                                                            </li>
+//                                                            <li>
+//                                                                <p>$49</p>
+//                                                            </li>
+//                                                            <li>
+//                                                                <a href="#" class="trash"><i class="fa fa-trash-o"></i></a>
+//                                                            </li>
+//                                                        </ul>
+//                                                    </div>
+//                                                </div>
+//                                            </div>
+//                                        </li>

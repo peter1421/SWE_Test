@@ -26,13 +26,28 @@ public class OrderService {
 	}
 	public List<FullOrder> getFullOrder() {
 		try (Connection connection = sql2oDbHandler.getConnector().open()) {
-			String query = "select 訂單ID orderID, 商品名稱 productName, 會員名稱 name, 手機號碼 phone, 寄送地址 address"
+			String query = "select 訂單ID orderID, 商品名稱 productName, 會員名稱 name, 手機號碼 phone, 寄送地址 address,商品資料.商品ID productId,買家Email buyerEmail,商品數量 count"
 			+ " \nfrom 訂單資料,商品資料,帳密資料,會員資料"
 			+" where 訂單資料.商品ID = 商品資料.商品ID\n" +
 			"and \n" +
 			"  訂單資料.買家Email = 帳密資料.電子郵件\n" +
 			"and\n" +
 			"  帳密資料.電子郵件 = 會員資料.電子郵件";
+			System.out.println(query);
+			return connection.createQuery(query).executeAndFetch(FullOrder.class);
+		}
+	}
+	public List<FullOrder> getFullOrder(String email) {
+		try (Connection connection = sql2oDbHandler.getConnector().open()) {
+			String query = "select 訂單ID orderID, 商品名稱 productName, 會員名稱 name, 手機號碼 phone, 寄送地址 address,商品資料.商品ID productId,買家Email buyerEmail,商品價格 price,商品數量 count,商品圖片 imageUrl"
+			+ " \nfrom 訂單資料,商品資料,帳密資料,會員資料"
+			+" where 訂單資料.商品ID = 商品資料.商品ID\n" +
+			"and \n" +
+			"  訂單資料.買家Email = 帳密資料.電子郵件\n" +
+			"and\n" +
+			"  帳密資料.電子郵件 = 會員資料.電子郵件\n"+
+			"and\n" +
+			"  帳密資料.電子郵件 ='"+email+"';";
 			System.out.println(query);
 			return connection.createQuery(query).executeAndFetch(FullOrder.class);
 		}

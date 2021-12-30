@@ -78,6 +78,7 @@ public class AccountController {
 
 	@PostMapping("/api/singup")
 	@ResponseBody
+
 	public String singUpAll(@RequestParam String email,@RequestParam String password,  @RequestParam String name, @RequestParam String imageUrl, @RequestParam String phoneNumber, @RequestParam String address,HttpServletRequest request, HttpServletResponse response) throws IOException {
 		System.out.println("email is " + email);
 		System.out.println("password is " + password);
@@ -88,6 +89,7 @@ public class AccountController {
 		response.sendRedirect("/index1.html");
 		accountManager.addAccount(account);
 		accountManager.addMember(member);
+		response.sendRedirect("/index1.html");
 		return "ok";
 	}
 
