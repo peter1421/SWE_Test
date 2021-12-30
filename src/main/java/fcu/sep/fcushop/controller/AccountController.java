@@ -86,7 +86,6 @@ public class AccountController {
 		Account account = new Account(email, password);
 		Member member = new Member(email, name, imageUrl, phoneNumber, address);
 		//連線資料庫
-		response.sendRedirect("/index1.html");
 		accountManager.addAccount(account);
 		accountManager.addMember(member);
 		response.sendRedirect("/index1.html");
