@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import fcu.sep.fcushop.controller.AccountController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -71,6 +74,20 @@ public class OrderController {
 			return null;
 		}
 		orderManager.addOrder(order);
+		return order;
+	}
+
+	@PostMapping("/api/updataOrder")
+	@ResponseBody
+	public Order updataOrder(@RequestParam int orderId, @RequestParam String buyerEmail, @RequestParam int count, HttpServletRequest request, HttpServletResponse response) throws IOException {
+		System.out.println("orderId is " + orderId);
+		System.out.println("buyerEmail is " + buyerEmail);
+		System.out.println("count is " + count);
+		//檢查訂單合理?()
+
+		Order order = new Order(orderId, buyerEmail, count);
+		orderManager.updateOrder(order);
+		response.sendRedirect("/index1.html");
 		return order;
 	}
 }

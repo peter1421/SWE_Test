@@ -297,33 +297,7 @@
             $('#dataList').append(html);
         }
  }
-//
-//                                        <li>
-//                                            <div class="cart-single-product">
-//                                                <div class="media">
-//                                                    <div class="pull-left cart-product-img">
-//                                                        <a href="#">
-//                                                            <img src="img/dish/1.png" alt="product"
-//                                                                 class="img-responsive">
-//                                                        </a>
-//                                                    </div>
-//                                                    <div class="media-body cart-content">
-//                                                        <ul>
-//                                                            <li>
-//                                                                <h1><a href="#">Lunch Menu</a></h1>
-//                                                                <p><span>Code:</span> STPT600</p>
-//                                                            </li>
-//                                                            <li>
-//                                                                <p>X 1</p>
-//                                                            </li>
-//                                                            <li>
-//                                                                <p>$49</p>
-//                                                            </li>
-//                                                            <li>
-//                                                                <a href="#" class="trash"><i class="fa fa-trash-o"></i></a>
-//                                                            </li>
-//                                                        </ul>
-//                                                    </div>
-//                                                </div>
-//                                            </div>
-//                                        </li>
+
+
+
+
