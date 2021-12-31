@@ -321,24 +321,23 @@
             <div class="row" style="padding:20px 0; overflow-y:hidden;">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="row">
+                        <form action="/api/updataOrder" method="post">
 
-                        <table class="table table-responsive cart-table">
-                            <thead>
-                            <tr>
-                                <th>圖片</th>
-                                <th>商品名稱</th>
-                                <th>價格</th>
-                                <th>數量</th>
-                                <th>總和</th>
-                                <th>移除</th>
-                            </tr>
-                            </thead>
-                            <tbody  id="dataList"></tbody>
-
-                        </table>
-                        <a class="default-btn" href="#">更新購物車</a>
-
-
+                            <table class="table table-responsive cart-table">
+                                <thead>
+                                <tr>
+                                    <th>圖片</th>
+                                    <th>商品名稱</th>
+                                    <th>價格</th>
+                                    <th>數量</th>
+                                    <th>總和</th>
+                                    <th>移除</th>
+                                </tr>
+                                </thead>
+                                <tbody id="dataList"></tbody>
+                            </table>
+                            <a class="default-btn" href="#" type="submit">更新購物車</a>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -522,20 +521,19 @@
             for ( let data of datas ) {
                 let productCountId=data.orderID+'Count';
                 let productPriceId=data.orderID+'Price';
-                let html="<tr id='"+ data.orderID+"'>";
+                let html='';
+                html+="<tr id='"+ data.orderID+"'>";
                 html+="<td class='cart-item-image'><a href='"+data.imageUrl+"'><img src='"+data.imageUrl+"' alt='Image Alternative text' title='Image Title' /></a></td>"
                 html+="<td><a href='product-images.html' >"+data.productName+"</a></td>"
                 html+=" <td> "+data.price+"</td>"
                 html+="<td class='cart-item-quantity'><i class='fa fa-minus cart-item-minus'></i><input class='cart-quantity' type='text' name='cart-quantity' id='"+productCountId+"' value='"+data.count+"'/><i class='fa fa-plus cart-item-plus'></i></td>"
                 html+=" <td><p id='"+productPriceId+"'>"+data.price+"</p></td>"
                 html+=" <td class='cart-item-remove'><a class='' href='#'><i class='fa fa-trash' aria-hidden='true'></i></a></td>"
+
                 html+="</tr>"
                 $('#dataList').append(html)
                 let productCount = parseInt(document.getElementById(productCountId).value);
                 let productPrice = parseInt(document.getElementById(productPriceId).innerText);
-                console.log(productCount)
-                console.log(productPrice)
-                console.log(productCount*productPrice)
                 document.getElementById(productPriceId).innerHTML=productCount*productPrice
             }
      }
@@ -547,65 +545,12 @@
     });
 
 
+
+
+
+
+
+
 </script>
 </body>
 </html>
-
-
-<!--<tr>-->
-<!--    <td class="cart-item-image">-->
-<!--        <a href="#">-->
-<!--            <img src="img/dish/2.png" alt="Image Alternative text" title="Image Title" />-->
-<!--        </a>-->
-<!--    </td>-->
-<!--    <td><a href="product-images.html">FOOD</a>-->
-<!--        &lt;!&ndash; <p class="cart-item-size">Size: Small</p>-->
-<!--         <p class="cart-item-color">Color: Black</p>&ndash;&gt;-->
-<!--    </td>-->
-<!--    <td>Rs.150</td>-->
-<!--    <td class="cart-item-quantity"><i class="fa fa-minus cart-item-minus"></i>-->
-<!--        <input class="cart-quantity" type="text" name="cart-quantity" value="1" /><i class="fa fa-plus cart-item-plus"></i>-->
-<!--    </td>-->
-<!--    <td>Rs.150</td>-->
-<!--    <td class="cart-item-remove">-->
-<!--        <a class="" href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>-->
-<!--    </td>-->
-<!--</tr>-->
-<!--<tr>-->
-<!--    <td class="cart-item-image">-->
-<!--        <a href="#">-->
-<!--            <img src="img/dish/2.png" alt="Image Alternative text" title="Image Title" />-->
-<!--        </a>-->
-<!--    </td>-->
-<!--    <td><a href="#">Food</a>-->
-<!--        &lt;!&ndash; <p class="cart-item-size">Size: Small</p>-->
-<!--       <p class="cart-item-color">Color: Black</p>&ndash;&gt;-->
-<!--    </td>-->
-<!--    <td>Rs.200</td>-->
-<!--    <td class="cart-item-quantity"><i class="fa fa-minus cart-item-minus"></i>-->
-<!--        <input class="cart-quantity" type="text" name="cart-quantity" value="1" /><i class="fa fa-plus cart-item-plus"></i>-->
-<!--    </td>-->
-<!--    <td>Rs.200</td>-->
-<!--    <td class="cart-item-remove">-->
-<!--        <a class="" href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>-->
-<!--    </td>-->
-<!--</tr>-->
-<!--<tr>-->
-<!--    <td class="cart-item-image">-->
-<!--        <a href="#">-->
-<!--            <img src="img/dish/1.png" alt="Image Alternative text" title="Image Title" />-->
-<!--        </a>-->
-<!--    </td>-->
-<!--    <td><a href="#">Food</a>-->
-<!--        &lt;!&ndash; <p class="cart-item-size">Size: Small</p>-->
-<!--       <p class="cart-item-color">Color: Black</p>&ndash;&gt;-->
-<!--    </td>-->
-<!--    <td>Rs.150</td>-->
-<!--    <td class="cart-item-quantity"><i class="fa fa-minus cart-item-minus"></i>-->
-<!--        <input class="cart-quantity" type="text" name="cart-quantity" value="2" /><i class="fa fa-plus cart-item-plus"></i>-->
-<!--    </td>-->
-<!--    <td>Rs.300</td>-->
-<!--    <td class="cart-item-remove">-->
-<!--        <a class="" href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>-->
-<!--    </td>-->
-<!--</tr>-->
