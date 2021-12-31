@@ -67,7 +67,7 @@ public class OrderController {
 		//檢查訂單合理?()
 
 		Account account = new Account(buyerEmail, password);
-		Order order = new Order(orderId, buyerEmail, count);
+		Order order = new Order(orderId, buyerEmail, count,"下單中");
 
 		if (!accountController.checkAccount(account)) {
 			System.out.println("帳號錯誤");
@@ -84,7 +84,7 @@ public class OrderController {
 		System.out.println("buyerEmail is " + buyerEmail);
 		System.out.println("count is " + count);
 		//檢查訂單合理?()
-		Order order = new Order(orderId, buyerEmail, count);
+		Order order = new Order(orderId, buyerEmail, count,"下單中");
 		orderManager.updateOrder(order);
 		return true;
 	}
