@@ -97,4 +97,23 @@ public class OrderService {
 			return connection.createQuery(query).executeAndFetch(BuyerOrder.class);
 		}
 	}
+
+	public String updateOrder(Order order) {
+		String returnMessage;
+		try (Connection connection = sql2oDbHandler.getConnector().open()) {
+			String query = String.format("UPDATE `fcu_shop`.`訂單資料` SET `商品數量` = '%d' WHERE (`訂單ID` = '%d');", order.getcount(), order.getproductId());
+			System.out.println(query);
+			connection.createQuery(query, true).executeUpdate().getKey();
+
+			returnMessage = query + "寫入成功";
+
+		} catch (Exception ex)// 除了SQLException以外之錯誤
+		{
+			returnMessage = "錯誤訊息:" + ex.getMessage();
+		}
+		return returnMessage;
+	}
+//	UPDATE `fcu_shop`.`訂單資料` SET `商品數量` = '111' WHERE (`訂單ID` = '23');
+
+
 }
