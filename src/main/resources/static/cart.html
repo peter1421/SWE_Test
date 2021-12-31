@@ -321,23 +321,20 @@
             <div class="row" style="padding:20px 0; overflow-y:hidden;">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="row">
-                        <form action="/api/updataOrder" method="post">
-
-                            <table class="table table-responsive cart-table">
-                                <thead>
-                                <tr>
-                                    <th>圖片</th>
-                                    <th>商品名稱</th>
-                                    <th>價格</th>
-                                    <th>數量</th>
-                                    <th>總和</th>
-                                    <th>移除</th>
-                                </tr>
-                                </thead>
-                                <tbody id="dataList"></tbody>
-                            </table>
-                            <a class="default-btn" href="#" type="submit">更新購物車</a>
-                        </form>
+                        <table class="table table-responsive cart-table">
+                            <thead>
+                            <tr>
+                                <th>圖片</th>
+                                <th>商品名稱</th>
+                                <th>價格</th>
+                                <th>數量(只能手動輸入數字 + -按鈕未實作)</th>
+                                <th>總和</th>
+                                <th>移除</th>
+                            </tr>
+                            </thead>
+                            <tbody id="dataList"></tbody>
+                        </table>
+                        <a class="default-btn" href="#" type="type" onclick="update()">更新購物車</a>
                     </div>
                 </div>
             </div>
@@ -447,7 +444,6 @@
         </div>
     </div>
 </footer>
-</div>
 
 <!-- Preloader Start Here -->
 <div id="preloader"></div>
@@ -529,7 +525,6 @@
                 html+="<td class='cart-item-quantity'><i class='fa fa-minus cart-item-minus'></i><input class='cart-quantity' type='text' name='cart-quantity' id='"+productCountId+"' value='"+data.count+"'/><i class='fa fa-plus cart-item-plus'></i></td>"
                 html+=" <td><p id='"+productPriceId+"'>"+data.price+"</p></td>"
                 html+=" <td class='cart-item-remove'><a class='' href='#'><i class='fa fa-trash' aria-hidden='true'></i></a></td>"
-
                 html+="</tr>"
                 $('#dataList').append(html)
                 let productCount = parseInt(document.getElementById(productCountId).value);
@@ -538,11 +533,59 @@
             }
      }
 
-       $( document ).ready( function() {
+     function update(){
+         var temp=true;
+         var data="email="+getCookie("email"),url="/api/getFullOrder";
+         console.log("post request:"+data+"\turl:"+url);
+         var xhr = new XMLHttpRequest();
+         xhr.open("post",url, true);
+         xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+         xhr.send(data);
+         xhr.onload = function() {
+         let response = JSON.parse(this.response);
+         console.log(response)
+         for ( let data of response ){
+             let productCountId=data.orderID+'Count';
+             var dataJSON = {};
+             dataJSON["orderId"] = data.orderID;
+             dataJSON["buyerEmail"] = getCookie('email');
+             dataJSON["count"] = parseInt(document.getElementById(productCountId).value);
+             let request="buyerEmail="+ dataJSON["buyerEmail"]+"&orderId="+dataJSON["orderId"]+"&count="+dataJSON["count"]
+             console.log(request)
+             if(!updataPost(request)){
+                temp=false;
+             }
+         }
+<!--            判斷成功失敗??-->
+            alert('更新成功')
+            window.location.replace("/index1.html");
+         }
+     };
+
+
+    function  updataPost(data) {
+              //https://ithelp.ithome.com.tw/articles/10212110?sc=rss.qu
+              var url="/api/updataOrder";
+              console.log("post request:"+data+"\turl:"+url);
+              var xhr = new XMLHttpRequest();
+              xhr.open("post",url, true);
+              xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+              xhr.send(data);
+              xhr.onload = function() {
+                let response = JSON.parse(this.response);
+                console.log(response)
+                return response;
+
+              };
+    }
+
+     $( document ).ready( function() {
         console.log( "ready!!!!" );
         <!--    emptyProducts();-->
          makePostRequestList();
-    });
+     });
+
+
 
 
 

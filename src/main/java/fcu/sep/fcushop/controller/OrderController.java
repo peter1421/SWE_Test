@@ -79,15 +79,13 @@ public class OrderController {
 
 	@PostMapping("/api/updataOrder")
 	@ResponseBody
-	public Order updataOrder(@RequestParam int orderId, @RequestParam String buyerEmail, @RequestParam int count, HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public boolean updataOrder(@RequestParam int orderId, @RequestParam String buyerEmail, @RequestParam int count) {
 		System.out.println("orderId is " + orderId);
 		System.out.println("buyerEmail is " + buyerEmail);
 		System.out.println("count is " + count);
 		//檢查訂單合理?()
-
 		Order order = new Order(orderId, buyerEmail, count);
 		orderManager.updateOrder(order);
-		response.sendRedirect("/index1.html");
-		return order;
+		return true;
 	}
 }
