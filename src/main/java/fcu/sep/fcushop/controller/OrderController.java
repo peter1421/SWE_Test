@@ -44,6 +44,13 @@ public class OrderController {
 		return orderManager.getFullOrder(email);
 	}
 
+	@PostMapping("/api/getFullOrder2")
+	@ResponseBody
+	public List<FullOrder> getOrderData2(@RequestParam String email, @RequestParam String state) {
+		System.out.println("取得" + email + "訂單詳細資料");
+		System.out.println("取得" + state + "訂單詳細資料");
+		return orderManager.getFullOrder(email, state);
+	}
 
 	@PostMapping("/api/getBuyerOrder")
 	@ResponseBody
@@ -86,7 +93,7 @@ public class OrderController {
 		System.out.println("buyerEmail is " + buyerEmail);
 		System.out.println("count is " + count);
 		//檢查訂單合理?()
-		Order order = new Order(orderId, buyerEmail, count, "下單中");
+		Order order = new Order(orderId, buyerEmail, count, stateArr[0]);
 		orderManager.updateOrder(order);
 		return true;
 	}
@@ -95,17 +102,16 @@ public class OrderController {
 		return Integer.parseInt(String.valueOf(orderManager.getMaxBill()));
 	}
 
+	String[] stateArr = {"下單中", "結帳中", "運送中"};
+
 	@PostMapping("/api/checkOrder")
 	@ResponseBody
 	public boolean checkOrder(@RequestParam int orderId, @RequestParam String state) {
 		System.out.println("orderId is " + orderId);
 		System.out.println("orderState is " + state);
-		//檢查訂單合理?()
-		String[] stateArr={"下單中","結帳中","運送中"};
-		if(state.equals(stateArr[0])) {
-			orderManager.updateOrder(orderId, state, getMaxBill() + 1);
-			return true;
-		}
+		orderManager.updateOrder(orderId, state, getMaxBill() + 1);
 		return true;
 	}
+
+
 }

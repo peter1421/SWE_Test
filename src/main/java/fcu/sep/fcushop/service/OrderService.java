@@ -52,7 +52,23 @@ public class OrderService {
 			return connection.createQuery(query).executeAndFetch(FullOrder.class);
 		}
 	}
-
+	public List<FullOrder> getFullOrder(String email,String state) {
+		try (Connection connection = sql2oDbHandler.getConnector().open()) {
+			String query = "select 訂單ID orderID, 商品名稱 productName, 會員名稱 name, 手機號碼 phone, 寄送地址 address,商品資料.商品ID productId,買家Email buyerEmail,商品價格 price,商品數量 count,商品圖片 imageUrl"
+			+ " \nfrom 訂單資料,商品資料,帳密資料,會員資料"
+			+" where 訂單資料.商品ID = 商品資料.商品ID\n" +
+			"and \n" +
+			"  訂單資料.買家Email = 帳密資料.電子郵件\n" +
+			"and\n" +
+			"  帳密資料.電子郵件 = 會員資料.電子郵件\n"+
+			"and\n" +
+			"  訂單資料.訂單狀態 = '"+state+"'\n"+
+			"and\n" +
+			"  帳密資料.電子郵件 ='"+email+"';";
+			System.out.println(query);
+			return connection.createQuery(query).executeAndFetch(FullOrder.class);
+		}
+	}
 	public String addOrder(Order order) {
 
 		String returnMessage;
@@ -117,7 +133,7 @@ public class OrderService {
 
 	public Object getMaxBill() {
 		try (Connection connection = sql2oDbHandler.getConnector().open()) {
-			String query = "SELECT max(訂單ID)"+" FROM `fcu_shop`.`訂單資料`;";
+			String query = "SELECT max(帳單ID)"+" FROM `fcu_shop`.`訂單資料`;";
 			return connection.createQuery(query).executeScalar();
 		}
 	}
@@ -125,7 +141,7 @@ public class OrderService {
 	public String updateOrder(int id,String state,int bill) {
 		String returnMessage;
 		try (Connection connection = sql2oDbHandler.getConnector().open()) {
-			String query = String.format("UPDATE `fcu_shop`.`訂單資料` SET `訂單狀態` = '%s', `帳單編號` = '%d' WHERE (`訂單ID` = '%d');\n",  state,bill,id);
+			String query = String.format("UPDATE `fcu_shop`.`訂單資料` SET `訂單狀態` = '%s', `帳單ID` = '%d' WHERE (`訂單ID` = '%d');\n",  state,bill,id);
 			System.out.println(query);
 			connection.createQuery(query, true).executeUpdate().getKey();
 			returnMessage = query + "寫入成功";
