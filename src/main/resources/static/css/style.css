@@ -4987,15 +4987,18 @@ ul {
 @media only screen and (max-width: 480px) {
   .food-menu4-area .col-xs-6 {
     width: 100%;
+
   }
 }
 .food-menu4-area .food-menu4-box {
   position: relative;
   overflow: hidden;
   margin-bottom: 30px;
+  height:500px;
 }
 .food-menu4-area .food-menu4-box img {
   width: 100%;
+
 }
 .food-menu4-area .food-menu4-box span {
   position: absolute;
