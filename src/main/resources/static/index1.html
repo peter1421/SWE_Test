@@ -152,7 +152,7 @@
                                 <li>
                                     <div class="cart-area">
                                         <a href="#"><i aria-hidden="true" class="fa fa-shopping-cart"></i><span>2</span></a>
-                                        <ul id="dataList"></ul>
+                                        <ul id="dataListRight"></ul>
 
                                     </div>
                                 </li>
@@ -693,8 +693,9 @@
 <script type="text/javascript">
   $( document ).ready( function() {
     console.log( "ready!!!!" );
-<!--    emptyProducts();-->
-     makePostRequestRight()
+     var state="下單中"
+     var data="email="+getCookie("email")+"&state="+state,url="/api/getFullOrder2";
+     makePostRequestRight(data,url)
   });
 </script>
 

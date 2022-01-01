@@ -234,10 +234,10 @@
  }
 //訂單相關
 //鄧單 in checkout.html
-  function makePostRequestCheckout() {
+  function makePostRequestCheckout(data,url) {
           //POST request用的(登入版)
           //APIAll.html會用到的 makePostRequestCookies劣化版
-          var data="email="+getCookie("email"),url="/api/getBuyerOrder";
+//          var data="email="+getCookie("email"),url="/api/getBuyerOrder";
           console.log("post request:"+data+"\turl:"+url);
 
           var xhr = new XMLHttpRequest();
@@ -256,20 +256,23 @@
         console.log("顯示賣家商品管理");
         emptyProducts();//全部淨空
         var key=Object.keys(datas[0]);
+        let html="";
+        var total=0;
         for ( let data of datas ) {
-            let html="<tr>";
-            html+="<td>"+data.name+"</td>"
+            html+="<tr>";
+            html+="<td>"+data.productName+"</td>"
             html+="<td>"+data.count+"</td>"
-            html+="<td>"+data.price+"</td>"
+            html+="<td>"+data.price*data.count+"</td>"
             html+="</tr>";
-            $('#dataList').append(html);
+            total+=data.price*data.count;
         }
+        html+="<tr><td></td><td></td><td>"+total+"</td></tr>";
+        $('#dataList').append(html);
+
  }
 //鄧單 in 右上角購物車
-  function makePostRequestRight() {
-          var data="email="+getCookie("email"),url="/api/getFullOrder";
+  function makePostRequestRight(data,url) {
           console.log("post request:"+data+"\turl:"+url);
-
           var xhr = new XMLHttpRequest();
           xhr.open("post",url, true);
           xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -291,10 +294,10 @@
             html+="<a href='#'><img src='"+data.imageUrl+"alt='product' class='img-responsive'></a>"
             html+=" </div> <div class='media-body cart-content'><ul><li>"
             html+=" <h1><a href='#'>"+data.productName+"</a></h1>"
-            html+="<li><p> X" +data.count +"</p></li>"
             html+=" <li><p>$"+data.price+"</p></li>"
+            html+="<li><p> X" +data.count +"</p></li>"
             html+="<li><a href='#' class='trash'><i class='fa fa-trash-o'></i></a></li></ul></div></div></div></li>"
-            $('#dataList').append(html);
+            $('#dataListRight').append(html);
         }
  }
 
