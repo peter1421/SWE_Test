@@ -36,10 +36,11 @@ public class OrderController {
 		System.out.println("取得所有訂單詳細資料");
 		return orderManager.getFullOrder();
 	}
+
 	@PostMapping("/api/getFullOrder")
 	@ResponseBody
 	public List<FullOrder> getOrderData(@RequestParam String email) {
-		System.out.println("取得"+email+"訂單詳細資料");
+		System.out.println("取得" + email + "訂單詳細資料");
 		return orderManager.getFullOrder(email);
 	}
 
@@ -50,6 +51,7 @@ public class OrderController {
 		System.out.println("查詢購物清單");
 		return orderManager.getBuyerOrder(email);
 	}
+
 	@PostMapping("/api/getSellerOrder")
 	@ResponseBody
 	public List<BuyerOrder> getSellerOrder(@RequestParam String productId) {
@@ -67,7 +69,7 @@ public class OrderController {
 		//檢查訂單合理?()
 
 		Account account = new Account(buyerEmail, password);
-		Order order = new Order(orderId, buyerEmail, count,"下單中");
+		Order order = new Order(orderId, buyerEmail, count, "下單中");
 
 		if (!accountController.checkAccount(account)) {
 			System.out.println("帳號錯誤");
@@ -84,8 +86,26 @@ public class OrderController {
 		System.out.println("buyerEmail is " + buyerEmail);
 		System.out.println("count is " + count);
 		//檢查訂單合理?()
-		Order order = new Order(orderId, buyerEmail, count,"下單中");
+		Order order = new Order(orderId, buyerEmail, count, "下單中");
 		orderManager.updateOrder(order);
+		return true;
+	}
+
+	public int getMaxBill() {
+		return Integer.parseInt(String.valueOf(orderManager.getMaxBill()));
+	}
+
+	@PostMapping("/api/checkOrder")
+	@ResponseBody
+	public boolean checkOrder(@RequestParam int orderId, @RequestParam String state) {
+		System.out.println("orderId is " + orderId);
+		System.out.println("orderState is " + state);
+		//檢查訂單合理?()
+		String[] stateArr={"下單中","結帳中","運送中"};
+		if(state.equals(stateArr[0])) {
+			orderManager.updateOrder(orderId, state, getMaxBill() + 1);
+			return true;
+		}
 		return true;
 	}
 }

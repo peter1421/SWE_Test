@@ -114,7 +114,27 @@ public class OrderService {
 		}
 		return returnMessage;
 	}
-//	UPDATE `fcu_shop`.`訂單資料` SET `商品數量` = '111' WHERE (`訂單ID` = '23');
+
+	public Object getMaxBill() {
+		try (Connection connection = sql2oDbHandler.getConnector().open()) {
+			String query = "SELECT max(訂單ID)"+" FROM `fcu_shop`.`訂單資料`;";
+			return connection.createQuery(query).executeScalar();
+		}
+	}
+
+	public String updateOrder(int id,String state,int bill) {
+		String returnMessage;
+		try (Connection connection = sql2oDbHandler.getConnector().open()) {
+			String query = String.format("UPDATE `fcu_shop`.`訂單資料` SET `訂單狀態` = '%s', `帳單編號` = '%d' WHERE (`訂單ID` = '%d');\n",  state,bill,id);
+			System.out.println(query);
+			connection.createQuery(query, true).executeUpdate().getKey();
+			returnMessage = query + "寫入成功";
+		} catch (Exception ex)// 除了SQLException以外之錯誤
+		{
+			returnMessage = "錯誤訊息:" + ex.getMessage();
+		}
+		return returnMessage;
+	}
 
 
 }
