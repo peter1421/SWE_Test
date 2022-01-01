@@ -138,6 +138,14 @@ public class OrderService {
 		}
 	}
 
+	public Object getReCount(String email,int productId) {
+		try (Connection connection = sql2oDbHandler.getConnector().open()) {
+			String query = String.format("SELECT count('訂單ID')  FROM 訂單資料 where 買家Email='%s' and 商品ID=%d and 訂單狀態='下單中';",email,productId);
+			return connection.createQuery(query).executeScalar();
+		}
+	}
+
+
 	public String updateOrder(int id,String state,int bill) {
 		String returnMessage;
 		try (Connection connection = sql2oDbHandler.getConnector().open()) {

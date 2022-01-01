@@ -422,12 +422,11 @@
             let data="productId="+id+"&buyerEmail="+getCookie('email')+"&count=1&state=下單中&billId=0"
             let url="/api/addOrder"
             postRequest(data,url);
-            alert(getCookie("email")+"添加商品ID:"+id+"成功!!");
+            alert(getCookie("email")+"已添加商品ID:"+id);
             window.location.replace("/food_2.html");
         }else{
             alert("登入啦智障")
             window.location.replace("/index1.html");
-
         }
     }
 

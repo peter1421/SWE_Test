@@ -87,11 +87,28 @@ public class OrderController {
 		return order;
 	}
 
+
+	public boolean getReCount( String email, int productId) {
+		System.out.println(Integer.parseInt(String.valueOf(orderManager.getReCount(email,productId))));
+		if(Integer.parseInt(String.valueOf(orderManager.getReCount(email,productId)))==0){
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+
 	@PostMapping("/api/addOrder")
 	@ResponseBody
-	public void addOrder1(@RequestParam int productId, @RequestParam String buyerEmail, @RequestParam int count, @RequestParam String state,@RequestParam int billId) {
-		Order order = new Order(productId, buyerEmail, count, state,billId);
-		orderManager.addOrder(order);
+	public boolean addOrder1(@RequestParam int productId, @RequestParam String buyerEmail, @RequestParam int count, @RequestParam String state,@RequestParam int billId) {
+			if(getReCount(buyerEmail, productId)){
+				Order order = new Order(productId, buyerEmail, count, state,billId);
+				orderManager.addOrder(order);
+				return true;
+			}else {
+				return  false;
+			}
+
 	}
 
 	@PostMapping("/api/updataOrder")
@@ -110,6 +127,9 @@ public class OrderController {
 		return Integer.parseInt(String.valueOf(orderManager.getMaxBill()));
 	}
 
+
+
+
 	String[] stateArr = {"下單中", "結帳中","處理中","運送中"};
 
 	@PostMapping("/api/checkOrder")
@@ -120,6 +140,7 @@ public class OrderController {
 		orderManager.updateOrder(orderId, state, getMaxBill() + 1);
 		return true;
 	}
+
 
 
 }
