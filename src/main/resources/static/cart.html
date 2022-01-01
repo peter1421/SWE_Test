@@ -343,15 +343,18 @@
                 <div class="widget-header widget-header-sm">
                     <h3 class="widget-title">Cart Totals</h3>
                 </div>
-                <ul class="cart-total-list">
-                    <li>Subtotal<span class="cart-total-amount">Rs.650</span>
-                    </li>
-                    <li>Shipping<span class="cart-total-amount">Free</span>
-                    </li>
-                    <li>Total<span class="cart-total-amount">Rs.650</span>
-                    </li>
-                </ul>
-                <a class="default-btn" href="checkout-page.html">Checkout</a>
+                <ul class="cart-total-list" id="dataList2"></ul>
+
+<!--                <ul class="cart-total-list">-->
+<!--                    <li>Subtotal<span class="cart-total-amount">Rs.650</span>-->
+<!--                    </li>-->
+<!--                    <li>Shipping<span class="cart-total-amount">Free</span>-->
+<!--                    </li>-->
+<!--                    <li>Total<span class="cart-total-amount">Rs.650</span>-->
+<!--                    </li>-->
+<!--                </ul>-->
+                <a class="default-btn" onclick="checkOut()">直接結帳</a>
+                <a class="default-btn" href="checkout-page.html">(暫棄)結帳</a>
             </div>
 
         </div>
@@ -494,11 +497,10 @@
 <script src="js/tool.js"></script>
 
 <script>
+     function makePostRequestList(state) {
+              var data="email="+getCookie("email")+"&state="+state,url="/api/getFullOrder2";
 
-     function makePostRequestList() {
-              var data="email="+getCookie("email"),url="/api/getFullOrder";
               console.log("post request:"+data+"\turl:"+url);
-
               var xhr = new XMLHttpRequest();
               xhr.open("post",url, true);
               xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -514,6 +516,8 @@
                //劣化版
             console.log("顯示賣家商品管理");
             var key=Object.keys(datas[0]);
+            var total=0;
+
             for ( let data of datas ) {
                 let productCountId=data.orderID+'Count';
                 let productPriceId=data.orderID+'Price';
@@ -530,42 +534,54 @@
                 let productCount = parseInt(document.getElementById(productCountId).value);
                 let productPrice = parseInt(document.getElementById(productPriceId).innerText);
                 document.getElementById(productPriceId).innerHTML=productCount*productPrice
+                total+=productCount*productPrice;
             }
+            let html="";
+            html+="<li>小記<span class='cart-total-amount'>Tw."+total+"</span>"
+            html+="<li>運費<span class='cart-total-amount'>60</span></li>"
+            html+="<li>總和<span class='cart-total-amount'>Tw."+(total+60)+"</span></li>"
+            $('#dataList2').append(html)
+
+
      }
 
+
      function update(){
-         var temp=true;
-         var data="email="+getCookie("email"),url="/api/getFullOrder";
+<!--        //待改-->
+         var temp=true,state="下單中";
+         var data="email="+getCookie("email")+"&state="+state,url="/api/getFullOrder2";
          console.log("post request:"+data+"\turl:"+url);
          var xhr = new XMLHttpRequest();
          xhr.open("post",url, true);
          xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
          xhr.send(data);
          xhr.onload = function() {
-         let response = JSON.parse(this.response);
-         console.log(response)
-         for ( let data of response ){
-             let productCountId=data.orderID+'Count';
-             var dataJSON = {};
-             dataJSON["orderId"] = data.orderID;
-             dataJSON["buyerEmail"] = getCookie('email');
-             dataJSON["count"] = parseInt(document.getElementById(productCountId).value);
-             let request="buyerEmail="+ dataJSON["buyerEmail"]+"&orderId="+dataJSON["orderId"]+"&count="+dataJSON["count"]
-             console.log(request)
-             if(!updataPost(request)){
-                temp=false;
-             }
+             let response = JSON.parse(this.response);
+             console.log(response)
+             for ( let data of response ){
+                 let productCountId=data.orderID+'Count';
+                 var dataJSON = {};
+                 dataJSON["orderId"] = data.orderID;
+                 dataJSON["buyerEmail"] = getCookie('email');
+                 dataJSON["count"] = parseInt(document.getElementById(productCountId).value);
+                 let request="buyerEmail="+ dataJSON["buyerEmail"]+"&orderId="+dataJSON["orderId"]+"&count="+dataJSON["count"]
+                 let url="/api/updataOrder";
+
+                 console.log(request)
+                 if(!updataPost(request,url)){
+                    temp=false;
+                 }
          }
 <!--            判斷成功失敗??-->
             alert('更新成功')
-            window.location.replace("/index1.html");
+            window.location.replace("/cart.html");
+<!--            window.location.replace("/index1.html");-->
          }
      };
 
 
-    function  updataPost(data) {
+    function  updataPost(data,url) {
               //https://ithelp.ithome.com.tw/articles/10212110?sc=rss.qu
-              var url="/api/updataOrder";
               console.log("post request:"+data+"\turl:"+url);
               var xhr = new XMLHttpRequest();
               xhr.open("post",url, true);
@@ -574,22 +590,32 @@
               xhr.onload = function() {
                 let response = JSON.parse(this.response);
                 console.log(response)
-                return response;
-
               };
     }
 
+
+
+
+
+     function checkOut(){
+     ///直接索取html資料 簡單但有風險
+        var arr = [];
+        $("#dataList tr").each(function() {
+            arr.push(this.id);
+        });
+        for(data of arr){
+            let url="/api/checkOrder";
+            let request="orderId="+data+"&state=結帳中"
+            updataPost(request,url);
+        }
+        console.log(arr);
+        window.location.replace("/cart.html");
+
+    }
      $( document ).ready( function() {
         console.log( "ready!!!!" );
-        <!--    emptyProducts();-->
-         makePostRequestList();
+        makePostRequestList("下單中");
      });
-
-
-
-
-
-
 
 
 
