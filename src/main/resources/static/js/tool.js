@@ -29,12 +29,24 @@
                     return unescape(temp[1]);
                 }
             }
-            alert('null');
+//            alert('null');
             return null;
     }
 
 
-
+     function postRequest(data,url) {
+     //純送出資料POST
+     //EX:request:buyerEmail=Buyer1@gmail.com&orderId=25&count=2	url:/api/updataOrder
+             console.log("post request:"+data+"\turl:"+url);
+             var xhr = new XMLHttpRequest();
+             xhr.open("post",url, true);
+             xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+             xhr.send(data);
+             xhr.onload = function() {
+                let response = JSON.parse(this.response);
+                console.log(response)
+             };
+       }
 
     function apiShow(url){
           if (url === '') {
@@ -253,7 +265,6 @@
 
  function addDatasBuyerOrder(datas) {
            //劣化版
-        console.log("顯示賣家商品管理");
         emptyProducts();//全部淨空
         var key=Object.keys(datas[0]);
         let html="";
@@ -267,7 +278,7 @@
             total+=data.price*data.count;
         }
         html+="<tr><td></td><td></td><td>"+total+"</td></tr>";
-        $('#dataList').append(html);
+        $('#dataList1').append(html);
 
  }
 //鄧單 in 右上角購物車

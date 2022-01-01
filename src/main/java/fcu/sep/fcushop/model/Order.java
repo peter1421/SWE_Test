@@ -5,16 +5,17 @@ public class Order {
 	private String buyerEmail;
 	private int count;
 	private String state;
-
+	private int billId;
 
 	public Order() {
 	}
 
-	public Order(int productId, String buyerEmail, int count,String state) {
+	public Order(int productId, String buyerEmail, int count, String state, int billId) {
 		this.productId = productId;
 		this.buyerEmail = buyerEmail;
 		this.count = count;
-		this.state=state;
+		this.state = state;
+		this.billId = billId;
 	}
 
 
@@ -42,8 +43,20 @@ public class Order {
 		this.count = count;
 	}
 
-	public  String getState(){return state;}
+	public String getState() {
+		return state;
+	}
 
-	public void setState(String state){this.state = state;}
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public int getBillId() {
+		return billId;
+	}
+
+	public void setBillId(int billId) {
+		this.billId = billId;
+	}
 }
 

@@ -73,7 +73,7 @@ public class OrderService {
 
 		String returnMessage;
 		try (Connection connection = sql2oDbHandler.getConnector().open()) {
-			String query = String.format("INSERT INTO `fcu_shop`.`訂單資料` (`商品ID`, `買家Email` ,`商品數量`,`訂單狀態`) VALUES ('%d','%s','%d','%s');", order.getproductId(), order.getbuyerEmail(), order.getcount(),order.getState());
+			String query = String.format("INSERT INTO `fcu_shop`.`訂單資料` (`商品ID`, `買家Email` ,`商品數量`,`訂單狀態`,`帳單ID`) VALUES ('%d','%s','%d','%s','%d');", order.getproductId(), order.getbuyerEmail(), order.getcount(),order.getState(),order.getBillId());
 			System.out.println(query);
 			connection.createQuery(query, true).executeUpdate().getKey();
 

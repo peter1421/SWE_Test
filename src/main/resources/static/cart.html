@@ -259,7 +259,7 @@
                                 <th>移除</th>
                             </tr>
                             </thead>
-                            <tbody id="dataList"></tbody>
+                            <tbody id="dataList1"></tbody>
                         </table>
                         <a class="default-btn" href="#" type="type" onclick="update()">更新購物車</a>
                     </div>
@@ -455,7 +455,7 @@
                 html+=" <td><p id='"+productPriceId+"'>"+data.price+"</p></td>"
                 html+=" <td class='cart-item-remove'><a class='' href='#'><i class='fa fa-trash' aria-hidden='true'></i></a></td>"
                 html+="</tr>"
-                $('#dataList').append(html)
+                $('#dataList1').append(html)
                 let productCount = parseInt(document.getElementById(productCountId).value);
                 let productPrice = parseInt(document.getElementById(productPriceId).innerText);
                 document.getElementById(productPriceId).innerHTML=productCount*productPrice
@@ -525,7 +525,7 @@
      function checkOut(){
      ///直接索取html資料 簡單但有風險
         var arr = [];
-        $("#dataList tr").each(function() {
+        $("#dataList1 tr").each(function() {
             arr.push(this.id);
         });
         for(data of arr){
