@@ -410,10 +410,26 @@
     console.log( "ready!" );
     emptyProducts();
     getProducts('/api/products')
-    var state="下單中"
-    var data="email="+getCookie("email")+"&state="+state,url="/api/getFullOrder2";
-    makePostRequestRight(data,url)
+     if(getCookie("email")!=null){
+        var state="下單中"
+        var data="email="+getCookie("email")+"&state="+state,url="/api/getFullOrder2";
+        makePostRequestRight(data,url)
+    }
   });
+
+      function joinCar(id){
+        if(getCookie("email")!=null){
+            let data="productId="+id+"&buyerEmail="+getCookie('email')+"&count=1&state=下單中&billId=0"
+            let url="/api/addOrder"
+            postRequest(data,url);
+            alert(getCookie("email")+"添加商品ID:"+id+"成功!!");
+            window.location.replace("/food_2.html");
+        }else{
+            alert("登入啦智障")
+            window.location.replace("/index1.html");
+
+        }
+    }
 
     $('#searchProduct').click(function() {
       const keyword = $('#productKeyword').val();
@@ -436,6 +452,7 @@
     });
 
 
+
     function emptyProducts() {
       $('#productList').empty();
     }
@@ -449,7 +466,8 @@
         html += '<h5 class="card-title">' + product.name + '</h5>';
         html += '<p class="card-text">'+'ID:' + product.id + '</p>';
         html += '<p class="card-text">' + product.description + '</p>';
-        html += '<a href="#" class="btn btn-primary">' + product.price + '</a>';
+        html += '<p class="card-text">' + product.price  + '</p>';
+        html += '<p href="#" onclick="joinCar('+product.id+')" class="btn btn-primary" >加入購物車</p>';
         html += '</div>';
         html += '</div>';
         html += '</div>';
@@ -498,6 +516,7 @@
     xhr.open("GET", url, true);
     xhr.send();
  }
+
 
 
 </script>

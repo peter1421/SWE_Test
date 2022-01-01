@@ -68,15 +68,16 @@ public class OrderController {
 
 	@PostMapping("/api/order")
 	@ResponseBody
-	public Order addOrder(@RequestParam int orderId, @RequestParam String buyerEmail, @RequestParam int count, @RequestParam String password) {
-		System.out.println("orderId is " + orderId);
+	public Order addOrder(@RequestParam int productId, @RequestParam String buyerEmail, @RequestParam int count, @RequestParam String password) {
+		//測試api用
+		System.out.println("productId is " + productId);
 		System.out.println("buyerEmail is " + buyerEmail);
 		System.out.println("password is " + password);
 		System.out.println("count is " + count);
 		//檢查訂單合理?()
 
 		Account account = new Account(buyerEmail, password);
-		Order order = new Order(orderId, buyerEmail, count, "下單中");
+		Order order = new Order(productId, buyerEmail, count, "下單中",0);
 
 		if (!accountController.checkAccount(account)) {
 			System.out.println("帳號錯誤");
@@ -86,6 +87,13 @@ public class OrderController {
 		return order;
 	}
 
+	@PostMapping("/api/addOrder")
+	@ResponseBody
+	public void addOrder1(@RequestParam int productId, @RequestParam String buyerEmail, @RequestParam int count, @RequestParam String state,@RequestParam int billId) {
+		Order order = new Order(productId, buyerEmail, count, state,billId);
+		orderManager.addOrder(order);
+	}
+
 	@PostMapping("/api/updataOrder")
 	@ResponseBody
 	public boolean updataOrder(@RequestParam int orderId, @RequestParam String buyerEmail, @RequestParam int count) {
@@ -93,7 +101,7 @@ public class OrderController {
 		System.out.println("buyerEmail is " + buyerEmail);
 		System.out.println("count is " + count);
 		//檢查訂單合理?()
-		Order order = new Order(orderId, buyerEmail, count, stateArr[0]);
+		Order order = new Order(orderId, buyerEmail, count, stateArr[0],0);
 		orderManager.updateOrder(order);
 		return true;
 	}
@@ -102,7 +110,7 @@ public class OrderController {
 		return Integer.parseInt(String.valueOf(orderManager.getMaxBill()));
 	}
 
-	String[] stateArr = {"下單中", "結帳中", "運送中"};
+	String[] stateArr = {"下單中", "結帳中","處理中","運送中"};
 
 	@PostMapping("/api/checkOrder")
 	@ResponseBody

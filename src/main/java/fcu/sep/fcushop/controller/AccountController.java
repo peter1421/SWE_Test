@@ -39,6 +39,7 @@ public class AccountController {
 		return true;
 
 	}
+
 	@PostMapping("/api/login")
 	@ResponseBody
 	public boolean getLoginData(@RequestParam String email, @RequestParam String password, HttpServletRequest req, HttpServletResponse resp) {
@@ -79,7 +80,7 @@ public class AccountController {
 	@PostMapping("/api/singup")
 	@ResponseBody
 
-	public String singUpAll(@RequestParam String email,@RequestParam String password,  @RequestParam String name, @RequestParam String imageUrl, @RequestParam String phoneNumber, @RequestParam String address,HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public boolean singUpAll(@RequestParam String email, @RequestParam String password, @RequestParam String name, @RequestParam String imageUrl, @RequestParam String phoneNumber, @RequestParam String address, HttpServletRequest request, HttpServletResponse response) throws IOException {
 		System.out.println("email is " + email);
 		System.out.println("password is " + password);
 		//if(後端檢查註冊_function()==ture&&檢查重複_function()==ture).........
@@ -89,11 +90,11 @@ public class AccountController {
 		accountManager.addAccount(account);
 		accountManager.addMember(member);
 		response.sendRedirect("/index1.html");
-		return "ok";
+		return true;
 	}
 
 	@ResponseBody
-	public Account singUp(@RequestParam String email, @RequestParam String password,HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public boolean singUp(@RequestParam String email, @RequestParam String password, HttpServletRequest request, HttpServletResponse response) throws IOException {
 		System.out.println("email is " + email);
 		System.out.println("password is " + password);
 		//if(後端檢查註冊_function()==ture&&檢查重複_function()==ture).........
@@ -101,7 +102,7 @@ public class AccountController {
 		//連線資
 		response.sendRedirect("/index1.html");
 		accountManager.addAccount(account);
-		return account;
+		return true;
 	}
 
 
@@ -113,17 +114,17 @@ public class AccountController {
 
 	@PostMapping("/api/member")
 	@ResponseBody
-	public String singUp(@RequestParam String email, @RequestParam String name, @RequestParam String imageUrl, @RequestParam String phoneNumber, @RequestParam String address) {
+	public boolean singUp(@RequestParam String email, @RequestParam String name, @RequestParam String imageUrl, @RequestParam String phoneNumber, @RequestParam String address) {
 		System.out.println("email is " + email);
 		//if(後端檢查註冊_function()==ture&&檢查重複_function()==ture).........
 		Member member = new Member(email, name, imageUrl, phoneNumber, address);
 		//連線資料庫
 		accountManager.addMember(member);
-		return "ok";
+		return true;
 	}
 
 	@PostMapping("/api/searchMember")
-	public List<Member> searchMembers(@RequestParam String email){
+	public List<Member> searchMembers(@RequestParam String email) {
 		return accountManager.searchMembers(email);
 	}
 
