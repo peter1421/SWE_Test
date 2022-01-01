@@ -157,80 +157,7 @@
                                 <li>
                                     <div class="cart-area">
                                         <a href="#"><i aria-hidden="true" class="fa fa-shopping-cart"></i><span>2</span></a>
-                                        <ul>
-                                            <li>
-                                                <div class="cart-single-product">
-                                                    <div class="media">
-                                                        <div class="pull-left cart-product-img">
-                                                            <a href="#">
-                                                                <img src="img/dish/1.png" alt="product"
-                                                                     class="img-responsive">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body cart-content">
-                                                            <ul>
-                                                                <li>
-                                                                    <h1><a href="#">Lunch Menu</a></h1>
-                                                                    <p><span>Code:</span> STPT600</p>
-                                                                </li>
-                                                                <li>
-                                                                    <p>X 1</p>
-                                                                </li>
-                                                                <li>
-                                                                    <p>$49</p>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#" class="trash"><i
-                                                                            class="fa fa-trash-o"></i></a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="cart-single-product">
-                                                    <div class="media">
-                                                        <div class="pull-left cart-product-img">
-                                                            <a href="#">
-                                                                <img src="img/dish/2.png" alt="product"
-                                                                     class="img-responsive">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body cart-content">
-                                                            <ul>
-                                                                <li>
-                                                                    <h1><a href="#">Dinner Menu</a></h1>
-                                                                    <p><span>Code:</span> STPT460</p>
-                                                                </li>
-                                                                <li>
-                                                                    <p>X 1</p>
-                                                                </li>
-                                                                <li>
-                                                                    <p>$75</p>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#" class="trash"><i
-                                                                            class="fa fa-trash-o"></i></a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <span><span>Sub Total</span></span><span>$124</span>
-                                                <span><span>Discount</span></span><span>$30</span>
-                                                <span><span>Vat(20%)</span></span><span>$18.8</span>
-                                                <span><span>Sub Total</span></span><span>$112.8</span>
-                                            </li>
-                                            <li>
-                                                <ul class="checkout">
-                                                    <li><a href="cart.html" class="default-btn">View Cart</a></li>
-                                                    <li><a href="checkout.html" class="default-btn">Checkout</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
+                                        <ul id="dataListRight"></ul>
                                     </div>
                                 </li>
                             </ul>
@@ -497,9 +424,7 @@
 <script src="js/tool.js"></script>
 
 <script>
-     function makePostRequestList(state) {
-              var data="email="+getCookie("email")+"&state="+state,url="/api/getFullOrder2";
-
+     function makePostRequestList(data,url) {
               console.log("post request:"+data+"\turl:"+url);
               var xhr = new XMLHttpRequest();
               xhr.open("post",url, true);
@@ -609,12 +534,16 @@
             updataPost(request,url);
         }
         console.log(arr);
-        window.location.replace("/cart.html");
+        alert("結帳成功")
+        window.location.replace("/index1.html");
 
     }
      $( document ).ready( function() {
         console.log( "ready!!!!" );
-        makePostRequestList("下單中");
+        var state="下單中"
+        var data="email="+getCookie("email")+"&state="+state,url="/api/getFullOrder2";
+        makePostRequestList(data,url);
+        makePostRequestRight(data,url)
      });
 
 

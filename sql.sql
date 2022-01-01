@@ -1,1 +1,0 @@
-SELECT * FROM fcu_shop.訂單;

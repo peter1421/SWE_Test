@@ -323,7 +323,7 @@ Check Out
     <div class="row">
         <div class="col-md-4">
             <div class="widget-header widget-header-sm text-center widget-header-bottom-line">
-                <h3 class="widget-title">訂單信息(未加總合)</h3>
+                <h3 class="widget-title">訂單信息</h3>
             </div>
             <table class="table cart-table">
                 <thead>
@@ -601,11 +601,61 @@ Check Out
 <script src="js/main.js" type="text/javascript"></script>
 <script>
 
+       function makePostRequestList(data,url) {
+              console.log("post request:"+data+"\turl:"+url);
+              var xhr = new XMLHttpRequest();
+              xhr.open("post",url, true);
+              xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+              xhr.send(data);
+              xhr.onload = function() {
+                let response = JSON.parse(this.response);
+                console.log(response)
+                addDatasList(response)
+              };
+     }
+       function addDatasList(datas) {
+               //劣化版
+            console.log("顯示賣家商品管理");
+            var key=Object.keys(datas[0]);
+            var total=0;
+
+            for ( let data of datas ) {
+                let productCountId=data.orderID+'Count';
+                let productPriceId=data.orderID+'Price';
+                let html='';
+                html+="<tr id='"+ data.orderID+"'>";
+                html+="<td class='cart-item-image'><a href='"+data.imageUrl+"'><img src='"+data.imageUrl+"' alt='Image Alternative text' title='Image Title' /></a></td>"
+                html+="<td><a href='product-images.html' >"+data.productName+"</a></td>"
+                html+=" <td> "+data.price+"</td>"
+                html+="<td class='cart-item-quantity'><i class='fa fa-minus cart-item-minus'></i><input class='cart-quantity' type='text' name='cart-quantity' id='"+productCountId+"' value='"+data.count+"'/><i class='fa fa-plus cart-item-plus'></i></td>"
+                html+=" <td><p id='"+productPriceId+"'>"+data.price+"</p></td>"
+                html+=" <td class='cart-item-remove'><a class='' href='#'><i class='fa fa-trash' aria-hidden='true'></i></a></td>"
+                html+="</tr>"
+                $('#dataList1').append(html)
+                let productCount = parseInt(document.getElementById(productCountId).value);
+                let productPrice = parseInt(document.getElementById(productPriceId).innerText);
+                document.getElementById(productPriceId).innerHTML=productCount*productPrice
+                total+=productCount*productPrice;
+            }
+            let html="";
+            html+="<li>小記<span class='cart-total-amount'>Tw."+total+"</span>"
+            html+="<li>運費<span class='cart-total-amount'>60</span></li>"
+            html+="<li>總和<span class='cart-total-amount'>Tw."+(total+60)+"</span></li>"
+            $('#dataList2').append(html)
+
+
+     }
   $( document ).ready( function() {
     console.log( "ready!!!!" );
 <!--    emptyProducts();-->
-     makePostRequestCheckout()
+        var state="結帳中"
+
+     var data="email="+getCookie("email")+"&state="+state,url="/api/getFullOrder2";
+<!--     makePostRequestList(data,url);-->
+     makePostRequestRight(data,url)
+     makePostRequestCheckout(data,url)
   });
+
 
 
 
