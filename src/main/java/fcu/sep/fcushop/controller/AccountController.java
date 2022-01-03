@@ -60,7 +60,7 @@ public class AccountController {
 
 			cookie.setPath("/");
 			resp.addCookie(cookie);
-			resp.sendRedirect("/index1.html");
+			resp.sendRedirect("/Successlogin.html");
 			//相關說明:https://www.uj5u.com/ruanti/1020.html
 			return true;
 			//比對成功
