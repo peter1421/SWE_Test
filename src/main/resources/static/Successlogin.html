@@ -73,9 +73,9 @@
                                 <ul>
 
 
-                                    <li class="dropdown"><a class="current-open" data-toggle="dropdown"
+                                    <li class="dropdown" ><a class="current-open" data-toggle="dropdown"
                                                             aria-haspopup="true" aria-expanded="false" href="#"><span><i
-                                            class="fa fa-user" aria-hidden="true"></i> 我的帳戶 </span> <i
+                                            id="longer" style="text-align:center;"></i></span> <i
                                             class="fa fa-angle-down"></i></a>
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a href="account_page.html">帳戶</a></li>
@@ -671,6 +671,14 @@
      var state="下單中"
      var data="email="+getCookie("email")+"&state="+state,url="/api/getFullOrder2";
      makePostRequestRight(data,url)
+  });
+
+   $( document ).ready( function() {
+    console.log( "ready!" );
+    emptyProducts();
+    if(getCookie("email")!=null){
+        document.getElementById("longer").innerHTML = "登入者:"+getCookie("email");
+    }
   });
 </script>
 
