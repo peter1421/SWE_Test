@@ -564,8 +564,10 @@
 </div>
 
 
+
 <div class="modal fade" id="Restaurant_login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
+        <form action="/api/login" method="post">
         <div class="modal-content">
 
             <div class="modal-header">
@@ -580,11 +582,11 @@
                     <div class="alert alert-danger" role="alert">錯誤警告視窗：</div>
                     <div class="form-group">
                         <label for="">信箱地址</label>
-                        <input type="email" class="form-control" id="" placeholder="Email">
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail2" placeholder="Email">
                     </div>
                     <div class="form-group">
                         <label for="">密碼</label>
-                        <input type="password" class="form-control" id="" placeholder="Password">
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
                     </div>
 
 
@@ -602,7 +604,9 @@
                 <a type="submit" class="" style="margin-left:10px;cursor:pointer;" data-toggle="modal"
                    data-target="#Restaurant_forgetpas">忘記密碼?</a>
             </div>
+
         </div>
+        </form>
     </div>
 </div>
 
