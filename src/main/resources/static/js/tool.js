@@ -17,6 +17,20 @@
         alert("登出完成")
     }
 
+    function deleteAllCookies() {
+        var cookies = document.cookie.split(";");
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i];
+            var eqPos = cookie.indexOf("=");
+            var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        }
+        console.log("cookies 清除完成");
+        alert("登出完成")
+    }
+
+
+
 
     function getCookie(objName){
     //獲取指定名稱的cookie的值
@@ -25,14 +39,14 @@
                 var temp = arrStr[i].split("=");
                 console.log(i,temp)
                 if(temp[0] == objName) {
-//                    alert(unescape('登入者:'+temp[1]));
+                    alert(unescape('登入者:'+temp[1]+"已登入"));
                     return unescape(temp[1]);
                 }
+
             }
-//            alert('null');
+
             return null;
     }
-
 
      function postRequest(data,url) {
      //純送出資料POST
