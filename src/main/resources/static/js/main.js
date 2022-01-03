@@ -80,7 +80,7 @@ $('#shipping-address-checkbox').on('ifUnchecked', function() {
                     _set.show().animate({opacity: 1}, 1000);
                 });
             } else {
-                _this.text('No more item to display');
+                _this.text('沒了還按');
             }
 
             return false;
