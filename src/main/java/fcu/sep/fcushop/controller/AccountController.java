@@ -42,7 +42,7 @@ public class AccountController {
 
 	@PostMapping("/api/login")
 	@ResponseBody
-	public boolean getLoginData(@RequestParam String email, @RequestParam String password, HttpServletRequest req, HttpServletResponse resp) {
+	public boolean getLoginData(@RequestParam String email, @RequestParam String password, HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		//接收前端帳密資料
 		System.out.println("email is " + email);
 		System.out.println("password is " + password);
@@ -52,12 +52,15 @@ public class AccountController {
 		//checkAccount(account);
 		if (accountManager.checkLogin(account) == null) {
 			System.out.println("null");
+			resp.sendRedirect("/index1.html");
 			return false;
 			//錯誤
 		} else {
 			Cookie cookie = new Cookie("email", email);
+
 			cookie.setPath("/");
 			resp.addCookie(cookie);
+			resp.sendRedirect("/index1.html");
 			//相關說明:https://www.uj5u.com/ruanti/1020.html
 			return true;
 			//比對成功
