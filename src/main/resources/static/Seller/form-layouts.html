@@ -284,7 +284,8 @@
                 <div class="col-md-6 col-sm-6 col-lg-6"><input class="brd-rd5" type="text" placeholder="商品名稱"
                                                                aria-describedby="searchProduct" id="productName"/>
                 </div>
-                <div class="col-md-6 col-sm-6 col-lg-6"><input class="brd-rd5" aria-describedby="basic-addon3" type="text" placeholder="商品敘述"
+                <div class="col-md-6 col-sm-6 col-lg-6"><input class="brd-rd5" aria-describedby="basic-addon3"
+                                                               type="text" placeholder="商品敘述"
                                                                id="productDescription"/>
                 </div>
 
@@ -292,18 +293,30 @@
 
                     <!--                    <span class="input-group-text" id="basic-addon3">https://i.imgur.com/</span>-->
                     <input class="brd-rd5" type="text"
-                           placeholder="圖片網址:https://i.imgur.com/+" id="productUrl" aria-label="Amount (to the nearest dollar)"></div>
+                           placeholder="圖片網址:https://i.imgur.com/+" id="productUrl"
+                           aria-label="Amount (to the nearest dollar)"></div>
                 <div class="col-md-6 col-sm-6 col-lg-6">
                     <input class="brd-rd5" type="text"
                            placeholder="商品金額(.00TW)" id="productMoney"/>
                 </div>
-
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="widget-title2">
+                        <span>商品類別</span>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>選擇商品分類</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="col-md-12 col-sm-12 col-lg-12">
                     <div class="file-upload-box"><strong>圖片上傳:</strong>
                         <div class="file-box"><label class="fileContainer"><span
                                 class="blue-bg brd-rd5">瀏覽本地文件</span>目前無設計 <input type="file"/></label></div>
                     </div>
                 </div>
+
                 <div class="col-md-12 col-sm-12 col-lg-12">
                     <button class="green-bg brd-rd5" id="addProduct1" onclick="addProduct()"><i
                             class="fa fa-paper-plane"></i>
