@@ -61,7 +61,7 @@
             return null;
     }
 
-    //
+
      function postRequest(data,url) {
      //純送出資料POST
      //EX:request:buyerEmail=Buyer1@gmail.com&orderId=25&count=2	url:/api/updataOrder
