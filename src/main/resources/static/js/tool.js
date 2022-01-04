@@ -52,7 +52,7 @@
                 var temp = arrStr[i].split("=");
                 console.log(i,temp)
                 if(temp[0] == objName) {
-                    alert(unescape('登入者:'+temp[1]+"已登入"));
+                    //alert(unescape('登入者:'+temp[1]+"已登入"));
                     return unescape(temp[1]);
                 }
 
