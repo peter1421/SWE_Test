@@ -1,5 +1,6 @@
 package fcu.sep.fcushop.controller;
 
+import fcu.sep.fcushop.model.Account;
 import fcu.sep.fcushop.model.Product;
 import fcu.sep.fcushop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,9 +41,10 @@ public class ProductController {
 		return Integer.parseInt(String.valueOf(productManager.getMaxID()));
 	}
 
-	@GetMapping("/api/add/{productName}/{productUrl}/{productMoney}/{productDescription}")
-	public List<Product> addProducts(@PathVariable("productName") String productName, @PathVariable("productUrl") String productUrl, @PathVariable("productMoney") String productMoney, @PathVariable("productDescription") String productDescription) {
-		productManager.addProducts(getMaxID() + 1, productName, "https://i.imgur.com/" + productUrl, Integer.parseInt(productMoney), productDescription);
+	@GetMapping("/api/add/{productName}/{productUrl}/{productMoney}/{productDescription}/{productClassification}")
+	public List<Product> addProducts(@PathVariable("productName") String productName, @PathVariable("productUrl") String productUrl, @PathVariable("productMoney") String productMoney, @PathVariable("productDescription") String productDescription,@PathVariable("productClassification") String productClassification) {
+		Product product = new Product(getMaxID() + 1, productName, "https://i.imgur.com/" + productUrl, Integer.parseInt(productMoney), productDescription,productClassification);
+		productManager.addProducts(product);
 		return productManager.getProducts();
 	}
 

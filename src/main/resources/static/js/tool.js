@@ -145,12 +145,12 @@
           const productUrl  = document.getElementById("productUrl").value;
           const productMoney  = document.getElementById("productMoney").value;
           const productDescription  = document.getElementById("productDescription").value;
-
+          const productClassification=document.getElementById("productClassification").value;
           if (productName.trim() === '') {
             addProducts('/api/add');
             alert('null')
           } else {
-            const url='/api/add/' + productName+'/'+productUrl+'/'+productMoney+'/'+productDescription
+            const url='/api/add/' + productName+'/'+productUrl+'/'+productMoney+'/'+productDescription+'/'+productClassification
             console.log(url);
             addProducts(url);
             alert(productName+'添加成功')
