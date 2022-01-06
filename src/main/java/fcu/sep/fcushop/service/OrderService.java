@@ -160,5 +160,20 @@ public class OrderService {
 		return returnMessage;
 	}
 
+	public String deleteOrder(int ID) {
+		//刪除特定訂單
+		String returnMessage;
+		try (Connection connection = sql2oDbHandler.getConnector().open()) {
+			String query=String.format("DELETE FROM `fcu_shop`.`訂單資料` WHERE (`訂單ID` = '%d');", ID);
+			System.out.println(query);
+			connection.createQuery(query, true).executeUpdate().getKey();
+			returnMessage = query + "寫入成功";
+		} catch (Exception ex)// 除了SQLException以外之錯誤
+		{
+			returnMessage = "錯誤訊息:" + ex.getMessage();
+		}
+		return returnMessage;
+	}
+
 
 }
