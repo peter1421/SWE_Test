@@ -3,18 +3,16 @@ package fcu.sep.fcushop.controller;
 import fcu.sep.fcushop.model.Account;
 import fcu.sep.fcushop.model.Product;
 import fcu.sep.fcushop.service.ProductService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 
 @RestController
 public class ProductController {
-
-	@Autowired
+@Autowired
 	ProductService productManager;
 
 	@GetMapping("/api/products")
@@ -27,7 +25,7 @@ public class ProductController {
 
 	}
 
-//	@GetMapping("/api/products/{keyword}")
+	//	@GetMapping("/api/products/{keyword}")
 //	public List<Product> getProducts(@PathVariable("keyword") String keyword) {
 //		return productManager.getProducts(keyword);
 //	}
@@ -46,8 +44,8 @@ public class ProductController {
 	}
 
 	@GetMapping("/api/add/{productName}/{productUrl}/{productMoney}/{productDescription}/{productClass}")
-	public List<Product> addProducts(@PathVariable("productName") String productName, @PathVariable("productUrl") String productUrl, @PathVariable("productMoney") String productMoney, @PathVariable("productDescription") String productDescription,@PathVariable("productClass") String productClass) {
-		Product product = new Product(getMaxID() + 1, productName, "https://i.imgur.com/" + productUrl, Integer.parseInt(productMoney), productDescription,productClass);
+	public List<Product> addProducts(@PathVariable("productName") String productName, @PathVariable("productUrl") String productUrl, @PathVariable("productMoney") String productMoney, @PathVariable("productDescription") String productDescription, @PathVariable("productClass") String productClass) {
+		Product product = new Product(getMaxID() + 1, productName, "https://i.imgur.com/" + productUrl, Integer.parseInt(productMoney), productDescription, productClass);
 		productManager.addProducts(product);
 		return productManager.getProducts();
 	}
@@ -58,9 +56,9 @@ public class ProductController {
 		return productManager.getProducts();
 	}
 
-	@GetMapping("/api/delete/{ID}")
-	public List<Product> deleteProducts(@PathVariable("ID") int ID) {
-		productManager.deleteProducts(ID);
+	@GetMapping("/api/delete/{Id}")
+	public List<Product> deleteProducts(@PathVariable("Id") int Id) {
+		productManager.deleteProducts(Id);
 		return productManager.getProducts();
 	}
 }

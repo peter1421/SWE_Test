@@ -36,6 +36,11 @@ public class OrderController {
 		System.out.println("取得所有訂單詳細資料");
 		return orderManager.getFullOrder();
 	}
+	@GetMapping("/api/getFullOrder/{state}")
+	public List<FullOrder> getOrderDataStates(@PathVariable("state") String state) {
+		System.out.println("取得所有訂單詳細資料");
+		return orderManager.getFullOrderStates(state);
+	}
 
 	@PostMapping("/api/getFullOrder")
 	@ResponseBody

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head><!-- Meta-Information --><title>Zawya Admin Panel</title>
+    <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Vendor:Bootstrap 4 Stylesheets -->
@@ -373,23 +376,53 @@
                 </div>
             </div>
             <div class="col-md-6 grid-item col-sm-12 col-lg-6">
-                <div class="widget sales-summ pad50-40">
-                    <div class="wdgt-opt"><span class="wdgt-opt-btn"><i class="ion-android-more-vertical"></i></span>
-                        <div class="wdgt-opt-lst brd-rd5"><a class="delt-wdgt" href="#" title="">Delete</a><a
-                                class="expnd-wdgt" href="#" title="">Expand</a><a class="refrsh-wdgt" href="#" title="">Refresh</a>
+                <div class="card shadow mb-4"><!-- Card Header - Dropdown -->
+                    <div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary"><font
+                            style="vertical-align: inherit;"><font style="vertical-align: inherit;">甜甜圈圖</font></font>
+                    </h6></div><!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-pie pt-4">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="myPieChart" width="635" height="316"
+                                    style="display: block; height: 253px; width: 508px;"
+                                    class="chartjs-render-monitor"></canvas>
                         </div>
-                    </div>
-                    <div class="wdgt-ldr">
-                        <div class="ball-scale-multiple">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                    </div>
-                    <h4 class="widget-title">Sales Difference</h4>
-                    <div id="chrt1" style="height: 260px;"></div>
+                        <hr>
+                        <font style="vertical-align: inherit;"><font
+                                style="vertical-align: inherit;">圓環圖的樣式可以在</font></font><code>/js/demo/chart-pie-demo.js</code><font
+                            style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件中</font><font
+                            style="vertical-align: inherit;">找到</font><font
+                            style="vertical-align: inherit;">。</font></font></div>
                 </div>
             </div>
+<!--            <div class="col-md-6 grid-item col-sm-12 col-lg-6">-->
+<!--                <div class="widget sales-summ pad50-40">-->
+<!--                    <div class="wdgt-opt"><span class="wdgt-opt-btn"><i class="ion-android-more-vertical"></i></span>-->
+<!--                        <div class="wdgt-opt-lst brd-rd5"><a class="delt-wdgt" href="#" title="">Delete</a><a-->
+<!--                                class="expnd-wdgt" href="#" title="">Expand</a><a class="refrsh-wdgt" href="#" title="">Refresh</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="wdgt-ldr">-->
+<!--                        <div class="ball-scale-multiple">-->
+<!--                            <div></div>-->
+<!--                            <div></div>-->
+<!--                            <div></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <h4 class="widget-title">Sales Difference</h4>-->
+<!--                    <div id="chrt1" style="height: 260px;">-->
+
+<!--                    </div>-->
+
+<!--                </div>-->
+<!--            </div>-->
             <div class="col-md-12 grid-item col-sm-12 col-lg-12">
                 <div class="widget prd-wdgt pad50-40">
                     <div class="wdgt-opt"><span class="wdgt-opt-btn"><i class="ion-android-more-vertical"></i></span>
@@ -591,10 +624,33 @@
                             <div></div>
                         </div>
                     </div>
-                    <h4 class="widget-title">商品下單(未結帳)</h4><a class="add-proj brd-rd5" href="#"
-                                                              data-toggle="tooltip" title="Add Project">+</a>
+                    <div  class="btn-group" role="group"
+                         aria-label="Basic radio toggle button group">
+                        <!--            有空改彈性化-->
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                        <label class="btn btn-outline-primary" for="btnradio1"
+                               onclick=makeRequestSeller("/api/getFullOrder")>所有訂單</label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="btnradio2" onclick=makeRequestSeller("/api/getFullOrder/下單中")>下單中</label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="btnradio3" onclick=makeRequestSeller("/api/getFullOrder/結帳中")>結帳中</label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="btnradio4"
+                               onclick=makeRequestSeller("/api/getFullOrder/配送中")>配送中</label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="btnradio5"
+                               onclick=makeRequestSeller("/api/getFullOrder/已完成")>已完成</label>
+
+                    </div>
+                    <!--                    <h4 class="widget-title">商品下單(未結帳)</h4>-->
+                    <a class="add-proj brd-rd5" href="#" data-toggle="tooltip" title="Add Project">+</a>
                     <div class="slct-bx"><i class="ion-android-funnel">Sort By:</i><span><select><option>Date</option><option>Name</option><option>Category</option><option>Duration</option></select></span>
                     </div>
+
                     <div class="table-wrap">
                         <table class="table table-bordered style2">
                             <thead>
@@ -668,32 +724,32 @@
                 </div>
             </div>
             <div class="col-md-6 grid-item col-sm-12 col-lg-6">
-            <div class="widget pst-wdgt pad50-40">
-                <div class="wdgt-opt"><span class="wdgt-opt-btn"><i class="ion-android-more-vertical"></i></span>
-                    <div class="wdgt-opt-lst brd-rd5"><a class="delt-wdgt" href="#" title="">Delete</a><a
-                            class="expnd-wdgt" href="#" title="">Expand</a><a class="refrsh-wdgt" href="#" title="">Refresh</a>
-                    </div>
-                </div>
-                <div class="wdgt-ldr">
-                    <div class="ball-scale-multiple">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                </div>
-                <div class="pst-itm">
-                    <div class="pst-inf">
-                        <div class="cat-btns"><a href="#" title="" class="blue-bg brd-rd5">Business</a><a href="#"
-                                                                                                          title=""
-                                                                                                          class="green-bg brd-rd5">Dreams</a>
+                <div class="widget pst-wdgt pad50-40">
+                    <div class="wdgt-opt"><span class="wdgt-opt-btn"><i class="ion-android-more-vertical"></i></span>
+                        <div class="wdgt-opt-lst brd-rd5"><a class="delt-wdgt" href="#" title="">Delete</a><a
+                                class="expnd-wdgt" href="#" title="">Expand</a><a class="refrsh-wdgt" href="#" title="">Refresh</a>
                         </div>
-                        <h4><a href="#" title="">Grace is the beauty of form under the influence</a></h4><i>August
-                        11,2017</i></div>
-                    <div class="pst-img" style="background-image: url(images/resource/pst-img1.jpg);"></div>
-                    <p>Aenean massa. Cum sociis natoque penatibusm nis dis parturient montes,nascetur ridiculusmus
-                        Penatibus et magnis dis parturient montes,nasc etur ridiculus mus.</p></div>
+                    </div>
+                    <div class="wdgt-ldr">
+                        <div class="ball-scale-multiple">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="pst-itm">
+                        <div class="pst-inf">
+                            <div class="cat-btns"><a href="#" title="" class="blue-bg brd-rd5">Business</a><a href="#"
+                                                                                                              title=""
+                                                                                                              class="green-bg brd-rd5">Dreams</a>
+                            </div>
+                            <h4><a href="#" title="">Grace is the beauty of form under the influence</a></h4><i>August
+                            11,2017</i></div>
+                        <div class="pst-img" style="background-image: url(images/resource/pst-img1.jpg);"></div>
+                        <p>Aenean massa. Cum sociis natoque penatibusm nis dis parturient montes,nascetur ridiculusmus
+                            Penatibus et magnis dis parturient montes,nasc etur ridiculus mus.</p></div>
+                </div>
             </div>
-        </div>
             <div class="col-md-12 grid-item col-sm-12 col-lg-12">
                 <div class="widget proj-order pad50-40">
                     <div class="wdgt-opt"><span class="wdgt-opt-btn"><i class="ion-android-more-vertical"></i></span>
@@ -764,33 +820,7 @@
                 </div>
             </div>
 
-            <div class="col-xl-4 col-lg-5">
-                <div class="card shadow mb-4"><!-- Card Header - Dropdown -->
-                    <div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary"><font
-                            style="vertical-align: inherit;"><font style="vertical-align: inherit;">甜甜圈圖</font></font>
-                    </h6></div><!-- Card Body -->
-                    <div class="card-body">
-                        <div class="chart-pie pt-4">
-                            <div class="chartjs-size-monitor">
-                                <div class="chartjs-size-monitor-expand">
-                                    <div class=""></div>
-                                </div>
-                                <div class="chartjs-size-monitor-shrink">
-                                    <div class=""></div>
-                                </div>
-                            </div>
-                            <canvas id="myPieChart" width="635" height="316"
-                                    style="display: block; height: 253px; width: 508px;"
-                                    class="chartjs-render-monitor"></canvas>
-                        </div>
-                        <hr>
-                        <font style="vertical-align: inherit;"><font
-                                style="vertical-align: inherit;">圓環圖的樣式可以在</font></font><code>/js/demo/chart-pie-demo.js</code><font
-                            style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件中</font><font
-                            style="vertical-align: inherit;">找到</font><font
-                            style="vertical-align: inherit;">。</font></font></div>
-                </div>
-            </div>
+
 
             <div class="col-md-6 grid-item col-sm-12 col-lg-6">
                 <div class="widget pad50-40">
@@ -968,9 +998,10 @@
             </div>
         </div><!-- Filter Items --></div>
 </div><!-- Panel Content -->
+
 <footer><p>Copyright <a href="http://www.bootstrapmb.com" title="">Example Company</a>&amp;2017 - 2018</p><span>10GB of 250GB Free.</span>
 </footer><!-- Vendor:Javascripts -->
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 <script src="js/jquery.min.js" type="text/javascript"></script><!-- Vendor:Followed by our custom Javascripts -->
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
 <script src="js/jquery-ui.min.js" type="text/javascript"></script>
@@ -1008,6 +1039,50 @@
         console.log( "ready!" );
         makeRequestSeller("/api/getFullOrder")
     });
+//Seller 訂單資料
+   function makeRequestSeller(url) {
+            xhr = new XMLHttpRequest();
+            console.log("!!!!!");
+            xhr.onload = function() {
+                let response = JSON.parse(this.response);
+                console.log(response)
+                addDatasSellerOrder(response)
+            };
+            xhr.open("GET", url, true);
+            xhr.send();
+   }
+ function addDatasSellerOrder(datas) {
+        console.log("顯示賣家商品管理");
+        emptyProducts();//全部淨空
+        var key=Object.keys(datas[0]);
+        for ( let data of datas ) {
+            let html="<tr>";
+            html+="<td><span  class='blue-bg indx'>"+data.orderID+"</span></td>";
+            html+="<td><span class='productName'>"+data.productName+"</span></td>";
+            html+="<td><span class='date'>"+"null"+"</span></td>";
+            html+="<td><h4 class='name'>"+data.name+"</h4></td>";
+            html+="<td><span class='phone'>"+data.phone+"</span></td>";
+            html+="<td><span class='address'>"+data.address+"</span></td>";
+            html+="<td><div class='table-btns'><a href='#' title='' class='green-bg-hover'>同意</a><a href='#' title='' class='blue-bg-hover'>拒絕</a></div></td>";
+            html+="</tr>"
+             $('#dataList').append(html);
+        }
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!--   $(document).ready(function() {-->
 <!--    'use strict';-->
@@ -1253,6 +1328,11 @@
 <!--            data: [1700, 2100, 900, 800, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, ]-->
 <!--        }]-->
 <!--    }); //===== ToolTip =====// if($.isFunction($.fn.tooltip)){$('[data-toggle="tooltip"]').tooltip()}$('.grid-item').draggable()});-->
+
+
+
+
+
 
 
 

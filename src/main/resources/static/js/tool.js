@@ -249,35 +249,7 @@
 //賣家 結帳購物車
 
 
-//Seller 訂單資料
-   function makeRequestSeller(url) {
-            xhr = new XMLHttpRequest();
-            console.log("!!!!!");
-            xhr.onload = function() {
-                let response = JSON.parse(this.response);
-                console.log(response)
-                addDatasSellerOrder(response)
-            };
-            xhr.open("GET", url, true);
-            xhr.send();
-   }
- function addDatasSellerOrder(datas) {
-        console.log("顯示賣家商品管理");
-        emptyProducts();//全部淨空
-        var key=Object.keys(datas[0]);
-        for ( let data of datas ) {
-            let html="<tr>";
-            html+="<td><span  class='blue-bg indx'>"+data.orderID+"</span></td>";
-            html+="<td><span class='productName'>"+data.productName+"</span></td>";
-            html+="<td><span class='date'>"+"null"+"</span></td>";
-            html+="<td><h4 class='name'>"+data.name+"</h4></td>";
-            html+="<td><span class='phone'>"+data.phone+"</span></td>";
-            html+="<td><span class='address'>"+data.address+"</span></td>";
-            html+="<td><div class='table-btns'><a href='#' title='' class='green-bg-hover'>同意</a><a href='#' title='' class='blue-bg-hover'>拒絕</a></div></td>";
-            html+="</tr>"
-             $('#dataList').append(html);
-        }
- }
+
 //訂單相關
 //鄧單 in checkout.html
   function makePostRequestCheckout(data,url) {
