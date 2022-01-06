@@ -42,7 +42,13 @@
             document.location.href="index1.html";
         }
 
+    function deleteOrder(ID){
+        var data="ID="+ID,url="/api/deleteOrder"
+        postRequest(data,url);
+        alert("刪除訂單:"+ID);
+        location.reload();
 
+    }
 
 
     function getCookie(objName){
@@ -335,7 +341,7 @@
             html+=" <h1><a href='#'>"+data.productName+"</a></h1>"
             html+=" <li><p>$"+data.price+"</p></li>"
             html+="<li><p> X" +data.count +"</p></li>"
-            html+="<li><a href='#' class='trash'><i class='fa fa-trash-o'></i></a></li></ul></div></div></div></li>"
+            html+="<li><a href='#' onclick='deleteOrder("+data.orderID+")' class='trash'><i class='fa fa-trash-o'></i></a></li></ul></div></div></div></li>"
             $('#dataListRight').append(html);
         }
  }
