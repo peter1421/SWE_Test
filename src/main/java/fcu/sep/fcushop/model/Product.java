@@ -12,15 +12,18 @@ public class Product {
 
 	private String description;
 
+	private String classification;
+
 	public Product() {
 	}
 
-	public Product(long id, String name, String imageUrl, int price, String description) {
+	public Product(long id, String name, String imageUrl, int price, String description, String classification) {
 		this.id = id;
 		this.name = name;
 		this.imageUrl = imageUrl;
 		this.price = price;
 		this.description = description;
+		this.classification = classification;
 	}
 
 	public long getId() {
@@ -61,5 +64,13 @@ public class Product {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getClassification() {
+		return classification;
+	}
+
+	public void setClassification(String classification) {
+		this.classification = classification;
 	}
 }
