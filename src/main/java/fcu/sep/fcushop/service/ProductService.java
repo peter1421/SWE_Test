@@ -26,18 +26,28 @@ public class ProductService {
       return connection.createQuery(query).executeAndFetch(Product.class);
     }
   }
-
-  public List<Product> getProducts(String keyword) {
-    //取得搜尋後商品數量
+  public List<Product> getProducts(String productClass) {
+    //取得搜尋後商品分類
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String query = "select 商品ID id, 商品名稱 name, 商品圖片 imageUrl, 商品價格 price, 商品敘述 description"
-      + " from 商品資料 where name like :keyword";
+      String query =String.format( "select 商品ID id, 商品名稱 name, 商品圖片 imageUrl, 商品價格 price, 商品敘述 description"
+      + " from 商品資料 where 商品分類='%s'",productClass);
+      System.out.println(query);
 
-      return connection.createQuery(query)
-      .addParameter("keyword", "%" + keyword + "%")
-      .executeAndFetch(Product.class);
+      return connection.createQuery(query).executeAndFetch(Product.class);
     }
   }
+
+//  public List<Product> getProducts(String keyword) {
+//    //取得搜尋後商品數量
+//    try (Connection connection = sql2oDbHandler.getConnector().open()) {
+//      String query = "select 商品ID id, 商品名稱 name, 商品圖片 imageUrl, 商品價格 price, 商品敘述 description"
+//      + " from 商品資料 where name like :keyword";
+//
+//      return connection.createQuery(query)
+//      .addParameter("keyword", "%" + keyword + "%")
+//      .executeAndFetch(Product.class);
+//    }
+//  }
   public Object getProductsCount() {
     //取得目前商品數量
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
