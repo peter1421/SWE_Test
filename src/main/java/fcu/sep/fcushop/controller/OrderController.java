@@ -131,6 +131,7 @@ public class OrderController {
 
 
 	String[] stateArr = {"下單中", "結帳中","處理中","運送中"};
+	//之後物件化
 
 	@PostMapping("/api/checkOrder")
 	@ResponseBody
@@ -141,6 +142,12 @@ public class OrderController {
 		return true;
 	}
 
-
+	@PostMapping("/api/deleteOrder")
+	@ResponseBody
+	public boolean deleteOrder(@RequestParam int ID) {
+		orderManager.deleteOrder(ID);
+		return true;
+		//有空回來補錯誤偵測
+	}
 
 }

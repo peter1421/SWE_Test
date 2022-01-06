@@ -427,7 +427,7 @@
                 html+=" <td> "+data.price+"</td>"
                 html+="<td class='cart-item-quantity'><i class='fa fa-minus cart-item-minus'></i><input class='cart-quantity' type='text' name='cart-quantity' id='"+productCountId+"' value='"+data.count+"'/><i class='fa fa-plus cart-item-plus'></i></td>"
                 html+=" <td><p id='"+productPriceId+"'>"+data.price+"</p></td>"
-                html+=" <td class='cart-item-remove'><a class='' href='#'><i class='fa fa-trash' aria-hidden='true'></i></a></td>"
+                html+=" <td class='cart-item-remove'><a class='' href='#'><i class='fa fa-trash' onclick='deleteOrder("+data.orderID+")'  aria-hidden='true'></i></a></td>"
                 html+="</tr>"
                 $('#dataList1').append(html)
                 let productCount = parseInt(document.getElementById(productCountId).value);
