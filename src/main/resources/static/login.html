@@ -1,0 +1,533 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Restaurant || Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+
+    <!-- Normalize CSS -->
+
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="css/animate.min.css">
+
+    <!-- Font-awesome CSS-->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- Owl Caousel CSS -->
+    <link rel="stylesheet" href="vendor/OwlCarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendor/OwlCarousel/owl.theme.default.min.css">
+
+    <!-- Main Menu CSS -->
+    <link rel="stylesheet" href="css/meanmenu.min.css">
+
+    <!-- nivo slider CSS -->
+    <link rel="stylesheet" href="vendor/slider/css/nivo-slider.css" type="text/css"/>
+    <link rel="stylesheet" href="vendor/slider/css/preview.css" type="text/css" media="screen"/>
+
+    <!-- Datetime Picker Style CSS -->
+    <link rel="stylesheet" href="css/jquery.datetimepicker.css">
+
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Modernizr Js -->
+    <script src="js/modernizr-2.8.3.min.js"></script>
+
+
+</head>
+<body>
+
+
+<!-- Add your site or application content here -->
+<div class="wrapper">
+    <!-- Header Area Start Here -->
+    <header>
+        <div class="header2-area">
+            <div class="header-top-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="header-top-left">
+                                <ul>
+                                    <li><i class="fa fa-phone" aria-hidden="true"></i><a href="Tel:0424517250"> 04 2451 7250  </a></li>
+                                    <li><i class="fa fa-envelope" aria-hidden="true"></i><a
+                                            href="#">info@fcu.edu.com.tw</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="header-top-right jtv-user-info">
+                                <ul>
+
+
+                                    <li class="dropdown"><a class="current-open" data-toggle="dropdown"
+                                                            aria-haspopup="true" aria-expanded="false" href="#"><span><i
+                                            class="fa fa-user" aria-hidden="true"></i> 我的帳戶 </span> <i
+                                            class="fa fa-angle-down"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="accountpage.html">帳戶</a></li>
+                                            <li><a href="checkout.html">結帳</a></li>
+
+
+                                        </ul>
+                                    </li>
+                                    <li><a href="#" data-toggle="modal" data-target="#Restaurant_signup"><i
+                                            class="fa fa-user" aria-hidden="true"></i> 註冊帳戶</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#Restaurant_login"><i
+                                            class="fa fa-user" aria-hidden="true"></i> 登入帳戶</a></li>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-bottom-area" id="sticker">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="logo-area">
+                                <a href="index1.html"><img class="img-responsive" src="img/logo-color.png"
+                                                           alt="logo"></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                            <div class="main-menu-area">
+                                <nav>
+                                    <ul>
+                                        <li><a href="index1.html">首頁</a></li>
+                                        <li><a href="about1.html">關於我們</a></li>
+                                        <li><a href="our_recipes.html">優惠組合</a></li>
+                                        <li><a href="food_2.html">菜單</a></li>
+                                        <li><a href="food_menu_details.html">菜單明細</a></li>
+                                        <li><a href="contact.html">聯絡我們</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <ul class="header-cart-area">
+                                <li class="header-search">
+                                    <form>
+                                        <input type="text" class="search-form" placeholder="想要找...." required>
+                                        <a href="#" class="search-button" id="search-button"><i class="fa fa-search"
+                                                                                                aria-hidden="true"></i></a>
+                                    </form>
+                                </li>
+                                <li>
+                                    <div class="cart-area">
+                                        <a href="cart.html"><i aria-hidden="true" class="fa fa-shopping-cart"></i><span>0</span></a>
+                                        <ul id="dataListRight"></ul>
+
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Area Start -->
+        <div class="mobile-menu-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="mobile-menu">
+                            <nav id="dropdown">
+                                <ul>
+                                    <li><a href="index.html">首頁</a>
+
+                                    </li>
+                                    <li><a href="#">所有頁面</a>
+                                        <ul>
+                                            <li><a href="index.html">首頁</a></li>
+                                            <li><a href="about1.html">關於我們</a></li>
+                                            <li><a href="our_recipes.html">優惠組合</a></li>
+                                            <li><a href="food_2.html">菜單</a></li>
+                                            <li><a href="food_menu_details.html">菜單明細</a></li>
+                                            <li><a href="cart.html">購物車</a></li>
+                                            <li><a href="checkout.html">結帳</a></li>
+                                            <li><a href="accountpage.html">帳戶</a></li>
+                                            <li><a href="contact.html">聯絡我們</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">主餐</a>
+
+                                    </li>
+                                    <li><a href="#">麵包</a>
+
+                                    </li>
+                                    <li><a href="#">甜點</a>
+
+                                    </li>
+
+
+                                    <li><a href="#">聯絡我們</a></li>
+
+                                    <li><a href="#">我的帳戶</a>
+                                        <ul>
+                                            <li><a href="#">專屬菜單</a></li>
+                                            <li><a href="#" data-toggle="modal" data-target="#Restaurant_signup"><i
+                                                    class="fa fa-user" aria-hidden="true"></i> 註冊帳戶</a></li>
+                                            <li><a href="#" data-toggle="modal" data-target="#Restaurant_login"><i
+                                                    class="fa fa-user" aria-hidden="true"></i> 登入帳戶</a></li>
+
+                                        </ul>
+
+                                    </li>
+
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Area End -->
+    </header>
+    <!-- Header Area End Here -->
+    <!-- Slider Area Start Here -->
+
+
+    <!-- Slider Area End Here -->
+    <!-- About 1 Area Start Here -->
+
+
+    <!-- Table Reservation 1 Area Start Here-->
+
+    <form action="/api/login" method="post">
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h4 class="modal-title model_center" >Login</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="col-lg-12 col-md-12">
+                    <div class="form-group">
+                        <label for="">信箱地址</label>
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail2" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="">密碼</label>
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                    </div>
+
+
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> 條款說明
+                        </label>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" onclick="get(email)">登入</button>
+                <a type="submit" class="" style="margin-left:10px;cursor:pointer;" data-toggle="modal"
+                   data-target="#Restaurant_forgetpas">忘記密碼?</a>
+            </div>
+
+        </div>
+    </form>
+    <!-- Brand Area End Here -->
+    <!-- Footer Area Start Here -->
+    <footer>
+        <div class="footer-area-top section-space">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="footer-box">
+                            <h3 class="title-bar-footer">關於我們</h3>
+                            <div class="footer-about">
+                                <p>創立以來,不斷以創新,超越自我，生產開發符合飲食潮流的製品為主，並透過嚴密的生產流程及品質管控，為食品安全衛生嚴格把關，正宗MIT自產自銷，喚起幸福的味道。
+                                    將食物的原型，呈現在美味料理中是我們的堅持，我們發展不同的品牌在各式渠道，都是以最好的食材研發而成，期待喚起記憶中那單純的好味道。</p>
+                            </div>
+                            <ul class="footer-social">
+                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="footer-box">
+                            <h3 class="title-bar-footer">我們的品牌</h3>
+                            <div class="footer-blog-post">
+                                <div class="media">
+                                    <!-- <a href="#" class="pull-left">
+                                         <img src="img/footer-blog1.jpg" alt="footer-blog" class="img-responsive">
+                                     </a>-->
+                                    <div class="media-body">
+                                        <h4><a href="#">主食</a></h4>
+                                        <!-- <p>20 Aug, 2016</p>-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="footer-blog-post">
+                                <div class="media">
+                                    <!--<a href="#" class="pull-left">
+                                        <img src="img/footer-blog2.jpg" alt="footer-blog" class="img-responsive">
+                                    </a>-->
+                                    <div class="media-body">
+                                        <h4><a href="#">麵包</a></h4>
+                                        <!-- <p>20 Aug, 2016</p>-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="footer-blog-post">
+                                <div class="media">
+                                    <!--<a href="#" class="pull-left">
+                                        <img src="img/footer-blog3.jpg" alt="footer-blog" class="img-responsive">
+                                    </a>-->
+                                    <div class="media-body">
+                                        <h4><a href="#">甜點</a></h4>
+                                        <!-- <p>20 Aug, 2016</p>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="footer-box">
+                            <h3 class="title-bar-footer">客服時間</h3>
+                            <ul class="opening-schedule">
+                                <li>禮拜一<span> 08:00 - 18:00</span></li>
+                                <li>禮拜二<span> 08:00 - 18:00</span></li>
+                                <li>禮拜三<span> 08:00 - 18:00</span></li>
+                                <li>禮拜四<span> 08:00 - 18:00</span></li>
+                                <li>禮拜五<span> 08:00 - 18:00</span></li>
+                                <li>禮拜六<span> 非服務時間</span></li>
+                                <li>禮拜日<span> 非服務時間</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-area-bottom">
+            <div class="container">
+                <p>&copy; 2021 FCU software engineering. </p>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area End Here -->
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="Restaurant_signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="/api/singup" method="post">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title model_center" id="myModalLabel">Sign Up</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group">
+                            <label for="">信箱地址</label>
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                            <label for="">密碼</label>
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="form-group">
+                            <label for="">確認密碼</label>
+                            <input type="password" class="form-control" id="" placeholder="">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">會員名稱</label>
+                            <input name="name" class="form-control" placeholder="會員名稱">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">會員頭貼</label>
+                            <input name="imageUrl" class="form-control" placeholder="會員頭貼">
+                        </div>
+                        <div class="form-group">
+                            <label for="">手機號碼</label>
+                            <input name="phoneNumber" class="form-control" placeholder="手機號碼">
+                        </div>
+                        <div class="form-group">
+                            <label for="">寄送地址</label>
+                            <input name="address" class="form-control" placeholder="寄送地址">
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> 條款說明
+                            </label>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-lg btn-success">註冊</button>
+                    <a type="submit" class="" style="margin-left:10px;cursor:pointer;">忘記密碼?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="Restaurant_login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <form action="/api/login" method="post">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title model_center" id="myModalLabel">Login</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group">
+                            <label for="">信箱地址</label>
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail2" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="">密碼</label>
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                        </div>
+
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> 條款說明
+                            </label>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" onclick="get(email)">登入</button>
+                    <a type="submit" class="" style="margin-left:10px;cursor:pointer;" data-toggle="modal"
+                       data-target="#Restaurant_forgetpas">忘記密碼?</a>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="modal fade" id="Restaurant_forgetpas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title model_center" id="myModalLabel">忘記密碼</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="col-lg-12 col-md-12">
+
+
+                    <div class="form-group">
+                        <label for="">信箱地址</label>
+                        <input type="email" class="form-control" id="" placeholder="">
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-lg btn-success">送出</button>
+                <button type="submit" class="btn btn-lg btn-danger">返回</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Preloader Start Here -->
+<div id="preloader"></div>
+<!-- Preloader End Here -->
+
+<script src="js/tool.js"></script>
+<!-- jquery-->
+<script src="js/jquery-2.2.4.min.js" type="text/javascript"></script>
+
+<!-- Plugins js -->
+<script src="js/plugins.js" type="text/javascript"></script>
+
+<!-- Bootstrap js -->
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+
+<!-- WOW JS -->
+<script src="js/wow.min.js"></script>
+
+<!-- Nivo slider js -->
+<script src="vendor/slider/js/jquery.nivo.slider.js" type="text/javascript"></script>
+<script src="vendor/slider/js/home.js" type="text/javascript"></script>
+
+
+<!-- Owl Cauosel JS -->
+<script src="vendor/OwlCarousel/owl.carousel.min.js" type="text/javascript"></script>
+
+<!-- Meanmenu Js -->
+<script src="js/jquery.meanmenu.min.js" type="text/javascript"></script>
+
+<!-- Srollup js -->
+<script src="js/jquery.scrollUp.min.js" type="text/javascript"></script>
+
+<!-- jquery.counterup js -->
+<script src="js/jquery.counterup.min.js"></script>
+<script src="js/waypoints.min.js"></script>
+
+<!-- Date Time Picker Js -->
+<script src="js/jquery.datetimepicker.full.min.js" type="text/javascript"></script>
+
+<!-- Validator js -->
+<script src="js/validator.min.js" type="text/javascript"></script>
+
+<!-- Custom Js -->
+<script src="js/main.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+  $( document ).ready( function() {
+    console.log( "ready!!!!" );
+     var state="下單中"
+     var data="email="+getCookie("email")+"&state="+state,url="/api/getFullOrder2";
+     makePostRequestRight(data,url)
+  });
+</script>
+
+</body>
+
+</html>
+
