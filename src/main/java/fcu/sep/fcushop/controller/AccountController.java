@@ -52,7 +52,7 @@ public class AccountController {
 		//checkAccount(account);
 		if (accountManager.checkLogin(account) == null) {
 			System.out.println("null");
-			resp.sendRedirect("/index1.html");
+			resp.sendRedirect("/login.html");
 			return false;
 			//錯誤
 		} else {

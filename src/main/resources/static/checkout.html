@@ -211,6 +211,7 @@
             <ul>
                 <li><a href="#">首頁 -</a> /</li>
                 <li>購物車</li>
+
             </ul>
         </div>
     </div>
@@ -296,6 +297,7 @@ Check Out
 <!--                </div>-->
 <!--            </div>-->
             <a class="default-btn" onclick="checkOut()">確認結帳</a>
+
         </div>
     </div>
 </div>
@@ -311,11 +313,10 @@ Check Out
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="footer-box">
-                        <h3 class="title-bar-footer">About Cafe</h3>
+                        <h3 class="title-bar-footer">關於我們</h3>
                         <div class="footer-about">
-                            <p>We aim to home-produce as much as possiblefor the best quality, and to reduce food mcious
-                                cakes, traditional Devon soups, sauces and accompanimentsion.We aim to home-produce as
-                                much as possiblefor the best quality, and to reduce food mcious cakes.</p>
+                            <p>創立以來,不斷以創新,超越自我，生產開發符合飲食潮流的製品為主，並透過嚴密的生產流程及品質管控，為食品安全衛生嚴格把關，正宗MIT自產自銷，喚起幸福的味道。
+                                將食物的原型，呈現在美味料理中是我們的堅持，我們發展不同的品牌在各式渠道，都是以最好的食材研發而成，期待喚起記憶中那單純的好味道。</p>
                         </div>
                         <ul class="footer-social">
                             <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -328,14 +329,14 @@ Check Out
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="footer-box">
-                        <h3 class="title-bar-footer">Our Category</h3>
+                        <h3 class="title-bar-footer">我們的品牌</h3>
                         <div class="footer-blog-post">
                             <div class="media">
                                 <!-- <a href="#" class="pull-left">
                                      <img src="img/footer-blog1.jpg" alt="footer-blog" class="img-responsive">
                                  </a>-->
                                 <div class="media-body">
-                                    <h4><a href="#">Restaurant</a></h4>
+                                    <h4><a href="#">主食</a></h4>
                                     <!-- <p>20 Aug, 2016</p>-->
                                 </div>
                             </div>
@@ -346,7 +347,7 @@ Check Out
                                     <img src="img/footer-blog2.jpg" alt="footer-blog" class="img-responsive">
                                 </a>-->
                                 <div class="media-body">
-                                    <h4><a href="#">Bakery</a></h4>
+                                    <h4><a href="#">麵包</a></h4>
                                     <!-- <p>20 Aug, 2016</p>-->
                                 </div>
                             </div>
@@ -357,7 +358,7 @@ Check Out
                                     <img src="img/footer-blog3.jpg" alt="footer-blog" class="img-responsive">
                                 </a>-->
                                 <div class="media-body">
-                                    <h4><a href="#">Sweets</a></h4>
+                                    <h4><a href="#">甜點</a></h4>
                                     <!-- <p>20 Aug, 2016</p>-->
                                 </div>
                             </div>
@@ -366,15 +367,15 @@ Check Out
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="footer-box">
-                        <h3 class="title-bar-footer">Opening Hours</h3>
+                        <h3 class="title-bar-footer">客服時間</h3>
                         <ul class="opening-schedule">
-                            <li>Monday<span> 5pm - 11pm</span></li>
-                            <li>Tuesday<span> 5pm - 11pm</span></li>
-                            <li>Wednesday <span> Closed</span></li>
-                            <li>Thursday<span> 5pm - Midnight</span></li>
-                            <li>Friday<span> 4:30pm - Midnight</span></li>
-                            <li>Saturday <span> 5pm - 11pm</span></li>
-                            <li>Sunday<span> 5pm - 11pm</span></li>
+                            <li>禮拜一<span> 08:00 - 18:00</span></li>
+                            <li>禮拜二<span> 08:00 - 18:00</span></li>
+                            <li>禮拜三<span> 08:00 - 18:00</span></li>
+                            <li>禮拜四<span> 08:00 - 18:00</span></li>
+                            <li>禮拜五<span> 08:00 - 18:00</span></li>
+                            <li>禮拜六<span> 非服務時間</span></li>
+                            <li>禮拜日<span> 非服務時間</span></li>
                         </ul>
                     </div>
                 </div>
@@ -383,12 +384,149 @@ Check Out
     </div>
     <div class="footer-area-bottom">
         <div class="container">
-            <p>&copy; 2016 Vaishali All Rights Reserved. </p>
+            <p>&copy; 2021 FCU software engineering. </p>
         </div>
     </div>
 </footer>
 <!-- Footer Area End Here -->
 
+<!-- Modal -->
+<div class="modal fade" id="Restaurant_signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="/api/singup" method="post">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title model_center" id="myModalLabel">Sign Up</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group">
+                            <label for="">信箱地址</label>
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                            <label for="">密碼</label>
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="form-group">
+                            <label for="">確認密碼</label>
+                            <input type="password" class="form-control" id="" placeholder="">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">會員名稱</label>
+                            <input name="name" class="form-control" placeholder="會員名稱">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">會員頭貼</label>
+                            <input name="imageUrl" class="form-control" placeholder="會員頭貼">
+                        </div>
+                        <div class="form-group">
+                            <label for="">手機號碼</label>
+                            <input name="phoneNumber" class="form-control" placeholder="手機號碼">
+                        </div>
+                        <div class="form-group">
+                            <label for="">寄送地址</label>
+                            <input name="address" class="form-control" placeholder="寄送地址">
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> 條款說明
+                            </label>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-lg btn-success">註冊</button>
+                    <a type="submit" class="" style="margin-left:10px;cursor:pointer;">忘記密碼?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="Restaurant_login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <form action="/api/login" method="post">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title model_center" id="myModalLabel">Login</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group">
+                            <label for="">信箱地址</label>
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail2" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="">密碼</label>
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                        </div>
+
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> 條款說明
+                            </label>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" onclick="get(email)">登入</button>
+                    <a type="submit" class="" style="margin-left:10px;cursor:pointer;" data-toggle="modal"
+                       data-target="#Restaurant_forgetpas">忘記密碼?</a>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="modal fade" id="Restaurant_forgetpas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title model_center" id="myModalLabel">忘記密碼</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="col-lg-12 col-md-12">
+
+
+                    <div class="form-group">
+                        <label for="">信箱地址</label>
+                        <input type="email" class="form-control" id="" placeholder="">
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-lg btn-success">送出</button>
+                <button type="submit" class="btn btn-lg btn-danger">返回</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Preloader Start Here -->
 <div id="preloader"></div>
 <!-- Preloader End Here -->

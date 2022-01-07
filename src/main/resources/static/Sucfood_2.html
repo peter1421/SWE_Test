@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Restaurant || Home</title>
+    <title>Food Menu</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,7 +11,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
 
     <!-- Normalize CSS -->
-
+    <link rel="stylesheet" href="css/normalize.css">
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/main.css">
@@ -25,6 +25,9 @@
     <!-- Font-awesome CSS-->
     <link rel="stylesheet" href="css/font-awesome.min.css">
 
+    <!-- Flaticon CSS-->
+    <link rel="stylesheet" type="text/css" href="css/font2/flaticon.css">
+
     <!-- Owl Caousel CSS -->
     <link rel="stylesheet" href="vendor/OwlCarousel/owl.carousel.min.css">
     <link rel="stylesheet" href="vendor/OwlCarousel/owl.theme.default.min.css">
@@ -36,9 +39,8 @@
     <link rel="stylesheet" href="vendor/slider/css/nivo-slider.css" type="text/css"/>
     <link rel="stylesheet" href="vendor/slider/css/preview.css" type="text/css" media="screen"/>
 
-    <!-- Datetime Picker Style CSS -->
-    <link rel="stylesheet" href="css/jquery.datetimepicker.css">
-
+    <!-- Switch Style CSS -->
+    <link rel="stylesheet" href="css/switch-style.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -46,13 +48,26 @@
     <!-- Modernizr Js -->
     <script src="js/modernizr-2.8.3.min.js"></script>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </head>
 <body>
-
+<!-- Preloader Start Here -->
+<div id="preloader"></div>
+<!-- Preloader End Here -->
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
 
 <!-- Add your site or application content here -->
 <div class="wrapper">
+
     <!-- Header Area Start Here -->
     <header>
         <div class="header2-area">
@@ -201,202 +216,53 @@
         <!-- Mobile Menu Area End -->
     </header>
     <!-- Header Area End Here -->
-    <!-- Slider Area Start Here -->
-    <div class="slider1-area">
-        <div class="bend niceties preview-1">
-            <div id="ensign-nivoslider-3" class="slides">
-                <img src="img/slider/slide1-1.jpg" alt="slider" title="#slider-direction-1"/>
-                <img src="img/slider/slide1-2.jpg" alt="slider" title="#slider-direction-2"/>
-                <img src="img/slider/slide1-3.jpg" alt="slider" title="#slider-direction-3"/>
-            </div>
-            <div id="slider-direction-1" class="t-cn slider-direction">
-                <div class="slider-content s-tb slide-1">
-                    <div class="title-container s-tb-c">
-                        <h1 class="title1">最了解你的</h1>
-                        <p>我們發展不同的品牌在各式渠道，都是以最好的食材研發而成</p>
-                        <div class="slider-btn-area">
-                            <a href="food_2.html" class="ghost-btn">立即訂購</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="slider-direction-2" class="t-cn slider-direction">
-                <div class="slider-content s-tb slide-2">
-                    <div class="title-container s-tb-c">
-                        <h1 class="title1">最了解你的</h1>
-                        <p>將食物的原型，呈現在美味料理中是我們的堅持</p>
-                        <div class="slider-btn-area">
-                            <a href="food_2.html" class="ghost-btn">立即訂購</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="slider-direction-3" class="t-cn slider-direction">
-                <div class="slider-content s-tb slide-3">
-                    <div class="title-container s-tb-c">
-                        <h1 class="title1">值得你 <span>了解</span> 的鮮食網站</h1>
-                        <p>期待喚起記憶中那單純的好味道</p>
-                        <div class="slider-btn-area">
-                            <a href="food_2.html" class="ghost-btn">立即訂購</a>
-                        </div>
-                    </div>
-                </div>
+    <!-- Inner Page Banner Area Start Here -->
+    <div class="inner-page-banner-area">
+        <div class="container">
+            <div class="pagination-area">
+                <h2>我們的菜單</h2>
+                <ul>
+                    <li><a href="#">首頁 - </a> /</li>
+                    <li>菜單</li>
+                </ul>
             </div>
         </div>
     </div>
-    <!-- Slider Area End Here -->
-    <!-- About 1 Area Start Here -->
-    <div class="about1-area section-space">
-        <img class="img-responsive section-back" src="img/section-back-1.png" alt="Sestion Back">
-        <div class="container">
-            <div class="row">
+    <!-- Inner Page Banner Area End Here -->
+    <!-- Food Menu 4 Area Start Here -->
 
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 wow fadeInRight">
-                    <div class="about1-area-top">
-                        <h2>堅持 <span> 品質</span></h2>
-                        <h2>嚴格把管生產流程</h2>
-                    </div>
-                    <h3 class="title-bar-big-left">不斷創新，超越自我</h3>
-                    <p>創立以來,不斷以創新,超越自我, 生產開發符合飲食潮流的禽肉製品為主, 並透過嚴密的生產流程及品質管控, 為食品安全衛生嚴格把關, 正宗MIT自產自銷; 喚起幸福的味道。</p>
-                    <a href="about1.html" class="ghost-color-btn">了解更多<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-                </div>
+    <div style="text-align:center" class="food-menu4-area section-space">
+        <div style="text-align:center"  id="classtList" class="btn-group" role="group" aria-label="Basic radio toggle button group">
+            <!--            有空改彈性化-->
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+            <label class="btn btn-outline-primary" for="btnradio1" onclick=getProducts('/api/products')>所有商品</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio2" onclick=getProducts("/api/products/速食")>速食</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio3" onclick=getProducts("/api/products/飲料")>飲料</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio4" onclick=getProducts("/api/products/合作系列-頂太瘋")>合作系列-頂太瘋</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio5" onclick=getProducts("/api/products/合作系列-亡品")>合作系列-亡品</label>
+
+
+        </div>
+        <div class="container menu-list-wrapper">
+            <div class="row menu-list">
+                <div class="row" id="productList"></div>
+            </div>
+            <div class="loadmore">
+                <a href="#" class="ghost-color-btn">載入更多</a>
             </div>
         </div>
     </div>
 
-    <!-- Table Reservation 1 Area Start Here-->
-    <div class="table-reservation1-area">
-        <div class="container">
-            <h2 class="title">合作廠商</h2>
-        </div>
-    </div>
-    <!-- <span class="subtitle-color">F</span>
-    <h3>Opening Hour 8:00 AM - 10:00 PM Every day on week.</h3>
-    <div class="row">
-        <div class="reservation-form">
-            <form id="reservation-form">
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="reservation-input-box">
-                        <input type="text" class="form-control" placeholder="Name" name="name" id="form-name"
-                               data-error="Subject field is required" required/>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="reservation-input-box">
-                        <input type="text" class="form-control" placeholder="E-mail" name="email"
-                               id="form-subject" data-error="Subject field is required" required/>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="reservation-input-box">
-                        <input type="text" class="form-control" placeholder="Phone" name="phone" id="form-phone"
-                               data-error="Subject field is required" required/>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="reservation-input-box">
-                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                        <input type="text" class="form-control rt-date" placeholder="Date" name="date"
-                               id="form-date" data-error="Subject field is required" required/>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="reservation-input-box">
-                        <i class="fa fa-clock-o" aria-hidden="true"></i>
-                        <input type="text" class="form-control rt-time" placeholder="Time" name="time"
-                               id="form-time" data-error="Subject field is required" required/>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="reservation-input-box">
-                        <textarea class="form-control" placeholder="Message" name="message" id="form-message"
-                                  data-error="Message field is required" required></textarea>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="reservation-input-box">
-                        <button type="submit" class="book-now-btn">Book A Table</button>
-                    </div>
-                </div>
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class='form-response'></div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-</div>-->
 
-    <!-- Client Reviews Area Start Here -->
-    <!-- Client Reviews Area End Here -->
-    <!-- Brand Area Start Here  -->
-    <div class="brand-area">
-        <img class="img-responsive section-back" src="img/brand/back-logo.png" alt="back-logo">
-        <div class="container">
-            <div class="row">
-                <div class="rc-carousel"
-                     data-loop="true"
-                     data-items="6"
-                     data-margin="15"
-                     data-autoplay="true"
-                     data-autoplay-timeout="10000"
-                     data-smart-speed="2000"
-                     data-dots="false"
-                     data-nav="true"
-                     data-nav-speed="false"
-                     data-r-x-small="2"
-                     data-r-x-small-nav="false"
-                     data-r-x-small-dots="true"
-                     data-r-x-medium="3"
-                     data-r-x-medium-nav="false"
-                     data-r-x-medium-dots="true"
-                     data-r-small="4"
-                     data-r-small-nav="true"
-                     data-r-small-dots="false"
-                     data-r-medium="6"
-                     data-r-medium-nav="true"
-                     data-r-medium-dots="false">
-                    <div class="brand-area-box">
-                        <a href="#"><img src="img/brand/1.jpg" alt="brand"></a>
-                    </div>
-                    <div class="brand-area-box">
-                        <a href="#"><img src="img/brand/2.jpg" alt="brand"></a>
-                    </div>
-                    <div class="brand-area-box">
-                        <a href="#"><img src="img/brand/3.jpg" alt="brand"></a>
-                    </div>
-                    <div class="brand-area-box">
-                        <a href="#"><img src="img/brand/4.jpg" alt="brand"></a>
-                    </div>
-                    <div class="brand-area-box">
-                        <a href="#"><img src="img/brand/5.jpg" alt="brand"></a>
-                    </div>
-                    <div class="brand-area-box">
-                        <a href="#"><img src="img/brand/6.jpg" alt="brand"></a>
-                    </div>
-                    <div class="brand-area-box">
-                        <a href="#"><img src="img/brand/7.jpg" alt="brand"></a>
-                    </div>
-                    <div class="brand-area-box">
-                        <a href="#"><img src="img/brand/8.jpg" alt="brand"></a>
-                    </div>
-                    <div class="brand-area-box">
-                        <a href="#"><img src="img/brand/9.jpg" alt="brand"></a>
-                    </div>
-                    <div class="brand-area-box">
-                        <a href="#"><img src="img/brand/10.jpg" alt="brand"></a>
-                    </div>
-                    <div class="brand-area-box">
-                        <a href="#"><img src="img/brand/1.jpg" alt="brand"></a>
-                    </div>
-                    <div class="brand-area-box">
-                        <a href="#"><img src="img/brand/2.jpg" alt="brand"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Brand Area End Here -->
+    <!-- Food Menu 4 Area End Here -->
     <!-- Footer Area Start Here -->
     <footer>
         <div class="footer-area-top section-space">
@@ -620,11 +486,7 @@
     </div>
 </div>
 
-<!-- Preloader Start Here -->
-<div id="preloader"></div>
-<!-- Preloader End Here -->
 
-<script src="js/tool.js"></script>
 <!-- jquery-->
 <script src="js/jquery-2.2.4.min.js" type="text/javascript"></script>
 
@@ -633,14 +495,15 @@
 
 <!-- Bootstrap js -->
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
+<link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 <!-- WOW JS -->
 <script src="js/wow.min.js"></script>
 
 <!-- Nivo slider js -->
 <script src="vendor/slider/js/jquery.nivo.slider.js" type="text/javascript"></script>
-<script src="vendor/slider/js/home.js" type="text/javascript"></script>
-
+<script src="vendor/slider/home.js" type="text/javascript"></script>
 
 <!-- Owl Cauosel JS -->
 <script src="vendor/OwlCarousel/owl.carousel.min.js" type="text/javascript"></script>
@@ -655,35 +518,142 @@
 <script src="js/jquery.counterup.min.js"></script>
 <script src="js/waypoints.min.js"></script>
 
-<!-- Date Time Picker Js -->
-<script src="js/jquery.datetimepicker.full.min.js" type="text/javascript"></script>
+<!-- Isotope js -->
+<script src="js/isotope.pkgd.min.js" type="text/javascript"></script>
 
-<!-- Validator js -->
-<script src="js/validator.min.js" type="text/javascript"></script>
+<!-- Switch js -->
+<script src="js/switch-style.js" type="text/javascript"></script>
 
 <!-- Custom Js -->
 <script src="js/main.js" type="text/javascript"></script>
 
+<script src="js/tool.js"></script>
 
-<script type="text/javascript">
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+
+
   $( document ).ready( function() {
-    console.log( "ready!!!!" );
-     var state="下單中"
-     var data="email="+getCookie("email")+"&state="+state,url="/api/getFullOrder2";
-     makePostRequestRight(data,url)
+    console.log( "ready!" );
+    emptyProducts();
+    getProducts('/api/products')
+     if(getCookie("email")!=null){
+        var state="下單中"
+        var data="email="+getCookie("email")+"&state="+state,url="/api/getFullOrder2";
+        makePostRequestRight(data,url)
+    }
   });
-
-   $( document ).ready( function() {
+$( document ).ready( function() {
     console.log( "ready!" );
     emptyProducts();
     if(getCookie("email")!=null){
         document.getElementById("longer").innerHTML = "登入者:"+getCookie("email");
     }
   });
+      function joinCar(id){
+        if(getCookie("email")!=null){
+            let data="productId="+id+"&buyerEmail="+getCookie('email')+"&count=1&state=下單中&billId=0"
+            let url="/api/addOrder"
+            postRequest(data,url);
+            alert(getCookie("email")+"已添加商品ID:"+id);
+            window.location.replace("/food_2.html");
+        }else{
+            alert("登入啦智障")
+            window.location.replace("/index1.html");
+        }
+    }
+
+    $('#searchProduct').click(function() {
+      const keyword = $('#productKeyword').val();
+      if (keyword.trim() === '') {
+        getProducts('/api/products');
+      } else {
+        getProducts('/api/products/' + keyword);
+        emptyProducts();
+      }
+    });
+
+    $('#deleteProduct').click(function() {
+      const keyword = $('#productID').val();
+      if (keyword.trim() === '') {
+        getProducts('/api/products');
+      } else {
+        getProducts('/api/delete/' + keyword);
+        emptyProducts();
+      }
+    });
+
+
+
+    function emptyProducts() {
+      $('#productList').empty();
+    }
+
+    function addProducts(products) {
+      for ( let product of products ) {
+        let html = '<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">';
+        html += '<div class="col-mt-3 row" >';
+        html += '<img src="' + product.imageUrl + '" class="card-img-top" alt="' + product.name + '" style="height: 300px;" >';
+        html += '<div class="card-body">';
+        html += '<h5 class="card-title">' + product.name + '</h5>';
+        html += '<p class="card-text">'+'ID:' + product.id + '</p>';
+        html += '<p class="card-text">' + product.description + '</p>';
+        html += '<p class="card-text">價格:' + product.price  + '.TW</p>';
+        html += '<p href="#" onclick="joinCar('+product.id+')" class="btn btn-primary" >加入購物車</p>';
+        html += '</div>';
+        html += '</div>';
+        html += '</div>';
+        $('#productList').append(html);
+      }
+    }
+
+    function getProducts(targetUrl) {
+      emptyProducts()
+      // Using the core $.ajax() method
+      $.ajax({
+          // The URL for the request
+          url: targetUrl,
+
+          // Whether this is a POST or GET request
+          type: "GET",
+
+          // The type of data we expect back
+          dataType : "json",
+      })
+        // Code to run if the request succeeds (is done);
+        // The response is passed to the function
+        .done(function( json ) {
+          let products = json;
+          addProducts(products);
+        })
+        // Code to run if the request fails; the raw request and
+        // status codes are passed to the function
+        .fail(function( xhr, status, errorThrown ) {
+          console.log( "Sorry, there was a problem!" );
+          console.log( "Error: " + errorThrown );
+          console.log( "Status: " + status );
+          console.dir( xhr );
+        })
+        // Code to run regardless of success or failure;
+        .always(function( xhr, status ) {
+          console.log( "The request is complete!" );
+        });
+    }
+    function makeRequest(url) {
+    //回傳資料庫後端數據
+    xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+      let response = JSON.parse(this.response);
+      console.log(response)
+      };
+    xhr.open("GET", url, true);
+    xhr.send();
+ }
+
+
+
 </script>
-
-
-</body>
-
 </html>
-
