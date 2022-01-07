@@ -242,36 +242,29 @@ Check Out
 
             </table>
         </div>
-        <div class="col-md-4">
-            <div class="widget-header widget-header-sm text-center widget-header-bottom-line">
-                <h3 class="widget-title">個人資料</h3>
-            </div>
-            <form>
-                <div class="form-group">
-                    <label>姓名</label>
-                    <input class="form-control" id="name" type="text"/>
-                </div>
-                <div class="form-group">
-                    <label>電子郵件</label>
-                    <input class="form-control" id="email" type="text"/>
-                </div>
-                <div class="form-group">
-                    <label>手機號碼</label>
-                    <input class="form-control" id="phoneNumber" type="text"/>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input class="i-check" type="checkbox" id="create-account-checkbox"/>Create a Maxshop
-                        profile</label>
-                </div>
+        <div class="col-md-4" id="personData">
+<!--            <div class="widget-header widget-header-sm text-center widget-header-bottom-line">-->
+<!--                <h3 class="widget-title">個人資料</h3>-->
+<!--            </div>-->
+<!--            <form>-->
+<!--                <div class="form-group">-->
+<!--                    <label>姓名</label>-->
+<!--                    <input class="form-control" id="name" type="text"/>-->
+<!--                </div>-->
+<!--                <div class="form-group">-->
+<!--                    <label>電子郵件</label>-->
+<!--                    <input class="form-control" id="email" type="text"/>-->
+<!--                </div>-->
+<!--                <div class="form-group">-->
+<!--                    <label>手機號碼</label>-->
+<!--                    <input class="form-control" id="phoneNumber" type="text"/>-->
+<!--                </div>-->
 
-                <div class="form-group">
-                    <label>Address</label>
-                    <input class="form-control" type="text"/>
-                </div>
-
-
-            </form>
+<!--                <div class="form-group">-->
+<!--                    <label>地址</label>-->
+<!--                    <input class="form-control" id="address" type="text"/>-->
+<!--                </div>-->
+<!--            </form>-->
         </div>
         <div class="col-md-4">
             <div class="widget-header widget-header-sm text-center widget-header-bottom-line">
@@ -463,7 +456,6 @@ Check Out
             console.log("顯示賣家商品管理");
             var key=Object.keys(datas[0]);
             var total=0;
-
             for ( let data of datas ) {
                 let productCountId=data.orderID+'Count';
                 let productPriceId=data.orderID+'Price';
@@ -487,8 +479,27 @@ Check Out
             html+="<li>運費<span class='cart-total-amount'>60</span></li>"
             html+="<li>總和<span class='cart-total-amount'>Tw."+(total+60)+"</span></li>"
             $('#dataList2').append(html)
-
-
+     }
+     function makePostRequestParson(data,url) {
+              console.log("post request:"+data+"\turl:"+url);
+              var xhr = new XMLHttpRequest();
+              xhr.open("post",url, true);
+              xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+              xhr.send(data);
+              xhr.onload = function() {
+                let response = JSON.parse(this.response);
+                console.log(response)
+                addPersonData(response[0])
+              };
+     }
+     function addPersonData(data){
+        html="<div class='widget-header widget-header-sm text-center widget-header-bottom-line'><h3 class='widget-title'>個人資料</h3></div>";
+        html+="<p >姓名:"+data.name+"</p>"
+        html+="<p>電子郵件:"+data.email+"</p>"
+        html+="<p>手機號碼:"+data.phoneNumber+"</p>"
+        html+="<p>寄送地址:"+data.address+"</p>"
+        $('#personData').append(html)
+        console.log("個人資料")
      }
   $( document ).ready( function() {
     console.log( "ready!!!!" );
@@ -499,6 +510,9 @@ Check Out
 <!--     makePostRequestList(data,url);-->
      makePostRequestRight(data,url)
      makePostRequestCheckout(data,url)
+     var data="email="+getCookie("email"),url="/api/searchMember";
+     makePostRequestParson(data,url);
+
   });
 
     function checkOut(){
@@ -511,3 +525,24 @@ Check Out
 
 </body>
 </html>
+
+<!--<div class="col-md-4">-->
+
+<!--        <div class="form-group">-->
+<!--            <label>姓名</label>-->
+<!--            <input class="form-control" id="name" type="text"/>-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label>電子郵件</label>-->
+<!--            <input class="form-control" id="email" type="text"/>-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label>手機號碼</label>-->
+<!--            <input class="form-control" id="phoneNumber" type="text"/>-->
+<!--        </div>-->
+
+<!--        <div class="form-group">-->
+<!--            <label>地址</label>-->
+<!--            <input class="form-control" id="address" type="text"/>-->
+<!--        </div>-->
+<!--</div>-->
