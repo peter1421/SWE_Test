@@ -202,15 +202,16 @@
     <!-- Mobile Menu Area End -->
 </header>
 
-<!-- Header Area End Here -->
+
 <!-- Inner Page Banner Area Start Here -->
 <div class="inner-page-banner-area">
     <div class="container">
         <div class="pagination-area">
-            <h2>結帳</h2>
+            <h2>購物車</h2>
             <ul>
                 <li><a href="#">首頁 -</a> /</li>
-                <li>結帳</li>
+                <li>購物車</li>
+
             </ul>
         </div>
     </div>
@@ -242,122 +243,61 @@ Check Out
 
             </table>
         </div>
-        <div class="col-md-4">
-            <div class="widget-header widget-header-sm text-center widget-header-bottom-line">
-                <h3 class="widget-title">付款明細</h3>
-            </div>
-            <form>
-                <div class="form-group">
-                    <label>付款人姓名</label>
-                    <input class="form-control" type="text"/>
-                </div>
-                <div class="form-group">
-                    <label>信箱</label>
-                    <input class="form-control" type="text"/>
-                </div>
-                <div class="form-group">
-                    <label>手機</label>
-                    <input class="form-control" type="text"/>
-                </div>
-                <div id="create-account" class="hide">
-                    <p>Create an account by entering the information below. If you are a returning customer please login
-                        at the top of the page.</p>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input class="form-control" type="password"/>
-                    </div>
-                    <div class="form-group">
-                        <label>Repeat Password</label>
-                        <input class="form-control" type="password"/>
-                    </div>
-                    <hr/>
-                </div>
-                <div class="form-group">
-                    <label>國家</label>
-                    <input class="form-control" type="text"/>
-                </div>
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="form-group">
-                            <label>縣市</label>
-                            <input class="form-control" type="text"/>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label>郵遞區號</label>
-                            <input class="form-control" type="text"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>地址</label>
-                    <input class="form-control" type="text"/>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input class="i-check" type="checkbox" id="shipping-address-checkbox"/>寄送地址非帳單地址
-                        </label>
-                </div>
-                <div id="shipping-address" class="hide">
-                    <div class="form-group">
-                        <label>寄送國家</label>
-                        <input class="form-control" type="text"/>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="form-group">
-                                <label>寄送縣市</label>
-                                <input class="form-control" type="text"/>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>郵遞區號</label>
-                                <input class="form-control" type="text"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>寄送地址</label>
-                        <input class="form-control" type="text"/>
-                    </div>
-                </div>
-            </form>
+        <div class="col-md-4" id="personData">
+<!--            <div class="widget-header widget-header-sm text-center widget-header-bottom-line">-->
+<!--                <h3 class="widget-title">個人資料</h3>-->
+<!--            </div>-->
+<!--            <form>-->
+<!--                <div class="form-group">-->
+<!--                    <label>姓名</label>-->
+<!--                    <input class="form-control" id="name" type="text"/>-->
+<!--                </div>-->
+<!--                <div class="form-group">-->
+<!--                    <label>電子郵件</label>-->
+<!--                    <input class="form-control" id="email" type="text"/>-->
+<!--                </div>-->
+<!--                <div class="form-group">-->
+<!--                    <label>手機號碼</label>-->
+<!--                    <input class="form-control" id="phoneNumber" type="text"/>-->
+<!--                </div>-->
+
+<!--                <div class="form-group">-->
+<!--                    <label>地址</label>-->
+<!--                    <input class="form-control" id="address" type="text"/>-->
+<!--                </div>-->
+<!--            </form>-->
         </div>
         <div class="col-md-4">
             <div class="widget-header widget-header-sm text-center widget-header-bottom-line">
-                <h3 class="widget-title">付款</h3>
+                <h3 class="widget-title">支付方式</h3>
             </div>
-            <div class="cc-form">
-                <div class="clearfix">
-                    <div class="form-group form-group-cc-number">
-                        <label>信用卡號</label>
-                        <input class="form-control" placeholder="xxxx xxxx xxxx xxxx" type="text"/><span
-                            class="cc-card-icon"></span>
-                    </div>
-                    <div class="form-group form-group-cc-cvc">
-                        <label>CVC</label>
-                        <input class="form-control" placeholder="xxx" type="text"/>
-                    </div>
-                </div>
-                <div class="clearfix">
-                    <div class="form-group form-group-cc-name">
-                        <label>持卡人</label>
-                        <input class="form-control" type="text"/>
-                    </div>
-                    <div class="form-group form-group-cc-date">
-                        <label>到期日</label>
-                        <input class="form-control" placeholder="mm/yy" type="text"/>
-                    </div>
-                </div>
-            </div>
-            <a class="btn btn-primary">結帳</a>
-            <!-- <hr>-->
-            <div class="gap gap-small"></div>
-            <img src="img/paypal.png" class="paypal-img" alt="paypal">
-            <p>提醒:您將會轉移至Paypal完成您的付款.</p>
-            <a href="#" class="btn btn-primary">透過Paypal付款</a>
+            <h4 class="widget-title">現在只有貨到付款 不要拉倒</h4>
+
+            <!--            <div class="cc-form">-->
+<!--                <div class="clearfix">-->
+<!--                    <div class="form-group form-group-cc-number">-->
+<!--                        <label>卡號</label>-->
+<!--                        <input class="form-control" placeholder="xxxx xxxx xxxx xxxx" type="text"/><span-->
+<!--                            class="cc-card-icon"></span>-->
+<!--                    </div>-->
+<!--                    <div class="form-group form-group-cc-cvc">-->
+<!--                        <label>CVC</label>-->
+<!--                        <input class="form-control" placeholder="xxxx" type="text"/>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="clearfix">-->
+<!--                    <div class="form-group form-group-cc-name">-->
+<!--                        <label>持卡人姓名</label>-->
+<!--                        <input class="form-control" type="text"/>-->
+<!--                    </div>-->
+<!--                    <div class="form-group form-group-cc-date">-->
+<!--                        <label>有效期</label>-->
+<!--                        <input class="form-control" placeholder="mm/yy" type="text"/>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+            <a class="default-btn" onclick="checkOut()">確認結帳</a>
+
         </div>
     </div>
 </div>
@@ -654,7 +594,6 @@ Check Out
             console.log("顯示賣家商品管理");
             var key=Object.keys(datas[0]);
             var total=0;
-
             for ( let data of datas ) {
                 let productCountId=data.orderID+'Count';
                 let productPriceId=data.orderID+'Price';
@@ -678,20 +617,45 @@ Check Out
             html+="<li>運費<span class='cart-total-amount'>60</span></li>"
             html+="<li>總和<span class='cart-total-amount'>Tw."+(total+60)+"</span></li>"
             $('#dataList2').append(html)
-
-
+     }
+     function makePostRequestParson(data,url) {
+              console.log("post request:"+data+"\turl:"+url);
+              var xhr = new XMLHttpRequest();
+              xhr.open("post",url, true);
+              xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+              xhr.send(data);
+              xhr.onload = function() {
+                let response = JSON.parse(this.response);
+                console.log(response)
+                addPersonData(response[0])
+              };
+     }
+     function addPersonData(data){
+        html="<div class='widget-header widget-header-sm text-center widget-header-bottom-line'><h3 class='widget-title'>個人資料</h3></div>";
+        html+="<p >姓名:"+data.name+"</p>"
+        html+="<p>電子郵件:"+data.email+"</p>"
+        html+="<p>手機號碼:"+data.phoneNumber+"</p>"
+        html+="<p>寄送地址:"+data.address+"</p>"
+        $('#personData').append(html)
+        console.log("個人資料")
      }
   $( document ).ready( function() {
     console.log( "ready!!!!" );
 <!--    emptyProducts();-->
-        var state="結帳中"
+        var state="下單中"
 
      var data="email="+getCookie("email")+"&state="+state,url="/api/getFullOrder2";
 <!--     makePostRequestList(data,url);-->
      makePostRequestRight(data,url)
      makePostRequestCheckout(data,url)
+     var data="email="+getCookie("email"),url="/api/searchMember";
+     makePostRequestParson(data,url);
+
   });
 
+    function checkOut(){
+        alert("SEND");
+    }
 
 
 
@@ -699,3 +663,24 @@ Check Out
 
 </body>
 </html>
+
+<!--<div class="col-md-4">-->
+
+<!--        <div class="form-group">-->
+<!--            <label>姓名</label>-->
+<!--            <input class="form-control" id="name" type="text"/>-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label>電子郵件</label>-->
+<!--            <input class="form-control" id="email" type="text"/>-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label>手機號碼</label>-->
+<!--            <input class="form-control" id="phoneNumber" type="text"/>-->
+<!--        </div>-->
+
+<!--        <div class="form-group">-->
+<!--            <label>地址</label>-->
+<!--            <input class="form-control" id="address" type="text"/>-->
+<!--        </div>-->
+<!--</div>-->
