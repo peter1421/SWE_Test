@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head><!-- Meta-Information --><title>Zawya Admin Panel</title>
-    <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <meta charset="utf-8">
     <meta name="description" content="">
@@ -378,7 +378,7 @@
             <div class="col-md-6 grid-item col-sm-12 col-lg-6">
                 <div class="card shadow mb-4"><!-- Card Header - Dropdown -->
                     <div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary"><font
-                            style="vertical-align: inherit;"><font style="vertical-align: inherit;">甜甜圈圖</font></font>
+                            style="vertical-align: inherit;"><font style="vertical-align: inherit;">訂單分類佔比</font></font>
                     </h6></div><!-- Card Body -->
                     <div class="card-body">
                         <div class="chart-pie pt-4">
@@ -390,39 +390,15 @@
                                     <div class=""></div>
                                 </div>
                             </div>
-                            <canvas id="myPieChart" width="635" height="316"
+                            <canvas id="chart" width="635" height="316"
                                     style="display: block; height: 253px; width: 508px;"
-                                    class="chartjs-render-monitor"></canvas>
+                            ></canvas>
                         </div>
                         <hr>
-                        <font style="vertical-align: inherit;"><font
-                                style="vertical-align: inherit;">圓環圖的樣式可以在</font></font><code>/js/demo/chart-pie-demo.js</code><font
-                            style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件中</font><font
-                            style="vertical-align: inherit;">找到</font><font
-                            style="vertical-align: inherit;">。</font></font></div>
+                    </div>
+
                 </div>
             </div>
-<!--            <div class="col-md-6 grid-item col-sm-12 col-lg-6">-->
-<!--                <div class="widget sales-summ pad50-40">-->
-<!--                    <div class="wdgt-opt"><span class="wdgt-opt-btn"><i class="ion-android-more-vertical"></i></span>-->
-<!--                        <div class="wdgt-opt-lst brd-rd5"><a class="delt-wdgt" href="#" title="">Delete</a><a-->
-<!--                                class="expnd-wdgt" href="#" title="">Expand</a><a class="refrsh-wdgt" href="#" title="">Refresh</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="wdgt-ldr">-->
-<!--                        <div class="ball-scale-multiple">-->
-<!--                            <div></div>-->
-<!--                            <div></div>-->
-<!--                            <div></div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <h4 class="widget-title">Sales Difference</h4>-->
-<!--                    <div id="chrt1" style="height: 260px;">-->
-
-<!--                    </div>-->
-
-<!--                </div>-->
-<!--            </div>-->
             <div class="col-md-12 grid-item col-sm-12 col-lg-12">
                 <div class="widget prd-wdgt pad50-40">
                     <div class="wdgt-opt"><span class="wdgt-opt-btn"><i class="ion-android-more-vertical"></i></span>
@@ -624,7 +600,7 @@
                             <div></div>
                         </div>
                     </div>
-                    <div  class="btn-group" role="group"
+                    <div class="btn-group" role="group"
                          aria-label="Basic radio toggle button group">
                         <!--            有空改彈性化-->
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
@@ -632,10 +608,12 @@
                                onclick=makeRequestSeller("/api/getFullOrder")>所有訂單</label>
 
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio2" onclick=makeRequestSeller("/api/getFullOrder/下單中")>下單中</label>
+                        <label class="btn btn-outline-primary" for="btnradio2"
+                               onclick=makeRequestSeller("/api/getFullOrder/下單中")>下單中</label>
 
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio3" onclick=makeRequestSeller("/api/getFullOrder/結帳中")>結帳中</label>
+                        <label class="btn btn-outline-primary" for="btnradio3"
+                               onclick=makeRequestSeller("/api/getFullOrder/結帳中")>結帳中</label>
 
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
                         <label class="btn btn-outline-primary" for="btnradio4"
@@ -821,7 +799,6 @@
             </div>
 
 
-
             <div class="col-md-6 grid-item col-sm-12 col-lg-6">
                 <div class="widget pad50-40">
                     <div class="wdgt-opt"><span class="wdgt-opt-btn"><i class="ion-android-more-vertical"></i></span>
@@ -1002,6 +979,8 @@
 <footer><p>Copyright <a href="http://www.bootstrapmb.com" title="">Example Company</a>&amp;2017 - 2018</p><span>10GB of 250GB Free.</span>
 </footer><!-- Vendor:Javascripts -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script src="js/jquery.min.js" type="text/javascript"></script><!-- Vendor:Followed by our custom Javascripts -->
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
 <script src="js/jquery-ui.min.js" type="text/javascript"></script>
@@ -1034,10 +1013,11 @@
 <script src="../js/demo/chart-bar-demo.js"></script>
 <script type="text/javascript">
 
-
+var d;
     $( document ).ready( function() {
         console.log( "ready!" );
         makeRequestSeller("/api/getFullOrder")
+        pic();
     });
 //Seller 訂單資料
    function makeRequestSeller(url) {
@@ -1053,8 +1033,10 @@
    }
  function addDatasSellerOrder(datas) {
         console.log("顯示賣家商品管理");
-        emptyProducts();//全部淨空
+        emptyProducts();
+<!--        //全部淨空-->
         var key=Object.keys(datas[0]);
+        d=datas;
         for ( let data of datas ) {
             let html="<tr>";
             html+="<td><span  class='blue-bg indx'>"+data.orderID+"</span></td>";
@@ -1067,10 +1049,60 @@
             html+="</tr>"
              $('#dataList').append(html);
         }
+        pic(datas);
  }
 
 
+function pic(datas){
+    Chart.defaults.global.defaultFontFamily = "Nunito",'-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+    Chart.defaults.global.defaultFontColor = "#858796";
+    var ctx = document.getElementById("chart");
+<!--    寫死了-->
+        let arr = [0, 0, 0,0];
 
+        for(let data of datas){
+            console.log(data.classification)
+            switch (data.classification) {
+                case "速食":
+                    arr[0]++;continue;
+                case "飲料":
+                    arr[1]++;continue;
+                case "合作系列-頂太瘋":
+                    arr[2]++;continue;
+                case "合作系列-亡品":
+                    arr[3]++;continue;
+            }
+        }
+    var myPieChart = new Chart(ctx, {
+        type: "doughnut",
+        data: {
+            labels: ["速食", "飲料", "合作系列-頂太瘋","合作系列-亡品"],
+            datasets: [{
+                data: arr,
+                backgroundColor: ["#4e73df", "#1cc88a", "#36b9cc", "#20088a"],
+                hoverBackgroundColor: ["#2e59d9", "#17a673", "#2c9faf","#154731"],
+                hoverBorderColor: "rgba(234, 236, 244, 1)",
+            }],
+        },
+        options: {
+            maintainAspectRatio: false,
+            tooltips: {
+                backgroundColor: "rgb(255,255,255)",
+                bodyFontColor: "#858796",
+                borderColor: "#dddfeb",
+                borderWidth: 1,
+                xPadding: 15,
+                yPadding: 15,
+                displayColors: false,
+                caretPadding: 10,
+            },
+            legend: {
+                display: false
+            },
+            cutoutPercentage: 80,
+        },
+    });
+}
 
 
 
@@ -1328,6 +1360,9 @@
 <!--            data: [1700, 2100, 900, 800, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, ]-->
 <!--        }]-->
 <!--    }); //===== ToolTip =====// if($.isFunction($.fn.tooltip)){$('[data-toggle="tooltip"]').tooltip()}$('.grid-item').draggable()});-->
+
+
+
 
 
 
