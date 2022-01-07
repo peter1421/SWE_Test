@@ -782,6 +782,21 @@
 
 <!-- Custom Js -->
 <script src="js/main.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $( document ).ready( function() {
+    console.log( "ready!!!!" );
+     var state="下單中"
+     var data="email="+getCookie("email")+"&state="+state,url="/api/getFullOrder2";
+     makePostRequestRight(data,url)
+  });
 
+   $( document ).ready( function() {
+    console.log( "ready!" );
+    emptyProducts();
+    if(getCookie("email")!=null){
+        document.getElementById("longer").innerHTML = "登入者:"+getCookie("email");
+    }
+  });
+</script>
 </body>
 </html>
