@@ -61,7 +61,8 @@
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="header-top-left">
                             <ul>
-                                <li><i class="fa fa-phone" aria-hidden="true"></i><a href="Tel:0424517250"> 04 2451 7250  </a></li>
+                                <li><i class="fa fa-phone" aria-hidden="true"></i><a href="Tel:0424517250"> 04 2451
+                                    7250 </a></li>
                                 <li><i class="fa fa-envelope" aria-hidden="true"></i><a
                                         href="#">info@fcu.edu.com.tw</a></li>
                             </ul>
@@ -131,7 +132,8 @@
                             </li>
                             <li>
                                 <div class="cart-area">
-                                    <a href="cart.html"><i aria-hidden="true" class="fa fa-shopping-cart"></i><span>0</span></a>
+                                    <a href="cart.html"><i aria-hidden="true"
+                                                           class="fa fa-shopping-cart"></i><span>0</span></a>
                                     <ul id="dataListRight"></ul>
 
                                 </div>
@@ -227,7 +229,7 @@ Check Out
     <p class="text-center">Sign in or Register to your <a href="#">Maxshop profile</a> to faster order checkout.</p>-->
     <div class="gap gap-small"></div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-8">
             <div class="widget-header widget-header-sm text-center widget-header-bottom-line">
                 <h3 class="widget-title">訂單信息</h3>
             </div>
@@ -242,65 +244,32 @@ Check Out
                 </tr>
                 </thead>
                 <tbody id="dataList1"></tbody>
-
             </table>
-        </div>
-        <div class="col-md-4" id="personData">
-<!--            <div class="widget-header widget-header-sm text-center widget-header-bottom-line">-->
-<!--                <h3 class="widget-title">個人資料</h3>-->
-<!--            </div>-->
-<!--            <form>-->
-<!--                <div class="form-group">-->
-<!--                    <label>姓名</label>-->
-<!--                    <input class="form-control" id="name" type="text"/>-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    <label>電子郵件</label>-->
-<!--                    <input class="form-control" id="email" type="text"/>-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    <label>手機號碼</label>-->
-<!--                    <input class="form-control" id="phoneNumber" type="text"/>-->
-<!--                </div>-->
+            <ul class="cart-total-list" id="dataList2"></ul>
 
-<!--                <div class="form-group">-->
-<!--                    <label>地址</label>-->
-<!--                    <input class="form-control" id="address" type="text"/>-->
-<!--                </div>-->
-<!--            </form>-->
         </div>
         <div class="col-md-4">
-            <div class="widget-header widget-header-sm text-center widget-header-bottom-line">
-                <h3 class="widget-title">支付方式</h3>
-            </div>
-            <h4 class="widget-title">現在只有貨到付款 不要拉倒</h4>
 
-            <!--            <div class="cc-form">-->
-<!--                <div class="clearfix">-->
-<!--                    <div class="form-group form-group-cc-number">-->
-<!--                        <label>卡號</label>-->
-<!--                        <input class="form-control" placeholder="xxxx xxxx xxxx xxxx" type="text"/><span-->
-<!--                            class="cc-card-icon"></span>-->
-<!--                    </div>-->
-<!--                    <div class="form-group form-group-cc-cvc">-->
-<!--                        <label>CVC</label>-->
-<!--                        <input class="form-control" placeholder="xxxx" type="text"/>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="clearfix">-->
-<!--                    <div class="form-group form-group-cc-name">-->
-<!--                        <label>持卡人姓名</label>-->
-<!--                        <input class="form-control" type="text"/>-->
-<!--                    </div>-->
-<!--                    <div class="form-group form-group-cc-date">-->
-<!--                        <label>有效期</label>-->
-<!--                        <input class="form-control" placeholder="mm/yy" type="text"/>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
+            <div class="row-md-8" id="personData">
+
+            </div>
+            <div class="row-md-4">
+                <div class="widget-header widget-header-sm text-center widget-header-bottom-line">
+                    <h3 class="widget-title">支付方式</h3>
+                </div>
+                <h4 class="widget-title">現在只有貨到付款 不要拉倒</h4>
+                <select id="productClassification" class="form-select" aria-label="Default select example">
+                    <option selected value="Null">選擇結帳方式</option>
+                    <option value="貨到付款">貨到付款</option>
+                    <option value="信用卡">信用卡</option>
+                    <option value="轉帳">轉帳</option>
+                    <option value="其他">其他</option>
+                </select>
+            </div>
             <a class="default-btn" onclick="checkOut()">確認結帳</a>
 
         </div>
+
     </div>
 </div>
 
@@ -456,14 +425,14 @@ Check Out
 </div>
 
 
-
 <div class="modal fade" id="Restaurant_login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <form action="/api/login" method="post">
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span>
                     </button>
                     <h4 class="modal-title model_center" id="myModalLabel">Login</h4>
                 </div>
@@ -472,11 +441,13 @@ Check Out
                     <div class="col-lg-12 col-md-12">
                         <div class="form-group">
                             <label for="">信箱地址</label>
-                            <input type="email" name="email" class="form-control" id="exampleInputEmail2" placeholder="Email">
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail2"
+                                   placeholder="Email">
                         </div>
                         <div class="form-group">
                             <label for="">密碼</label>
-                            <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword2"
+                                   placeholder="Password">
                         </div>
 
 
@@ -605,11 +576,10 @@ Check Out
                 html+="<td><a href='product-images.html' >"+data.productName+"</a></td>"
                 html+=" <td> "+data.price+"</td>"
                 html+=" <td id='"+productCountId+"'> "+data.count+"</td>"
-<!--                html+="<td class='cart-item-quantity'></i><input class='cart-quantity' type='text' name='cart-quantity' id='"+productCountId+"' value='"+data.count+"'/></td>"-->
                 html+=" <td><p id='"+productPriceId+"'>"+data.price+"</p></td>"
                 html+="</tr>"
                 $('#dataList1').append(html)
-                let productCount = parseInt(document.getElementById(productCountId).value);
+                let productCount = parseInt(document.getElementById(productCountId).innerText);
                 let productPrice = parseInt(document.getElementById(productPriceId).innerText);
                 document.getElementById(productPriceId).innerHTML=productCount*productPrice
                 total+=productCount*productPrice;
@@ -655,8 +625,22 @@ Check Out
   });
 
     function checkOut(){
-        alert("SEND");
+     ///直接索取html資料 簡單但有風險
+        var arr = [];
+        $("#dataList1 tr").each(function() {
+            arr.push(this.id);
+        });
+        for(data of arr){
+            let url="/api/checkOrder";
+            let request="orderId="+data+"&state=結帳中"
+            updataPost(request,url);
+        }
+        console.log(arr);
+        alert("結帳成功")
+        window.location.replace("/Successlogin.html");
+
     }
+
 
 
 
