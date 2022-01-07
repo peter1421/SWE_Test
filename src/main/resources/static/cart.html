@@ -73,12 +73,12 @@
                                 <ul>
 
 
-                                    <li class="dropdown"><a class="current-open" data-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false" href="#"><span><i
-                                            class="fa fa-user" aria-hidden="true"></i> 我的帳戶 </span> <i
+                                    <li class="dropdown" ><a class="current-open" data-toggle="dropdown"
+                                                             aria-haspopup="true" aria-expanded="false" href="#"><span><i
+                                            id="longer" style="text-align:center;"></i></span> <i
                                             class="fa fa-angle-down"></i></a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="accountpage.html">帳戶</a></li>
+                                            <li><a href="account_page.html">帳戶</a></li>
                                             <li><a href="checkout.html">結帳</a></li>
 
 
@@ -256,7 +256,7 @@
 <!--                    </li>-->
 <!--                </ul>-->
                 <a class="default-btn" onclick="checkOut()">直接結帳</a>
-                <a class="default-btn" href="checkout.html">確認資料結帳</a>
+                <a class="default-btn" href="checkout-page.html">(暫棄)結帳</a>
             </div>
 
         </div>
@@ -509,7 +509,8 @@
         }
         console.log(arr);
         alert("結帳成功")
-        window.location.replace("/index1.html");
+        window.location.replace("/Successlogin.html");
+
     }
      $( document ).ready( function() {
         console.log( "ready!!!!" );
