@@ -8,11 +8,12 @@ public class FullOrder extends Order {
 	private String address;
 	private int price;
 	private String imageUrl;
+	private String classification;
 
 	public FullOrder() {
 	}
 
-	public FullOrder(int orderID, String productName, String name, String phone, String address, int productId, String buyerEmail, int count, int price, String imageUrl) {
+	public FullOrder(int orderID, String productName, String name, String phone, String address, int productId, String buyerEmail, int count, int price, String imageUrl, String classification) {
 		this.orderID = orderID;
 		this.productName = productName;
 		this.name = name;
@@ -20,6 +21,7 @@ public class FullOrder extends Order {
 		this.address = address;
 		this.price = price;
 		this.imageUrl = imageUrl;
+		this.classification = classification;
 //		this.productId = productId;
 //		this.buyerEmail = buyerEmail;
 //		this.count = count;
@@ -73,11 +75,20 @@ public class FullOrder extends Order {
 		this.price = price;
 	}
 
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
 
-	public String getImageUrl() {
-		return imageUrl;
+
+	public String getClassification() {
+		return classification;
+	}
+
+	public void setClassification(String classification) {
+		this.classification = classification;
 	}
 }
