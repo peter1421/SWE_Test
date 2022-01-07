@@ -256,7 +256,7 @@
           //POST request用的(登入版)
           //APIAll.html會用到的 makePostRequestCookies劣化版
 //          var data="email="+getCookie("email"),url="/api/getBuyerOrder";
-          console.log("post request:"+data+"\turl:"+url);
+          console.log("!!post request:"+data+"\turl:"+url);
 
           var xhr = new XMLHttpRequest();
           xhr.open("post",url, true);
@@ -276,14 +276,15 @@
         let html="";
         var total=0;
         for ( let data of datas ) {
-            html+="<tr>";
+            html+="<tr id='"+ data.orderID+"'>";
             html+="<td>"+data.productName+"</td>"
             html+="<td>"+data.count+"</td>"
             html+="<td>"+data.price*data.count+"</td>"
             html+="</tr>";
             total+=data.price*data.count;
         }
-        html+="<tr><td></td><td></td><td>"+total+"</td></tr>";
+        html+="<tr><td></td><td></td><td>"+"運費:60"+"</td></tr>";
+        html+="<tr><td></td><td></td><td>"+total+60+"</td></tr>";
         $('#dataList1').append(html);
 
  }

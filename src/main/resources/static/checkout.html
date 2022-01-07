@@ -234,9 +234,11 @@ Check Out
             <table class="table cart-table">
                 <thead>
                 <tr>
-                    <th>商品</th>
-                    <th>數量</th>
+                    <th>圖示</th>
+                    <th>商品名稱</th>
                     <th>價格</th>
+                    <th>數量</th>
+                    <th>總和</th>
                 </tr>
                 </thead>
                 <tbody id="dataList1"></tbody>
@@ -602,9 +604,9 @@ Check Out
                 html+="<td class='cart-item-image'><a href='"+data.imageUrl+"'><img src='"+data.imageUrl+"' alt='Image Alternative text' title='Image Title' /></a></td>"
                 html+="<td><a href='product-images.html' >"+data.productName+"</a></td>"
                 html+=" <td> "+data.price+"</td>"
-                html+="<td class='cart-item-quantity'><i class='fa fa-minus cart-item-minus'></i><input class='cart-quantity' type='text' name='cart-quantity' id='"+productCountId+"' value='"+data.count+"'/><i class='fa fa-plus cart-item-plus'></i></td>"
+                html+=" <td id='"+productCountId+"'> "+data.count+"</td>"
+<!--                html+="<td class='cart-item-quantity'></i><input class='cart-quantity' type='text' name='cart-quantity' id='"+productCountId+"' value='"+data.count+"'/></td>"-->
                 html+=" <td><p id='"+productPriceId+"'>"+data.price+"</p></td>"
-                html+=" <td class='cart-item-remove'><a class='' href='#'><i class='fa fa-trash' aria-hidden='true'></i></a></td>"
                 html+="</tr>"
                 $('#dataList1').append(html)
                 let productCount = parseInt(document.getElementById(productCountId).value);
@@ -643,11 +645,10 @@ Check Out
     console.log( "ready!!!!" );
 <!--    emptyProducts();-->
         var state="下單中"
-
      var data="email="+getCookie("email")+"&state="+state,url="/api/getFullOrder2";
-<!--     makePostRequestList(data,url);-->
+     makePostRequestList(data,url);
      makePostRequestRight(data,url)
-     makePostRequestCheckout(data,url)
+<!--     makePostRequestCheckout(data,url)-->
      var data="email="+getCookie("email"),url="/api/searchMember";
      makePostRequestParson(data,url);
 
