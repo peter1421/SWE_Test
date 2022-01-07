@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Restaurant || Home</title>
+    <title> About </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,7 +11,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
 
     <!-- Normalize CSS -->
-
+    <link rel="stylesheet" href="css/normalize.css">
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/main.css">
@@ -25,6 +25,9 @@
     <!-- Font-awesome CSS-->
     <link rel="stylesheet" href="css/font-awesome.min.css">
 
+    <!-- Flaticon CSS-->
+    <link rel="stylesheet" type="text/css" href="css/font/flaticon.css">
+
     <!-- Owl Caousel CSS -->
     <link rel="stylesheet" href="vendor/OwlCarousel/owl.carousel.min.css">
     <link rel="stylesheet" href="vendor/OwlCarousel/owl.theme.default.min.css">
@@ -33,12 +36,11 @@
     <link rel="stylesheet" href="css/meanmenu.min.css">
 
     <!-- nivo slider CSS -->
-    <link rel="stylesheet" href="vendor/slider/css/nivo-slider.css" type="text/css"/>
-    <link rel="stylesheet" href="vendor/slider/css/preview.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="vendor/slider/css/nivo-slider.css" type="text/css" />
+    <link rel="stylesheet" href="vendor/slider/css/preview.css" type="text/css" media="screen" />
 
-    <!-- Datetime Picker Style CSS -->
-    <link rel="stylesheet" href="css/jquery.datetimepicker.css">
-
+    <!-- Switch Style CSS -->
+    <link rel="stylesheet" href="css/switch-style.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -46,10 +48,11 @@
     <!-- Modernizr Js -->
     <script src="js/modernizr-2.8.3.min.js"></script>
 
-
 </head>
 <body>
-
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
 
 <!-- Add your site or application content here -->
 <div class="wrapper">
@@ -73,21 +76,19 @@
                                 <ul>
 
 
-                                    <li class="dropdown"><a class="current-open" data-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false" href="#"><span><i
-                                            class="fa fa-user" aria-hidden="true"></i> 我的帳戶 </span> <i
+                                    <li class="dropdown" ><a class="current-open" data-toggle="dropdown"
+                                                             aria-haspopup="true" aria-expanded="false" href="#"><span><i
+                                            id="longer" style="text-align:center;"></i></span> <i
                                             class="fa fa-angle-down"></i></a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="accountpage.html">帳戶</a></li>
+                                            <li><a href="account_page.html">帳戶</a></li>
                                             <li><a href="checkout.html">結帳</a></li>
 
 
                                         </ul>
                                     </li>
-                                    <li><a href="#" data-toggle="modal" data-target="#Restaurant_signup"><i
-                                            class="fa fa-user" aria-hidden="true"></i> 註冊帳戶</a></li>
-                                    <li><a href="#" data-toggle="modal" data-target="#Restaurant_login"><i
-                                            class="fa fa-user" aria-hidden="true"></i> 登入帳戶</a></li>
+
+                                    <button type="button" class="btn btn-primary" onclick="deleteAllCookie()">登出</button></i>
                                     <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
@@ -95,30 +96,29 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
-            <div class="header-bottom-area" id="sticker">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                            <div class="logo-area">
-                                <a href="index1.html"><img class="img-responsive" src="img/logo-color.png"
-                                                          alt="logo"></a>
+                <div class="header-bottom-area" id="sticker">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                <div class="logo-area">
+                                    <a href="Successlogin.html"><img class="img-responsive" src="img/logo-color.png"
+                                                                     alt="logo"></a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                            <div class="main-menu-area">
-                                <nav>
-                                    <ul>
-                                        <li><a href="index1.html">首頁</a></li>
-                                        <li><a href="about1.html">關於我們</a></li>
-                                        <li><a href="our_recipes.html">優惠組合</a></li>
-                                        <li><a href="food_2.html">菜單</a></li>
-                                        <li><a href="food_menu_details.html">菜單明細</a></li>
-                                        <li><a href="contact.html">聯絡我們</a></li>
-                                    </ul>
-                                </nav>
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                <div class="main-menu-area">
+                                    <nav>
+                                        <ul>
+                                            <li><a href="Successlogin.html">首頁</a></li>
+                                            <li><a href="sucabout1.html">關於我們</a></li>
+                                            <li><a href="our_recipes.html">優惠組合</a></li>
+                                            <li><a href="Sucfood_2.html">菜單</a></li>
+                                            <li><a href="food_menu_details.html">菜單明細</a></li>
+                                            <li><a href="contact.html">聯絡我們</a></li>
+                                        </ul>
+                                    </nav>
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
@@ -129,6 +129,13 @@
                                         <a href="#" class="search-button" id="search-button"><i class="fa fa-search"
                                                                                                 aria-hidden="true"></i></a>
                                     </form>
+                                </li>
+                                <li>
+                                    <div class="cart-area">
+                                        <a href="cart.html"><i aria-hidden="true" class="fa fa-shopping-cart"></i><span>0</span></a>
+                                        <ul id="dataListRight"></ul>
+
+                                    </div>
                                 </li>
                             </ul>
                         </div>
@@ -196,135 +203,258 @@
         <!-- Mobile Menu Area End -->
     </header>
     <!-- Header Area End Here -->
-    <!-- Slider Area Start Here -->
-    <div class="slider1-area">
-        <div class="bend niceties preview-1">
-            <div id="ensign-nivoslider-3" class="slides">
-                <img src="img/slider/slide1-1.jpg" alt="slider" title="#slider-direction-1"/>
-                <img src="img/slider/slide1-2.jpg" alt="slider" title="#slider-direction-2"/>
-                <img src="img/slider/slide1-3.jpg" alt="slider" title="#slider-direction-3"/>
-            </div>
-            <div id="slider-direction-1" class="t-cn slider-direction">
-                <div class="slider-content s-tb slide-1">
-                    <div class="title-container s-tb-c">
-                        <h1 class="title1">最了解你的</h1>
-                        <p>我們發展不同的品牌在各式渠道，都是以最好的食材研發而成</p>
-                        <div class="slider-btn-area">
-                            <a href="food_2.html" class="ghost-btn">立即訂購</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="slider-direction-2" class="t-cn slider-direction">
-                <div class="slider-content s-tb slide-2">
-                    <div class="title-container s-tb-c">
-                        <h1 class="title1">最了解你的</h1>
-                        <p>將食物的原型，呈現在美味料理中是我們的堅持</p>
-                        <div class="slider-btn-area">
-                            <a href="food_2.html" class="ghost-btn">立即訂購</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="slider-direction-3" class="t-cn slider-direction">
-                <div class="slider-content s-tb slide-3">
-                    <div class="title-container s-tb-c">
-                        <h1 class="title1">值得你 <span>了解</span> 的鮮食網站</h1>
-                        <p>期待喚起記憶中那單純的好味道</p>
-                        <div class="slider-btn-area">
-                            <a href="food_2.html" class="ghost-btn">立即訂購</a>
-                        </div>
-                    </div>
-                </div>
+    <!-- Inner Page Banner Area Start Here -->
+    <div class="inner-page-banner-area">
+        <div class="container">
+            <div class="pagination-area">
+                <h2>關於我們</h2>
+                <ul>
+                    <li><a href="#">首頁 -</a> /</li>
+                    <li>關於</li>
+                </ul>
             </div>
         </div>
     </div>
-    <!-- Slider Area End Here -->
-    <!-- About 1 Area Start Here -->
-    <div class="about1-area section-space">
-        <img class="img-responsive section-back" src="img/section-back-1.png" alt="Sestion Back">
+    <!-- Inner Page Banner Area End Here -->
+    <!-- About Page Area Start Here -->
+    <div class="about-page-area">
+        <img src="img/about1-bottom-back.png" class="img-responsive" alt="about1-bottom-back">
         <div class="container">
             <div class="row">
-
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 wow fadeInRight">
-                    <div class="about1-area-top">
-                        <h2>堅持 <span> 品質</span></h2>
-                        <h2>嚴格把管生產流程</h2>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                    <div class="about-page-left">
+                        <h2>我們的歷史</h2>
+                        <p><span><span>1947</span> 列寧說過一句富有哲理的話，患難識朋友。這是撼動人心的。把食物輕鬆帶過，顯然並不適合。看看別人，再想想自己，會發現問題的核心其實就在你身旁。</span></p>
+                        <p>食物，到底應該如何實現。謹慎地來說，我們必須考慮到所有可能。問題的關鍵看似不明確，但想必在諸位心中已有了明確的答案。舒曼曾經提到過，時髦的玩藝兒，只要表面的光彩一。這段話雖短，卻足以改變人類的歷史。總結來說，如果仔細思考食物，會發現其中蘊含的深遠意義。若能夠欣賞到食物的美，相信我們一定會對食物改觀。可是，即使是這樣，食物的出現仍然代表了一定的意義。魯迅說過一句發人省思的話，時間，就像海綿里的水，只要願擠，總還是有的。這把視野帶到了全新的高度。食物的出現，必將帶領人類走向更高的巔峰。</p>
                     </div>
-                    <h3 class="title-bar-big-left">不斷創新，超越自我</h3>
-                    <p>創立以來,不斷以創新,超越自我, 生產開發符合飲食潮流的禽肉製品為主, 並透過嚴密的生產流程及品質管控, 為食品安全衛生嚴格把關, 正宗MIT自產自銷; 喚起幸福的味道。</p>
-                    <a href="about1.html" class="ghost-color-btn">了解更多<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                    <div class="about-page-right">
+                        <div class="rc-carousel"
+                             data-loop="true"
+                             data-items="1"
+                             data-margin="15"
+                             data-autoplay="true"
+                             data-autoplay-timeout="10000"
+                             data-smart-speed="2000"
+                             data-dots="true"
+                             data-nav="false"
+                             data-nav-speed="false"
+                             data-r-x-small="1"
+                             data-r-x-small-nav="false"
+                             data-r-x-small-dots="true"
+                             data-r-x-medium="1"
+                             data-r-x-medium-nav="false"
+                             data-r-x-medium-dots="true"
+                             data-r-small="1"
+                             data-r-small-nav="false"
+                             data-r-small-dots="true"
+                             data-r-medium="1"
+                             data-r-medium-nav="false"
+                             data-r-medium-dots="true">
+                            <div class="about-page-img-holder">
+                                <img src="img/about1-banner1.jpg" class="img-responsive" alt="about1-banner">
+                            </div>
+                            <div class="about-page-img-holder">
+                                <img src="img/about1-banner2.jpg" class="img-responsive" alt="about1-banner">
+                            </div>
+                            <div class="about-page-img-holder">
+                                <img src="img/about1-banner1.jpg" class="img-responsive" alt="about1-banner">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Table Reservation 1 Area Start Here-->
-    <div class="table-reservation1-area">
-        <div class="container">
-            <h2 class="title">合作廠商</h2>
-        </div>
-    </div>
-            <!-- <span class="subtitle-color">F</span>
-            <h3>Opening Hour 8:00 AM - 10:00 PM Every day on week.</h3>
             <div class="row">
-                <div class="reservation-form">
-                    <form id="reservation-form">
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div class="reservation-input-box">
-                                <input type="text" class="form-control" placeholder="Name" name="name" id="form-name"
-                                       data-error="Subject field is required" required/>
+                <div class="about-page-bottom">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="about-page-bottom-box border-right wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
+                            <div class="media">
+
+                                <div class="media-body">
+                                    <h3><a href="#">我們的認證</a></h3>
+                                    <p>經過上述討論，這樣看來，俗話說的好，掌握思考過程，也就掌握了食物。魯迅在過去曾經講過，創造新陸地的，不是那滾滾的波浪。這句話決定了一切。</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div class="reservation-input-box">
-                                <input type="text" class="form-control" placeholder="E-mail" name="email"
-                                       id="form-subject" data-error="Subject field is required" required/>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="about-page-bottom-box border-right wow zoomIn" data-wow-duration="2s" data-wow-delay="1s">
+                            <div class="media">
+
+                                <div class="media-body">
+                                    <h3><a href="#">得獎紀錄</a></h3>
+                                    <p>若到今天結束時我們都還無法釐清食物的意義，那想必我們昨天也無法釐清。探討食物時，如果發現非常複雜，那麼想必不簡單。</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div class="reservation-input-box">
-                                <input type="text" class="form-control" placeholder="Phone" name="phone" id="form-phone"
-                                       data-error="Subject field is required" required/>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="about-page-bottom-box wow zoomIn" data-wow-duration="2s" data-wow-delay="1.5s">
+                            <div class="media">
+
+                                <div class="media-body">
+                                    <h3><a href="#">我們的態度</a></h3>
+                                    <p>儘管如此，我們仍然需要對食物保持懷疑的態度。既然如此，若沒有食物的存在，那麼後果可想而知。富蘭克林曾說過一句意義深遠的話，作家最大的欣喜莫過於他發現自己的作品被別的博學的作家恭敬地引用。希望大家能發現話中之話。</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div class="reservation-input-box">
-                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                                <input type="text" class="form-control rt-date" placeholder="Date" name="date"
-                                       id="form-date" data-error="Subject field is required" required/>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div class="reservation-input-box">
-                                <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                <input type="text" class="form-control rt-time" placeholder="Time" name="time"
-                                       id="form-time" data-error="Subject field is required" required/>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="reservation-input-box">
-                                <textarea class="form-control" placeholder="Message" name="message" id="form-message"
-                                          data-error="Message field is required" required></textarea>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <div class="reservation-input-box">
-                                <button type="submit" class="book-now-btn">Book A Table</button>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class='form-response'></div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>-->
-
-    <!-- Client Reviews Area Start Here -->
-    <!-- Client Reviews Area End Here -->
-    <!-- Brand Area Start Here  -->
+    </div>
+    <!-- About Page Area End Here -->
+    <!-- Award Area Start Here -->
+    <div class="award1-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                    <div class="award1-area-box">
+                        <i class="fa fa-smile-o" aria-hidden="true"></i>
+                        <h2 class="about-counter" data-num="5030">5030</h2>
+                        <p>會員人數</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                    <div class="award1-area-box">
+                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                        <h2 class="about-counter" data-num="2030">2030</h2>
+                        <p>愛心會員</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                    <div class="award1-area-box">
+                        <i class="fa fa-coffee" aria-hidden="true"></i>
+                        <h2 class="about-counter" data-num="3030">3030</h2>
+                        <p>咖啡</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                    <div class="award1-area-box">
+                        <i class="fa fa-book" aria-hidden="true"></i>
+                        <h2 class="about-counter" data-num="4320">4320</h2>
+                        <p>本月訂單</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Award Area End Here -->
+    <!-- Expert Chefs Area Start Here -->
+    <div class="expert-chefs-area">
+        <img class="img-responsive section-back" src="img/team/section-back.png" alt="Sestion Back">
+        <div class="container">
+            <h2 class="title-color">合作主廚</h2>
+            <span class="subtitle-color">專業的廚師團隊</span>
+            <div class="rc-carousel"
+                 data-loop="true"
+                 data-items="3"
+                 data-margin="30"
+                 data-autoplay="true"
+                 data-autoplay-timeout="10000"
+                 data-smart-speed="2000"
+                 data-dots="true"
+                 data-nav="true"
+                 data-nav-speed="false"
+                 data-r-x-small="1"
+                 data-r-x-small-nav="true"
+                 data-r-x-small-dots="true"
+                 data-r-small="2"
+                 data-r-small-nav="true"
+                 data-r-small-dots="true"
+                 data-r-medium="3"
+                 data-r-medium-nav="true"
+                 data-r-medium-dots="false">
+                <div class="expert-chefs-box">
+                    <a href="#"><img class="img-responsive" src="img/team/1.jpg" alt="team"></a>
+                    <div class="expert-chefs-box-content">
+                        <span></span>
+                        <h3><a href="#">王韋鳳</a></h3>
+                        <p>西餐主廚</p>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="expert-chefs-box">
+                    <a href="#"><img class="img-responsive" src="img/team/2.jpg" alt="team"></a>
+                    <div class="expert-chefs-box-content">
+                        <span></span>
+                        <h3><a href="#">蔡冠廷</a></h3>
+                        <p>甜點師</p>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="expert-chefs-box">
+                    <a href="#"><img class="img-responsive" src="img/team/3.jpg" alt="team"></a>
+                    <div class="expert-chefs-box-content">
+                        <span></span>
+                        <h3><a href="#">杜智翔</a></h3>
+                        <p>路人</p>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="expert-chefs-box">
+                    <a href="#"><img class="img-responsive" src="img/team/1.jpg" alt="team"></a>
+                    <div class="expert-chefs-box-content">
+                        <span></span>
+                        <h3><a href="#">王韋鳳</a></h3>
+                        <p>西餐主廚</p>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="expert-chefs-box">
+                    <a href="#"><img class="img-responsive" src="img/team/2.jpg" alt="team"></a>
+                    <div class="expert-chefs-box-content">
+                        <span></span>
+                        <h3><a href="#">蔡冠廷</a></h3>
+                        <p>甜點師</p>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="expert-chefs-box">
+                    <a href="#"><img class="img-responsive" src="img/team/3.jpg" alt="team"></a>
+                    <div class="expert-chefs-box-content">
+                        <span></span>
+                        <h3><a href="#">杜智翔</a></h3>
+                        <p>路人</p>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Expert Chefs Area End Here -->
+    <!-- Brand Area Start Here -->
     <div class="brand-area">
         <img class="img-responsive section-back" src="img/brand/back-logo.png" alt="back-logo">
         <div class="container">
@@ -545,42 +675,42 @@
 <div class="modal fade" id="Restaurant_login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <form action="/api/login" method="post">
-        <div class="modal-content">
+            <div class="modal-content">
 
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title model_center" id="myModalLabel">Login</h4>
-            </div>
-
-            <div class="modal-body">
-                <div class="col-lg-12 col-md-12">
-                    <div class="form-group">
-                        <label for="">信箱地址</label>
-                        <input type="email" name="email" class="form-control" id="exampleInputEmail2" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <label for="">密碼</label>
-                        <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-                    </div>
-
-
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox"> 條款說明
-                        </label>
-                    </div>
-
-
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title model_center" id="myModalLabel">Login</h4>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" onclick="get(email)">登入</button>
-                <a type="submit" class="" style="margin-left:10px;cursor:pointer;" data-toggle="modal"
-                   data-target="#Restaurant_forgetpas">忘記密碼?</a>
-            </div>
 
-        </div>
+                <div class="modal-body">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group">
+                            <label for="">信箱地址</label>
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail2" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="">密碼</label>
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                        </div>
+
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> 條款說明
+                            </label>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" onclick="get(email)">登入</button>
+                    <a type="submit" class="" style="margin-left:10px;cursor:pointer;" data-toggle="modal"
+                       data-target="#Restaurant_forgetpas">忘記密碼?</a>
+                </div>
+
+            </div>
         </form>
     </div>
 </div>
@@ -618,8 +748,6 @@
 <!-- Preloader Start Here -->
 <div id="preloader"></div>
 <!-- Preloader End Here -->
-
-<script src="js/tool.js"></script>
 <!-- jquery-->
 <script src="js/jquery-2.2.4.min.js" type="text/javascript"></script>
 
@@ -636,7 +764,6 @@
 <script src="vendor/slider/js/jquery.nivo.slider.js" type="text/javascript"></script>
 <script src="vendor/slider/js/home.js" type="text/javascript"></script>
 
-
 <!-- Owl Cauosel JS -->
 <script src="vendor/OwlCarousel/owl.carousel.min.js" type="text/javascript"></script>
 
@@ -650,26 +777,11 @@
 <script src="js/jquery.counterup.min.js"></script>
 <script src="js/waypoints.min.js"></script>
 
-<!-- Date Time Picker Js -->
-<script src="js/jquery.datetimepicker.full.min.js" type="text/javascript"></script>
-
-<!-- Validator js -->
-<script src="js/validator.min.js" type="text/javascript"></script>
+<!-- Switch js -->
+<script src="js/switch-style.js" type="text/javascript"></script>
 
 <!-- Custom Js -->
 <script src="js/main.js" type="text/javascript"></script>
 
-
-<script type="text/javascript">
-  $( document ).ready( function() {
-    console.log( "ready!!!!" );
-     var state="下單中"
-     var data="email="+getCookie("email")+"&state="+state,url="/api/getFullOrder2";
-     makePostRequestRight(data,url)
-  });
-</script>
-
 </body>
-
 </html>
-
