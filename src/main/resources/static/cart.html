@@ -73,21 +73,19 @@
                                 <ul>
 
 
-                                    <li class="dropdown"><a class="current-open" data-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false" href="#"><span><i
-                                            class="fa fa-user" aria-hidden="true"></i> 我的帳戶 </span> <i
+                                    <li class="dropdown" ><a class="current-open" data-toggle="dropdown"
+                                                             aria-haspopup="true" aria-expanded="false" href="#"><span><i
+                                            id="longer" style="text-align:center;"></i></span> <i
                                             class="fa fa-angle-down"></i></a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="accountpage.html">帳戶</a></li>
+                                            <li><a href="account_page.html">帳戶</a></li>
                                             <li><a href="checkout.html">結帳</a></li>
 
 
                                         </ul>
                                     </li>
-                                    <li><a href="#" data-toggle="modal" data-target="#Restaurant_signup"><i
-                                            class="fa fa-user" aria-hidden="true"></i> 註冊帳戶</a></li>
-                                    <li><a href="#" data-toggle="modal" data-target="#Restaurant_login"><i
-                                            class="fa fa-user" aria-hidden="true"></i> 登入帳戶</a></li>
+
+                                    <button type="button" class="btn btn-primary" onclick="deleteAllCookie()">登出</button></i>
                                     <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
@@ -103,18 +101,18 @@
                     <div class="row">
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                             <div class="logo-area">
-                                <a href="index1.html"><img class="img-responsive" src="img/logo-color.png"
-                                                          alt="logo"></a>
+                                <a href="Successlogin.html"><img class="img-responsive" src="img/logo-color.png"
+                                                                 alt="logo"></a>
                             </div>
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                             <div class="main-menu-area">
                                 <nav>
                                     <ul>
-                                        <li><a href="index1.html">首頁</a></li>
-                                        <li><a href="about1.html">關於我們</a></li>
+                                        <li><a href="Successlogin.html">首頁</a></li>
+                                        <li><a href="sucabout1.html">關於我們</a></li>
                                         <li><a href="our_recipes.html">優惠組合</a></li>
-                                        <li><a href="food_2.html">菜單</a></li>
+                                        <li><a href="Sucfood_2.html">菜單</a></li>
                                         <li><a href="food_menu_details.html">菜單明細</a></li>
                                         <li><a href="contact.html">聯絡我們</a></li>
                                     </ul>
@@ -352,7 +350,7 @@
 <!-- Preloader Start Here -->
 <div id="preloader"></div>
 <!-- Preloader End Here -->
-
+<script src="js/tool.js"></script>
 <!--=============================================
  jquery
  =====================================================-->
@@ -395,9 +393,23 @@
 
 <!-- Custom Js -->
 <script src="js/main.js" type="text/javascript"></script>
-<script src="js/tool.js"></script>
+
 
 <script>
+$( document ).ready( function() {
+    console.log( "ready!!!!" );
+     var state="下單中"
+     var data="email="+getCookie("email")+"&state="+state,url="/api/getFullOrder2";
+     makePostRequestRight(data,url)
+  });
+
+   $( document ).ready( function() {
+    console.log( "ready!" );
+    emptyProducts();
+    if(getCookie("email")!=null){
+        document.getElementById("longer").innerHTML = "登入者:"+getCookie("email");
+    }
+  });
      function makePostRequestList(data,url) {
               console.log("post request:"+data+"\turl:"+url);
               var xhr = new XMLHttpRequest();
@@ -509,7 +521,7 @@
         }
         console.log(arr);
         alert("結帳成功")
-        window.location.replace("/index1.html");
+        window.location.replace("/Successlogin.html");
 
     }
      $( document ).ready( function() {
