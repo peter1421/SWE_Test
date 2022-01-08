@@ -620,9 +620,24 @@
         if(c.className==="accordion-collapse collapse show"){
             c.className="accordion-collapse collapse";
         }else{
-            c.className="accordion-collapse collapse show";
+            var data="billId="+id,url="/api/getBill";
+            console.log("post request:"+data+"\turl:"+url);
+              var xhr = new XMLHttpRequest();
+              xhr.open("post",url, true);
+              xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+              xhr.send(data);
+              xhr.onload = function() {
+                let response = JSON.parse(this.response);
+                console.log(response)
+                addBill(response,l);
+                c.className="accordion-collapse collapse show";
+
+              };
         }
-        var html="try"+id;
+     }
+     function addBill(response,l){
+        var html="try"+response;
+
         $(l).append(html)
      }
      $(document).ready(function(){
