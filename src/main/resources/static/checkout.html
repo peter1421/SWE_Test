@@ -624,6 +624,18 @@ Check Out
 
   });
 
+    function  updataPost(data,url) {
+              //https://ithelp.ithome.com.tw/articles/10212110?sc=rss.qu
+              console.log("post request:"+data+"\turl:"+url);
+              var xhr = new XMLHttpRequest();
+              xhr.open("post",url, true);
+              xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+              xhr.send(data);
+              xhr.onload = function() {
+                let response = JSON.parse(this.response);
+                console.log(response)
+              };
+    }
     function checkOut(){
      ///直接索取html資料 簡單但有風險
         var arr = [];
