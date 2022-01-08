@@ -1,10 +1,7 @@
 package fcu.sep.fcushop.service;
 
 import fcu.sep.fcushop.database.Sql2oDbHandler;
-import fcu.sep.fcushop.model.Account;
-import fcu.sep.fcushop.model.BuyerOrder;
-import fcu.sep.fcushop.model.FullOrder;
-import fcu.sep.fcushop.model.Order;
+import fcu.sep.fcushop.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.sql2o.Connection;
@@ -189,6 +186,24 @@ public class OrderService {
 		}
 		return returnMessage;
 	}
-
+	public List<Integer> getBillId(String email) {
+		try (Connection connection = sql2oDbHandler.getConnector().open()) {
+			String query = String.format("SELECT  DISTINCT 帳單ID\n" +
+			"FROM fcu_shop.訂單資料\n" +
+			"where 買家Email='%s'\n" +
+			"order by 帳單ID;",email);
+			System.out.println(query);
+			return connection.createQuery(query).executeAndFetch(Integer.class);
+		}
+	}
+	public List<Bill> getBill(int billId) {
+		try (Connection connection = sql2oDbHandler.getConnector().open()) {
+			String query = String.format("SELECT 商品圖片 imageUrl,商品名稱 name,商品數量 count,商品價格 price,商品分類 classification,(商品數量*商品價格) as sum,訂單狀態 state\n" +
+			"FROM fcu_shop.訂單資料 INNER JOIN fcu_shop.商品資料 ON fcu_shop.訂單資料.商品ID=fcu_shop.商品資料.商品ID\n" +
+			"where 帳單ID='%d';",billId);
+			System.out.println(query);
+			return connection.createQuery(query).executeAndFetch(Bill.class);
+		}
+	}
 
 }

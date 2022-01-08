@@ -1,19 +1,11 @@
 package fcu.sep.fcushop.controller;
 
-import fcu.sep.fcushop.model.Account;
-import fcu.sep.fcushop.model.BuyerOrder;
-import fcu.sep.fcushop.model.FullOrder;
-import fcu.sep.fcushop.model.Order;
+import fcu.sep.fcushop.model.*;
 import fcu.sep.fcushop.service.AccountService;
 import fcu.sep.fcushop.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import fcu.sep.fcushop.controller.AccountController;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -153,6 +145,17 @@ public class OrderController {
 		orderManager.deleteOrder(ID);
 		return true;
 		//有空回來補錯誤偵測
+	}
+
+	@PostMapping("/api/getBillId")
+	@ResponseBody
+	public  List<Integer> getBillId(@RequestParam String email) {
+		return orderManager.getBillId(email);
+	}
+	@PostMapping("/api/getBill")
+	@ResponseBody
+	public  List<Bill> getBill(@RequestParam int billId) {
+		return orderManager.getBill(billId);
 	}
 
 }
