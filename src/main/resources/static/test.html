@@ -1,0 +1,188 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head runat="server">
+    <title>FlyNoteBook</title>
+    <script src="Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="Scripts/common.js"></script>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="Scripts/login.js"></script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"> </asp:ContentPlaceHolder>
+    <meta charset="utf-8">
+</head>
+
+<body>
+<form runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title"> <img src="Images/Pictures/logo3.png" alt="FlyNoteBook Logo" /> FlyNoteBook </div>
+            <div class="loginDisplay"> <span id="popup" runat="server">登入 <span id="loginSuccess" runat="server"> </div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="首頁" />
+                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="關於" />
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <!--登入視窗:Begin-->
+        <div id="divLoginWindow">
+            <table style="width: 100%;" border="0" cellpadding="2" cellspacing="0">
+                <tr style="background-color: #e0f3d9; border-bottom: #bfe5b3 solid 2px">
+                    <td style="height: 38px; width: 100px;"> 使用者登入 </td>
+                    <td> <img src="Images/Button/close.gif" id="closeBtn" align="absmiddle" alt="關閉" title="關閉" /> </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="height: 5px;"> </td>
+                </tr>
+                <tr>
+                    <td align="right"> 使用者名稱: </td>
+                    <td>
+                        <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right"> 密 碼: </td>
+                    <td>
+                        <asp:TextBox ID="txtPassword" TextMode="Password" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right"> 驗證碼: </td>
+                    <td>
+                        <asp:TextBox ID="txtCode" Style="width: 88px;" runat="server"></asp:TextBox> <img src="Code.aspx" id="imgRndCode" style="vertical-align: middle;" onclick="ChangeCode(this);" alt="驗證碼" title="看不清,點選圖片更換圖片" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"> <a onclick="CheckLogin()" id="alogin">登 錄</a> <img id="loading" src="Images/Loading/loading04.gif" alt="正在登入" title="正在登入..." />
+                        <span id="showMes">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--登入視窗:End-->
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+        <div class="clear"> </div>
+    </div>
+    <div class="footer"> <a href="">By Ferry</a> </div>
+</form>
+<script>
+    $(function() {
+    var screenwidth, screenheight, mytop, getPosLeft, getPosTop screenwidth = $(window).width();
+    screenheight = $(window).height(); //獲取滾動條距頂部的偏移
+    mytop = $(document).scrollTop(); //計算彈出層的
+    left getPosLeft = screenwidth / 2 - 200; //計算彈出層的
+    top getPosTop = screenheight / 2 - 150; //css定位彈出層
+    $("#divLoginWindow").css({
+        "left": getPosLeft,
+        "top": getPosTop
+    }); //當瀏覽器視窗大小改變時
+    $(window).resize(function() {
+        screenwidth = $(window).width();
+        screenheight = $(window).height();
+        mytop = $(document).scrollTop();
+        getPosLeft = screenwidth / 2 - 200;
+        getPosTop = screenheight / 2 - 150;
+        $("#divLoginWindow").css({
+            "left": getPosLeft,
+            "top": getPosTop + mytop
+        });
+    }); //當拉動滾動條時,彈出層跟著移動
+    $(window).scroll(function() {
+        screenwidth = $(window).width();
+        screenheight = $(window).height();
+        mytop = $(document).scrollTop();
+        getPosLeft = screenwidth / 2 - 200;
+        getPosTop = screenheight / 2 - 150;
+        $("#divLoginWindow").css({
+            "left": getPosLeft,
+            "top": getPosTop + mytop
+        });
+    }); //點選連結彈出登入視窗
+    $("#popup").click(function() {
+        $("#divLoginWindow").fadeIn("slow"); //toggle("slow");
+        $("#txtUserName").focus(); //獲取頁面文件的高度
+        var docheight = $(document).height(); //追加一個層,使背景變灰
+        $("body").append("<div id='greybackground'></div>");
+        $("#greybackground").css({
+            "opacity": "0.5",
+            "height": docheight
+        });
+        return false;
+    }); //點選關閉按鈕
+    $("#closeBtn").click(function() {
+        $("#divLoginWindow").fadeOut("slow"); ////hide(); //刪除變灰的層
+        $("#greybackground").remove();
+        return false;
+    });
+}); //更換驗證碼圖片
+function ChangeCode(obj) {
+    obj.src = "Code.aspx?" + Math.random();
+}
+
+var count = 0;
+$(document).ready(function() {
+    $("#loading").hide()
+});
+
+function CheckLogin() {
+    $("#alogin").hide();
+    $("#loading").show();
+    var txtCode = $("#txtCode");
+    var txtName = $("#txtUserName");
+    var txtPwd = $("#txtPassword");
+    $.ajax({
+        url: "CheckLogin.aspx?Code=" + txtCode.val() + "&;Name=" + txtName.val() + "&;Pwd=" + txtPwd.val(),
+        type: "post",
+        datatype: "text",
+        success: function(returnValue) {
+            if (returnValue != "false") {
+                $("#popup").hide();
+                $("#showMes").hide();
+                $("#loginSuccess").html(returnValue + ',您好!');
+                $("#divLoginWindow").remove();
+                $("#greybackground").remove();
+                $("#showMes").hide();
+            } else {
+                count = count + 1;
+                $("#loading").hide();
+                $("#alogin").show();
+                $("#showMes").show();
+                $("#showMes").html("<font color=red>登入失敗,請檢查後重試!(" + count + "次)");
+            }
+        }
+    })
+}
+
+using System;
+using System.Data;
+public partial class CheckLogin: System.Web.UI.Page {
+    protected void Page_Load(object sender, EventArgs e) {
+        try {
+            String strCode = Request.QueryString["Code"];
+            String strName = Request.QueryString["Name"];
+            String strPassword = Request.QueryString["Pwd"];
+            if (strCode != Session["Code"].ToString()) {
+                Response.Write("false");
+            } else {
+                DAO.SqlHelper helper = new DAO.SqlHelper();
+                DataTable dt = helper.FillDataTable(String.Format("Select UserName,TrueName From Clients Where UserName='{0}' And Password='{1}'", strName, strPassword));
+                if (dt != null & ; & ; dt.Rows.Count > 0) {
+                    Session["TrueName"] = dt.Rows[0]["TrueName"].ToString();
+                    Response.Write(dt.Rows[0]["TrueName"].ToString());
+                } else {
+                    Response.Write("false");
+                }
+            }
+        } catch {
+            Response.Write("false");
+        }
+    }
+}
+</script>
+</body>
+</html>
