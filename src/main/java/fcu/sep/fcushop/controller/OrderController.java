@@ -1,9 +1,6 @@
 package fcu.sep.fcushop.controller;
 
-import fcu.sep.fcushop.model.Account;
-import fcu.sep.fcushop.model.BuyerOrder;
-import fcu.sep.fcushop.model.FullOrder;
-import fcu.sep.fcushop.model.Order;
+import fcu.sep.fcushop.model.*;
 import fcu.sep.fcushop.service.AccountService;
 import fcu.sep.fcushop.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -155,4 +152,10 @@ public class OrderController {
 	public  List<Integer> getBillId(@RequestParam String email) {
 		return orderManager.getBillId(email);
 	}
+	@PostMapping("/api/getBill")
+	@ResponseBody
+	public  List<Bill> getBill(@RequestParam int billId) {
+		return orderManager.getBill(billId);
+	}
+
 }
