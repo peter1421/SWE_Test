@@ -223,7 +223,7 @@
     <section style="padding:20px 0 20px 0;">
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <ul class="nav nav-pills nav-stacked admin-menu">
                         <!--<li class="active"><a href="#" data-target-id="home"><i class="fa fa-home fa-fw"></i>Home</a></li>-->
                         <li class="active"><a href="#" data-target-id="Profile"><i class="fa fa-list-alt fa-fw"></i>會員資料</a>
@@ -233,7 +233,7 @@
                     </ul>
                 </div>
                 <div class="col-md-9 well admin-content" id="home">
-
+                    <h3>這裡是會員中心</h3>
                 </div>
                 <div class="col-md-9 well admin-content" id="Profile">
                     <div id="personData"></div>
@@ -566,19 +566,18 @@
         $('#billData').empty();
         html='<div class="accordion" id="accordionPanelsStayOpenExample"> '
         for(let data of datas){
-            console.log(data)
-            if(data==="0"){
+            if(data==0){
                 continue;
-            }else{
-                console.log(data+"!")
             }
             html+='<h2 class="accordion-header" id="panelsStayOpen-headingOne">'
-            html+='<button class="accordion-button" onclick="getBill('+data+')" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="flase" aria-controls="panelsStayOpen-collapseOne">帳單:'+data+'</button>'
+            html+='<button class="accordion-button" onclick="getBill('+data+')" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="flase" aria-controls="panelsStayOpen-collapseOne">帳單ID:'+data
+
             html+='</h2>'
             html+='<div id="'+data+'" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">'
             html+='<table class="table table-responsive cart-table">'
-            html+="<thead><tr><th>圖片</th><th>商品名稱</th><th>價格</th><th>數量</th><th>總和</th><th>分類</th><th>狀態</th></tr></thead>"
-            html+=' <tbody class="accordion-body" id="'+data+'list"></tbody></table></div></div>'
+            html+="<thead><tr><th>圖片</th><th>商品名稱</th><th>價格</th><th>數量</th><th>總和</th><th>分類</th></tr></thead>"
+            html+=' <tbody class="accordion-body" id="'+data+'list"></tbody></table>'
+            html+='<ul class="cart-total-list" id="'+data+'list2"></ul></div></div>'
         }
 
         $('#billData').append(html)
@@ -608,6 +607,7 @@
      }
      function addBill(response,l){
         $(l).empty()
+        var total=0;
         for(let data of response){
             var html="<tr>";
             html+="<td class='cart-item-image'><a href='"+data.imageUrl+"'><img src='"+data.imageUrl+"' alt='Image Alternative text' title='Image Title' style='height: 50px;' /></a></td>"
@@ -617,8 +617,15 @@
             html+=" <td> <p>"+data.sum+"</p></td>"
             html+=" <td> <p>"+data.classification+"</p></td>"
             html+="</tr>"
+            total+=data.sum;
             $(l).append(html)
         }
+         var html='';
+          html+="<li>小記<span class='cart-total-amount'>Tw."+total+"</span>"
+          html+="<li>運費<span class='cart-total-amount'>60</span></li>"
+          html+="<li>總和<span class='cart-total-amount'>Tw."+(total+60)+"</span></li>"
+          html+="<li>狀態<span class='cart-total-amount'>"+response[0].state+"</span></li>"
+          $(l+"2").append(html)
      }
      $(document).ready(function(){
      console.log( "ready!!!!" );
