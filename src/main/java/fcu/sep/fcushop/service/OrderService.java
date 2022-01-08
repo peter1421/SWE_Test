@@ -189,13 +189,14 @@ public class OrderService {
 		}
 		return returnMessage;
 	}
-	public Object getBillId(String email) {
+	public List<Integer> getBillId(String email) {
 		try (Connection connection = sql2oDbHandler.getConnector().open()) {
 			String query = String.format("SELECT  DISTINCT 帳單ID\n" +
 			"FROM fcu_shop.訂單資料\n" +
-			"where 買家Email='%s';",email);
+			"where 買家Email='%s'\n" +
+			"order by 帳單ID;",email);
 			System.out.println(query);
-			return connection.createQuery(query).executeScalar();
+			return connection.createQuery(query).executeAndFetch(Integer.class);
 		}
 	}
 

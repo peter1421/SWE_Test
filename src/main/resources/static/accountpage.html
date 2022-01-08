@@ -580,7 +580,8 @@
         $('#' + target).show();
         var data="email="+getCookie("email"),url="/api/searchMember";
         makePostRequestParson(data,url);
-
+        var data="email="+getCookie("email"),url="/api/getBillId";
+        makePostRequestBill(data,url)
     });
 });
 
@@ -592,8 +593,7 @@
 
 <!--     var data="email="+getCookie("email"),url="/api/searchMember";-->
 <!--     makePostRequestParson(data,url);-->
-<!--     var data="email="+getCookie("email"),url="/api/getBillId"";-->
-<!--     makePostRequestBill(data,url)-->
+
 
 <!--  });-->
 
