@@ -189,6 +189,14 @@ public class OrderService {
 		}
 		return returnMessage;
 	}
-
+	public Object getBillId(String email) {
+		try (Connection connection = sql2oDbHandler.getConnector().open()) {
+			String query = String.format("SELECT  DISTINCT 帳單ID\n" +
+			"FROM fcu_shop.訂單資料\n" +
+			"where 買家Email='%s';",email);
+			System.out.println(query);
+			return connection.createQuery(query).executeScalar();
+		}
+	}
 
 }

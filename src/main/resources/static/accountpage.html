@@ -479,37 +479,7 @@
 <!-- Plugins js -->
 <script src="js/plugins.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-        $(document).ready(function()
-{
-    var navItems = $('.admin-menu li > a');
-    var navListItems = $('.admin-menu li');
-    var allWells = $('.admin-content');
-    var allWellsExceptFirst = $('.admin-content:not(:first)');
 
-    allWellsExceptFirst.hide();
-    navItems.click(function(e)
-    {
-        e.preventDefault();
-        navListItems.removeClass('active');
-        $(this).closest('li').addClass('active');
-        allWells.hide();
-        var target = $(this).attr('data-target-id');
-        $('#' + target).show();
-        var data="email="+getCookie("email"),url="/api/searchMember";
-        makePostRequestParson(data,url);
-
-    });
-});
-
-
-
-
-
-
-
-
-</script>
 
 <!-- Bootstrap js -->
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
@@ -576,15 +546,58 @@
         $('#personData').append(html)
         console.log("個人資料")
      }
-       $( document ).ready( function() {
-    console.log( "ready!!!!" );
+
+     function makePostRequestBill(data,url) {
+              console.log("post request:"+data+"\turl:"+url);
+              var xhr = new XMLHttpRequest();
+              xhr.open("post",url, true);
+              xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+              xhr.send(data);
+              xhr.onload = function() {
+                let response = JSON.parse(this.response);
+                console.log(response)
+              };
+     }
+     $(document).ready(function(){
+     console.log( "ready!!!!" );
      var state="下單中"
      var data="email="+getCookie("email")+"&state="+state,url="/api/getFullOrder2";
      makePostRequestRight(data,url)
-     var data="email="+getCookie("email"),url="/api/searchMember";
-     makePostRequestParson(data,url);
 
-  });
+    var navItems = $('.admin-menu li > a');
+    var navListItems = $('.admin-menu li');
+    var allWells = $('.admin-content');
+    var allWellsExceptFirst = $('.admin-content:not(:first)');
+
+    allWellsExceptFirst.hide();
+    navItems.click(function(e)
+    {
+        e.preventDefault();
+        navListItems.removeClass('active');
+        $(this).closest('li').addClass('active');
+        allWells.hide();
+        var target = $(this).attr('data-target-id');
+        $('#' + target).show();
+        var data="email="+getCookie("email"),url="/api/searchMember";
+        makePostRequestParson(data,url);
+
+    });
+});
+
+<!--     $( document ).ready( function() {-->
+<!--    console.log( "ready!!!!" );-->
+<!--     var state="下單中"-->
+<!--     var data="email="+getCookie("email")+"&state="+state,url="/api/getFullOrder2";-->
+<!--     makePostRequestRight(data,url)-->
+
+<!--     var data="email="+getCookie("email"),url="/api/searchMember";-->
+<!--     makePostRequestParson(data,url);-->
+<!--     var data="email="+getCookie("email"),url="/api/getBillId"";-->
+<!--     makePostRequestBill(data,url)-->
+
+<!--  });-->
+
+
 
 
 

@@ -155,4 +155,11 @@ public class OrderController {
 		//有空回來補錯誤偵測
 	}
 
+	@PostMapping("/api/getBillId")
+	@ResponseBody
+	public boolean getBillId(@RequestParam String email) {
+		orderManager.getBillId(email);
+		return true;
+		//有空回來補錯誤偵測
+	}
 }
