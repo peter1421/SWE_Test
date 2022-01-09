@@ -321,57 +321,16 @@
                         <table class="table style2 style3">
                             <thead class="table-inverse">
                             <tr>
-                                <th><span>#</span></th>
+                                <th><span>#帳單</span></th>
                                 <th><span>買家圖片</span></th>
                                 <th><span>賣家姓名</span></th>
-                                <th><span>帳單價格</span></th>
+                                <th><span>寄送地址</span></th>
                                 <th><span>帳單狀態</span></th>
                                 <th><span>行動</span></th>
-                                <th><span>Price</span></th>
-                                <th><span>QTY</span></th>
-                            </tr>
+                                </tr>
                             </thead>
+                            <tbody id="billList"></tbody>
                             <tbody>
-                            <tr>
-                                <td><span class="blue-bg indx">01</span></td>
-                                <td><img class="brd-rd5" src="images/resource/prd-img1.jpg" alt=""/></td>
-                                <td><h4><a href="#" title="">Black Jacket</a></h4></td>
-                                <td><span>4ABSD58</span></td>
-                                <td><span>10 June 2017</span></td>
-                                <td><span class="badge badge-success brd-rd5">Pending</span></td>
-                                <td><span class="prc">$99.98</span></td>
-                                <td><span>01</span></td>
-                            </tr>
-                            <tr>
-                                <td><span class="blue-bg indx">02</span></td>
-                                <td><img class="brd-rd5" src="images/resource/prd-img2.jpg" alt=""/></td>
-                                <td><h4><a href="#" title="">Cannon LA Camera</a></h4></td>
-                                <td><span>4OCSD51</span></td>
-                                <td><span>15 June 2017</span></td>
-                                <td><span class="badge badge-info brd-rd5">Process</span></td>
-                                <td><span class="prc">$458.98</span></td>
-                                <td><span>03</span></td>
-                            </tr>
-                            <tr>
-                                <td><span class="blue-bg indx">03</span></td>
-                                <td><img class="brd-rd5" src="images/resource/prd-img3.jpg" alt=""/></td>
-                                <td><h4><a href="#" title="">LR Head Phones</a></h4></td>
-                                <td><span>4ABSD60</span></td>
-                                <td><span>19 June 2017</span></td>
-                                <td><span class="badge badge-warning brd-rd5">Failed</span></td>
-                                <td><span class="prc">$99.98</span></td>
-                                <td><span>01</span></td>
-                            </tr>
-                            <tr>
-                                <td><span class="blue-bg indx">04</span></td>
-                                <td><img class="brd-rd5" src="images/resource/prd-img4.jpg" alt=""/></td>
-                                <td><h4><a href="#" title="">Watch RA Duble</a></h4></td>
-                                <td><span>4OCSD68</span></td>
-                                <td><span>20 June 2017</span></td>
-                                <td><span class="badge badge-info brd-rd5">Process</span></td>
-                                <td><span class="prc">$199.98</span></td>
-                                <td><span>03</span></td>
-                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -977,12 +936,46 @@ var d;
     $( document ).ready( function() {
         console.log( "ready!" );
         makeRequestSeller("/api/getFullOrder")
+        makeRequestBill("/api/getAllBill")
         pic();
     });
+//Bill列表
+ function makeRequestBill(url) {
+            xhr = new XMLHttpRequest();
+            xhr.onload = function() {
+                let response = JSON.parse(this.response);
+                console.log(response)
+                addDatasBill(response)
+            };
+            xhr.open("GET", url, true);
+            xhr.send();
+   }
+    function addDatasBill(datas) {
+        emptyProducts();
+        var key=Object.keys(datas[0]);
+        d=datas;
+        for ( let data of datas ) {
+             if(data.orderID==0){
+                continue;
+            }
+            let html="<tr>";
+            html+='<td><span  class="blue-bg indx">'+data.orderID+'</span></td>';
+            html+='<td><img class="brd-rd5" src="'+data.imageUrl+'" alt="" style="width:100px;"/></td>';
+            html+='<td><h4><a href="#" title="">'+data.name+'</a></h4></td>';
+            html+='<td><span class="prc">'+data.address+'</span></td>'
+            html+=' <td><span class="badge badge-success brd-rd5">'+data.state+'</span></td>'
+            html+=' <td><div class="cat-btns"><a onclick="s()"  class="blue-bg brd-rd5" aria-current="page">寄送</a><a class="blue-bg brd-rd5">完成</a></div> </td>'
+            html+="</tr>"
+             $('#billList').append(html);
+        }
+ }
+
+    function s(){
+        alert("!!")
+    }
 //Seller 訂單資料
    function makeRequestSeller(url) {
             xhr = new XMLHttpRequest();
-            console.log("!!!!!");
             xhr.onload = function() {
                 let response = JSON.parse(this.response);
                 console.log(response)
