@@ -18,13 +18,21 @@ import org.sql2o.Connection;
  */
 @Service
 public class AccountService {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   @Autowired
   private Sql2oDbHandler sql2oDbHandler;
   /**
    * 註解起來就好了啦.
    *
    *
-   *
+   *@return tag
    *
    *
    */
@@ -39,17 +47,18 @@ public class AccountService {
   /**
    * 註解起來就好了啦.
    *
+   *@param account ...
    *
-   *
-   *
+   *@return tag
    *
    */
 
-  public String addAccount(Account account) {
+  public String addAccount(final Account account) {
     String returnMessage;
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = String.format("INSERT INTO `fcu_shop`.`帳密資料` "
-          + "(`電子郵件`, `密碼`) VALUES ('%s','%s');", account.getEmail(), account.getPassword());
+          + "(`電子郵件`, `密碼`) "
+          + "VALUES ('%s','%s');", account.getEmail(), account.getPassword());
       System.out.println(query);
       connection.createQuery(query, true).executeUpdate().getKey();
 
@@ -64,19 +73,20 @@ public class AccountService {
   /**
    * 註解起來就好了啦.
    *
+   *@param account ...
    *
-   *
-   *
+   *@return tag
    *
    */
 
-  public Object checkLogin(Account account) {
+  public Object checkLogin(final Account account) {
     //檢查登入 陽春版
     System.out.println("checkLogin");
 
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query =  String.format("SELECT * FROM fcu_shop.帳密資料 "
-          + "WHERE 電子郵件='%s' and 密碼='%s';", account.getEmail(), account.getPassword());
+          + "WHERE 電子郵件='%s' "
+          + "and 密碼='%s';", account.getEmail(), account.getPassword());
       System.out.println(query);
       return connection.createQuery(query).executeScalar();
     }
@@ -89,13 +99,14 @@ public class AccountService {
    *
    *
    *
-   *
+   *@return tag
    *
    */
 
   public List<Member> getMembers() {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String query = "select 電子郵件 email, 會員名稱 name,會員頭像 imageUrl, 手機號碼 phoneNumber, 寄送地址 address"
+      String query = "select 電子郵件 email, 會員名稱 name,會員頭像 imageUrl, "
+          + "手機號碼 phoneNumber, 寄送地址 address"
           + " from 會員資料";
       return connection.createQuery(query).executeAndFetch(Member.class);
     }
@@ -104,12 +115,12 @@ public class AccountService {
    * 註解起來就好了啦.
    *
    *
-   *
-   *
+   *@param member ...
+   *@return tag
    *
    */
 
-  public String addMember(Member member) {
+  public String addMember(final Member member) {
     String returnMessage;
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = String.format("INSERT INTO `fcu_shop`.`會員資料` "
@@ -136,12 +147,12 @@ public class AccountService {
    * 註解起來就好了啦.
    *
    *
-   *
-   *
+   *@param email ...
+   *@return tag
    *
    */
 
-  public List<Member> searchMembers(String email) {
+  public List<Member> searchMembers(final String email) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query =  String.format("select 電子郵件 email, 會員名稱 name,"
           + "會員頭像 imageUrl, 手機號碼 phoneNumber, 寄送地址 address"
