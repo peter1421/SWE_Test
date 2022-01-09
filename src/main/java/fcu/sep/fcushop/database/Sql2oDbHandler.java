@@ -17,16 +17,47 @@ import org.sql2o.Sql2o;
 @PropertySource("classpath:application.properties")
 public class Sql2oDbHandler {
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   @Value("${db.jdbc_url}")
   private String jdbcUrl;
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   @Value("${db.username}")
   private String userName;
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   @Value("${db.password}")
   private String password;
 
-
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private Sql2o connector;
 
   /**
