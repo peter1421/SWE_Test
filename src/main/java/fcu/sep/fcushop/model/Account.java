@@ -1,35 +1,43 @@
 package fcu.sep.fcushop.model;
 
+/**
+ * 註解起來就好了啦.
+ *
+ *
+ *
+ *
+ *
+ */
 public class Account {
 
-	private String email;
+  private String email;
 
-	private String password;
+  private String password;
 
 
-	public Account() {
-	}
+  public Account() {
+  }
 
-	public Account(String email, String password) {
-		this.email = email;
-		this.password = password;
-	}
+  public Account(String email, String password) {
+    this.email = email;
+    this.password = password;
+  }
 
-	public String getEmail() {
-		return email;
-	}
+  public String getEmail() {
+    return email;
+  }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-	public String getPassword() {
-		return password;
-	}
+  public String getPassword() {
+    return password;
+  }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+  public void setPassword(String password) {
+    this.password = password;
+  }
 
 
 }
