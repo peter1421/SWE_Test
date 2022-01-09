@@ -9,17 +9,78 @@ package fcu.sep.fcushop.model;
  *
  */
 public class FullOrder extends Order {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private int orderID;
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private String productName;
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private String name;
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private String phone;
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private String address;
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private int price;
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private String imageUrl;
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private String classification;
-
-  public FullOrder() {
-  }
 
   /**
    * 註解起來就好了啦.
@@ -29,17 +90,38 @@ public class FullOrder extends Order {
    *
    *
    */
-  public FullOrder(int orderID,
-                   String productName,
-                   String name,
-                   String phone,
-                   String address,
-                   int productId,
-                   String buyerEmail,
-                   int count,
-                   int price,
-                   String imageUrl,
-                   String classification) {
+  public FullOrder() {
+  }
+
+  /**
+   * 註解起來就好了啦.
+   *
+   *@param orderID ...
+   *@param productName ...
+   *@param name ...
+   *@param phone ...
+   *@param address ...
+   *@param productId ...
+   *@param buyerEmail ...
+   *@param count ...
+   *@param price ...
+   *@param imageUrl ...
+   *@param classification ...
+   *
+   *
+   *
+   */
+  public FullOrder(final int orderID,
+                   final String productName,
+                   final String name,
+                   final String phone,
+                   final String address,
+                   final int productId,
+                   final String buyerEmail,
+                   final int count,
+                   final int price,
+                   final String imageUrl,
+                   final String classification) {
     this.orderID = orderID;
     this.productName = productName;
     this.name = name;
@@ -53,68 +135,195 @@ public class FullOrder extends Order {
     //this.count = count;
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@return tag
+   *
+   *
+   */
   public int getorderID() {
     return orderID;
   }
 
-  public void setorderID(int orderID) {
+  /**
+   * 註解起來就好了啦.
+   *
+   *@param orderID ...
+   *
+   *
+   *
+   */
+  public void setorderID(final int orderID) {
     this.orderID = orderID;
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@return tag
+   *
+   *
+   */
   public String getproductName() {
     return productName;
   }
 
-  public void setproductName(String productName) {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@param productName ...
+   *
+   *
+   */
+  public void setproductName(final String productName) {
     this.productName = productName;
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *@return tag
+   *
+   */
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@param name ...
+   *
+   *
+   */
+  public void setName(final String name) {
     this.name = name;
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *@return tag
+   *
+   *
+   *
+   */
   public String getPhone() {
     return phone;
   }
 
-  public void setPhone(String phone) {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@param phone ...
+   *
+   *
+   */
+  public void setPhone(final String phone) {
     this.phone = phone;
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@return tag
+   *
+   *
+   */
   public String getAddress() {
     return address;
   }
 
-  public void setAddress(String address) {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@param address ...
+   *
+   *
+   */
+  public void setAddress(final String address) {
     this.address = address;
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@return tag
+   *
+   *
+   */
   public int getPrice() {
     return price;
   }
 
-  public void setPrice(int price) {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@param price ...
+   *
+   *
+   */
+  public void setPrice(final int price) {
     this.price = price;
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@return tag
+   *
+   *
+   */
   public String getImageUrl() {
     return imageUrl;
   }
 
-  public void setImageUrl(String imageUrl) {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@param imageUrl ...
+   *
+   *
+   */
+  public void setImageUrl(final String imageUrl) {
     this.imageUrl = imageUrl;
   }
 
-
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@return tag
+   *
+   *
+   */
   public String getClassification() {
     return classification;
   }
 
-  public void setClassification(String classification) {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@param classification ...
+   *
+   *
+   */
+  public void setClassification(final String classification) {
     this.classification = classification;
   }
 }
