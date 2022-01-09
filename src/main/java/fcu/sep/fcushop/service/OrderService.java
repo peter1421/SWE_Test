@@ -88,7 +88,8 @@ public class OrderService {
   public List<FullOrder> getFullOrder(final String email, final String state) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = "select 訂單ID orderID, 商品名稱 productName, 會員名稱 name, "
-              + "手機號碼 phone, 寄送地址 address,商品資料.商品ID productId,買家Email buyerEmail,"
+              + "手機號碼 phone, 寄送地址 address,商品資料.商品ID productId,"
+              + "買家Email buyerEmail,"
               + "商品價格 price,商品數量 count,商品圖片 imageUrl"
               + " \nfrom 訂單資料,商品資料,帳密資料,會員資料"
               + " where 訂單資料.商品ID = 商品資料.商品ID\n"
@@ -115,8 +116,10 @@ public class OrderService {
    */
   public List<FullOrder> getFullOrder() {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String query = "select 訂單ID orderID, 商品名稱 productName, 會員名稱 name, 手機號碼 phone, 寄送地址 address,"
-          + "商品資料.商品ID productId,買家Email buyerEmail,商品數量 count,商品分類 classification"
+      String query = "select 訂單ID orderID, 商品名稱 productName, 會員名稱 name, "
+          + "手機號碼 phone, 寄送地址 address,"
+          + "商品資料.商品ID productId,買家Email buyerEmail,"
+          + "商品數量 count,商品分類 classification"
           + " \nfrom 訂單資料,商品資料,帳密資料,會員資料"
           + " where 訂單資料.商品ID = 商品資料.商品ID\n"
           + "and \n"
@@ -138,7 +141,8 @@ public class OrderService {
    */
   public List<FullOrder> getFullOrderStates(final String state) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String query = "select 訂單ID orderID, 商品名稱 productName, 會員名稱 name, 手機號碼 phone, "
+      String query = "select 訂單ID orderID, 商品名稱 productName, "
+          + "會員名稱 name, 手機號碼 phone, "
           + "寄送地址 address,商品資料.商品ID productId,買家Email buyerEmail,"
           + "商品價格 price,商品數量 count,商品圖片 imageUrl"
           + " \nfrom 訂單資料,商品資料,帳密資料,會員資料"
@@ -213,10 +217,12 @@ public class OrderService {
 
   public List<BuyerOrder> getProductOrder(final String Email) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String query = String.format("SELECT 電子郵件 buyerEmail,訂單ID orderID,商品數量 count,"
+      String query = String.format("SELECT 電子郵件 buyerEmail,訂單ID orderID,"
+          + "商品數量 count,"
           + "商品名稱 name, 商品價格 price, 商品敘述 description"
           + " FROM (帳密資料 INNER JOIN 訂單資料 ON 訂單資料.買家EMAIL=帳密資料.電子郵件) "
-          + "INNER JOIN 商品資料 ON 訂單資料.商品ID=商品資料.商品ID" + " where 帳密資料.電子郵件='%s';", Email);
+          + "INNER JOIN 商品資料 ON 訂單資料.商品ID=商品資料.商品ID"
+          + " where 帳密資料.電子郵件='%s';", Email);
       System.out.println(query);
       return connection.createQuery(query).executeAndFetch(BuyerOrder.class);
     }
@@ -233,7 +239,8 @@ public class OrderService {
 
   public List<BuyerOrder> getSellerOrder(final String productId) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String query = String.format("SELECT 商品名稱 name,電子郵件 buyerEmail,訂單ID orderID,"
+      String query = String.format("SELECT 商品名稱 name,電子郵件 buyerEmail,"
+          + "訂單ID orderID,"
           + "商品數量 count, 商品價格 price, 商品敘述 description"
           + " FROM (帳密資料 INNER JOIN 訂單資料 ON 訂單資料.買家EMAIL=帳密資料.電子郵件) "
           + "INNER JOIN 商品資料 ON 訂單資料.商品ID=商品資料.商品ID "
@@ -257,7 +264,7 @@ public class OrderService {
   public String updateOrder(final int id, final String state, final int bill) {
     String returnMessage;
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String query = String.format("UPDATE `fcu_shop`.`訂單資料` SET `訂單狀態` = '%s', "
+      String query = String.format("UPDATE `fcu_shop`.`訂單資料` SET `訂單狀態` = '%s',"
               + "`帳單ID` = '%d' WHERE (`訂單ID` = '%d');\n", state, bill, id);
       System.out.println(query);
       connection.createQuery(query, true).executeUpdate().getKey();
@@ -282,7 +289,8 @@ public class OrderService {
     String returnMessage;
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = String.format("UPDATE `fcu_shop`.`訂單資料` SET `商品數量` = '%d' "
-              + "WHERE (`訂單ID` = '%d');", order.getcount(), order.getproductId());
+              + "WHERE (`訂單ID` = '%d');",
+              order.getcount(), order.getproductId());
       System.out.println(query);
       connection.createQuery(query, true).executeUpdate().getKey();
 
@@ -322,7 +330,8 @@ public class OrderService {
 
   public Object getReCount(final String email, final int productId) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String query = String.format("SELECT count('訂單ID')  FROM 訂單資料 where 買家Email='%s' "
+      String query = String.format("SELECT count('訂單ID')  "
+             + "FROM 訂單資料 where 買家Email='%s' "
              + "and 商品ID=%d and 訂單狀態='下單中';", email, productId);
       return connection.createQuery(query).executeScalar();
     }
@@ -341,13 +350,15 @@ public class OrderService {
   public String updateBill(final String state, final int billId) {
     String returnMessage;
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      connection.createQuery("SET SQL_SAFE_UPDATES=0;\n", true).executeUpdate().getKey();
+      connection.createQuery("SET SQL_SAFE_UPDATES=0;\n",
+              true).executeUpdate().getKey();
       String query = String.format("UPDATE fcu_shop.訂單資料 \n"
           + "SET 訂單狀態 = '%S'\n"
           + "where 帳單ID='%d';", state, billId);
       System.out.println(query);
       connection.createQuery(query, true).executeUpdate().getKey();
-      connection.createQuery("SET SQL_SAFE_UPDATES=1;\n", true).executeUpdate().getKey();
+      connection.createQuery("SET SQL_SAFE_UPDATES=1;\n",
+              true).executeUpdate().getKey();
       returnMessage = query + "寫入成功";
     } catch (Exception ex) {
       // 除了SQLException以外之錯誤
@@ -369,7 +380,8 @@ public class OrderService {
     //刪除特定訂單
     String returnMessage;
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String query = String.format("DELETE FROM `fcu_shop`.`訂單資料` WHERE (`訂單ID` = '%d');", ID);
+      String query = String.format("DELETE FROM `fcu_shop`.`訂單資料` "
+              + "WHERE (`訂單ID` = '%d');", ID);
       System.out.println(query);
       connection.createQuery(query, true).executeUpdate().getKey();
       returnMessage = query + "寫入成功";
@@ -410,7 +422,8 @@ public class OrderService {
 
   public List<Bill> getBill(final int billId) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String query = String.format("SELECT 商品圖片 imageUrl,商品名稱 name,商品數量 count,商品價格 price,"
+      String query = String.format("SELECT 商品圖片 imageUrl,商品名稱 "
+          + "name,商品數量 count,商品價格 price,"
           + "商品分類 classification,(商品數量*商品價格) as sum,訂單狀態 state\n"
           + "FROM fcu_shop.訂單資料 INNER JOIN fcu_shop.商品資料 "
           + "ON fcu_shop.訂單資料.商品ID=fcu_shop.商品資料.商品ID\n"
@@ -431,9 +444,11 @@ public class OrderService {
 
   public List<MemberBill> getAllBill() {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String q = "SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));";
+      String q = "SET sql_mode=(SELECT REPLACE("
+              + "@@sql_mode,'ONLY_FULL_GROUP_BY',''));";
       connection.createQuery(q, true).executeUpdate().getKey();
-      String query = "\tSELECT 帳單ID billId, 會員頭像 imageUrl,會員名稱 name,寄送地址 address,"
+      String query = "\tSELECT 帳單ID billId, 會員頭像 imageUrl,"
+            + "會員名稱 name,寄送地址 address,"
             + "訂單狀態 state\n"
             + "\tFROM fcu_shop.訂單資料 inner join fcu_shop.會員資料 "
             + "on fcu_shop.會員資料.電子郵件=fcu_shop.訂單資料.買家Email\n"
@@ -454,11 +469,14 @@ public class OrderService {
    */
   public List<MemberBill> getAllBill(final String state) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String q = "SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));";
+      String q = "SET sql_mode=(SELECT REPLACE("
+              + "@@sql_mode,'ONLY_FULL_GROUP_BY',''));";
       connection.createQuery(q, true).executeUpdate().getKey();
-      String query = String.format("SELECT 帳單ID billId, 會員頭像 imageUrl,會員名稱 name,"
+      String query = String.format("SELECT 帳單ID billId, "
+          + "會員頭像 imageUrl,會員名稱 name,"
           + "寄送地址 address,\t訂單狀態 state\n"
-          + "FROM fcu_shop.訂單資料 inner join fcu_shop.會員資料 on 會員資料.電子郵件=訂單資料.買家Email\n"
+          + "FROM fcu_shop.訂單資料 "
+          + "inner join fcu_shop.會員資料 on 會員資料.電子郵件=訂單資料.買家Email\n"
           + "where 訂單狀態='%s'\n"
           + "GROUP BY 帳單ID\n"
           + "order by 帳單ID DESC;", state);
