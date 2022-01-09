@@ -388,4 +388,17 @@ public class OrderController {
     System.out.println(orderManager.getAllBill());
     return orderManager.getAllBill();
   }
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@return tag
+   *
+   *
+   */
+  @GetMapping("/api/getAllBill/{state}")
+  public List<MemberBill>  getAllBill(@PathVariable("state") String state) {
+    return orderManager.getAllBill(state);
+  }
 }
+
