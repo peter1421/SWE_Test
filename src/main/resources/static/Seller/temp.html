@@ -169,7 +169,7 @@
             <li class="has-drp"><a href="#" title=""><i class="ion-android-settings"></i><span>管理功能</span></a>
                 <ul class="sb-drp">
                     <li><a href="form-layouts.html" title="">商品管理</a></li>
-                    <li><a href="form-wizard.html" title="">會員管理</a></li>
+                    <li><a href="form-wizard.html" title="">會員管理(未完成)</a></li>
                 </ul>
             </li>
             <li><a href="temp.html" title="">未完成功能暫存</a></li>
@@ -194,116 +194,428 @@
 </div><!-- Page Top -->
 
 <div class="panel-content">
-
-
-    <div class="filter-items">
-        <div class="row grid-wrap mrg20">
             <div class="col-md-6 grid-item col-sm-12 col-lg-6">
-                <div class="row mrg20">
-                    <div class="col-md-6 col-sm-6 col-lg-6">
-                        <div class="stat-box widget bg-clr5 style2">
-                            <div class="wdgt-opt"><span class="wdgt-opt-btn"><i
-                                    class="ion-android-more-vertical"></i></span>
-                                <div class="wdgt-opt-lst brd-rd5"><a class="delt-wdgt" href="#" title="">Delete</a><a
-                                        class="expnd-wdgt" href="#" title="">Expand</a><a class="refrsh-wdgt" href="#"
-                                                                                          title="">Refresh</a></div>
-                            </div>
-                            <div class="wdgt-ldr">
-                                <div class="ball-scale-multiple">
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                </div>
-                            </div>
-                            <i class="ion-cube"></i>
-                            <div class="stat-box-innr"><span>$ <i class="counter">1,206,90</i></span><h5>總收入</h5></div>
-                            <span><i class="ion-ios-stopwatch"></i>Updated:05:14pm</span></div>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-lg-6">
-                        <div class="stat-box widget bg-clr6 style2">
-                            <div class="wdgt-opt"><span class="wdgt-opt-btn"><i
-                                    class="ion-android-more-vertical"></i></span>
-                                <div class="wdgt-opt-lst brd-rd5"><a class="delt-wdgt" href="#" title="">Delete</a><a
-                                        class="expnd-wdgt" href="#" title="">Expand</a><a class="refrsh-wdgt" href="#"
-                                                                                          title="">Refresh</a></div>
-                            </div>
-                            <div class="wdgt-ldr">
-                                <div class="ball-scale-multiple">
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                </div>
-                            </div>
-                            <i class="ion-bag"></i>
-                            <div class="stat-box-innr"><span> <i class="counter">20,507</i></span><h5>等待中訂單</h5></div>
-                            <span><i class="ion-ios-stopwatch"></i>Updated:05:14pm</span></div>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-lg-6">
-                        <div class="stat-box widget bg-clr7 style2">
-                            <div class="wdgt-opt"><span class="wdgt-opt-btn"><i
-                                    class="ion-android-more-vertical"></i></span>
-                                <div class="wdgt-opt-lst brd-rd5"><a class="delt-wdgt" href="#" title="">Delete</a><a
-                                        class="expnd-wdgt" href="#" title="">Expand</a><a class="refrsh-wdgt" href="#"
-                                                                                          title="">Refresh</a></div>
-                            </div>
-                            <div class="wdgt-ldr">
-                                <div class="ball-scale-multiple">
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                </div>
-                            </div>
-                            <i class="ion-speedometer"></i>
-                            <div class="stat-box-innr"><span><i class="counter">79</i></span><h5>總成交量</h5>
-                            </div>
-                            <span><i class="ion-ios-stopwatch"></i>Updated:05:14pm</span></div>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-lg-6">
-                        <div class="stat-box widget bg-clr8 style2">
-                            <div class="wdgt-opt"><span class="wdgt-opt-btn"><i
-                                    class="ion-android-more-vertical"></i></span>
-                                <div class="wdgt-opt-lst brd-rd5"><a class="delt-wdgt" href="#" title="">Delete</a><a
-                                        class="expnd-wdgt" href="#" title="">Expand</a><a class="refrsh-wdgt" href="#"
-                                                                                          title="">Refresh</a></div>
-                            </div>
-                            <div class="wdgt-ldr">
-                                <div class="ball-scale-multiple">
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                </div>
-                            </div>
-                            <i class="ion-ios-cloud-download"></i>
-                            <div class="stat-box-innr"><span><i class="counter">5347</i></span><h5>最大交易價</h5>
-                            </div>
-                            <span><i class="ion-ios-stopwatch"></i>Updated:05:14pm</span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 grid-item col-sm-12 col-lg-6">
-                <div class="card shadow mb-4"><!-- Card Header - Dropdown -->
-                    <div class="card-header py-3"><h6 class="m-0 font-weight-bold text-primary"><font
-                            style="vertical-align: inherit;"><font style="vertical-align: inherit;">訂單分類佔比</font></font>
-                    </h6></div><!-- Card Body -->
-                    <div class="card-body">
-                        <div class="chart-pie pt-4">
-                            <div class="chartjs-size-monitor">
-                                <div class="chartjs-size-monitor-expand">
-                                    <div class=""></div>
-                                </div>
-                                <div class="chartjs-size-monitor-shrink">
-                                    <div class=""></div>
-                                </div>
-                            </div>
-                            <canvas id="chart" width="635" height="316"
-                                    style="display: block; height: 253px; width: 508px;"
-                            ></canvas>
+                <div class="widget sales-summ pad50-40">
+                    <div class="wdgt-opt"><span class="wdgt-opt-btn"><i class="ion-android-more-vertical"></i></span>
+                        <div class="wdgt-opt-lst brd-rd5"><a class="delt-wdgt" href="#" title="">Delete</a><a
+                                class="expnd-wdgt" href="#" title="">Expand</a><a class="refrsh-wdgt" href="#" title="">Refresh</a>
                         </div>
-                        <hr>
                     </div>
-
+                    <div class="wdgt-ldr">
+                        <div class="ball-scale-multiple">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <h4 class="widget-title">Sales Summery</h4>
+                    <div class="sales-charts">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#today">Today</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#week">Week</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#month">Month</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="today">
+                                <div id="chrt2" style="height: 270px;"></div>
+                            </div>
+                            <div class="tab-pane fade" id="week">
+                                <div id="chrt3" style="height: 270px;"></div>
+                            </div>
+                            <div class="tab-pane fade" id="month">
+                                <div id="chrt4" style="height: 270px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sales-stat">
+                        <div class="sales-stat-itm"><span style="color: #13aaf9;"><i class="counter">760</i></span><i>
+                            總收入金額</i></div>
+                        <div class="sales-stat-itm"><span style="color: #968cec;">$ <i
+                                class="counter">4,219</i></span><i>Revenus</i></div>
+                        <div class="sales-stat-itm"><span style="color: #968cec;">$ <i
+                                class="counter">1,247</i></span><i>Expenses</i></div>
+                    </div>
                 </div>
             </div>
+            <div class="col-md-6 grid-item col-sm-12 col-lg-6">
+                <div class="widget recently-activ-proj pad50-40">
+                    <div class="wdgt-opt"><span class="wdgt-opt-btn"><i class="ion-android-more-vertical"></i></span>
+                        <div class="wdgt-opt-lst brd-rd5"><a class="delt-wdgt" href="#" title="">Delete</a><a
+                                class="expnd-wdgt" href="#" title="">Expand</a><a class="refrsh-wdgt" href="#" title="">Refresh</a>
+                        </div>
+                    </div>
+                    <div class="wdgt-ldr">
+                        <div class="ball-scale-multiple">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <h4 class="widget-title">Recently Active Projects <a class="add-proj brd-rd5" href="#"
+                                                                         data-toggle="tooltip" title="Add Project">+</a>
+                    </h4>
+                    <div class="table-wrap">
+                        <table class="table style1">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Projects</th>
+                                <th>Completion</th>
+                                <th>Trend</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><span class="blue-bg indx">01</span></td>
+                                <td>
+                                    <div class="prj-tl"><h4>Angular2 Migration</h4><span><i
+                                            class="ion-ios-stopwatch"></i>Created:10 July</span></div>
+                                </td>
+                                <td><span class="prcnt">80%</span></td>
+                                <td><i class="green-clr ion-arrow-graph-up-right"></i></td>
+                            </tr>
+                            <tr>
+                                <td><span class="blue-bg indx">02</span></td>
+                                <td>
+                                    <div class="prj-tl"><h4>Totem app refactor</h4><span><i
+                                            class="ion-ios-stopwatch"></i>Created:22 June</span></div>
+                                </td>
+                                <td><span class="prcnt">29%</span></td>
+                                <td><i class="blue-clr ion-arrow-graph-down-right"></i></td>
+                            </tr>
+                            <tr>
+                                <td><span class="blue-bg indx">03</span></td>
+                                <td>
+                                    <div class="prj-tl"><h4>ReactJS implement</h4><span><i
+                                            class="ion-ios-stopwatch"></i>Created:15 June</span></div>
+                                </td>
+                                <td><span class="prcnt">59%</span></td>
+                                <td><i class="green-clr ion-arrow-graph-up-right"></i></td>
+                            </tr>
+                            <tr>
+                                <td><span class="blue-bg indx">04</span></td>
+                                <td>
+                                    <div class="prj-tl"><h4>Release Totem v2.3</h4><span><i
+                                            class="ion-ios-stopwatch"></i>Created:09 June</span></div>
+                                </td>
+                                <td><span class="prcnt">65%</span></td>
+                                <td><i class="green-clr ion-arrow-graph-up-right"></i></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-6 grid-item col-sm-12 col-lg-6">
+                <div class="widget usr-msgs pad50-40">
+                    <div class="wdgt-opt"><span class="wdgt-opt-btn"><i class="ion-android-more-vertical"></i></span>
+                        <div class="wdgt-opt-lst brd-rd5"><a class="delt-wdgt" href="#" title="">Delete</a><a
+                                class="expnd-wdgt" href="#" title="">Expand</a><a class="refrsh-wdgt" href="#" title="">Refresh</a>
+                        </div>
+                    </div>
+                    <div class="wdgt-ldr">
+                        <div class="ball-scale-multiple">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <h4 class="widget-title">Message</h4>
+                    <div class="msgs-lst">
+                        <div class="msg-itm"><span class="brd-rd50" style="background-color: #26c6da;color: #ffffff;">S <i
+                                class="sts away"></i></span>
+                            <div class="msg-inf"><h5>Sunil Joshi -</h5><span class="pst-tm">12:00pm</span>
+                                <div class="msg"><p>That's awesome!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="msg-itm">
+                            <span class="brd-rd50" style="background-color: #26c6da;color: #ffffff;"><img
+                                    class="brd-rd50" src="images/resource/acti-thmb2.jpg" alt=""/> <i
+                                    class="sts online"></i></span>
+                            <div class="msg-inf">
+                                <h5>Bvesh Patel -</h5> <span class="pst-tm">01:00am</span>
+                                <div class="msg">
+                                    <p>That's awesome!</p></div>
+                            </div>
+                        </div>
+                        <div class="msg-itm"><span class="brd-rd50" style="background-color: #26c6da;color: #ffffff;">N <i
+                                class="sts dont-dstrb"></i></span>
+                            <div class="msg-inf"><h5>Nirva Joshi -</h5><span class="pst-tm">08:40pm</span>
+                                <div class="msg"><p>That's awesome!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="msg-itm">
+                            <span class="brd-rd50" style="background-color: #26c6da;color: #ffffff;">J <i
+                                    class="sts online"></i></span>
+                            <div class="msg-inf">
+                                <h5>Jonathan -</h5> <span class="pst-tm">12:00pm</span>
+                                <div class="msg">
+                                    <p>That's awesome!</p></div>
+                            </div>
+                        </div>
+                        <div class="vw-mr"><a href="#" title="">View More</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 grid-item col-sm-12 col-lg-6">
+                <div class="widget pst-wdgt pad50-40">
+                    <div class="wdgt-opt"><span class="wdgt-opt-btn"><i class="ion-android-more-vertical"></i></span>
+                        <div class="wdgt-opt-lst brd-rd5"><a class="delt-wdgt" href="#" title="">Delete</a><a
+                                class="expnd-wdgt" href="#" title="">Expand</a><a class="refrsh-wdgt" href="#" title="">Refresh</a>
+                        </div>
+                    </div>
+                    <div class="wdgt-ldr">
+                        <div class="ball-scale-multiple">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="pst-itm">
+                        <div class="pst-inf">
+                            <div class="cat-btns"><a href="#" title="" class="blue-bg brd-rd5">Business</a><a href="#"
+                                                                                                              title=""
+                                                                                                              class="green-bg brd-rd5">Dreams</a>
+                            </div>
+                            <h4><a href="#" title="">Grace is the beauty of form under the influence</a></h4><i>August
+                            11,2017</i></div>
+                        <div class="pst-img" style="background-image: url(images/resource/pst-img1.jpg);"></div>
+                        <p>Aenean massa. Cum sociis natoque penatibusm nis dis parturient montes,nascetur ridiculusmus
+                            Penatibus et magnis dis parturient montes,nasc etur ridiculus mus.</p></div>
+                </div>
+            </div>
+            <div class="col-md-12 grid-item col-sm-12 col-lg-12">
+                <div class="widget proj-order pad50-40">
+                    <div class="wdgt-opt"><span class="wdgt-opt-btn"><i class="ion-android-more-vertical"></i></span>
+                        <div class="wdgt-opt-lst brd-rd5"><a class="delt-wdgt" href="#" title="">Delete</a><a
+                                class="expnd-wdgt" href="#" title="">Expand</a><a class="refrsh-wdgt" href="#" title="">Refresh</a>
+                        </div>
+                    </div>
+                    <div class="wdgt-ldr">
+                        <div class="ball-scale-multiple">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <h4 class="widget-title">Projects Orders</h4><a class="add-proj brd-rd5" href="#"
+                                                                    data-toggle="tooltip" title="Add Project">+</a>
+                    <div class="slct-bx"><i class="ion-android-funnel">Sort By:</i><span><select><option>Date</option><option>Name</option><option>Category</option><option>Duration</option></select></span>
+                    </div>
+                    <div class="table-wrap">
+                        <table class="table table-bordered style2">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Phone No</th>
+                                <th>Address</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><span class="blue-bg indx">01</span></td>
+                                <td><span class="date">10 June 2017</span></td>
+                                <td><h4 class="name">Michael Baker</h4></td>
+                                <td><span class="ph#">076 9477 4896</span></td>
+                                <td><span class="addr">Some St. 77,LA</span></td>
+                                <td>
+                                    <div class="table-btns"><a href="#" title="" class="green-bg-hover">Accept</a><a
+                                            href="#" title="" class="blue-bg-hover">Reject</a></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="blue-bg indx">02</span></td>
+                                <td><span class="date">15 June 2017</span></td>
+                                <td><h4 class="name">Larisa Maskalyova</h4></td>
+                                <td><span class="ph#">0500 034548</span></td>
+                                <td><span class="addr">Another St. 456</span></td>
+                                <td>
+                                    <div class="table-btns"><a href="#" title="" class="green-bg-hover">Accept</a><a
+                                            href="#" title="" class="blue-bg-hover">Reject</a></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span class="blue-bg indx">03</span></td>
+                                <td><span class="date">19 June 2017</span></td>
+                                <td><h4 class="name">Natasha Kim</h4></td>
+                                <td><span class="ph#">(01315) 27698</span></td>
+                                <td><span class="addr">294-318 Duis Ave</span></td>
+                                <td>
+                                    <div class="table-btns"><a href="#" title="" class="green-bg-hover">Accept</a><a
+                                            href="#" title="" class="blue-bg-hover">Reject</a></div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-6 grid-item col-sm-12 col-lg-6">
+                <div class="widget pad50-40">
+                    <div class="wdgt-opt"><span class="wdgt-opt-btn"><i class="ion-android-more-vertical"></i></span>
+                        <div class="wdgt-opt-lst brd-rd5"><a class="delt-wdgt" href="#" title="">Delete</a><a
+                                class="expnd-wdgt" href="#" title="">Expand</a><a class="refrsh-wdgt" href="#" title="">Refresh</a>
+                        </div>
+                    </div>
+                    <div class="wdgt-ldr">
+                        <div class="ball-scale-multiple">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <h4 class="widget-title">Activity <span class="green-bg badge">05 Messages</span></h4>
+                    <div class="slct-bx"><i>Added:</i><span><select><option>Any Date</option><option>15-9-2017</option><option>12-8-2017</option><option>08-7-2017</option><option>10-6-2017</option></select></span>
+                    </div>
+                    <div class="act-pst-lst">
+                        <div class="act-pst"><img class="brd-rd50" src="images/resource/acti-thmb1.jpg" alt=""/>
+                            <div class="act-pst-inf">
+                                <div class="act-pst-inr"><h5><a href="#" title="">Sadi Orlaf</a></h5>posted in <a
+                                        href="#" title="">Material</a></div>
+                                <span class="spnd-tm">5 Min Ago</span>
+                                <div class="act-pst-dta"><p>That's awesome!</p>
+                                </div>
+                                <span class="pst-tm"><a href="#" title=""><i
+                                        class="fa fa-trash-o"></i> Remove</a></span>
+                                <div class="act-pst-lk-stm">
+                                    <a class="brd-rd5 green-bg-hover" href="#" title=""><i class="ion-heart"></i>
+                                        Love</a>
+                                    <a class="brd-rd5 blue-bg-hover" href="#" title=""><i class="ion-thumbsup"></i> Like</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="act-pst">
+                            <img class="brd-rd50" src="images/resource/acti-thmb2.jpg" alt=""/>
+                            <div class="act-pst-inf">
+                                <div class="act-pst-inr"><h5><a href="#" title="">Overtunk</a></h5> posted in <a
+                                        href="#" title="">New Blog</a></div>
+                                <span class="spnd-tm">37 Min Ago</span>
+                                <div class="act-pst-dta">
+                                    <p>That's awesome!</p></div>
+                                <span class="pst-tm"><a href="#" title=""><i class="fa fa-trash-o"></i>Remove</a></span>
+                                <div class="act-pst-lk-stm"><a class="brd-rd5 green-bg-hover" href="#" title=""><i
+                                        class="ion-heart"></i>Love</a><a class="brd-rd5 blue-bg-hover" href="#"
+                                                                         title=""><i class="ion-thumbsup"></i>Like</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="act-pst"><img class="brd-rd50" src="images/resource/acti-thmb3.jpg" alt=""/>
+                            <div class="act-pst-inf">
+                                <div class="act-pst-inr"><h5><a href="#" title="">Kim Smith</a></h5>add <a href="#"
+                                                                                                           title="">1
+                                    photo</a></div>
+                                <span class="spnd-tm">50 Min Ago</span>
+                                <div class="act-pst-dta"><img src="images/resource/act-pst-img1.jpg" alt=""/></div>
+                                <span class="pst-tm"><a href="#" title=""><i class="fa fa-trash-o"></i>Remove</a></span>
+                                <div class="act-pst-lk-stm"><a class="brd-rd5 green-bg-hover" href="#" title=""><i
+                                        class="ion-heart"></i>Love</a><a class="brd-rd5 blue-bg-hover" href="#"
+                                                                         title=""><i class="ion-thumbsup"></i>Like</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="act-pst"><img class="brd-rd50" src="images/resource/acti-thmb4.jpg" alt=""/>
+                            <div class="act-pst-inf">
+                                <div class="act-pst-inr"><h5><a href="#" title="">Chris Johnathan</a></h5>started
+                                    following <h6><a href="#" title="">Monica Smith</a></h6>site.
+                                </div>
+                                <span class="spnd-tm">1 Hour Ago</span>
+                                <div class="act-pst-dta"></div>
+                                <span class="pst-tm"><a href="#" title=""><i class="fa fa-trash-o"></i>Remove</a></span>
+                                <div class="act-pst-lk-stm"><a class="brd-rd5 green-bg-hover" href="#" title=""><i
+                                        class="ion-heart"></i>Love</a><a class="brd-rd5 blue-bg-hover" href="#"
+                                                                         title=""><i class="ion-thumbsup"></i>Like</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- Activity Post List -->
+                    <div class="vw-mr-act"><a href="#" title="">View More Activity</a></div>
+                </div>
+            </div>
+            <div class="col-md-6 grid-item col-sm-12 col-lg-6">
+                <div class="widget chat-wdgt pad50-40">
+                    <div class="wdgt-opt"><span class="wdgt-opt-btn"><i class="ion-android-more-vertical"></i></span>
+                        <div class="wdgt-opt-lst brd-rd5"><a class="delt-wdgt" href="#" title="">Delete</a><a
+                                class="expnd-wdgt" href="#" title="">Expand</a><a class="refrsh-wdgt" href="#" title="">Refresh</a>
+                        </div>
+                    </div>
+                    <div class="wdgt-ldr">
+                        <div class="ball-scale-multiple">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <h4 class="widget-title blue-bg">Live Chat</h4>
+                    <div class="caht-wrp">
+                        <div class="chat-lst">
+                            <div class="chat-msg yur-msg"><img class="brd-rd50" src="images/resource/acti-thmb1.jpg"
+                                                               alt=""/>
+                                <div class="msg-inf2"><h5>John Doe</h5><span class="msg-tm"><i class="ion-clock"></i>Today 2:10 pm</span>
+                                    <p>Aenean massa. Cum sociis natoque penatibus et mag nis dis parturient
+                                        montes,nascetur ridiculus mus. Do nec quam felis,ultricies nec.</p>
+                                    <div class="snd-fl">
+                                        <div class="fl-itm brd-rd5"><img class="brd-rd5"
+                                                                         src="images/resource/fl-img1.png"
+                                                                         alt=""/><span>report-2013-web-development</span>
+                                        </div>
+                                    </div>
+                                    <div class="act-pst-lk-stm"><a href="#" title=""
+                                                                   class="brd-rd5 green-bg-hover">Save</a><a href="#"
+                                                                                                             title=""
+                                                                                                             class="brd-rd5 blue-bg-hover">Cancel</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chat-msg frnd-msg"><img class="brd-rd50" src="images/resource/acti-thmb2.jpg"
+                                                                alt=""/>
+                                <div class="msg-inf2"><h5>Kim Smith</h5><span class="msg-tm"><i class="ion-clock"></i>Today 2:10 pm</span>
+                                    <p>Aenean massa. Cum sociis natoque penatibus et mag nis dis parturient
+                                        montes,nascetur ridiculus mus. Do nec quam felis,ultricies nec.</p></div>
+                            </div>
+                        </div>
+                        <form class="chat-frm"><textarea class="brd-rd5" placeholder="Message"></textarea>
+                            <button class="brd-rd5 blue-bg">Send Message</button>
+                            <ul class="snd-opts">
+                                <li><label class="fileContainer"><i class="ion-paperclip"></i><input
+                                        type="file"/></label></li>
+                                <li><label class="fileContainer"><i class="ion-android-camera"></i><input type="file"/></label>
+                                </li>
+                                <li>
+                                    <div class="snd-emjs brd-rd5"><a href="#" title=""><i class="ion-happy"></i></a>
+                                        <div class="emj-lst brd-rd5"><a href="#" title=""><i
+                                                class="ion-happy"></i></a><a href="#" title=""><i
+                                                class="ion-android-sad"></i></a><a href="#" title=""><i
+                                                class="ion-heart-broken"></i></a><a href="#" title=""><i
+                                                class="ion-icecream"></i></a><a href="#" title=""><i
+                                                class="ion-ios-americanfootball"></i></a><a href="#" title=""><i
+                                                class="ion-ios-baseball"></i></a><a href="#" title=""><i
+                                                class="ion-ios-bell"></i></a><a href="#" title=""><i
+                                                class="ion-ios-body"></i></a><a href="#" title=""><i
+                                                class="ion-ios-flame"></i></a><a href="#" title=""><i
+                                                class="ion-ios-flower"></i></a><a href="#" title=""><i
+                                                class="ion-ios-football"></i></a><a href="#" title=""><i
+                                                class="ion-ios-glasses"></i></a><a href="#" title=""><i
+                                                class="ion-ios-heart"></i></a><a href="#" title=""><i
+                                                class="ion-ios-lightbulb"></i></a><a href="#" title=""><i
+                                                class="ion-ios-location"></i></a></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-md-12 grid-item col-sm-12 col-lg-12">
                 <div class="widget prd-wdgt pad50-40">
                     <div class="wdgt-opt"><span class="wdgt-opt-btn"><i class="ion-android-more-vertical"></i></span>
@@ -318,47 +630,67 @@
                             <div></div>
                         </div>
                     </div>
-                    <div class="btn-group" role="group"
-                         aria-label="Basic radio toggle button group">
-                        <!--            有空改彈性化-->
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1a" autocomplete="off" checked>
-                        <label class="btn btn-outline-primary" for="btnradio1a"
-                               onclick=makeRequestBill("/api/getAllBill")>所有訂單</label>
-
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3a" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio3a"
-                               onclick=makeRequestBill("/api/getAllBill/結帳中")>結帳中</label>
-
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio4a" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio4a"
-                               onclick=makeRequestBill("/api/getAllBill/運送中")>運送中</label>
-
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio5a" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="btnradio5a"
-                               onclick=makeRequestBill("/api/getAllBill/已完成")>已完成</label>
-
-                    </div>
                     <div class="table-wrap">
                         <table class="table style2 style3">
                             <thead class="table-inverse">
                             <tr>
-                                <th><span>#帳單</span></th>
-                                <th><span>買家圖片</span></th>
-                                <th><span>賣家姓名</span></th>
-                                <th><span>寄送地址</span></th>
-                                <th><span>帳單狀態</span></th>
-                                <th><span>行動</span></th>
-                                </tr>
+                                <th><span>#</span></th>
+                                <th><span>Image</span></th>
+                                <th><span>Product Name</span></th>
+                                <th><span>Product Code</span></th>
+                                <th><span>Purchased on</span></th>
+                                <th><span>Status</span></th>
+                                <th><span>Price</span></th>
+                                <th><span>QTY</span></th>
+                            </tr>
                             </thead>
-                            <tbody id="billList"></tbody>
                             <tbody>
+                            <tr>
+                                <td><span class="blue-bg indx">01</span></td>
+                                <td><img class="brd-rd5" src="images/resource/prd-img1.jpg" alt=""/></td>
+                                <td><h4><a href="#" title="">Black Jacket</a></h4></td>
+                                <td><span>4ABSD58</span></td>
+                                <td><span>10 June 2017</span></td>
+                                <td><span class="badge badge-success brd-rd5">Pending</span></td>
+                                <td><span class="prc">$99.98</span></td>
+                                <td><span>01</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="blue-bg indx">02</span></td>
+                                <td><img class="brd-rd5" src="images/resource/prd-img2.jpg" alt=""/></td>
+                                <td><h4><a href="#" title="">Cannon LA Camera</a></h4></td>
+                                <td><span>4OCSD51</span></td>
+                                <td><span>15 June 2017</span></td>
+                                <td><span class="badge badge-info brd-rd5">Process</span></td>
+                                <td><span class="prc">$458.98</span></td>
+                                <td><span>03</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="blue-bg indx">03</span></td>
+                                <td><img class="brd-rd5" src="images/resource/prd-img3.jpg" alt=""/></td>
+                                <td><h4><a href="#" title="">LR Head Phones</a></h4></td>
+                                <td><span>4ABSD60</span></td>
+                                <td><span>19 June 2017</span></td>
+                                <td><span class="badge badge-warning brd-rd5">Failed</span></td>
+                                <td><span class="prc">$99.98</span></td>
+                                <td><span>01</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="blue-bg indx">04</span></td>
+                                <td><img class="brd-rd5" src="images/resource/prd-img4.jpg" alt=""/></td>
+                                <td><h4><a href="#" title="">Watch RA Duble</a></h4></td>
+                                <td><span>4OCSD68</span></td>
+                                <td><span>20 June 2017</span></td>
+                                <td><span class="badge badge-info brd-rd5">Process</span></td>
+                                <td><span class="prc">$199.98</span></td>
+                                <td><span>03</span></td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-            </div>
 
-        </div><!-- Filter Items --></div>
+        </div><!-- Filter Items -->
 </div><!-- Panel Content -->
 
 <footer><p>Copyright <a href="http://www.bootstrapmb.com" title="">Example Company</a>&amp;2017 - 2018</p><span>10GB of 250GB Free.</span>

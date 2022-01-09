@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class OrderController {
+
   /**
    * 註解起來就好了啦.
    *
@@ -387,5 +388,4 @@ public class OrderController {
     System.out.println(orderManager.getAllBill());
     return orderManager.getAllBill();
   }
-
 }

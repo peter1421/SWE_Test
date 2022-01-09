@@ -16,13 +16,13 @@
     <link rel="alternate stylesheet" href="css/color-schemes/color5.css" title="color5">
 </head>
 <body class="expand-data panel-data">
-<h2 style="text-align:center;">開發測試功能</h2>
+<!--<h2 style="text-align:center;">開發測試功能</h2>-->
 
-<div class="row">
-    <button type="button" class="btn btn-primary" onclick="deleteAllCookies()">登出(清除cookie)</button>
-    <button type="button" class="btn btn-primary" onclick="getCookie('email')">登入者檢查</button>
-    <button type="button" class="btn btn-primary" onclick="checkJavascript()">js引入檢查</button>
-</div>
+<!--<div class="row">-->
+<!--    <button type="button" class="btn btn-primary" onclick="deleteAllCookies()">登出(清除cookie)</button>-->
+<!--    <button type="button" class="btn btn-primary" onclick="getCookie('email')">登入者檢查</button>-->
+<!--    <button type="button" class="btn btn-primary" onclick="checkJavascript()">js引入檢查</button>-->
+<!--</div>-->
 <div class="topbar">
     <div class="logo"><h1><a href="#" title=""><img src="" alt=""/></a></h1></div>
     <div class="topbar-data">
@@ -163,14 +163,13 @@
         </ul>
         <h4>功能</h4>
         <ul class="drp-sec">
-
-            <li class="has-drp"><a href="#" title=""><i class="ion-android-settings"></i><span>表單編輯</span></a>
+            <li class="has-drp"><a href="#" title=""><i class="ion-android-settings"></i><span>管理功能</span></a>
                 <ul class="sb-drp">
-                    <li><a href="form-layouts.html" title="">表單佈局</a></li>
-                    <li><a href="form-wizard.html" title="">表單嚮導</a></li>
+                    <li><a href="form-layouts.html" title="">商品管理</a></li>
+                    <li><a href="form-wizard.html" title="">會員管理</a></li>
                 </ul>
             </li>
-
+            <li><a href="temp.html" title="">未完成功能暫存</a></li>
         </ul>
 
     </nav>
@@ -186,7 +185,7 @@
     </div>
 </div><!-- Options Panel -->
 <div class="pg-tp"><i class="ion-cube"></i>
-    <div class="pr-tp-inr"><h4>表格佈局</h4><span>終於要來處理表格了是吧我的奴隸</span></div>
+    <div class="pr-tp-inr"><h4>商品管理</h4><span>終於要來處理表格了是吧我的奴隸</span></div>
 </div><!-- Page Top -->
 <div class="panel-content">
 
@@ -244,51 +243,65 @@
             </div>
         </form>
     </div>
-    <div class="widget pad50-65">
-        <div class="widget-title2"><h4>Trendy Form</h4><span>Please fill out the form below Form elements.</span></div>
-        <form class="form-wrp">
-            <div class="row mrg20">
-                <div class="col-md-6 col-sm-6 col-lg-6"><input class="brd-rd30" type="text" placeholder="First Name*"/>
-                </div>
-                <div class="col-md-6 col-sm-6 col-lg-6"><input class="brd-rd30" type="text" placeholder="Last Name*"/>
-                </div>
-                <div class="col-md-12 col-sm-12 col-lg-12"><input class="brd-rd30" type="text"
-                                                                  placeholder="Company Name*"/></div>
-                <div class="col-md-6 col-sm-6 col-lg-6"><input class="brd-rd30" type="text"
-                                                               placeholder="Street Address*"/></div>
-                <div class="col-md-6 col-sm-6 col-lg-6"><input class="brd-rd30" type="text"
-                                                               placeholder="Street Address 2*"/></div>
-                <div class="col-md-6 col-sm-6 col-lg-6"><input class="brd-rd30" type="text" placeholder="Town/City*"/>
-                </div>
-                <div class="col-md-6 col-sm-6 col-lg-6">
-                    <div class="slct-bx brd-rd30"><span><select><option>State*</option><option>State 1</option><option>State 2</option><option>State 3</option></select></span>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-6 col-lg-6"><input class="brd-rd30" type="text"
-                                                               placeholder="Zip/Postal Code*"/></div>
-                <div class="col-md-6 col-sm-6 col-lg-6"><input class="brd-rd30" type="email"
-                                                               placeholder="Email Address*"/></div>
-                <div class="col-md-12 col-sm-12 col-lg-12">
-                    <div class="gender-box"><strong>Gender</strong><span class="rdio-bx"><input type="radio"
-                                                                                                name="gender"
-                                                                                                id="male2"/><label
-                            for="male2">Male</label></span><span class="rdio-bx"><input type="radio" name="gender"
-                                                                                        id="female2"/><label
-                            for="female2">Female</label></span></div>
-                </div>
-                <div class="col-md-12 col-sm-12 col-lg-12">
-                    <div class="file-upload-box"><strong>File Input:</strong>
-                        <div class="file-box"><label class="fileContainer"><span class="blue-bg brd-rd5">Browse</span>No
-                            File Selected. <input type="file"/></label></div>
-                    </div>
-                </div>
-                <div class="col-md-12 col-sm-12 col-lg-12">
-                    <button class="green-bg brd-rd5" type="submit"><i class="fa fa-paper-plane"></i>Registration
-                        Completed
-                    </button>
+    <div class="col-md-12 grid-item col-sm-12 col-lg-12">
+        <div class="widget proj-order pad50-40">
+            <div class="wdgt-opt"><span class="wdgt-opt-btn"><i class="ion-android-more-vertical"></i></span>
+                <div class="wdgt-opt-lst brd-rd5"><a class="delt-wdgt" href="#" title="">Delete</a><a
+                        class="expnd-wdgt" href="#" title="">Expand</a><a class="refrsh-wdgt" href="#" title="">Refresh</a>
                 </div>
             </div>
-        </form>
+            <div class="wdgt-ldr">
+                <div class="ball-scale-multiple">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="btn-group" role="group"
+                 aria-label="Basic radio toggle button group">
+                <!--            有空改彈性化-->
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                <label class="btn btn-outline-primary" for="btnradio1"
+                       onclick=makeRequestSeller("/api/getFullOrder")>所有訂單</label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnradio2"
+                       onclick=makeRequestSeller("/api/getFullOrder/下單中")>下單中</label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnradio3"
+                       onclick=makeRequestSeller("/api/getFullOrder/結帳中")>結帳中</label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnradio4"
+                       onclick=makeRequestSeller("/api/getFullOrder/配送中")>配送中</label>
+
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnradio5"
+                       onclick=makeRequestSeller("/api/getFullOrder/已完成")>已完成</label>
+
+            </div>
+            <!--                    <h4 class="widget-title">商品下單(未結帳)</h4>-->
+            <a class="add-proj brd-rd5" href="#" data-toggle="tooltip" title="Add Project">+</a>
+            <div class="slct-bx"><i class="ion-android-funnel">Sort By:</i><span><select><option>Date</option><option>Name</option><option>Category</option><option>Duration</option></select></span>
+            </div>
+
+            <div class="table-wrap">
+                <table class="table table-bordered style2">
+                    <thead>
+                    <tr>
+                        <th>訂單編號</th>
+                        <th>商品名稱</th>
+                        <th>數量</th>
+                        <th>姓名</th>
+                        <th>電話</th>
+                        <th>地址</th>
+                    </tr>
+                    </thead>
+                    <tbody id="dataList"></tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div><!-- Panel Content -->
 <footer><p>Copyright <a href="http://www.bootstrapmb.com" title="">Example Company</a>&amp;2017 - 2018</p><span>10GB of 250GB Free.</span>
@@ -322,5 +335,142 @@
 
 </body>
 <script src="../js/tool.js"></script>
+<script type="text/javascript">
 
+var d;
+    $( document ).ready( function() {
+        console.log( "ready!" );
+        makeRequestSeller("/api/getFullOrder")
+        makeRequestBill("/api/getAllBill")
+        pic();
+    });
+//Bill列表
+ function makeRequestBill(url) {
+            xhr = new XMLHttpRequest();
+            xhr.onload = function() {
+                let response = JSON.parse(this.response);
+                console.log(response)
+                addDatasBill(response)
+            };
+            xhr.open("GET", url, true);
+            xhr.send();
+   }
+    function addDatasBill(datas) {
+        $('#billList').empty();
+        var key=Object.keys(datas[0]);
+        d=datas;
+        for ( let data of datas ) {
+             if(data.billId==0){
+                continue;
+            }
+            let html="<tr>";
+            html+='<td><span  class="blue-bg indx">'+data.billId+'</span></td>';
+            html+='<td><img class="brd-rd5" src="'+data.imageUrl+'" alt="" style="width:100px;"/></td>';
+            html+='<td><h4><a href="#" title="">'+data.name+'</a></h4></td>';
+            html+='<td><span class="prc">'+data.address+'</span></td>'
+            if(data.state===stateArr[3]){
+                html+=' <td><span class="badge badge-success brd-rd5">'+data.state+'</span></td>'
+            }else if(data.state===stateArr[2]){
+                html+=' <td><span class="badge badge-info brd-rd5">'+data.state+'</span></td>'
+            }else{
+                html+=' <td><span class="badge badge-warning brd-rd5">'+data.state+'</span></td>'
+            }
+            html+=' <td><div class="cat-btns"><a onclick="updateBill(2,'+data.billId +')"  class="blue-bg brd-rd5" aria-current="page">寄送</a><a class="blue-bg brd-rd5" onclick="updateBill(3,'+data.billId +')">完成</a></div> </td>'
+            html+="</tr>"
+             $('#billList').append(html);
+        }
+ }
+
+	var stateArr = ["下單中", "結帳中", "運送中","已完成"];
+    function updateBill(count,id){
+        var data="count="+count+"&billId="+id,url="/api/updateBill";
+        postRequest(data,url)
+        window.location.replace("/Seller/index.html");
+
+    }
+//Seller 訂單資料
+   function makeRequestSeller(url) {
+            xhr = new XMLHttpRequest();
+            xhr.onload = function() {
+                let response = JSON.parse(this.response);
+                console.log(response)
+                addDatasSellerOrder(response)
+            };
+            xhr.open("GET", url, true);
+            xhr.send();
+   }
+ function addDatasSellerOrder(datas) {
+        console.log("顯示賣家商品管理");
+        emptyProducts();
+<!--        //全部淨空-->
+        var key=Object.keys(datas[0]);
+        d=datas;
+        for ( let data of datas ) {
+            let html="<tr>";
+            html+="<td><span  class='blue-bg indx'>"+data.orderID+"</span></td>";
+            html+="<td><span class='productName'>"+data.productName+"</span></td>";
+            html+="<td><span class='count'>"+data.count+"</span></td>";
+            html+="<td><h4 class='name'>"+data.name+"</h4></td>";
+            html+="<td><span class='phone'>"+data.phone+"</span></td>";
+            html+="<td><span class='address'>"+data.address+"</span></td>";
+            html+="</tr>"
+             $('#dataList').append(html);
+        }
+        pic(datas);
+ }
+
+
+function pic(datas){
+    Chart.defaults.global.defaultFontFamily = "Nunito",'-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+    Chart.defaults.global.defaultFontColor = "#858796";
+    var ctx = document.getElementById("chart");
+<!--    寫死了-->
+        let arr = [0, 0, 0,0,0];
+
+        for(let data of datas){
+            console.log(data.classification)
+            switch (data.classification) {
+                case "速食":
+                    arr[0]++;continue;
+                case "飲料":
+                    arr[1]++;continue;
+                case "合作系列-頂太瘋":
+                    arr[2]++;continue;
+                case "合作系列-亡品":
+                    arr[3]++;continue;
+                case "純的" :
+                    arr[4]++;continue;
+            }
+        }
+    var myPieChart = new Chart(ctx, {
+        type: "doughnut",
+        data: {
+            labels: ["速食", "飲料", "合作系列-頂太瘋","合作系列-亡品","純的"],
+            datasets: [{
+                data: arr,
+                backgroundColor: ["#4e73df", "#1cc88a", "#36b9cc", "#20088a","#10c900"],
+                hoverBackgroundColor: ["#2e59d9", "#17a673", "#2c9faf","#15488a","#20b900"],
+                hoverBorderColor: "rgba(234, 236, 244, 1)",
+            }],
+        },
+        options: {
+            maintainAspectRatio: false,
+            tooltips: {
+                backgroundColor: "rgb(255,255,255)",
+                bodyFontColor: "#858796",
+                borderColor: "#dddfeb",
+                borderWidth: 1,
+                xPadding: 15,
+                yPadding: 15,
+                displayColors: false,
+                caretPadding: 10,
+            },
+            legend: {
+                display: false
+            },
+            cutoutPercentage: 80,
+        },
+    });
+}
+</script>
 </html>
