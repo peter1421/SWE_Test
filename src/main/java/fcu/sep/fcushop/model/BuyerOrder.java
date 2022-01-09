@@ -9,15 +9,43 @@ package fcu.sep.fcushop.model;
  *
  */
 public class BuyerOrder extends Order {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private int orderID;
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private String name;
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private int price;
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private String description;
 
-
-  public BuyerOrder() {
-
-  }
 
   /**
    * 註解起來就好了啦.
@@ -27,50 +55,131 @@ public class BuyerOrder extends Order {
    *
    *
    */
-  public BuyerOrder(String buyerEmail,
-                    int orderID,
-                    int count,
-                    String name,
-                    int price,
-                    String description) {
+  public BuyerOrder() {
+
+  }
+
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@param buyerEmail ...
+   *@param orderID ...
+   *@param count ...
+   *@param name ...
+   *@param price ...
+   *@param description ...
+   *
+   *
+   */
+  public BuyerOrder(final String buyerEmail,
+                    final int orderID,
+                    final int count,
+                    final String name,
+                    final int price,
+                    final String description) {
     this.orderID = orderID;
     this.name = name;
     this.price = price;
     this.description = description;
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@return tag
+   *
+   *
+   */
   public int getorderID() {
     return orderID;
   }
 
-  public void setorderID(int orderID) {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@param orderID ...
+   *
+   *
+   */
+  public void setorderID(final int orderID) {
     this.orderID = orderID;
   }
 
 
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@return tag
+   *
+   *
+   */
   public int getprice() {
     return price;
   }
 
-  public void setprice(int price) {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@param price ...
+   *
+   *
+   */
+  public void setprice(final int price) {
     this.price = price;
   }
 
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@return tag
+   *
+   *
+   */
   public String getname() {
     return name;
   }
 
-  public void setname(String name) {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@param name ...
+   *
+   *
+   */
+  public void setname(final String name) {
     this.name = name;
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@return tag
+   *
+   *
+   */
   public String description() {
     return description;
   }
 
-  public void setdescription(String description) {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@param description ...
+   *
+   *
+   */
+  public void setdescription(final String description) {
     this.description = description;
   }
 
