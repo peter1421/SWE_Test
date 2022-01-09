@@ -15,10 +15,20 @@ import org.sql2o.Connection;
  *
  *
  *
+ *
  */
 
 @Service
 public class OrderService {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   *
+   */
   @Autowired
   private Sql2oDbHandler sql2oDbHandler;
 
@@ -27,7 +37,7 @@ public class OrderService {
    *
    *
    *
-   *
+   *@return tag
    *
    */
   public List<Order> getOrder() {
@@ -44,7 +54,7 @@ public class OrderService {
    *
    *
    *
-   *
+   *@return tag
    *
    */
   public List<FullOrder> getFullOrder(String email) {
@@ -70,7 +80,7 @@ public class OrderService {
    *
    *
    *
-   *
+   *@return tag
    *
    */
 
@@ -99,7 +109,7 @@ public class OrderService {
    *
    *
    *
-   *
+   *@return tag
    *
    */
   public List<FullOrder> getFullOrder() {
@@ -122,7 +132,7 @@ public class OrderService {
    *
    *
    *
-   *
+   *@return tag
    *
    */
   public List<FullOrder> getFullOrderStates(String state) {
@@ -150,7 +160,7 @@ public class OrderService {
    *
    *
    *
-   *
+   *@return tag
    *
    */
   public String addOrder(Order order) {
@@ -176,7 +186,7 @@ public class OrderService {
    *
    *
    *
-   *
+   *@return tag
    *
    */
 
@@ -196,7 +206,7 @@ public class OrderService {
    *
    *
    *
-   *
+   *@return tag
    *
    */
 
@@ -216,7 +226,7 @@ public class OrderService {
    *
    *
    *
-   *
+   *@return tag
    *
    */
 
@@ -237,7 +247,7 @@ public class OrderService {
    *
    *
    *
-   *
+   *@return tag
    *
    */
 
@@ -260,7 +270,7 @@ public class OrderService {
    * 註解起來就好了啦.
    *
    *
-   *
+   *@return tag
    *
    *
    */
@@ -287,7 +297,7 @@ public class OrderService {
    *
    *
    *
-   *
+   *@return tag
    *
    */
 
@@ -303,7 +313,7 @@ public class OrderService {
    *
    *
    *
-   *
+   *@return tag
    *
    */
 
@@ -321,7 +331,7 @@ public class OrderService {
    *
    *
    *
-   *
+   *@return tag
    *
    */
 
@@ -348,7 +358,7 @@ public class OrderService {
    *
    *
    *
-   *
+   *@return tag
    *
    */
 
@@ -371,7 +381,7 @@ public class OrderService {
    *
    *
    *
-   *
+   *@return tag
    *
    */
 
@@ -391,7 +401,7 @@ public class OrderService {
    *
    *
    *
-   *
+   *@return tag
    *
    */
 
@@ -412,7 +422,7 @@ public class OrderService {
    *
    *
    *
-   *
+   *@return tag
    *
    */
 
@@ -437,7 +447,7 @@ public class OrderService {
    *
    *
    *
-   *
+   *@return tag
    */
   public List<MemberBill> getAllBill(String state) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
