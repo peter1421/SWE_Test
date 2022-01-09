@@ -9,14 +9,51 @@ package fcu.sep.fcushop.model;
  *
  */
 public class Order {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private int productId;
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private String buyerEmail;
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private int count;
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private String state;
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private int billId;
-
-  public Order() {
-  }
 
   /**
    * 註解起來就好了啦.
@@ -26,7 +63,26 @@ public class Order {
    *
    *
    */
-  public Order(int productId, String buyerEmail, int count, String state, int billId) {
+  public Order() {
+  }
+
+  /**
+   * 註解起來就好了啦.
+   *
+   *@param productId ...
+   *@param buyerEmail ...
+   *@param count ...
+   *@param state ...
+   *@param billId ...
+   *
+   *
+   *
+   */
+  public Order(final int productId,
+               final String buyerEmail,
+               final int count,
+               final String state,
+               final int billId) {
     this.productId = productId;
     this.buyerEmail = buyerEmail;
     this.count = count;
@@ -34,44 +90,123 @@ public class Order {
     this.billId = billId;
   }
 
-
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@return tag
+   *
+   *
+   */
   public int getproductId() {
     return productId;
   }
 
-  public void setproductId(int productId) {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@param productId ...
+   *
+   *
+   */
+  public void setproductId(final int productId) {
     this.productId = productId;
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *@return tag
+   *
+   */
   public String getbuyerEmail() {
     return buyerEmail;
   }
 
-  public void setbuyerEmail(String buyerEmail) {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@param buyerEmail ...
+   *
+   *
+   */
+  public void setbuyerEmail(final String buyerEmail) {
     this.buyerEmail = buyerEmail;
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@return tag
+   *
+   *
+   */
   public int getcount() {
     return count;
   }
 
-  public void setcount(int count) {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@param count ...
+   *
+   *
+   */
+  public void setcount(final int count) {
     this.count = count;
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@return tag
+   *
+   *
+   */
   public String getState() {
     return state;
   }
 
-  public void setState(String state) {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@param state ...
+   *
+   *
+   */
+  public void setState(final String state) {
     this.state = state;
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *@return tag
+   *
+   *
+   *
+   */
   public int getBillId() {
     return billId;
   }
 
-  public void setBillId(int billId) {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@param billId ...
+   *
+   *
+   */
+  public void setBillId(final int billId) {
     this.billId = billId;
   }
 }
