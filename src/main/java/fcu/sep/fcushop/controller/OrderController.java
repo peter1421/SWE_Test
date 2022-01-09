@@ -391,13 +391,15 @@ public class OrderController {
   /**
    * 註解起來就好了啦.
    *
-   *
+   *@param state ...
    *@return tag
    *
    *
    */
+
   @GetMapping("/api/getAllBill/{state}")
-  public List<MemberBill>  getAllBill(@PathVariable("state") String state) {
+  public List<MemberBill>  getAllBill(@PathVariable("state")
+                                        final String state) {
     return orderManager.getAllBill(state);
   }
 }
