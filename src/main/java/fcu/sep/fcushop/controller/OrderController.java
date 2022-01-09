@@ -171,5 +171,10 @@ public class OrderController {
 		System.out.println(orderManager.getAllBill());
 		return orderManager.getAllBill();
 	}
+	@GetMapping("/api/getAllBill/{state}")
+	public List<MemberBill>  getAllBill(@PathVariable("state") String state) {
+		System.out.println("取得所有訂單詳細資料");
+		return orderManager.getAllBill(state);
+	}
 
 }

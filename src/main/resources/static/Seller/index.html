@@ -234,7 +234,7 @@
                                 </div>
                             </div>
                             <i class="ion-bag"></i>
-                            <div class="stat-box-innr"><span>$ <i class="counter">20,507</i></span><h5>等待中訂單</h5></div>
+                            <div class="stat-box-innr"><span> <i class="counter">20,507</i></span><h5>等待中訂單</h5></div>
                             <span><i class="ion-ios-stopwatch"></i>Updated:05:14pm</span></div>
                     </div>
                     <div class="col-md-6 col-sm-6 col-lg-6">
@@ -253,7 +253,7 @@
                                 </div>
                             </div>
                             <i class="ion-speedometer"></i>
-                            <div class="stat-box-innr"><span><i class="counter">79</i>GB</span><h5>總成交量</h5>
+                            <div class="stat-box-innr"><span><i class="counter">79</i></span><h5>總成交量</h5>
                             </div>
                             <span><i class="ion-ios-stopwatch"></i>Updated:05:14pm</span></div>
                     </div>
@@ -273,7 +273,7 @@
                                 </div>
                             </div>
                             <i class="ion-ios-cloud-download"></i>
-                            <div class="stat-box-innr"><span><i class="counter">5347</i></span><h5>Download Count</h5>
+                            <div class="stat-box-innr"><span><i class="counter">5347</i></span><h5>最大交易價</h5>
                             </div>
                             <span><i class="ion-ios-stopwatch"></i>Updated:05:14pm</span></div>
                     </div>
@@ -316,6 +316,26 @@
                             <div></div>
                             <div></div>
                         </div>
+                    </div>
+                    <div class="btn-group" role="group"
+                         aria-label="Basic radio toggle button group">
+                        <!--            有空改彈性化-->
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1a" autocomplete="off" checked>
+                        <label class="btn btn-outline-primary" for="btnradio1a"
+                               onclick=makeRequestBill("/api/getAllBill")>所有訂單</label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3a" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="btnradio3a"
+                               onclick=makeRequestBill("/api/getAllBill/結帳中")>結帳中</label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio4a" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="btnradio4a"
+                               onclick=makeRequestBill("/api/getAllBill/運送中")>運送中</label>
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio5a" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="btnradio5a"
+                               onclick=makeRequestBill("/api/getAllBill/已完成")>已完成</label>
+
                     </div>
                     <div class="table-wrap">
                         <table class="table style2 style3">
@@ -951,7 +971,7 @@ var d;
             xhr.send();
    }
     function addDatasBill(datas) {
-        emptyProducts();
+        $('#billList').empty();
         var key=Object.keys(datas[0]);
         d=datas;
         for ( let data of datas ) {
