@@ -955,23 +955,26 @@ var d;
         var key=Object.keys(datas[0]);
         d=datas;
         for ( let data of datas ) {
-             if(data.orderID==0){
+             if(data.billId==0){
                 continue;
             }
             let html="<tr>";
-            html+='<td><span  class="blue-bg indx">'+data.orderID+'</span></td>';
+            html+='<td><span  class="blue-bg indx">'+data.billId+'</span></td>';
             html+='<td><img class="brd-rd5" src="'+data.imageUrl+'" alt="" style="width:100px;"/></td>';
             html+='<td><h4><a href="#" title="">'+data.name+'</a></h4></td>';
             html+='<td><span class="prc">'+data.address+'</span></td>'
             html+=' <td><span class="badge badge-success brd-rd5">'+data.state+'</span></td>'
-            html+=' <td><div class="cat-btns"><a onclick="s()"  class="blue-bg brd-rd5" aria-current="page">寄送</a><a class="blue-bg brd-rd5">完成</a></div> </td>'
+            html+=' <td><div class="cat-btns"><a onclick="updateBill(2,'+data.billId +')"  class="blue-bg brd-rd5" aria-current="page">寄送</a><a class="blue-bg brd-rd5">完成</a></div> </td>'
             html+="</tr>"
              $('#billList').append(html);
         }
  }
 
-    function s(){
-        alert("!!")
+<!--	String[] stateArr = {"下單中", "結帳中", "運送中","已完成"};-->
+    function updateBill(count,id){
+        alert(id+"改為"+count);
+        var data="count="+count+"&billId="+id,url="/api/updateBill";
+        postRequest(data,url)
     }
 //Seller 訂單資料
    function makeRequestSeller(url) {
