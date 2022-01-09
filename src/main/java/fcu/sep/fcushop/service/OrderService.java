@@ -39,6 +39,14 @@ public class OrderService {
     }
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   public List<FullOrder> getFullOrder(String email) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = "select 訂單ID orderID, 商品名稱 productName, 會員名稱 name, "
@@ -57,6 +65,43 @@ public class OrderService {
     }
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
+
+  public List<FullOrder> getFullOrder(String email, String state) {
+    try (Connection connection = sql2oDbHandler.getConnector().open()) {
+      String query = "select 訂單ID orderID, 商品名稱 productName, 會員名稱 name, "
+              + "手機號碼 phone, 寄送地址 address,商品資料.商品ID productId,買家Email buyerEmail,"
+              + "商品價格 price,商品數量 count,商品圖片 imageUrl"
+              + " \nfrom 訂單資料,商品資料,帳密資料,會員資料"
+              + " where 訂單資料.商品ID = 商品資料.商品ID\n"
+              + "and \n"
+              + "  訂單資料.買家Email = 帳密資料.電子郵件\n"
+              + "and\n"
+              + "  帳密資料.電子郵件 = 會員資料.電子郵件\n"
+              + "and\n"
+              + "  訂單資料.訂單狀態 = '" + state + "'\n"
+              + "and\n"
+              + "  帳密資料.電子郵件 ='" + email + "';";
+      System.out.println(query);
+      return connection.createQuery(query).executeAndFetch(FullOrder.class);
+    }
+  }
+
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   public List<FullOrder> getFullOrder() {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = "select 訂單ID orderID, 商品名稱 productName, 會員名稱 name, 手機號碼 phone, 寄送地址 address,"
@@ -72,6 +117,14 @@ public class OrderService {
     }
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   public List<FullOrder> getFullOrderStates(String state) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = "select 訂單ID orderID, 商品名稱 productName, 會員名稱 name, 手機號碼 phone, "
@@ -92,26 +145,14 @@ public class OrderService {
 
 
 
-  public List<FullOrder> getFullOrder(String email, String state) {
-    try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String query = "select 訂單ID orderID, 商品名稱 productName, 會員名稱 name, "
-          + "手機號碼 phone, 寄送地址 address,商品資料.商品ID productId,買家Email buyerEmail,"
-          + "商品價格 price,商品數量 count,商品圖片 imageUrl"
-          + " \nfrom 訂單資料,商品資料,帳密資料,會員資料"
-          + " where 訂單資料.商品ID = 商品資料.商品ID\n"
-          + "and \n"
-          + "  訂單資料.買家Email = 帳密資料.電子郵件\n"
-          + "and\n"
-          + "  帳密資料.電子郵件 = 會員資料.電子郵件\n"
-          + "and\n"
-          + "  訂單資料.訂單狀態 = '" + state + "'\n"
-          + "and\n"
-          + "  帳密資料.電子郵件 ='" + email + "';";
-      System.out.println(query);
-      return connection.createQuery(query).executeAndFetch(FullOrder.class);
-    }
-  }
-
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   public String addOrder(Order order) {
     String returnMessage;
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
@@ -130,6 +171,14 @@ public class OrderService {
     }
     return returnMessage;
   }
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
 
   public List<BuyerOrder> getBuyerOrder(String Email) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
@@ -142,6 +191,14 @@ public class OrderService {
       return connection.createQuery(query).executeAndFetch(BuyerOrder.class);
     }
   }
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
 
   public List<BuyerOrder> getProductOrder(String Email) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
@@ -154,6 +211,15 @@ public class OrderService {
     }
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
+
   public List<BuyerOrder> getSellerOrder(String productId) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = String.format("SELECT 商品名稱 name,電子郵件 buyerEmail,訂單ID orderID,"
@@ -165,6 +231,39 @@ public class OrderService {
       return connection.createQuery(query).executeAndFetch(BuyerOrder.class);
     }
   }
+
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
+
+  public String updateOrder(int id, String state, int bill) {
+    String returnMessage;
+    try (Connection connection = sql2oDbHandler.getConnector().open()) {
+      String query = String.format("UPDATE `fcu_shop`.`訂單資料` SET `訂單狀態` = '%s', "
+              + "`帳單ID` = '%d' WHERE (`訂單ID` = '%d');\n", state, bill, id);
+      System.out.println(query);
+      connection.createQuery(query, true).executeUpdate().getKey();
+      returnMessage = query + "寫入成功";
+    } catch (Exception ex) {
+      // 除了SQLException以外之錯誤
+      returnMessage = "錯誤訊息:" + ex.getMessage();
+    }
+    return returnMessage;
+  }
+
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
 
   public String updateOrder(Order order) {
     String returnMessage;
@@ -183,12 +282,30 @@ public class OrderService {
     return returnMessage;
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
+
   public Object getMaxBill() {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = "SELECT max(帳單ID)" + " FROM `fcu_shop`.`訂單資料`;";
       return connection.createQuery(query).executeScalar();
     }
   }
+
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
 
   public Object getReCount(String email, int productId) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
@@ -199,20 +316,14 @@ public class OrderService {
   }
 
 
-  public String updateOrder(int id, String state, int bill) {
-    String returnMessage;
-    try (Connection connection = sql2oDbHandler.getConnector().open()) {
-      String query = String.format("UPDATE `fcu_shop`.`訂單資料` SET `訂單狀態` = '%s', "
-              + "`帳單ID` = '%d' WHERE (`訂單ID` = '%d');\n", state, bill, id);
-      System.out.println(query);
-      connection.createQuery(query, true).executeUpdate().getKey();
-      returnMessage = query + "寫入成功";
-    } catch (Exception ex) {
-      // 除了SQLException以外之錯誤
-      returnMessage = "錯誤訊息:" + ex.getMessage();
-    }
-    return returnMessage;
-  }
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
 
   public String updateBill(String state, int billId) {
     String returnMessage;
@@ -232,6 +343,14 @@ public class OrderService {
     return returnMessage;
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
 
   public String deleteOrder(int ID) {
     //刪除特定訂單
@@ -247,6 +366,14 @@ public class OrderService {
     }
     return returnMessage;
   }
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
 
   public List<Integer> getBillId(String email) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
@@ -259,6 +386,15 @@ public class OrderService {
     }
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
+
   public List<Bill> getBill(int billId) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = String.format("SELECT 商品圖片 imageUrl,商品名稱 name,商品數量 count,商品價格 price,"
@@ -270,6 +406,15 @@ public class OrderService {
       return connection.createQuery(query).executeAndFetch(Bill.class);
     }
   }
+
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
 
   public List<MemberBill> getAllBill() {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
@@ -286,6 +431,14 @@ public class OrderService {
     }
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   public List<MemberBill> getAllBill(String state) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String q = "SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));";
