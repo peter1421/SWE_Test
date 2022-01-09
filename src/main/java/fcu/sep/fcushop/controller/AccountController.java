@@ -2,24 +2,29 @@ package fcu.sep.fcushop.controller;
 
 import fcu.sep.fcushop.model.Account;
 import fcu.sep.fcushop.model.Member;
-import fcu.sep.fcushop.model.Product;
 import fcu.sep.fcushop.service.AccountService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
+import java.io.IOException;
+import java.util.List;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
+
+
+
+/**
+ * 註解起來就好了啦.
+ * Checkstyle 說沒用到的
+ * import fcu.sep.fcushop.model.Product;.
+ * import javax.servlet.http.HttpSession;.
+ *
+ *
+ */
 @RestController
-public class AccountController {
-
-	@Autowired
+public class AccountController { @Autowired
 	AccountService accountManager;
-
 	@GetMapping("/api/getAccounts")
 	public List<Account> getAccounts() {
 		System.out.println("取得所有帳密");
@@ -132,3 +137,5 @@ public class AccountController {
 	}
 
 }
+
+
