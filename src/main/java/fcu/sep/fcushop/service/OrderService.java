@@ -52,7 +52,7 @@ public class OrderService {
   /**
    * 註解起來就好了啦.
    *
-   *
+   *@param email ...
    *
    *@return tag
    *
@@ -79,7 +79,8 @@ public class OrderService {
    * 註解起來就好了啦.
    *
    *
-   *
+   *@param email ...
+   *@param state ...
    *@return tag
    *
    */
@@ -131,7 +132,7 @@ public class OrderService {
    * 註解起來就好了啦.
    *
    *
-   *
+   *@param state ...
    *@return tag
    *
    */
@@ -159,7 +160,7 @@ public class OrderService {
    * 註解起來就好了啦.
    *
    *
-   *
+   *@param order ...
    *@return tag
    *
    */
@@ -185,7 +186,7 @@ public class OrderService {
    * 註解起來就好了啦.
    *
    *
-   *
+   *@param Email ...
    *@return tag
    *
    */
@@ -205,7 +206,7 @@ public class OrderService {
    * 註解起來就好了啦.
    *
    *
-   *
+   *@param Email ...
    *@return tag
    *
    */
@@ -225,7 +226,7 @@ public class OrderService {
    * 註解起來就好了啦.
    *
    *
-   *
+   *@param productId ...
    *@return tag
    *
    */
@@ -245,7 +246,9 @@ public class OrderService {
   /**
    * 註解起來就好了啦.
    *
-   *
+   *@param id ...
+   *@param state ...
+   *@param bill ...
    *
    *@return tag
    *
@@ -269,7 +272,7 @@ public class OrderService {
   /**
    * 註解起來就好了啦.
    *
-   *
+   *@param order ...
    *@return tag
    *
    *
@@ -311,8 +314,8 @@ public class OrderService {
   /**
    * 註解起來就好了啦.
    *
-   *
-   *
+   *@param email ...
+   *@param productId ...
    *@return tag
    *
    */
@@ -329,8 +332,8 @@ public class OrderService {
   /**
    * 註解起來就好了啦.
    *
-   *
-   *
+   *@param state ...
+   *@param billId ...
    *@return tag
    *
    */
@@ -357,7 +360,7 @@ public class OrderService {
    * 註解起來就好了啦.
    *
    *
-   *
+   *@param ID ...
    *@return tag
    *
    */
@@ -380,7 +383,7 @@ public class OrderService {
    * 註解起來就好了啦.
    *
    *
-   *
+   *@param email ...
    *@return tag
    *
    */
@@ -400,7 +403,7 @@ public class OrderService {
    * 註解起來就好了啦.
    *
    *
-   *
+   *@param billId ...
    *@return tag
    *
    */
@@ -445,7 +448,7 @@ public class OrderService {
    * 註解起來就好了啦.
    *
    *
-   *
+   *@param state ...
    *
    *@return tag
    */
