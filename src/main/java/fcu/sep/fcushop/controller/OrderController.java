@@ -121,12 +121,19 @@ public class OrderController {
 		return true;
 	}
 
+	@PostMapping("/api/updateBill")
+	@ResponseBody
+	public boolean updateBill(@RequestParam int count, @RequestParam int billId) {
+		orderManager.updateBill(stateArr[count], billId);
+		return true;
+	}
+
 	public int getMaxBill() {
 		return Integer.parseInt(String.valueOf(orderManager.getMaxBill()));
 	}
 
 
-	String[] stateArr = {"下單中", "結帳中", "處理中", "運送中"};
+	String[] stateArr = {"下單中", "結帳中", "運送中", "已完成"};
 	//之後物件化
 
 	@PostMapping("/api/checkOrder")
@@ -145,7 +152,8 @@ public class OrderController {
 		return true;
 		//有空回來補錯誤偵測
 	}
-//有空重構Bill物件關系
+
+	//有空重構Bill物件關系
 	@PostMapping("/api/getBillId")
 	@ResponseBody
 	public List<Integer> getBillId(@RequestParam String email) {

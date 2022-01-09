@@ -171,6 +171,24 @@ public class OrderService {
 		}
 		return returnMessage;
 	}
+	public String updateBill(String state,int billId) {
+		String returnMessage;
+		try (Connection connection = sql2oDbHandler.getConnector().open()) {
+			connection.createQuery("SET SQL_SAFE_UPDATES=0;\n", true).executeUpdate().getKey();
+			String query = String.format("UPDATE fcu_shop.訂單資料 \n" +
+			"SET 訂單狀態 = '%S'\n" +
+			"where 帳單ID='%d';",  state,billId);
+			System.out.println(query);
+			connection.createQuery(query, true).executeUpdate().getKey();
+			connection.createQuery("SET SQL_SAFE_UPDATES=1;\n", true).executeUpdate().getKey();
+			returnMessage = query + "寫入成功";
+		} catch (Exception ex)// 除了SQLException以外之錯誤
+		{
+			returnMessage = "錯誤訊息:" + ex.getMessage();
+		}
+		return returnMessage;
+	}
+
 
 	public String deleteOrder(int ID) {
 		//刪除特定訂單
@@ -209,7 +227,7 @@ public class OrderService {
 		try (Connection connection = sql2oDbHandler.getConnector().open()) {
 			String q="SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));";
 			connection.createQuery(q, true).executeUpdate().getKey();
-			String query = "\tSELECT 帳單ID orderID, 會員頭像 imageUrl,會員名稱 name,寄送地址 address,	訂單狀態 state\n" +
+			String query = "\tSELECT 帳單ID billId, 會員頭像 imageUrl,會員名稱 name,寄送地址 address,	訂單狀態 state\n" +
 			"\tFROM fcu_shop.訂單資料 inner join fcu_shop.會員資料 on fcu_shop.會員資料.電子郵件=fcu_shop.訂單資料.買家Email\n" +
 			"\tGROUP BY 帳單ID\n" +
 			"\torder by 帳單ID;";

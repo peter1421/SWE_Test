@@ -1,7 +1,7 @@
 package fcu.sep.fcushop.model;
 
 public class MemberBill extends Member{
-	private String orderID;
+	private String billId;
 	private String state;
 
 
@@ -10,8 +10,8 @@ public class MemberBill extends Member{
 	}
 
 
-	public MemberBill(String orderID,String imageUrl,String name,String address,String state) {
-		this.orderID=orderID;
+	public MemberBill(String billId,String imageUrl,String name,String address,String state) {
+		this.billId=billId;
 		this.state = state;
 	}
 	public String getState() {
@@ -21,12 +21,12 @@ public class MemberBill extends Member{
 	public void setState(String state) {
 		this.state = state;
 	}
-	public String getOrderID() {
-		return orderID;
+	public String getbillId() {
+		return billId;
 	}
 
-	public void setOrderID(String orderID) {
-		this.orderID = orderID;
+	public void setbillId(String billId) {
+		this.billId = billId;
 	}
 
 }
