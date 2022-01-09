@@ -304,7 +304,6 @@
 
  function addDatasRight(datas) {
            //劣化版
-        console.log("顯示賣家商品管理");
         emptyProducts();//全部淨空
         var key=Object.keys(datas[0]);
         for ( let data of datas ) {

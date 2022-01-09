@@ -28,6 +28,7 @@ public class OrderController {
 		System.out.println("取得所有訂單詳細資料");
 		return orderManager.getFullOrder();
 	}
+
 	@GetMapping("/api/getFullOrder/{state}")
 	public List<FullOrder> getOrderDataStates(@PathVariable("state") String state) {
 		System.out.println("取得所有訂單詳細資料");
@@ -74,7 +75,7 @@ public class OrderController {
 		//檢查訂單合理?()
 
 		Account account = new Account(buyerEmail, password);
-		Order order = new Order(productId, buyerEmail, count, "下單中",0);
+		Order order = new Order(productId, buyerEmail, count, "下單中", 0);
 
 		if (!accountController.checkAccount(account)) {
 			System.out.println("帳號錯誤");
@@ -85,11 +86,11 @@ public class OrderController {
 	}
 
 
-	public boolean getReCount( String email, int productId) {
-		System.out.println(Integer.parseInt(String.valueOf(orderManager.getReCount(email,productId))));
-		if(Integer.parseInt(String.valueOf(orderManager.getReCount(email,productId)))==0){
+	public boolean getReCount(String email, int productId) {
+		System.out.println(Integer.parseInt(String.valueOf(orderManager.getReCount(email, productId))));
+		if (Integer.parseInt(String.valueOf(orderManager.getReCount(email, productId))) == 0) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
@@ -97,14 +98,14 @@ public class OrderController {
 
 	@PostMapping("/api/addOrder")
 	@ResponseBody
-	public boolean addOrder1(@RequestParam int productId, @RequestParam String buyerEmail, @RequestParam int count, @RequestParam String state,@RequestParam int billId) {
-			if(getReCount(buyerEmail, productId)){
-				Order order = new Order(productId, buyerEmail, count, state,billId);
-				orderManager.addOrder(order);
-				return true;
-			}else {
-				return  false;
-			}
+	public boolean addOrder1(@RequestParam int productId, @RequestParam String buyerEmail, @RequestParam int count, @RequestParam String state, @RequestParam int billId) {
+		if (getReCount(buyerEmail, productId)) {
+			Order order = new Order(productId, buyerEmail, count, state, billId);
+			orderManager.addOrder(order);
+			return true;
+		} else {
+			return false;
+		}
 
 	}
 
@@ -115,7 +116,7 @@ public class OrderController {
 		System.out.println("buyerEmail is " + buyerEmail);
 		System.out.println("count is " + count);
 		//檢查訂單合理?()
-		Order order = new Order(orderId, buyerEmail, count, stateArr[0],0);
+		Order order = new Order(orderId, buyerEmail, count, stateArr[0], 0);
 		orderManager.updateOrder(order);
 		return true;
 	}
@@ -125,9 +126,7 @@ public class OrderController {
 	}
 
 
-
-
-	String[] stateArr = {"下單中", "結帳中","處理中","運送中"};
+	String[] stateArr = {"下單中", "結帳中", "處理中", "運送中"};
 	//之後物件化
 
 	@PostMapping("/api/checkOrder")
@@ -146,16 +145,23 @@ public class OrderController {
 		return true;
 		//有空回來補錯誤偵測
 	}
-
+//有空重構Bill物件關系
 	@PostMapping("/api/getBillId")
 	@ResponseBody
-	public  List<Integer> getBillId(@RequestParam String email) {
+	public List<Integer> getBillId(@RequestParam String email) {
 		return orderManager.getBillId(email);
 	}
+
 	@PostMapping("/api/getBill")
 	@ResponseBody
-	public  List<Bill> getBill(@RequestParam int billId) {
+	public List<Bill> getBill(@RequestParam int billId) {
 		return orderManager.getBill(billId);
+	}
+
+	@GetMapping("/api/getAllBill")
+	public List<MemberBill> getAllBill() {
+		System.out.println(orderManager.getAllBill());
+		return orderManager.getAllBill();
 	}
 
 }

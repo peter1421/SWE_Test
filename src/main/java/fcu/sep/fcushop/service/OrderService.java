@@ -205,5 +205,18 @@ public class OrderService {
 			return connection.createQuery(query).executeAndFetch(Bill.class);
 		}
 	}
+	public List<MemberBill> getAllBill() {
+		try (Connection connection = sql2oDbHandler.getConnector().open()) {
+			String q="SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));";
+			connection.createQuery(q, true).executeUpdate().getKey();
+			String query = "\tSELECT 帳單ID orderID, 會員頭像 imageUrl,會員名稱 name,寄送地址 address,	訂單狀態 state\n" +
+			"\tFROM fcu_shop.訂單資料 inner join fcu_shop.會員資料 on fcu_shop.會員資料.電子郵件=fcu_shop.訂單資料.買家Email\n" +
+			"\tGROUP BY 帳單ID\n" +
+			"\torder by 帳單ID;";
+			System.out.println(query);
+			return connection.createQuery(query).executeAndFetch(MemberBill.class);
+		}
+	}
+
 
 }
