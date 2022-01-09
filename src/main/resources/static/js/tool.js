@@ -167,7 +167,7 @@
                 html += '<p class="card-text">'+p+ ":\t"+data[p] + '</p>';
                }
             }
-            html += '<a href="#" class="btn btn-primary">' + '(可放圖片 按鈕功能 其他資料...)' + '</a>';
+            html += '<a href="#" class="btn btn-primary">' + '' + '</a>';
             html += '</div>';
             html += '</div>';
             $('#dataList').append(html);
