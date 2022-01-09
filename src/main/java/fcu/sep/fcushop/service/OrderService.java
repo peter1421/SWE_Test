@@ -57,7 +57,7 @@ public class OrderService {
    *@return tag
    *
    */
-  public List<FullOrder> getFullOrder(String email) {
+  public List<FullOrder> getFullOrder(final String email) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = "select 訂單ID orderID, 商品名稱 productName, 會員名稱 name, "
           + "手機號碼 phone, 寄送地址 address,商品資料.商品ID productId,"
@@ -84,7 +84,7 @@ public class OrderService {
    *
    */
 
-  public List<FullOrder> getFullOrder(String email, String state) {
+  public List<FullOrder> getFullOrder(final String email, final String state) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = "select 訂單ID orderID, 商品名稱 productName, 會員名稱 name, "
               + "手機號碼 phone, 寄送地址 address,商品資料.商品ID productId,買家Email buyerEmail,"
@@ -135,7 +135,7 @@ public class OrderService {
    *@return tag
    *
    */
-  public List<FullOrder> getFullOrderStates(String state) {
+  public List<FullOrder> getFullOrderStates(final String state) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = "select 訂單ID orderID, 商品名稱 productName, 會員名稱 name, 手機號碼 phone, "
           + "寄送地址 address,商品資料.商品ID productId,買家Email buyerEmail,"
@@ -163,7 +163,7 @@ public class OrderService {
    *@return tag
    *
    */
-  public String addOrder(Order order) {
+  public String addOrder(final Order order) {
     String returnMessage;
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = String.format("INSERT INTO `fcu_shop`.`訂單資料` (`商品ID`, "
@@ -190,7 +190,7 @@ public class OrderService {
    *
    */
 
-  public List<BuyerOrder> getBuyerOrder(String Email) {
+  public List<BuyerOrder> getBuyerOrder(final String Email) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = String.format("SELECT 電子郵件 buyerEmail,訂單ID orderID,商品數量 "
           + "count,商品名稱 name, 商品價格 price, 商品敘述 description"
@@ -210,7 +210,7 @@ public class OrderService {
    *
    */
 
-  public List<BuyerOrder> getProductOrder(String Email) {
+  public List<BuyerOrder> getProductOrder(final String Email) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = String.format("SELECT 電子郵件 buyerEmail,訂單ID orderID,商品數量 count,"
           + "商品名稱 name, 商品價格 price, 商品敘述 description"
@@ -230,7 +230,7 @@ public class OrderService {
    *
    */
 
-  public List<BuyerOrder> getSellerOrder(String productId) {
+  public List<BuyerOrder> getSellerOrder(final String productId) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = String.format("SELECT 商品名稱 name,電子郵件 buyerEmail,訂單ID orderID,"
           + "商品數量 count, 商品價格 price, 商品敘述 description"
@@ -251,7 +251,7 @@ public class OrderService {
    *
    */
 
-  public String updateOrder(int id, String state, int bill) {
+  public String updateOrder(final int id, final String state, final int bill) {
     String returnMessage;
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = String.format("UPDATE `fcu_shop`.`訂單資料` SET `訂單狀態` = '%s', "
@@ -275,7 +275,7 @@ public class OrderService {
    *
    */
 
-  public String updateOrder(Order order) {
+  public String updateOrder(final Order order) {
     String returnMessage;
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = String.format("UPDATE `fcu_shop`.`訂單資料` SET `商品數量` = '%d' "
@@ -317,7 +317,7 @@ public class OrderService {
    *
    */
 
-  public Object getReCount(String email, int productId) {
+  public Object getReCount(final String email, final int productId) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = String.format("SELECT count('訂單ID')  FROM 訂單資料 where 買家Email='%s' "
              + "and 商品ID=%d and 訂單狀態='下單中';", email, productId);
@@ -335,7 +335,7 @@ public class OrderService {
    *
    */
 
-  public String updateBill(String state, int billId) {
+  public String updateBill(final String state, final int billId) {
     String returnMessage;
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       connection.createQuery("SET SQL_SAFE_UPDATES=0;\n", true).executeUpdate().getKey();
@@ -362,7 +362,7 @@ public class OrderService {
    *
    */
 
-  public String deleteOrder(int ID) {
+  public String deleteOrder(final int ID) {
     //刪除特定訂單
     String returnMessage;
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
@@ -385,7 +385,7 @@ public class OrderService {
    *
    */
 
-  public List<Integer> getBillId(String email) {
+  public List<Integer> getBillId(final String email) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = String.format("SELECT  DISTINCT 帳單ID\n"
           + "FROM fcu_shop.訂單資料\n"
@@ -405,7 +405,7 @@ public class OrderService {
    *
    */
 
-  public List<Bill> getBill(int billId) {
+  public List<Bill> getBill(final int billId) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String query = String.format("SELECT 商品圖片 imageUrl,商品名稱 name,商品數量 count,商品價格 price,"
           + "商品分類 classification,(商品數量*商品價格) as sum,訂單狀態 state\n"
@@ -449,7 +449,7 @@ public class OrderService {
    *
    *@return tag
    */
-  public List<MemberBill> getAllBill(String state) {
+  public List<MemberBill> getAllBill(final String state) {
     try (Connection connection = sql2oDbHandler.getConnector().open()) {
       String q = "SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));";
       connection.createQuery(q, true).executeUpdate().getKey();
