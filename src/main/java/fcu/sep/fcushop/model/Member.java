@@ -9,15 +9,51 @@ package fcu.sep.fcushop.model;
  *
  */
 public class Member {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private String email;
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private String name;
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private String imageUrl;
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private String phoneNumber;
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *
+   *
+   *
+   */
   private String address;
-
-  public Member() {
-
-  }
 
   /**
    * 註解起來就好了啦.
@@ -27,7 +63,26 @@ public class Member {
    *
    *
    */
-  public Member(String email, String name, String imageUrl, String phoneNumber, String address) {
+  public Member() {
+
+  }
+
+  /**
+   * 註解起來就好了啦.
+   *@param email ...
+   *@param name ...
+   *@param imageUrl ...
+   *@param address ...
+   *@param phoneNumber ...
+   *
+   *
+   *
+   */
+  public Member(final String email,
+                final String name,
+                final String imageUrl,
+                final String phoneNumber,
+                final String address) {
     this.email = email;
     this.name = name;
     this.imageUrl = imageUrl;
@@ -35,43 +90,123 @@ public class Member {
     this.address = address;
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@return tag
+   *
+   *
+   */
   public String getEmail() {
     return email;
   }
 
-  public void setEmail(String email) {
+  /**
+   * 註解起來就好了啦.
+   *
+   *@param email ...
+   *
+   *
+   *
+   */
+  public void setEmail(final String email) {
     this.email = email;
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@return tag
+   *
+   *
+   */
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@param name ...
+   *
+   *
+   */
+  public void setName(final String name) {
     this.name = name;
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@return tag
+   *
+   *
+   */
   public String getImageUrl() {
     return imageUrl;
   }
 
-  public void setImageUrl(String imageUrl) {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@param imageUrl ...
+   *
+   *
+   */
+  public void setImageUrl(final String imageUrl) {
     this.imageUrl = imageUrl;
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@return tag
+   *
+   *
+   */
   public String getPhoneNumber() {
     return phoneNumber;
   }
 
-  public void setPhoneNumber(String phoneNumber) {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@param phoneNumber ...
+   *
+   *
+   */
+  public void setPhoneNumber(final String phoneNumber) {
     this.phoneNumber = phoneNumber;
   }
 
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@return tag
+   *
+   *
+   */
   public String getAddress() {
     return address;
   }
 
-  public void setAddress(String address) {
+  /**
+   * 註解起來就好了啦.
+   *
+   *
+   *@param address ...
+   *
+   *
+   */
+  public void setAddress(final String address) {
     this.address = address;
   }
 }
