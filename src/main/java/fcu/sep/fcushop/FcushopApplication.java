@@ -26,14 +26,9 @@ public class FcushopApplication {
 
     SpringApplication.run(FcushopApplication.class, args);
     System.out.println("-------------------------------------------");
-
-    System.out.println("網頁:http://localhost:8080/index.html");
-    System.out.println("網頁:http://localhost:8083/");
+    System.out.println("8080網頁:http://localhost:8080/index.html");
+    System.out.println("8081網頁(備用port):http://localhost:8081/index.html");
     System.out.println("重整瀏覽器:chrome://settings/privacy");
-    System.out.println(""
-            +
-            "賣家_商品添加:http://localhost:8080/Seller/form-layouts.html");
-    System.out.println("買家_商品瀏覽:http://localhost:8080/food_2.html");
     //netstat -ano|findstr 8080
   }
 }

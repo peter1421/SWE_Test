@@ -7,7 +7,13 @@ michael411 D0993423 李政軒
 mark46wei D0976731 潘勁瑋
 
 # 1.0 美食平台基本版
-資料庫(Database.sql)導入導出教學
+## 資料庫相關
+### 資料庫架構
+![](https://i.imgur.com/CdtL5Lt.png)
+![](https://i.imgur.com/mz5bQ2A.png)
+![](https://i.imgur.com/00bTlGY.png)
+![](https://i.imgur.com/b7LJ3uj.png)
+### 資料庫(Database.sql)導入導出教學
 
 https://mnya.tw/cc/word/1395.html  
 
