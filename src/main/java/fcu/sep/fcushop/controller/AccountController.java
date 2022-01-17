@@ -28,7 +28,7 @@ public class AccountController { @Autowired
 AccountService accountManager;
 
   @SuppressWarnings("checkstyle:RegexpSingleline")
-  @GetMapping
+  @GetMapping("/api/getAllAccounts")
 public List<Account> getAccounts() {
     System.out.println("取得所有帳密");
     return accountManager.getAccounts();

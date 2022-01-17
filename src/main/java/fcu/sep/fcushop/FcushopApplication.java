@@ -26,8 +26,7 @@ public class FcushopApplication {
 
     SpringApplication.run(FcushopApplication.class, args);
     System.out.println("-------------------------------------------");
-    System.out.println("8080網頁:http://localhost:8080/index.html");
-    System.out.println("8081網頁(備用port):http://localhost:8081/index.html");
+    System.out.println("5000網頁:http://localhost:5000/");
     System.out.println("重整瀏覽器:chrome://settings/privacy");
     //netstat -ano|findstr 8080
   }
