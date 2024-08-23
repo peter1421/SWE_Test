@@ -20,9 +20,7 @@
 ## 賣家
 ### 基本數據分析
 ![](https://i.imgur.com/Q3miiL6.png)
-### 帳單管理
-![](https://i.imgur.com/IoBlD2q.png)
-![](https://i.imgur.com/WrCs4nc.png)
+
 ### 商品編輯
 ![](https://i.imgur.com/k0m9fTb.png)
 
