@@ -25,8 +25,7 @@
 ![](https://i.imgur.com/WrCs4nc.png)
 ### 商品編輯
 ![](https://i.imgur.com/k0m9fTb.png)
-### 會員資料瀏覽
-![](https://i.imgur.com/cHRodmM.png)
+
 ## 買家
 ### 商品瀏覽
 ![](https://i.imgur.com/O2BAsnb.png)
